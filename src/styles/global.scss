@@ -1,0 +1,20 @@
+@use '@fontsource-variable/space-grotesk/wght.css';
+@use './_tokens';
+
+body {
+  font-family: 'Space Grotesk Variable', sans-serif;
+  font-weight: 400;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 700;
+}

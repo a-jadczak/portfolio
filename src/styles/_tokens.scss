@@ -1,0 +1,60 @@
+@use 'sass:color';
+
+// Brand color — change this to update both themes
+$primary: #7038e8;
+
+// Accent shades shared by both themes
+$primary-light: color.mix(white, $primary, 30%);
+$primary-dark: color.mix(black, $primary, 18%);
+$primary-hover: color.mix(white, $primary, 10%);
+$primary-subtle: color.change($primary, $alpha: 0.12);
+
+// Backgrounds — light-dark(light value, dark value)
+$background: light-dark(color.mix($primary, #f7f8fa, 2%), color.mix($primary, #08090c, 2%));
+
+$surface: light-dark(#ffffff, color.mix($primary, #101116, 3%));
+
+$surface-raised: light-dark(color.mix($primary, #f3f4f6, 2%), color.mix($primary, #17181e, 4%));
+
+$surface-hover: light-dark(color.mix($primary, #eceef2, 5%), color.mix($primary, #1c1d24, 7%));
+
+// Text
+$text-primary: light-dark(#191922, #f2f2f5);
+$text-secondary: light-dark(#525260, #a6a6b3);
+$text-muted: light-dark(#686877, #81818f);
+$text-accent: light-dark($primary-dark, $primary-light);
+$text-on-primary: #ffffff;
+
+// Borders and focus indicators
+$border: light-dark(color.mix($primary, #dcdde4, 8%), color.mix($primary, #252630, 8%));
+
+$border-accent: light-dark(
+  color.change($primary, $alpha: 0.4),
+  color.change($primary, $alpha: 0.45)
+);
+
+$focus-ring: light-dark($primary, $primary-light);
+
+// Secondary buttons
+$secondary: transparent;
+$secondary-hover: $surface-hover;
+$text-on-secondary: $text-primary;
+$border-secondary: $border;
+
+// Status indicators
+$success: light-dark(#147d50, #36d995);
+$success-subtle: color-mix(in srgb, $success 12%, transparent);
+
+// Primary button gradient
+$gradient-primary: linear-gradient(
+  180deg,
+  color.mix(white, $primary, 12%) 0%,
+  $primary 45%,
+  $primary-dark 100%
+);
+
+// Visual effects
+$glow-primary: 0 0 24px
+  light-dark(color.change($primary, $alpha: 0.12), color.change($primary, $alpha: 0.2));
+
+$highlight-inset: inset 0 1px 0 rgba(255, 255, 255, 0.2);
