@@ -1,0 +1,22 @@
+---
+import styles from './Header.module.scss';
+import HeaderActions from './HeaderActions/HeaderActions.astro';
+import HeaderLogo from './HeaderLogo/HeaderLogo.astro';
+import MenuButton from './MenuButton/MenuButton.astro';
+import NavigationMenu from './NavigationMenu/NavigationMenu.astro';
+---
+
+<header>
+  <HeaderLogo />
+  <MenuButton />
+
+  <div class={styles.menuPanel} aria-label="Navigation menu">
+    <div class={styles.menuPanelContent}>
+      <span>
+        <small class={styles.menuLabel}>Menu</small>
+      </span>
+      <NavigationMenu />
+      <HeaderActions />
+    </div>
+  </div>
+</header>

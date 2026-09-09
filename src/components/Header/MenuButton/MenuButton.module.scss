@@ -1,0 +1,17 @@
+@use '@/styles/tokens' as *;
+@use '@/styles/clipped-corners' as corners;
+
+.menuButton {
+  @include corners.outer($border-accent);
+  @include corners.interactive;
+
+  width: 2.5rem;
+  aspect-ratio: 1;
+}
+
+.menuButtonContent {
+  @include corners.inner($surface-raised);
+
+  display: grid;
+  place-items: center;
+}
