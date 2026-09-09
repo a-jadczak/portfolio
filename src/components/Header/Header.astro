@@ -1,20 +1,11 @@
 ---
-import styles from './Header.module.scss';
-import HeaderActions from './components/HeaderActions/HeaderActions.astro';
-import HeaderLogo from './components/HeaderLogo/HeaderLogo.astro';
-import MenuButton from './components/MenuButton/MenuButton.astro';
-import NavigationMenu from './components/NavigationMenu/NavigationMenu.astro';
+import HeaderLogo from './components/MobileMenu/components/HeaderLogo/HeaderLogo';
+import MobileMenu from './components/MobileMenu/MobileMenu';
+
+const currentPath = Astro.url.pathname === '/' ? '/' : Astro.url.pathname.replace(/\/$/, '');
 ---
 
 <header>
   <HeaderLogo />
-  <MenuButton />
-
-  <div class:list={['clipped-corners', styles.menuPanel]} aria-label="Navigation menu">
-    <span>
-      <small class={styles.menuLabel}>Menu</small>
-    </span>
-    <NavigationMenu />
-    <HeaderActions />
-  </div>
+  <MobileMenu currentPath={currentPath} client:load />
 </header>
