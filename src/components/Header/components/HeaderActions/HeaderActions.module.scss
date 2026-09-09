@@ -1,0 +1,67 @@
+@use '@/styles/tokens' as *;
+
+.externalContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.externalList {
+  all: unset;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.externalItem {
+  all: unset;
+}
+
+.externalLink {
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  aspect-ratio: 1;
+  border: 1px solid $border;
+}
+
+.resumeButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid $border-accent;
+  padding: 0.5rem 1.5rem;
+}
+
+.externalLink,
+.resumeButton {
+  min-width: 0;
+  background: $surface;
+  color: inherit;
+  text-align: inherit;
+  text-decoration: none;
+  cursor: pointer;
+
+  &:not(:disabled):hover,
+  &:not(:disabled):focus-visible {
+    border-color: $primary;
+    background: $surface-hover;
+    color: $primary;
+  }
+
+  &:not(:disabled):focus-visible {
+    outline: 2px solid $focus-ring;
+    outline-offset: -3px;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}
+
+.resumeText {
+  font-size: 0.8rem;
+  margin-right: 0.5rem;
+}

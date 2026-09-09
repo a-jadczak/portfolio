@@ -1,0 +1,19 @@
+---
+import type { LucideIcon } from 'lucide-react';
+import type { IconType } from 'react-icons';
+import styles from './Link.module.scss';
+
+interface Props {
+  href: string;
+  text: string;
+  Icon: LucideIcon | IconType;
+  iconSize: number;
+}
+
+const { href, text, Icon, iconSize } = Astro.props;
+---
+
+<a href={href} class:list={['clipped-corners', styles.navigationLink]}>
+  <Icon className={styles.navigationIcon} size={iconSize} aria-hidden="true" />
+  <span class={styles.navigationText}>{text}</span>
+</a>

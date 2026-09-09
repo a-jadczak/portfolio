@@ -20,6 +20,11 @@
   box-sizing: border-box;
 }
 
+.clipped-corners {
+  border-radius: 8px;
+  corner-shape: bevel;
+}
+
 body {
   font-family: 'Space Grotesk Variable', sans-serif;
   font-weight: 400;

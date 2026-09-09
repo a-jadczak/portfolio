@@ -1,22 +1,20 @@
 ---
 import styles from './Header.module.scss';
-import HeaderActions from './HeaderActions/HeaderActions.astro';
-import HeaderLogo from './HeaderLogo/HeaderLogo.astro';
-import MenuButton from './MenuButton/MenuButton.astro';
-import NavigationMenu from './NavigationMenu/NavigationMenu.astro';
+import HeaderActions from './components/HeaderActions/HeaderActions.astro';
+import HeaderLogo from './components/HeaderLogo/HeaderLogo.astro';
+import MenuButton from './components/MenuButton/MenuButton.astro';
+import NavigationMenu from './components/NavigationMenu/NavigationMenu.astro';
 ---
 
 <header>
   <HeaderLogo />
   <MenuButton />
 
-  <div class={styles.menuPanel} aria-label="Navigation menu">
-    <div class={styles.menuPanelContent}>
-      <span>
-        <small class={styles.menuLabel}>Menu</small>
-      </span>
-      <NavigationMenu />
-      <HeaderActions />
-    </div>
+  <div class:list={['clipped-corners', styles.menuPanel]} aria-label="Navigation menu">
+    <span>
+      <small class={styles.menuLabel}>Menu</small>
+    </span>
+    <NavigationMenu />
+    <HeaderActions />
   </div>
 </header>

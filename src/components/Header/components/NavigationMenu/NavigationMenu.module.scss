@@ -1,0 +1,20 @@
+@use '@/styles/tokens' as *;
+
+.navigationList {
+  all: unset;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.navigationItem {
+  all: unset;
+  display: flex;
+  padding: 0 0.35rem;
+}
+
+.navigationDivider {
+  height: 1px;
+  background-color: $border-secondary;
+  margin: 0rem 0.5rem;
+}

@@ -1,0 +1,34 @@
+@use '@/styles/tokens' as *;
+
+.navigationLink {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-width: 0;
+  border: 1px solid $border-accent;
+  padding: 0.5rem;
+  background: $surface;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover,
+  &:focus-visible {
+    border-color: $primary;
+    background: $surface-hover;
+    color: $primary;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $focus-ring;
+    outline-offset: -3px;
+  }
+}
+
+.navigationIcon {
+  flex-basis: 2rem;
+}
+
+.navigationText {
+  flex: 0 0 auto;
+}

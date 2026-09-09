@@ -1,0 +1,25 @@
+---
+import { FolderOpen, Home, Mail, User } from 'lucide-react';
+import Link from './components/Link.astro';
+import styles from './NavigationMenu.module.scss';
+
+const ICON_SIZE = 20;
+const pages = [
+  { href: '/', text: 'Home', Icon: Home },
+  { href: '/about', text: 'About', Icon: User },
+  { href: '/projects', text: 'Projects', Icon: FolderOpen },
+  { href: '/contact', text: 'Contact', Icon: Mail },
+];
+---
+
+<nav class={styles.navigation} aria-label="Navigation">
+  <ul class={styles.navigationList}>
+    {
+      pages.map((page) => (
+        <li class={styles.navigationItem}>
+          <Link href={page.href} text={page.text} Icon={page.Icon} iconSize={ICON_SIZE} />
+        </li>
+      ))
+    }
+  </ul>
+</nav>

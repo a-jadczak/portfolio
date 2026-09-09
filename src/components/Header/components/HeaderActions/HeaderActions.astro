@@ -13,12 +13,10 @@ const ICON_SIZE = 18;
         href="https://github.com/a-jadczak"
         target="_blank"
         rel="noopener"
-        class={styles.externalLink}
+        class:list={['clipped-corners', styles.externalLink]}
         aria-label="GitHub"
       >
-        <span class={styles.externalLinkContent}>
-          <FaGithub size={ICON_SIZE} aria-hidden="true" />
-        </span>
+        <FaGithub size={ICON_SIZE} aria-hidden="true" />
       </a>
     </li>
     <li class={styles.externalItem}>
@@ -26,27 +24,25 @@ const ICON_SIZE = 18;
         href="https://www.linkedin.com/in/arkadiusz-jadczak-27458b42b/"
         target="_blank"
         rel="noopener"
-        class={styles.externalLink}
+        class:list={['clipped-corners', styles.externalLink]}
         aria-label="LinkedIn"
       >
-        <span class={styles.externalLinkContent}>
-          <FaLinkedin size={ICON_SIZE} aria-hidden="true" />
-        </span>
+        <FaLinkedin size={ICON_SIZE} aria-hidden="true" />
       </a>
     </li>
     <li class={styles.externalItem}>
-      <button class={styles.externalLink} aria-label="Open settings">
-        <span class={styles.externalLinkContent}>
-          <Settings size={ICON_SIZE} aria-hidden="true" />
-        </span>
+      <button
+        type="button"
+        class:list={['clipped-corners', styles.externalLink]}
+        aria-label="Open settings"
+      >
+        <Settings size={ICON_SIZE} aria-hidden="true" />
       </button>
     </li>
   </ul>
 
-  <a href="/resume.pdf" target="_blank" class={styles.resumeButton}>
-    <span class={styles.resumeButtonContent}>
-      <span class={styles.resumeText}>Resume</span>
-      <SquareArrowOutUpRight size={12} aria-hidden="true" />
-    </span>
+  <a href="/resume.pdf" target="_blank" class:list={['clipped-corners', styles.resumeButton]}>
+    <span class={styles.resumeText}>Resume</span>
+    <SquareArrowOutUpRight size={12} aria-hidden="true" />
   </a>
 </div>
