@@ -1,44 +1,64 @@
-@use './tokens';
+@use '@/styles/tokens';
 
-$clipped-corner: 8px;
+$corner: 8px;
+$border-width: 1px;
 
-@function clipped-corner-shape($clipped) {
-  @return polygon(
-    $clipped 0,
-    calc(100% - $clipped) 0,
-    100% $clipped,
-    100% calc(100% - $clipped),
-    calc(100% - $clipped) 100%,
-    $clipped 100%,
-    0 calc(100% - $clipped),
-    0 $clipped
+@mixin shape($size: $corner) {
+  clip-path: polygon(
+    $size 0,
+    calc(100% - $size) 0,
+    100% $size,
+    100% calc(100% - $size),
+    calc(100% - $size) 100%,
+    $size 100%,
+    0 calc(100% - $size),
+    0 $size
   );
 }
 
-// Use on buttons, links, and panels; wrap replaced elements such as images.
-// Reserves ::before and requires an opaque --clip-background.
-// Customize --clip-border-color, --clip-background, --clip-size, and --clip-border-width.
-// Keep the clip size below half the element's smallest dimension.
-// Clipping also clips external outlines/shadows: provide an inset focus treatment.
-@mixin clipped-corners($size: $clipped-corner, $width: 2px) {
-  --clip-size: #{$size};
-  --clip-border-width: #{$width};
+@mixin outer($border-color: tokens.$border, $width: $border-width, $corner-size: $corner) {
+  @include shape($corner-size);
 
-  position: relative;
+  display: grid;
+  min-width: 0;
+  margin: 0;
   border: 0;
-  background: var(--clip-border-color, currentColor);
-  clip-path: clipped-corner-shape(var(--clip-size));
+  padding: $width;
+  background: $border-color;
+  color: inherit;
+  font: inherit;
+  text-align: inherit;
+  text-decoration: none;
+}
 
-  &::before {
-    // 2 − √2 keeps the diagonal border as thick as the straight edges.
-    --inner-clip: max(0px, calc(var(--clip-size) - var(--clip-border-width) * 0.585786));
+@mixin inner($background: tokens.$surface, $corner-size: $corner) {
+  @include shape($corner-size);
 
-    content: '';
-    position: absolute;
-    inset: var(--clip-border-width);
-    z-index: -1;
-    pointer-events: none;
-    background: var(--clip-background, tokens.$surface);
-    clip-path: clipped-corner-shape(var(--inner-clip));
+  display: block;
+  min-width: 0;
+  background: $background;
+}
+
+@mixin interactive($hover-border: tokens.$primary, $hover-background: tokens.$surface-hover) {
+  cursor: pointer;
+
+  &:not(:disabled):hover,
+  &:not(:disabled):focus-visible {
+    background: $hover-border;
+    color: tokens.$primary;
+
+    > * {
+      background: $hover-background;
+    }
+  }
+
+  &:not(:disabled):focus-visible > * {
+    outline: 2px solid tokens.$focus-ring;
+    outline-offset: -2px;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
   }
 }
