@@ -8,12 +8,13 @@ interface Props {
   text: string;
   Icon: LucideIcon | IconType;
   iconSize: number;
+  'aria-current'?: 'page';
 }
 
-const { href, text, Icon, iconSize }: Props = Astro.props;
+const { href, text, Icon, iconSize, 'aria-current': ariaCurrent }: Props = Astro.props;
 ---
 
-<a href={href} class:list={['clipped-corners', styles.navigationLink]}>
+<a href={href} aria-current={ariaCurrent} class:list={['clipped-corners', styles.navigationLink]}>
   <Icon className={styles.navigationIcon} size={iconSize} aria-hidden="true" />
   <span class={styles.navigationText}>{text}</span>
 </a>

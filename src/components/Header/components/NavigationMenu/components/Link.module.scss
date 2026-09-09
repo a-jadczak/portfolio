@@ -2,12 +2,14 @@
 
 .navigationLink {
   display: flex;
+  position: relative;
+  z-index: 1;
   align-items: center;
   width: 100%;
-  min-width: 0;
-  border: 1px solid $border-accent;
+  border: 1px solid transparent;
   padding: 0.5rem;
   background: $surface;
+  background-clip: padding-box;
   color: inherit;
   text-decoration: none;
 }

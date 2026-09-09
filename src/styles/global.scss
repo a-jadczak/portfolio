@@ -28,7 +28,8 @@
     cursor: pointer;
 
     &:not(:disabled):hover,
-    &:not(:disabled):focus-visible {
+    &:not(:disabled):focus-visible,
+    &:not(:disabled)[aria-current='page'] {
       border-color: tokens.$primary;
       background: tokens.$surface-hover;
       color: tokens.$primary;
