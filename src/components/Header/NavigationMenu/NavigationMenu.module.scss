@@ -5,7 +5,7 @@
   all: unset;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.25rem;
 }
 
 .navigationItem {
@@ -35,4 +35,10 @@
 
 .navigationText {
   flex: 0 0 auto;
+}
+
+.navigationDivider {
+  height: 1px;
+  background-color: $border-secondary;
+  margin: 0rem 0.5rem;
 }
