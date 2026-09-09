@@ -17,7 +17,7 @@ const pages = [
     {
       pages.map((page) => (
         <li class={styles.navigationItem}>
-          <Link href={page.href} text={page.text} Icon={page.Icon} iconSize={ICON_SIZE} />
+          <Link {...page} iconSize={ICON_SIZE} />
         </li>
       ))
     }
