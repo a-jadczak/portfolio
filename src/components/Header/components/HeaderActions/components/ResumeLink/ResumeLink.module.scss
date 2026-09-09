@@ -1,21 +1,18 @@
 @use '@/styles/tokens' as *;
 
-.navigationLink {
+.resumeLink {
   display: flex;
   align-items: center;
-  width: 100%;
+  justify-content: center;
   min-width: 0;
   border: 1px solid $border-accent;
-  padding: 0.5rem;
+  padding: 0.5rem 1.5rem;
   background: $surface;
   color: inherit;
   text-decoration: none;
 }
 
-.navigationIcon {
-  flex-basis: 2rem;
-}
-
-.navigationText {
-  flex: 0 0 auto;
+.resumeText {
+  font-size: 0.8rem;
+  margin-right: 0.5rem;
 }

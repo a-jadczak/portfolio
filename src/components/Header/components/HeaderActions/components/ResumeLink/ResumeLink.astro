@@ -1,0 +1,15 @@
+---
+import { SquareArrowOutUpRight } from 'lucide-react';
+import styles from './ResumeLink.module.scss';
+
+interface Props {
+  href: string;
+}
+
+const { href }: Props = Astro.props;
+---
+
+<a href={href} target="_blank" class:list={['clipped-corners', styles.resumeLink]}>
+  <span class={styles.resumeText}>Resume</span>
+  <SquareArrowOutUpRight size={12} aria-hidden="true" />
+</a>

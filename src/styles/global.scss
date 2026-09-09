@@ -23,6 +23,27 @@
 .clipped-corners {
   border-radius: 8px;
   corner-shape: bevel;
+
+  &:where(a, button) {
+    cursor: pointer;
+
+    &:not(:disabled):hover,
+    &:not(:disabled):focus-visible {
+      border-color: tokens.$primary;
+      background: tokens.$surface-hover;
+      color: tokens.$primary;
+    }
+
+    &:not(:disabled):focus-visible {
+      outline: 2px solid tokens.$focus-ring;
+      outline-offset: -3px;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+  }
 }
 
 body {

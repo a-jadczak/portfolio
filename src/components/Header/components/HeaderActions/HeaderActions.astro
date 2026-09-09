@@ -1,48 +1,34 @@
 ---
-import { Settings, SquareArrowOutUpRight } from 'lucide-react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import ExternalLink from './components/ExternalLink/ExternalLink.astro';
+import ResumeLink from './components/ResumeLink/ResumeLink.astro';
+import SettingsButton from './components/SettingsButton/SettingsButton.astro';
 import styles from './HeaderActions.module.scss';
 
 const ICON_SIZE = 18;
+const externalLinks = [
+  { href: 'https://github.com/a-jadczak', label: 'GitHub', Icon: FaGithub },
+  {
+    href: 'https://www.linkedin.com/in/arkadiusz-jadczak-27458b42b/',
+    label: 'LinkedIn',
+    Icon: FaLinkedin,
+  },
+];
 ---
 
 <div class={styles.externalContainer}>
   <ul class={styles.externalList}>
+    {
+      externalLinks.map((link) => (
+        <li class={styles.externalItem}>
+          <ExternalLink {...link} iconSize={ICON_SIZE} />
+        </li>
+      ))
+    }
     <li class={styles.externalItem}>
-      <a
-        href="https://github.com/a-jadczak"
-        target="_blank"
-        rel="noopener"
-        class:list={['clipped-corners', styles.externalLink]}
-        aria-label="GitHub"
-      >
-        <FaGithub size={ICON_SIZE} aria-hidden="true" />
-      </a>
-    </li>
-    <li class={styles.externalItem}>
-      <a
-        href="https://www.linkedin.com/in/arkadiusz-jadczak-27458b42b/"
-        target="_blank"
-        rel="noopener"
-        class:list={['clipped-corners', styles.externalLink]}
-        aria-label="LinkedIn"
-      >
-        <FaLinkedin size={ICON_SIZE} aria-hidden="true" />
-      </a>
-    </li>
-    <li class={styles.externalItem}>
-      <button
-        type="button"
-        class:list={['clipped-corners', styles.externalLink]}
-        aria-label="Open settings"
-      >
-        <Settings size={ICON_SIZE} aria-hidden="true" />
-      </button>
+      <SettingsButton iconSize={ICON_SIZE} />
     </li>
   </ul>
 
-  <a href="/resume.pdf" target="_blank" class:list={['clipped-corners', styles.resumeButton]}>
-    <span class={styles.resumeText}>Resume</span>
-    <SquareArrowOutUpRight size={12} aria-hidden="true" />
-  </a>
+  <ResumeLink href="/resume.pdf" />
 </div>

@@ -1,11 +1,13 @@
 @use '@/styles/tokens' as *;
 
-.menuButton {
+.iconAction {
   display: grid;
   place-items: center;
   width: 2.5rem;
+  min-width: 0;
   aspect-ratio: 1;
-  border: 1px solid $border-accent;
-  background: $surface-raised;
+  border: 1px solid $border;
+  background: $surface;
   color: inherit;
+  text-decoration: none;
 }

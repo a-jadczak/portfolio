@@ -1,0 +1,18 @@
+---
+import { Settings } from 'lucide-react';
+import styles from './../IconAction.module.scss';
+
+interface Props {
+  iconSize: number;
+}
+
+const { iconSize }: Props = Astro.props;
+---
+
+<button
+  type="button"
+  class:list={['clipped-corners', styles.iconAction]}
+  aria-label="Open settings"
+>
+  <Settings size={iconSize} aria-hidden="true" />
+</button>
