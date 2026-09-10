@@ -1,28 +1,10 @@
 ---
+import FeaturedProjects from '@/components/pages/home/FeaturedProjects.astro';
+import Hero from '@/components/pages/home/Hero.astro';
 import BaseLayout from '@/layout/BaseLayout.astro';
-import styles from './index.module.scss';
-import { ArrowRight, Mail } from 'lucide-react';
 ---
 
 <BaseLayout title="Home">
-  <div>
-    <p class={styles.heroRole}>SOFTWARE ENGINEER · FRONT-END FOCUSED</p>
-
-    <h1>Building modern software.</h1>
-
-    <p class={styles.heroDescription}>
-      I focus on building <span class={styles.blazinglyFast}>blazingly fast</span>, accessible and
-      well-crafted web applications with clean, maintainable code.
-    </p>
-
-    <button class={`clipped-corners ${styles.viewProjectsButton}`}>
-      <span class={styles.buttonContent}>View projects</span>
-      <ArrowRight className={styles.buttonContentIcon} size={18} />
-    </button>
-
-    <button class={`clipped-corners ${styles.contactButton}`}>
-      <span class={styles.buttonContent}>Contact me</span>
-      <Mail className={styles.buttonContentIcon} size={18} />
-    </button>
-  </div>
+  <Hero />
+  <FeaturedProjects />
 </BaseLayout>
