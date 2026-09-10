@@ -1,0 +1,44 @@
+@use '@/styles/tokens' as *;
+
+.heroRole {
+  color: $primary;
+  font-size: 0.7rem;
+}
+
+h1 {
+  font-size: 1.75rem;
+}
+
+.heroDescription {
+  color: $text-secondary;
+}
+
+.blazinglyFast {
+  color: $primary;
+}
+
+.viewProjectsButton,
+.contactButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 0.5rem 0;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  border: 1px solid $border-secondary;
+
+  .buttonContent {
+    flex: 1 1 auto;
+    text-align: center;
+  }
+}
+
+.viewProjectsButton {
+  background: $gradient-primary;
+
+  &:not(:disabled):hover,
+  &:not(:disabled):focus-visible {
+    border-color: transparent;
+  }
+}
