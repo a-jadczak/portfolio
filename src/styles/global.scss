@@ -55,6 +55,12 @@ $border-radius: 8px;
   corner-top-right-shape: bevel;
 }
 
+.clipped-corners-bottom {
+  border-radius: 0 0 $border-radius $border-radius;
+  corner-bottom-left-shape: bevel;
+  corner-bottom-right-shape: bevel;
+}
+
 body {
   font-family: 'Space Grotesk Variable', sans-serif;
   font-weight: 400;

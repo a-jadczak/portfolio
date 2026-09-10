@@ -1,0 +1,12 @@
+@use '@/styles/tokens' as *;
+
+.footer {
+  padding: 0.5rem;
+  border: 1px solid $border-secondary;
+  border-top: transparent;
+  text-align: center;
+  p {
+    font-size: 0.6rem;
+    color: $text-muted;
+  }
+}
