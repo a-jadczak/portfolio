@@ -1,6 +1,8 @@
 @use '@fontsource-variable/space-grotesk/wght.css';
 @use './tokens';
 
+$border-radius: 8px;
+
 // Follow the system preference by default
 :root {
   color-scheme: light dark;
@@ -21,7 +23,7 @@
 }
 
 .clipped-corners {
-  border-radius: 8px;
+  border-radius: $border-radius;
   corner-shape: bevel;
 
   &:where(a, button) {
@@ -47,9 +49,16 @@
   }
 }
 
+.clipped-corners-top {
+  border-radius: $border-radius $border-radius 0 0;
+  corner-top-left-shape: bevel;
+  corner-top-right-shape: bevel;
+}
+
 body {
   font-family: 'Space Grotesk Variable', sans-serif;
   font-weight: 400;
+  padding: 0.5rem;
 }
 
 button,
