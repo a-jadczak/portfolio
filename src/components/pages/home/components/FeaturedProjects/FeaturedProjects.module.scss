@@ -1,0 +1,33 @@
+@use '@/styles/tokens' as *;
+
+.featuredProjects {
+  .titleContainer {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.25rem;
+    margin-bottom: 0.25rem;
+  }
+  a {
+    all: unset;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    color: $primary;
+
+    &:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+
+  h2 {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+  }
+
+  .projectsList {
+    counter-reset: li;
+    list-style: none;
+    padding: 0;
+  }
+}

@@ -1,0 +1,53 @@
+---
+import { Eye } from 'lucide-react';
+import Badge from '@/components/ui/Badge/Badge';
+import styles from './Project.module.scss';
+
+const technologies = [
+  { title: 'React' },
+  { title: 'TypeScript' },
+  { title: 'SCSS' },
+  { title: 'HTML' },
+  { title: 'SQL' },
+];
+
+const VISIBLE_TECHNOLOGY_COUNT = 3;
+const technologyBadges = technologies.slice(0, VISIBLE_TECHNOLOGY_COUNT);
+const hiddenTechnologyCount = technologies.length - VISIBLE_TECHNOLOGY_COUNT;
+---
+
+<li class={`clipped-corners ${styles.project}`}>
+  <article>
+    <img
+      src="https://picsum.photos/400/200"
+      alt="description"
+      class={`clipped-corners ${styles.screenshot}`}
+    />
+    <h3 class={styles.title}>Title</h3>
+    <p class={styles.description}>
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem, magni!
+    </p>
+    <ul class={styles.badgesList}>
+      {
+        technologyBadges.map(({ title }) => (
+          <li>
+            <Badge title={title} />
+          </li>
+        ))
+      }
+      {
+        hiddenTechnologyCount > 0 && (
+          <li>
+            <Badge title={`+${hiddenTechnologyCount}`} />
+          </li>
+        )
+      }
+    </ul>
+
+    <div class={styles.divider} aria-hidden="true"></div>
+    <button class={styles.showDetails} type="button" aria-haspopup="dialog">
+      <Eye size={18} />
+      <span>Show details</span>
+    </button>
+  </article>
+</li>

@@ -1,0 +1,55 @@
+@use '@/styles/tokens' as *;
+
+.project {
+  border: 1px solid $border-secondary;
+  padding: 0.5rem;
+}
+
+.project {
+  counter-increment: project;
+}
+
+.title::before {
+  content: counter(project, decimal-leading-zero) ' ';
+  color: $primary;
+}
+
+.screenshot {
+  width: 100%;
+  border: 1px solid $border-secondary;
+}
+
+.badgesList {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  margin: 0.25rem 0;
+  gap: 0.5rem;
+}
+
+.divider {
+  height: 1px;
+  margin: 0.5rem 0;
+  background-color: $border-secondary;
+}
+
+.description,
+.showDetails {
+  color: $text-secondary;
+  font-size: 0.8rem;
+}
+
+.showDetails {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  cursor: pointer;
+
+  &:hover {
+    color: $primary;
+  }
+  // &:not(:disabled):focus-visible {
+  //   border: 2px solid $focus-ring;
+  //   outline-offset: -3px;
+  // }
+}
