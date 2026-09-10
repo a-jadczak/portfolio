@@ -1,6 +1,11 @@
 @use '@/styles/tokens' as *;
 
 .menuPanel {
+  top: 10%;
+  left: 0;
+  right: 0;
+  margin: 0 0.5rem;
+  position: absolute;
   display: flex;
   flex-direction: column;
   min-width: 0;

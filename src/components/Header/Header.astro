@@ -1,11 +1,12 @@
 ---
 import HeaderLogo from './components/MobileMenu/components/HeaderLogo/HeaderLogo';
 import MobileMenu from './components/MobileMenu/MobileMenu';
+import styles from './Header.module.scss';
 
 const currentPath = Astro.url.pathname === '/' ? '/' : Astro.url.pathname.replace(/\/$/, '');
 ---
 
-<header>
+<header class={`clipped-corners-top ${styles.header}`}>
   <HeaderLogo />
   <MobileMenu currentPath={currentPath} client:load />
 </header>

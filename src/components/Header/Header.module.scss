@@ -1,0 +1,11 @@
+@use '@/styles/tokens' as *;
+
+header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid $border-secondary;
+  background-color: $surface;
+  padding: 0.5rem 1rem;
+}
