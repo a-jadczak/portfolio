@@ -1,0 +1,14 @@
+@use '@/styles/tokens' as *;
+
+.sidebar {
+  font-size: 0.8rem;
+  width: fit-content;
+  padding: 0.25rem 0;
+  margin-bottom: 0.5rem;
+  font-family: $number-font;
+  text-transform: uppercase;
+}
+
+.index {
+  color: $primary;
+}
