@@ -8,7 +8,7 @@ interface Props {
 
 const {
   pageInfo: { name, index },
-} = Astro.props;
+}: Props = Astro.props;
 ---
 
 <p class={styles.sidebar}>
