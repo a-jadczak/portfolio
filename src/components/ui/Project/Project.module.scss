@@ -12,6 +12,8 @@
 .title::before {
   content: counter(project, decimal-leading-zero) ' ';
   color: $primary;
+  font-family: $number-font;
+  font-size: 1.3rem;
 }
 
 .screenshot {

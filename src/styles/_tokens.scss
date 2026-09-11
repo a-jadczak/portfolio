@@ -58,3 +58,6 @@ $glow-primary: 0 0 24px
   light-dark(color.change($primary, $alpha: 0.12), color.change($primary, $alpha: 0.2));
 
 $highlight-inset: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+
+// Font family
+$number-font: 'Courier New', Courier, monospace;
