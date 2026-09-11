@@ -1,13 +1,13 @@
 ---
 import { ArrowRight } from 'lucide-react';
 import styles from './FeaturedProjects.module.scss';
-import Project from '@/components/ui/Project/Project.astro';
+import Project from '@/components/projects/Project/Project.astro';
 ---
 
 <article class={`clipped-corners ${styles.featuredProjects}`}>
   <div class={styles.titleContainer}>
     <h2>Featured Projects</h2>
-    <a style={styles.link} href="/projects">
+    <a class={styles.link} href="/projects">
       <span>View all</span>
       <ArrowRight className={styles.buttonContentIcon} size={18} />
     </a>
