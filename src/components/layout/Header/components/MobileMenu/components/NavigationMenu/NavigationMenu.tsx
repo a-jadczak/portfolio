@@ -1,14 +1,16 @@
-import { FolderOpen, Home, Mail, User } from 'lucide-react';
+import { FolderOpen, Home as HomeIcon, Mail, User, type LucideIcon } from 'lucide-react';
+import { pages, type PageName } from '@/data/pages';
 import Link from './components/Link';
 import styles from './NavigationMenu.module.scss';
 
 const ICON_SIZE = 20;
-const pages = [
-  { href: '/', text: 'Home', Icon: Home },
-  { href: '/about', text: 'About', Icon: User },
-  { href: '/projects', text: 'Projects', Icon: FolderOpen },
-  { href: '/contact', text: 'Contact', Icon: Mail },
-];
+
+const pageIcons = {
+  Home: HomeIcon,
+  About: User,
+  Projects: FolderOpen,
+  Contact: Mail,
+} satisfies Record<PageName, LucideIcon>;
 
 interface NavigationMenuProps {
   currentPath: string;
@@ -17,12 +19,14 @@ interface NavigationMenuProps {
 const NavigationMenu = ({ currentPath }: NavigationMenuProps) => (
   <nav className={styles.navigation} aria-label="Navigation">
     <ul className={styles.navigationList}>
-      {pages.map((page) => (
-        <li className={styles.navigationItem} key={page.href}>
+      {pages.map(({ href, name }) => (
+        <li className={styles.navigationItem} key={href}>
           <Link
-            {...page}
+            href={href}
+            text={name}
+            Icon={pageIcons[name]}
             iconSize={ICON_SIZE}
-            aria-current={currentPath === page.href ? 'page' : undefined}
+            aria-current={currentPath === href ? 'page' : undefined}
           />
           <div className={styles.navigationDivider} aria-hidden="true" />
         </li>

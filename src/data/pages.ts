@@ -1,12 +1,16 @@
 import type { PageInfo } from '@/types/PageInfo';
 
-export const pages = new Map<string, string>([
-  ['/', 'Home'],
-  ['/about', 'About'],
-  ['/projects', 'Projects'],
-  ['/contact', 'Contact'],
-]);
+export const pages = [
+  { href: '/', name: 'Home' },
+  { href: '/about', name: 'About' },
+  { href: '/projects', name: 'Projects' },
+  { href: '/contact', name: 'Contact' },
+] as const;
+
+export type PageName = (typeof pages)[number]['name'];
 
 export const getCurrentPageInfo = (href: string): PageInfo => {
-  return { name: pages.get(href) ?? '', index: [...pages.keys()].indexOf(href) };
+  const index = pages.findIndex((page) => page.href === href);
+
+  return { name: pages[index]?.name ?? '', index };
 };
