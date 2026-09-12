@@ -1,10 +1,10 @@
-import type { IconType } from 'react-icons';
+import type { Icon } from '@/types/Icon';
 import styles from './../IconAction.module.scss';
 
 interface ExternalLinkProps {
   href: string;
   label: string;
-  Icon: IconType;
+  Icon: Icon;
   iconSize: number;
 }
 

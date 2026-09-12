@@ -1,4 +1,5 @@
 ---
+import Button from '@/components/ui/Button/Button';
 import styles from './Hero.module.scss';
 import { ArrowRight, Mail } from 'lucide-react';
 ---
@@ -13,13 +14,7 @@ import { ArrowRight, Mail } from 'lucide-react';
     well-crafted web applications with clean, maintainable code.
   </p>
 
-  <button class={`clipped-corners ${styles.viewProjectsButton}`}>
-    <span class={styles.buttonContent}>View projects</span>
-    <ArrowRight className={styles.buttonContentIcon} size={18} />
-  </button>
+  <Button as="a" href="/projects" variant="primary" text="View Projects" Icon={ArrowRight} />
 
-  <button class={`clipped-corners ${styles.contactButton}`}>
-    <span class={styles.buttonContent}>Contact me</span>
-    <Mail className={styles.buttonContentIcon} size={18} />
-  </button>
+  <Button as="a" href="/contact" variant="default" text="Contact me" Icon={Mail} />
 </div>

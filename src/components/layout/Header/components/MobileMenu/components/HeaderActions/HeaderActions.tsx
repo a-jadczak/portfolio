@@ -1,8 +1,8 @@
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { FaFilePdf, FaGithub, FaLinkedin } from 'react-icons/fa';
 import ExternalLink from './components/ExternalLink/ExternalLink';
-import ResumeLink from './components/ResumeLink/ResumeLink';
 import SettingsButton from './components/SettingsButton/SettingsButton';
 import styles from './HeaderActions.module.scss';
+import Button from '@/components/ui/Button/Button';
 
 const ICON_SIZE = 18;
 const externalLinks = [
@@ -27,7 +27,14 @@ const HeaderActions = () => (
       </li>
     </ul>
 
-    <ResumeLink href="/resume.pdf" />
+    <Button
+      as="a"
+      href="/resume.pdf"
+      target="_blank"
+      text="Resume"
+      variant="primary"
+      Icon={FaFilePdf}
+    />
   </div>
 );
 

@@ -1,0 +1,28 @@
+@use '@/styles/tokens' as *;
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 0.5rem 0;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  border: 1px solid $border-secondary;
+  text-decoration: none;
+  color: $text-primary;
+
+  .buttonContent {
+    flex: 1 1 auto;
+    text-align: center;
+  }
+}
+
+.primary {
+  background: $gradient-primary;
+
+  &:not(:disabled):hover,
+  &:not(:disabled):focus-visible {
+    border: 1px solid transparent !important; // Overrides global styles
+  }
+}
