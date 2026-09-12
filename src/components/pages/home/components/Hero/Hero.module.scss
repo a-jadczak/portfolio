@@ -2,15 +2,20 @@
 
 .heroRole {
   color: $primary;
-  font-size: 0.7rem;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
 }
 
-h1 {
-  font-size: 1.75rem;
+.heroTitle {
+  font-size: 2.75rem;
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
 }
 
 .heroDescription {
   color: $text-secondary;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
 }
 
 .blazinglyFast {
