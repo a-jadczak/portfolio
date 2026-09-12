@@ -9,11 +9,18 @@
   counter-increment: project;
 }
 
+.title {
+  font-size: 1.75rem;
+}
+
 .title::before {
-  content: counter(project, decimal-leading-zero) ' ';
+  content: counter(project, decimal-leading-zero);
   color: $primary;
   font-family: $number-font;
-  font-size: 1.3rem;
+  font-size: 1.75rem;
+  // Adjustments for the number font
+  font-size-adjust: 0.55;
+  margin-right: 0.5rem;
 }
 
 .screenshot {
@@ -25,7 +32,7 @@
   list-style: none;
   padding: 0;
   display: flex;
-  margin: 0.25rem 0;
+  margin: 0.5rem 0;
   gap: 0.5rem;
 }
 
@@ -38,7 +45,7 @@
 .description,
 .showDetails {
   color: $text-secondary;
-  font-size: 0.8rem;
+  font-size: 1rem;
 }
 
 .showDetails {
@@ -46,6 +53,7 @@
   gap: 5px;
   align-items: center;
   cursor: pointer;
+  padding: 0.25rem;
 
   &:hover {
     color: $primary;
