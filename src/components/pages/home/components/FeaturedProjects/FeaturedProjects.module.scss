@@ -1,6 +1,7 @@
 @use '@/styles/tokens' as *;
 
 .featuredProjects {
+  margin-top: 0.5rem;
   .titleContainer {
     display: flex;
     justify-content: space-between;

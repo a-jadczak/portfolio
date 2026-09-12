@@ -1,8 +1,8 @@
 import { FolderOpen, Home as HomeIcon, Mail, User } from 'lucide-react';
 import { pages, type PageName } from '@/data/pages';
+import type { Icon } from '@/types/Icon';
 import Link from './components/Link';
 import styles from './NavigationMenu.module.scss';
-import type { Icon } from '@/types/Icon';
 
 const ICON_SIZE = 20;
 
