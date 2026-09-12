@@ -1,7 +1,8 @@
-import { FolderOpen, Home as HomeIcon, Mail, User, type LucideIcon } from 'lucide-react';
+import { FolderOpen, Home as HomeIcon, Mail, User } from 'lucide-react';
 import { pages, type PageName } from '@/data/pages';
 import Link from './components/Link';
 import styles from './NavigationMenu.module.scss';
+import type { Icon } from '@/types/Icon';
 
 const ICON_SIZE = 20;
 
@@ -10,7 +11,7 @@ const pageIcons = {
   About: User,
   Projects: FolderOpen,
   Contact: Mail,
-} satisfies Record<PageName, LucideIcon>;
+} satisfies Record<PageName, Icon>;
 
 interface NavigationMenuProps {
   currentPath: string;

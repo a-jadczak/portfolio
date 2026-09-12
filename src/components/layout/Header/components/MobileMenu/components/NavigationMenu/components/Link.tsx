@@ -1,11 +1,10 @@
-import type { LucideIcon } from 'lucide-react';
-import type { IconType } from 'react-icons';
 import styles from './Link.module.scss';
+import type { Icon } from '@/types/Icon';
 
 interface LinkProps {
   href: string;
   text: string;
-  Icon: LucideIcon | IconType;
+  Icon: Icon;
   iconSize: number;
   'aria-current'?: 'page';
 }
