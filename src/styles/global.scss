@@ -1,7 +1,5 @@
 @use '@fontsource-variable/space-grotesk/wght.css';
-@use './tokens';
-
-$border-radius: 8px;
+@use './tokens' as *;
 
 // Follow the system preference by default
 :root {
@@ -24,7 +22,7 @@ $border-radius: 8px;
 
 .clipped-corners {
   border-radius: $border-radius;
-  corner-shape: bevel;
+  corner-shape: $corner-shape;
 
   &:where(a, button) {
     cursor: pointer;
@@ -32,13 +30,13 @@ $border-radius: 8px;
     &:not(:disabled):hover,
     &:not(:disabled):focus-visible,
     &:not(:disabled)[aria-current='page'] {
-      border-color: tokens.$primary;
-      background: tokens.$surface-hover;
-      color: tokens.$primary;
+      border-color: $primary;
+      background: $surface-hover;
+      color: $primary;
     }
 
     &:not(:disabled):focus-visible {
-      outline: 2px solid tokens.$focus-ring;
+      outline: 2px solid $focus-ring;
       outline-offset: -3px;
     }
 
@@ -76,10 +74,4 @@ select {
   padding: 0;
   box-sizing: border-box;
   font: inherit;
-}
-
-h1,
-h2,
-h3 {
-  font-weight: 700;
 }
