@@ -18,8 +18,20 @@
 
 .contentContainer {
   margin-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .description {
   color: $text-secondary;
+  white-space: pre-line;
+}
+
+.available {
+  color: $success;
+
+  .iconContainer {
+    border-color: $success;
+  }
 }

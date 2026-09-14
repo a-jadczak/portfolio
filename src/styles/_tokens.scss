@@ -42,7 +42,7 @@ $text-on-secondary: $text-primary;
 $border-secondary: $border;
 
 // Status indicators
-$success: light-dark(#147d50, #36d995);
+$success: #6ee700;
 $success-subtle: color-mix(in srgb, $success 12%, transparent);
 
 // Primary button gradient

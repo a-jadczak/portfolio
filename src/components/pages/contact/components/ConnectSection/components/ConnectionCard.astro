@@ -1,10 +1,10 @@
 ---
 import styles from './ConnectionCard.module.scss';
 
-const { icon: Icon, title, description } = Astro.props;
+const { icon: Icon, title, description, status } = Astro.props;
 ---
 
-<div class={`clipped-corners ${styles.container}`}>
+<div class={`clipped-corners ${styles.container} ${styles[status]}`}>
   <div class={`clipped-corners ${styles.iconContainer}`} aria-hidden={true}>
     <Icon size={32} />
   </div>
