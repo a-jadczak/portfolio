@@ -23,7 +23,7 @@ const ContactForm = () => {
       <form onSubmit={handleFormSubmit}>
         <label className={styles.label} htmlFor="name">
           <span className={styles.labelContent}>name: </span>
-          <input className={styles.input} type="text" placeholder="Your name" name="name" />
+          <input className={styles.input} type="text" placeholder="John Pork" name="name" />
         </label>
         <label className={styles.label} htmlFor="email">
           <span className={styles.labelContent}>email: </span>

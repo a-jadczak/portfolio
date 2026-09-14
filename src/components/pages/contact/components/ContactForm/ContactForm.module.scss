@@ -31,17 +31,22 @@
   margin: 0.75rem 0;
 }
 
-.labelContent {
-}
-
 .labelContent::before {
   content: '>';
   margin-right: 5px;
   color: $primary;
 }
 
+.label:has(input) {
+  display: flex;
+}
+
+.labelContent {
+  flex: 0 0 100px;
+}
+
 .input {
-  // margin-left: 1rem;
+  width: 100%;
 }
 
 .messageContainer {
