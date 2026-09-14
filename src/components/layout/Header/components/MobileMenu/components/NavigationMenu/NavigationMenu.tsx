@@ -1,4 +1,4 @@
-import { FolderOpen, Home as HomeIcon, Mail, User } from 'lucide-react';
+import { FolderClosed, Home as HomeIcon, Mail, User } from 'lucide-react';
 import { pages, type PageName } from '@/data/pages';
 import type { Icon } from '@/types/Icon';
 import Link from './components/Link';
@@ -9,7 +9,7 @@ const ICON_SIZE = 20;
 const pageIcons = {
   Home: HomeIcon,
   About: User,
-  Projects: FolderOpen,
+  Projects: FolderClosed,
   Contact: Mail,
 } satisfies Record<PageName, Icon>;
 
