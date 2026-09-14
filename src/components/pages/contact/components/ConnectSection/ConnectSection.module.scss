@@ -1,8 +1,9 @@
 @use '@/styles/tokens' as *;
 
 .container {
+  margin-top: 0.5rem;
   padding: 0.5rem;
-  border: 1px solid $border-secondary;
+  // border: 1px solid $border-secondary;
 }
 
 .title {

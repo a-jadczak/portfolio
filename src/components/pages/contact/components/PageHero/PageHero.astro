@@ -1,3 +1,14 @@
-<p>Get in touch</p>
-<h1>Let's build something great together!</h1>
-<p>Have a project, an opportunity, or just want to say hello</p>
+---
+import ContactForm from '../ContactForm/ContactForm';
+import styles from './PageHero.module.scss';
+---
+
+<section class={styles.section}>
+  <header class={styles.header}>
+    <p class={styles.eyebrow}>Get in touch</p>
+    <h1>Let's build something great together!</h1>
+    <p>Have a project, an opportunity, or just want to say hello</p>
+  </header>
+
+  <ContactForm client:load />
+</section>
