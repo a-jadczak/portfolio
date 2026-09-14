@@ -5,51 +5,13 @@
   padding: 0.5rem 0.75rem;
 }
 
-.containerTitle {
-  color: $primary;
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.circleContainer {
-  display: flex;
-  gap: 0.5rem;
-}
-
-.circle {
-  width: 0.5rem;
-  aspect-ratio: 1/1;
-  border-radius: 100%;
-  background-color: $primary;
-}
-
-.label,
-.messageContainer {
-  display: block;
-  margin: 0.75rem 0;
-}
-
-.labelContent::before {
-  content: '>';
-  margin-right: 5px;
-  color: $primary;
-}
-
-.label:has(input) {
-  display: flex;
-}
-
-.labelContent {
-  flex: 0 0 100px;
-}
-
 .input {
   width: 100%;
 }
 
 .messageContainer {
+  display: block;
+  margin: 0.75rem 0;
   width: 100%;
   padding: 0.5rem 0.75rem;
   resize: vertical;

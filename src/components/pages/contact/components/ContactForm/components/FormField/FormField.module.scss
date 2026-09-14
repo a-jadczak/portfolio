@@ -1,0 +1,20 @@
+@use '@/styles/tokens' as *;
+
+.label {
+  display: block;
+  margin: 0.75rem 0;
+
+  &:has(input) {
+    display: flex;
+  }
+}
+
+.labelContent {
+  flex: 0 0 100px;
+
+  &::before {
+    content: '>';
+    margin-right: 5px;
+    color: $primary;
+  }
+}

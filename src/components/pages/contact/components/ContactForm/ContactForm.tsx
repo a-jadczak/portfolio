@@ -1,5 +1,7 @@
 import { Send } from 'lucide-react';
 import Button from '@/components/ui/Button/Button';
+import ContactFormHeader from './components/ContactFormHeader/ContactFormHeader';
+import FormField from './components/FormField/FormField';
 import styles from './ContactForm.module.scss';
 import type { SubmitEventHandler } from 'react';
 
@@ -11,56 +13,51 @@ const ContactForm = () => {
   };
 
   return (
-    <div className={`clipped-corners ${styles.container}`} aria-label="Contact form">
-      <div className={styles.containerTitle} aria-hidden={true}>
-        <span>contact@portfolio:~</span>
-        <div className={styles.circleContainer} aria-hidden={true}>
-          <div className={styles.circle}></div>
-          <div className={styles.circle}></div>
-          <div className={styles.circle}></div>
-        </div>
-      </div>
-      <form onSubmit={handleFormSubmit}>
-        <label className={styles.label} htmlFor="name">
-          <span className={styles.labelContent}>name: </span>
+    <div className={`clipped-corners ${styles.container}`}>
+      <ContactFormHeader />
+      <form aria-label="Contact form" onSubmit={handleFormSubmit}>
+        <FormField htmlFor="name" label="name">
           <input
             className={styles.input}
             type="text"
             placeholder="John Pork"
             id="name"
             name="name"
+            autoComplete="name"
+            required
           />
-        </label>
-        <label className={styles.label} htmlFor="email">
-          <span className={styles.labelContent}>email: </span>
+        </FormField>
+        <FormField htmlFor="email" label="email">
           <input
             className={styles.input}
             type="email"
             placeholder="you@example.com"
             id="email"
             name="email"
+            autoComplete="email"
+            required
           />
-        </label>
-        <label className={styles.label} htmlFor="subject">
-          <span className={styles.labelContent}>subject: </span>
+        </FormField>
+        <FormField htmlFor="subject" label="subject">
           <input
             className={styles.input}
             type="text"
             placeholder="What's this about?"
             id="subject"
             name="subject"
+            required
           />
-        </label>
-        <label className={styles.label} htmlFor="message">
-          <span className={styles.labelContent}>message: </span>
+        </FormField>
+        <FormField htmlFor="message" label="message">
           <textarea
             className={`clipped-corners ${styles.messageContainer}`}
             rows={5}
             id="message"
             name="message"
             placeholder="Tell me about your project..."
+            required
           ></textarea>
-        </label>
+        </FormField>
         <Button
           as="button"
           text="Send message"

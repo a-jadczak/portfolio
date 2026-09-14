@@ -1,0 +1,21 @@
+@use '@/styles/tokens' as *;
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  color: $primary;
+}
+
+.circleContainer {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.circle {
+  width: 0.5rem;
+  aspect-ratio: 1;
+  border-radius: 100%;
+  background-color: $primary;
+}
