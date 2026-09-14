@@ -1,0 +1,16 @@
+@use '@/styles/tokens' as *;
+
+.container {
+  padding: 0.5rem;
+  border: 1px solid $border-secondary;
+}
+
+.title {
+  margin-bottom: 0.5rem;
+}
+
+.list {
+  display: grid;
+  gap: 0.5rem;
+  list-style: none;
+}

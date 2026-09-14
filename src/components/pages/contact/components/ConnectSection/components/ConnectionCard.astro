@@ -1,10 +1,15 @@
 ---
-const { Icon, title, description, action } = Astro.props;
+import styles from './ConnectionCard.module.scss';
+
+const { icon: Icon, title, description } = Astro.props;
 ---
 
-<div>
-  <!-- <Icon /> -->
-  <h3>{title}</h3>
-  <p>{description}</p>
-  <button>{action}</button>
+<div class={`clipped-corners ${styles.container}`}>
+  <div class={`clipped-corners ${styles.iconContainer}`} aria-hidden={true}>
+    <Icon size={32} />
+  </div>
+  <div class={styles.contentContainer}>
+    <h3 class={styles.title}>{title}</h3>
+    <p class={styles.description}>{description}</p>
+  </div>
 </div>

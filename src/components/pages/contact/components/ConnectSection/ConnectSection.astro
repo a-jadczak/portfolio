@@ -1,8 +1,37 @@
 ---
+import { FaLinkedin } from 'react-icons/fa';
 import ConnectionCard from './components/ConnectionCard.astro';
+import { Mail, CalendarCheck } from 'lucide-react';
+import styles from './ConnectSection.module.scss';
+
+const connections = [
+  {
+    icon: Mail,
+    title: 'Email',
+    description: 'Send me an email',
+  },
+  {
+    icon: FaLinkedin,
+    title: 'LinkedIn',
+    description: 'Connect with me on LinkedIn',
+  },
+  {
+    icon: CalendarCheck,
+    title: 'Calendar',
+    description: 'Open to opportunites Remote · Poland',
+  },
+];
 ---
 
-<h2>Let's connect</h2>
-<ConnectionCard />
-<ConnectionCard />
-<ConnectionCard />
+<div class={`clipped-corners ${styles.container}`}>
+  <h2 class={styles.title}>Let's connect</h2>
+  <ul class={styles.list}>
+    {
+      connections.map((connection) => (
+        <li>
+          <ConnectionCard key={connection.title} {...connection} />
+        </li>
+      ))
+    }
+  </ul>
+</div>

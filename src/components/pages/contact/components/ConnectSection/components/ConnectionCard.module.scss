@@ -1,0 +1,25 @@
+@use '@/styles/tokens' as *;
+
+.container {
+  display: flex;
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid $border-secondary;
+}
+
+.iconContainer {
+  display: grid;
+  place-items: center;
+  place-self: center;
+  aspect-ratio: 1 / 1;
+  border: 1px solid $primary;
+  padding: 0.5rem;
+}
+
+.contentContainer {
+  margin-left: 1rem;
+}
+
+.description {
+  color: $text-secondary;
+}
