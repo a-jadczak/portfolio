@@ -29,7 +29,14 @@ const currentPageInfo = getCurrentPageInfo(currentPath);
 <style lang="scss">
   @use '../styles/tokens' as *;
 
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100svh;
+  }
+
   main {
+    flex: 1;
     border: 1px solid $border-secondary;
     border-top: 0;
     padding: 0.5rem;
