@@ -1,0 +1,30 @@
+@use '@/styles/tokens' as *;
+
+.form {
+}
+
+.label,
+.messageContainer {
+  display: block;
+  margin: 0.75rem 0;
+}
+
+.labelContent {
+}
+
+.labelContent::before {
+  content: '>';
+  margin-right: 5px;
+  color: $primary;
+}
+
+.input {
+  // margin-left: 1rem;
+}
+
+.messageContainer {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  resize: vertical;
+  border: 1px solid $border-secondary;
+}
