@@ -23,11 +23,23 @@ const ContactForm = () => {
       <form onSubmit={handleFormSubmit}>
         <label className={styles.label} htmlFor="name">
           <span className={styles.labelContent}>name: </span>
-          <input className={styles.input} type="text" placeholder="John Pork" name="name" />
+          <input
+            className={styles.input}
+            type="text"
+            placeholder="John Pork"
+            id="name"
+            name="name"
+          />
         </label>
         <label className={styles.label} htmlFor="email">
           <span className={styles.labelContent}>email: </span>
-          <input className={styles.input} type="text" placeholder="you@example.com" name="email" />
+          <input
+            className={styles.input}
+            type="email"
+            placeholder="you@example.com"
+            id="email"
+            name="email"
+          />
         </label>
         <label className={styles.label} htmlFor="subject">
           <span className={styles.labelContent}>subject: </span>
@@ -35,6 +47,7 @@ const ContactForm = () => {
             className={styles.input}
             type="text"
             placeholder="What's this about?"
+            id="subject"
             name="subject"
           />
         </label>
@@ -43,6 +56,7 @@ const ContactForm = () => {
           <textarea
             className={`clipped-corners ${styles.messageContainer}`}
             rows={5}
+            id="message"
             name="message"
             placeholder="Tell me about your project..."
           ></textarea>
