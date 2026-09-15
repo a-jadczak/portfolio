@@ -4,6 +4,7 @@ import Badge from '@/components/ui/Badge/Badge';
 import styles from './Project.module.scss';
 import Text from '@/components/ui/Text/Text.astro';
 import Heading from '@/components/ui/Heading/Heading.astro';
+import Divider from '@/components/ui/Divider/Divider.astro';
 
 const technologies = [
   { title: 'React' },
@@ -46,7 +47,7 @@ const hiddenTechnologyCount = technologies.length - VISIBLE_TECHNOLOGY_COUNT;
       }
     </ul>
 
-    <div class={styles.divider} aria-hidden="true"></div>
+    <Divider />
     <button class={styles.showDetails} type="button" aria-haspopup="dialog">
       <Eye size={18} />
       <span>Show details</span>

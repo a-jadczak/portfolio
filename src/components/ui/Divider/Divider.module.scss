@@ -1,0 +1,7 @@
+@use '@/styles/tokens' as *;
+
+.divider {
+  height: 1px;
+  margin: 0.5rem 0;
+  background-color: $border-secondary;
+}
