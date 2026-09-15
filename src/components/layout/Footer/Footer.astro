@@ -1,7 +1,10 @@
 ---
 import styles from './Footer.module.scss';
+import Text from '@/components/ui/Text/Text.astro';
 ---
 
 <footer class={`clipped-corners-bottom ${styles.footer}`}>
-  <p>© {new Date().getFullYear()} Arkadiusz Jadczak · All rights reserved.</p>
+  <Text size="extra-small" variant="muted">
+    © {new Date().getFullYear()} Arkadiusz Jadczak · All rights reserved.
+  </Text>
 </footer>

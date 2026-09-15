@@ -9,17 +9,13 @@
   counter-increment: project;
 }
 
-.title {
-  font-size: 1.75rem;
-}
-
 .title::before {
   content: counter(project, decimal-leading-zero);
   color: $primary;
   font-family: $number-font;
-  font-size: 1.75rem;
+  font-size: 2rem;
   // Adjustments for the number font
-  font-size-adjust: 0.55;
+  font-size-adjust: 0.58;
   margin-right: 0.5rem;
 }
 
@@ -42,7 +38,6 @@
   background-color: $border-secondary;
 }
 
-.description,
 .showDetails {
   color: $text-secondary;
   font-size: 1rem;

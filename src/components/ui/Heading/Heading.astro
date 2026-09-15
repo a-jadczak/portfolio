@@ -4,7 +4,7 @@ import styles from './Heading.module.scss';
 
 interface Props extends HTMLAttributes<'h2'> {
   as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
-  size?: 'small' | 'medium' | 'large';
+  size?: 'extra-small' | 'small' | 'medium' | 'large';
 }
 
 const { as: Tag = 'h2', size = 'medium', class: className, ...attributes } = Astro.props;

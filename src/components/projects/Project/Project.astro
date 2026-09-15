@@ -2,6 +2,8 @@
 import { Eye } from 'lucide-react';
 import Badge from '@/components/ui/Badge/Badge';
 import styles from './Project.module.scss';
+import Text from '@/components/ui/Text/Text.astro';
+import Heading from '@/components/ui/Heading/Heading.astro';
 
 const technologies = [
   { title: 'React' },
@@ -23,10 +25,10 @@ const hiddenTechnologyCount = technologies.length - VISIBLE_TECHNOLOGY_COUNT;
       alt="description"
       class={`clipped-corners ${styles.screenshot}`}
     />
-    <h3 class={styles.title}>Title</h3>
-    <p class={styles.description}>
+    <Heading as="h3" size="medium" class={styles.title}>Title</Heading>
+    <Text variant="secondary">
       Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem, magni!
-    </p>
+    </Text>
     <ul class={styles.badgesList}>
       {
         technologyBadges.map(({ title }) => (
