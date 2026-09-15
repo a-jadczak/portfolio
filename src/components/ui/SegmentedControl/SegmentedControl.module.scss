@@ -3,8 +3,6 @@
 .segmentedControl {
   display: flex;
   width: 100%;
-}
-.segmentedControl {
   corner-shape: $corner-shape;
 
   & > button:first-child {

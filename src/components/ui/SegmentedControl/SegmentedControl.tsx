@@ -8,11 +8,11 @@ interface Props {
 }
 
 const SegmentedControl = ({ options }: Props) => {
-  const [left, right] = options;
   return (
     <div className={styles.segmentedControl}>
-      <Control {...left} />
-      <Control {...right} />
+      {options.map((control) => (
+        <Control {...control} />
+      ))}
     </div>
   );
 };
