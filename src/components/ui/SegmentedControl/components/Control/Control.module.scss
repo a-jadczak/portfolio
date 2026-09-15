@@ -1,0 +1,15 @@
+@use '@/styles/tokens' as *;
+
+.control {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid $border-secondary;
+  padding: 0.5rem;
+  cursor: pointer;
+
+  &:hover {
+    border-color: $primary;
+    color: $primary;
+  }
+}

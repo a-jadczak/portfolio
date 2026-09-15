@@ -1,0 +1,18 @@
+@use '@/styles/tokens' as *;
+
+.segmentedControl {
+  display: flex;
+  width: 100%;
+}
+.segmentedControl {
+  corner-shape: $corner-shape;
+
+  & > button:first-child {
+    corner-shape: inherit;
+    border-radius: $border-radius 0 0 $border-radius;
+  }
+  & > button:last-child {
+    corner-shape: inherit;
+    border-radius: 0 $border-radius $border-radius 0;
+  }
+}
