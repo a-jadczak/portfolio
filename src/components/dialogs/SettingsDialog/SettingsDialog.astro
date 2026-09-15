@@ -6,6 +6,10 @@ import Divider from '@/components/ui/Divider/Divider.astro';
 import Text from '@/components/ui/Text/Text.astro';
 import SegmentedControl from '@/components/ui/SegmentedControl/SegmentedControl';
 import Button from '@/components/ui/Button/Button';
+import Toggle from '@/components/ui/Toggle/Toggle';
+import ColorPicker from './components/ColorPicker/ColorPicker';
+
+const colors = ['red', 'lawngreen', 'blue', 'purple'];
 ---
 
 <dialog class={`clipped-corners ${styles.dialog}`} aria-labelledby="settings-title" open>
@@ -22,21 +26,39 @@ import Button from '@/components/ui/Button/Button';
   </header>
   <Divider />
   <label>Theme</label>
-  <SegmentedControl
+  <!-- <SegmentedControl
+    client:load
     options={[
       { Icon: Sun, text: 'Light' },
       { Icon: Moon, text: 'Dark' },
     ]}
     value={'Dark'}
-  />
+  /> -->
   <Divider />
   <label>Language</label>
-  <SegmentedControl options={[{ text: 'Polski' }, { text: 'English' }]} value={'English'} />
+  <SegmentedControl
+    client:load
+    options={[{ text: 'Polski' }, { text: 'English' }]}
+    value={'English'}
+  />
   <Divider />
   <label>Reduce motion</label>
   <Text variant="secondary">Disable interface animations</Text>
+  <Toggle client:load aria-label="Reduce motion" />
   <Divider />
   <label>Accent color</label>
+  <ul class={styles.colorPickerList}>
+    {
+      colors.map((color) => (
+        <li>
+          <ColorPicker color={color} />
+        </li>
+      ))
+    }
+    <li>
+      <ColorPicker onClick={() => {}} />
+    </li>
+  </ul>
   <Divider />
   <Text variant="secondary">Use system preferences</Text>
 </dialog>

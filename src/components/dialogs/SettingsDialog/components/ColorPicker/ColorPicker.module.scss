@@ -1,0 +1,18 @@
+@use '@/styles/tokens' as *;
+
+.colorBox {
+  width: 2rem;
+  aspect-ratio: 1 / 1;
+  border: 2px solid transparent;
+  display: grid;
+  place-items: center;
+  position: relative;
+
+  &:not([aria-active='true']):hover {
+    filter: brightness(0.85);
+  }
+
+  &[aria-active='true'] {
+    border-color: $text-primary;
+  }
+}
