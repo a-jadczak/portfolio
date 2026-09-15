@@ -5,7 +5,7 @@ import Project from '@/components/projects/Project/Project.astro';
 import Heading from '@/components/ui/Heading/Heading.astro';
 ---
 
-<article class={`clipped-corners ${styles.featuredProjects}`}>
+<section class={`clipped-corners ${styles.featuredProjects}`}>
   <div class={styles.titleContainer}>
     <Heading as="h2" size="small" class={styles.title}>Featured Projects</Heading>
     <a class={styles.link} href="/projects">
@@ -18,4 +18,4 @@ import Heading from '@/components/ui/Heading/Heading.astro';
     <Project />
     <Project />
   </ol>
-</article>
+</section>
