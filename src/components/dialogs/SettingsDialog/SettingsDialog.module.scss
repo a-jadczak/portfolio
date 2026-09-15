@@ -1,0 +1,21 @@
+@use '@/styles/tokens' as *;
+
+.dialog {
+  position: fixed;
+  background-color: $background;
+  border: 1px solid $border-secondary;
+  z-index: 10;
+  padding: 1rem;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+// .dialog::backdrop {
+//   background: rgba(0, 0, 0, 0.467);
+//   backdrop-filter: blur(4px);
+// }

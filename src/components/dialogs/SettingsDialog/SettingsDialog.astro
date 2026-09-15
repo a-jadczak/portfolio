@@ -1,0 +1,42 @@
+---
+import Heading from '@/components/ui/Heading/Heading.astro';
+import styles from './SettingsDialog.module.scss';
+import { Moon, Settings, Sun, X } from 'lucide-react';
+import Divider from '@/components/ui/Divider/Divider.astro';
+import Text from '@/components/ui/Text/Text.astro';
+import SegmentedControl from '@/components/ui/SegmentedControl/SegmentedControl';
+import Button from '@/components/ui/Button/Button';
+---
+
+<dialog class={`clipped-corners ${styles.dialog}`} aria-labelledby="settings-title" open>
+  <header class={styles.header}>
+    <Settings size={28} aria-hidden="true" />
+    <Heading as="h2" size="small" id="settings-title">Settings</Heading>
+    <Button
+      as="button"
+      variant="default"
+      Icon={X}
+      aria-hidden="true"
+      style={{ padding: '0.5rem' }}
+    />
+  </header>
+  <Divider />
+  <label>Theme</label>
+  <SegmentedControl
+    options={[
+      { Icon: Sun, text: 'Light' },
+      { Icon: Moon, text: 'Dark' },
+    ]}
+    value={'Dark'}
+  />
+  <Divider />
+  <label>Language</label>
+  <SegmentedControl options={[{ text: 'Polski' }, { text: 'English' }]} value={'English'} />
+  <Divider />
+  <label>Reduce motion</label>
+  <Text variant="secondary">Disable interface animations</Text>
+  <Divider />
+  <label>Accent color</label>
+  <Divider />
+  <Text variant="secondary">Use system preferences</Text>
+</dialog>
