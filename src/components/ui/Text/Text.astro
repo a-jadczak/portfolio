@@ -1,0 +1,13 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import styles from './Text.module.scss';
+
+interface Props extends HTMLAttributes<'p'> {
+  size?: 'small' | 'medium' | 'large';
+  variant?: 'primary' | 'secondary' | 'muted';
+}
+
+const { size = 'medium', variant = 'primary', class: className, ...attributes } = Astro.props;
+---
+
+<p {...attributes} class:list={[styles.text, styles[size], styles[variant], className]}><slot /></p>

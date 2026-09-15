@@ -1,18 +1,21 @@
 ---
 import Button from '@/components/ui/Button/Button';
+import Eyebrow from '@/components/ui/Eyebrow/Eyebrow.astro';
+import Heading from '@/components/ui/Heading/Heading.astro';
+import Text from '@/components/ui/Text/Text.astro';
 import styles from './Hero.module.scss';
 import { ArrowRight, Mail } from 'lucide-react';
 ---
 
-<div>
-  <p class={styles.heroRole}>SOFTWARE ENGINEER · FRONT-END FOCUSED</p>
-
-  <h1 class={styles.heroTitle}>Building modern software.</h1>
-
-  <p class={styles.heroDescription}>
-    I focus on building <span class={styles.blazinglyFast}>blazingly fast</span>, accessible and
-    well-crafted web applications with clean, maintainable code.
-  </p>
+<section>
+  <header class={styles.intro}>
+    <Eyebrow>SOFTWARE ENGINEER · FRONT-END FOCUSED</Eyebrow>
+    <Heading as="h1" size="large">Building modern software.</Heading>
+    <Text size="large" variant="secondary">
+      I focus on building <span class={styles.blazinglyFast}>blazingly fast</span>, accessible and
+      well-crafted web applications with clean, maintainable code.
+    </Text>
+  </header>
 
   <Button
     as="a"
@@ -24,4 +27,4 @@ import { ArrowRight, Mail } from 'lucide-react';
   />
 
   <Button as="a" href="/contact" variant="default" text="Contact me" Icon={Mail} />
-</div>
+</section>

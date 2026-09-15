@@ -1,13 +1,18 @@
 ---
+import Eyebrow from '@/components/ui/Eyebrow/Eyebrow.astro';
+import Heading from '@/components/ui/Heading/Heading.astro';
+import Text from '@/components/ui/Text/Text.astro';
 import ContactForm from './components/ContactForm/ContactForm';
 import styles from './PageHero.module.scss';
 ---
 
 <section class={styles.section}>
   <header class={styles.header}>
-    <p class={styles.eyebrow}>Get in touch</p>
-    <h1>Let's build something great together!</h1>
-    <p>Have a project, an opportunity, or just want to say hello</p>
+    <Eyebrow>Get in touch</Eyebrow>
+    <Heading as="h1" size="large">Let's build something great together!</Heading>
+    <Text size="large" variant="secondary">
+      Have a project, an opportunity, or just want to say hello
+    </Text>
   </header>
 
   <ContactForm client:load />

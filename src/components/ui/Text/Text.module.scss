@@ -1,0 +1,31 @@
+@use '@/styles/tokens' as *;
+
+.text {
+  margin: 0;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.medium {
+  font-size: 1rem;
+}
+
+.large {
+  font-size: 1.25rem;
+}
+
+.small {
+  font-size: 0.875rem;
+}
+
+.primary {
+  color: $text-primary;
+}
+
+.secondary {
+  color: $text-secondary;
+}
+
+.muted {
+  color: $text-muted;
+}

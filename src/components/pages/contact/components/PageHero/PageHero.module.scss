@@ -1,20 +1,6 @@
-@use '@/styles/tokens' as *;
-
 .section,
 .header {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-}
-
-.header {
-  .eyebrow {
-    text-transform: uppercase;
-    color: $primary;
-    font-weight: bold;
-  }
-
-  h1 {
-    line-height: 1.1;
-  }
 }

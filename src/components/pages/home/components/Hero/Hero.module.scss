@@ -1,20 +1,9 @@
 @use '@/styles/tokens' as *;
 
-.heroRole {
-  color: $primary;
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
-}
-
-.heroTitle {
-  font-size: 2.75rem;
-  line-height: 1.1;
-  margin-bottom: 0.5rem;
-}
-
-.heroDescription {
-  color: $text-secondary;
-  font-size: 1.25rem;
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
   margin-bottom: 1rem;
 }
 
