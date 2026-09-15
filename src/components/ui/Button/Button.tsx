@@ -3,7 +3,7 @@ import type { Icon } from '@/types/Icon';
 import styles from './Button.module.scss';
 
 type CommonProps = {
-  text: string;
+  text?: string;
   variant: 'default' | 'primary';
   Icon?: Icon;
   style?: CSSProperties;
@@ -41,7 +41,7 @@ const Button: FC<ButtonProps> = (props) => {
 
   return (
     <Component {...selectedProps} className={buttonClassName} style={style}>
-      <span className={styles.buttonContent}>{text}</span>
+      {text && <span className={styles.buttonContent}>{text}</span>}
       {Icon && <Icon className={styles.buttonContentIcon} size={18} />}
     </Component>
   );
