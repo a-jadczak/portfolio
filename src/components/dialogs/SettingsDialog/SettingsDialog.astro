@@ -13,22 +13,24 @@ import Toggle from '@/components/ui/Toggle/Toggle';
 const colors = ['red', 'lawngreen', 'blue', 'purple'];
 ---
 
-<!-- for testing -->
-<script>
-  document.querySelector('dialog')?.showModal();
-</script>
-
-<dialog class={`clipped-corners ${styles.dialog}`} aria-labelledby="settings-title">
+<dialog
+  id="settings-dialog"
+  class={`clipped-corners ${styles.dialog}`}
+  aria-labelledby="settings-title"
+>
   <header class={styles.header}>
     <Settings size={28} aria-hidden="true" />
     <Heading as="h2" size="small" id="settings-title">Settings</Heading>
-    <Button
-      as="button"
-      variant="default"
-      Icon={X}
-      aria-hidden="true"
-      style={{ padding: '0.5rem' }}
-    />
+    <form method="dialog">
+      <Button
+        as="button"
+        type="submit"
+        variant="default"
+        Icon={X}
+        aria-label="Close settings"
+        style={{ padding: '0.5rem' }}
+      />
+    </form>
   </header>
   <Divider />
   <SettingsField title="Theme">

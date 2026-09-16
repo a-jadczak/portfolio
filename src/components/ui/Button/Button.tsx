@@ -1,4 +1,4 @@
-import type { CSSProperties, FC, HTMLAttributeAnchorTarget } from 'react';
+import type { CSSProperties, FC, HTMLAttributeAnchorTarget, MouseEventHandler } from 'react';
 import type { Icon } from '@/types/Icon';
 import styles from './Button.module.scss';
 
@@ -7,6 +7,8 @@ type CommonProps = {
   variant: 'default' | 'primary';
   Icon?: Icon;
   style?: CSSProperties;
+  onClick?: MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
+  'aria-label'?: string;
 };
 
 type ElementPropsMap = {
@@ -35,12 +37,18 @@ const propsMap = {
 };
 
 const Button: FC<ButtonProps> = (props) => {
-  const { as: Component, text, variant, Icon, style } = props;
+  const { as: Component, text, variant, Icon, style, onClick, 'aria-label': label } = props;
   const buttonClassName = `clipped-corners ${styles.button} ${styles[variant]}`;
   const selectedProps = props.as === 'a' ? propsMap.a(props) : propsMap.button(props);
 
   return (
-    <Component {...selectedProps} className={buttonClassName} style={style}>
+    <Component
+      {...selectedProps}
+      className={buttonClassName}
+      style={style}
+      onClick={onClick}
+      aria-label={label}
+    >
       {text && <span className={styles.buttonContent}>{text}</span>}
       {Icon && <Icon className={styles.buttonContentIcon} size={18} />}
     </Component>
