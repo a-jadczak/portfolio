@@ -1,0 +1,40 @@
+@use './tokens' as *;
+
+@mixin interactive() {
+  &:where(a, button) {
+    cursor: pointer;
+
+    &:not(:disabled) {
+      &:hover,
+      &:focus-visible,
+      &[aria-current='page'],
+      &[aria-active='true'] {
+        border-color: $primary;
+        color: $primary;
+      }
+
+      // hover
+      &:hover,
+      &:focus-visible {
+        background: $surface;
+      }
+
+      // active
+      &[aria-current='page'],
+      &[aria-active='true'] {
+        background: $surface-hover;
+      }
+
+      // tab focus
+      &:focus-visible {
+        outline: 2px solid $focus-ring;
+        outline-offset: -3px;
+      }
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+  }
+}

@@ -1,0 +1,18 @@
+@use './tokens' as *;
+@use './interactive';
+
+.clipped-corners {
+  @include interactive.interactive();
+  border-radius: $border-radius;
+  corner-shape: $corner-shape;
+}
+
+.clipped-corners-top {
+  corner-shape: $corner-shape;
+  border-radius: $border-radius $border-radius 0 0;
+}
+
+.clipped-corners-bottom {
+  corner-shape: $corner-shape;
+  border-radius: 0 0 $border-radius $border-radius;
+}

@@ -1,5 +1,5 @@
 @use '@fontsource-variable/space-grotesk/wght.css';
-@use './tokens' as *;
+@use './clipped-corners';
 
 // Follow the system preference by default
 :root {
@@ -18,61 +18,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-@mixin interactive() {
-  &:where(a, button) {
-    cursor: pointer;
-
-    &:not(:disabled) {
-      &:hover,
-      &:focus-visible,
-      &[aria-current='page'],
-      &[aria-active='true'] {
-        border-color: $primary;
-        color: $primary;
-      }
-
-      // hover
-      &:hover,
-      &:focus-visible {
-        background: $surface;
-      }
-
-      // active
-      &[aria-current='page'],
-      &[aria-active='true'] {
-        background: $surface-hover;
-      }
-
-      // tab focus
-      &:focus-visible {
-        outline: 2px solid $focus-ring;
-        outline-offset: -3px;
-      }
-    }
-
-    &:disabled {
-      cursor: not-allowed;
-      opacity: 0.5;
-    }
-  }
-}
-
-.clipped-corners {
-  @include interactive();
-  border-radius: $border-radius;
-  corner-shape: $corner-shape;
-}
-
-.clipped-corners-top {
-  corner-shape: $corner-shape;
-  border-radius: $border-radius $border-radius 0 0;
-}
-
-.clipped-corners-bottom {
-  corner-shape: $corner-shape;
-  border-radius: 0 0 $border-radius $border-radius;
 }
 
 body {
