@@ -8,7 +8,7 @@
       &:hover,
       &:focus-visible,
       &[aria-current='page'],
-      &[aria-active='true'] {
+      &[aria-pressed='true'] {
         border-color: $primary;
         color: $primary;
       }
@@ -21,7 +21,7 @@
 
       // active
       &[aria-current='page'],
-      &[aria-active='true'] {
+      &[aria-pressed='true'] {
         background: $surface-hover;
       }
 

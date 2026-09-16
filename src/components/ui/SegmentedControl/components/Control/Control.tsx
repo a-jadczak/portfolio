@@ -10,7 +10,7 @@ interface Props {
 const Control = ({ options, active, onClick }: Props) => {
   const { text, Icon } = options;
   return (
-    <button onClick={onClick} className={`${styles.control}`} aria-active={active}>
+    <button onClick={onClick} className={`${styles.control}`} aria-pressed={active}>
       {Icon != null && <Icon />}
       {text}
     </button>
