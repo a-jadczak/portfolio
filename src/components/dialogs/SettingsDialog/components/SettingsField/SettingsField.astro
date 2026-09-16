@@ -1,9 +1,10 @@
 ---
 import Divider from '@/components/ui/Divider/Divider.astro';
+import styles from './SettingsField.module.scss';
 
 const { title } = Astro.props;
 ---
 
-<label>{title}</label>
+<label class={styles.label}>{title}</label>
 <slot />
-<Divider />
+<Divider class={styles.divider} />
