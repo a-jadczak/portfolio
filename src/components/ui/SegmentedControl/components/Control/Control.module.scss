@@ -1,6 +1,9 @@
 @use '@/styles/tokens' as *;
+@use '@/styles/interactive' as *;
 
 .control {
+  @include interactive();
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -9,9 +12,4 @@
   border: 1px solid $border-secondary;
   padding: 0.5rem;
   cursor: pointer;
-
-  &:hover {
-    border-color: $primary;
-    color: $primary;
-  }
 }
