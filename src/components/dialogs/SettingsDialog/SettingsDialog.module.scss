@@ -41,3 +41,19 @@
   align-self: center;
   justify-self: center;
 }
+
+.systemPreferences {
+  font-size: 0.875rem;
+  color: $text-secondary;
+  cursor: pointer;
+
+  &:hover {
+    color: $primary;
+    text-decoration: underline;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $focus-ring;
+    outline-offset: 3px;
+  }
+}
