@@ -1,0 +1,10 @@
+---
+import Eyebrow from '@/components/ui/Eyebrow/Eyebrow.astro';
+
+const { index, title } = Astro.props;
+---
+
+<div>
+  <Eyebrow>{index < 9 && '0'}{index} -- {title}</Eyebrow>
+  <slot />
+</div>
