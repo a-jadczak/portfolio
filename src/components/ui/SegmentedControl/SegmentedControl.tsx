@@ -11,7 +11,7 @@ const SegmentedControl = ({ options }: Props) => {
   return (
     <div className={styles.segmentedControl}>
       {options.map((control) => (
-        <Control {...control} />
+        <Control key={control.text} {...control} />
       ))}
     </div>
   );

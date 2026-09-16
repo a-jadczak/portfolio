@@ -27,3 +27,16 @@
   background: rgba(0, 0, 0, 0.467);
   backdrop-filter: blur(4px);
 }
+
+.toggleContainer {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.toggle {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: center;
+  justify-self: center;
+}

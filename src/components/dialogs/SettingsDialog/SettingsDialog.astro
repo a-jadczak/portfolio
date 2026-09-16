@@ -33,7 +33,6 @@ const colors = ['red', 'lawngreen', 'blue', 'purple'];
   <Divider />
   <SettingsField title="Theme">
     <SegmentedControl
-      client:load
       options={[
         { Icon: Sun, text: 'Light' },
         { Icon: Moon, text: 'Dark' },
@@ -48,10 +47,15 @@ const colors = ['red', 'lawngreen', 'blue', 'purple'];
       value={'English'}
     />
   </SettingsField>
-  <SettingsField title="Reduce motion">
-    <Text variant="secondary">Disable interface animations</Text>
-    <Toggle client:load aria-label="Reduce motion" />
-  </SettingsField>
+  <div class={styles.toggleContainer}>
+    <label>Reduce motion</label>
+    <Toggle client:load aria-label="Reduce motion" className={styles.toggle} />
+    <Text variant="secondary" size="small">Disable interface animations</Text>
+  </div>
+  <Divider />
+  <!-- <SettingsField title="Reduce motion">
+
+  </SettingsField> -->
   <SettingsField title="Accent color">
     <ul class={styles.colorPickerList}>
       {
