@@ -1,0 +1,9 @@
+---
+import Divider from '@/components/ui/Divider/Divider.astro';
+
+const { title } = Astro.props;
+---
+
+<label>{title}</label>
+<slot />
+<Divider />
