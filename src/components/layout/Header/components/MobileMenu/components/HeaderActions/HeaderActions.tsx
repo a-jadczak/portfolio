@@ -33,6 +33,7 @@ const HeaderActions = () => (
       target="_blank"
       text="Resume"
       variant="primary"
+      style={{ fontSize: '0.8rem' }}
       Icon={FaFilePdf}
     />
   </div>
