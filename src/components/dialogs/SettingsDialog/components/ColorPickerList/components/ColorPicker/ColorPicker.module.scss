@@ -8,11 +8,16 @@
   place-items: center;
   position: relative;
 
-  &:not([aria-active='true']):hover {
+  svg {
+    color: #fff;
+    filter: drop-shadow(0 1px 1px #000) drop-shadow(0 0 1px #000);
+  }
+
+  &:not([aria-pressed='true']):hover {
     filter: brightness(0.85);
   }
 
-  &[aria-active='true'] {
+  &[aria-pressed='true'] {
     border-color: $text-primary;
   }
 }

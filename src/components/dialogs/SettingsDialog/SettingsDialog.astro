@@ -1,7 +1,7 @@
 ---
 import styles from './SettingsDialog.module.scss';
 import { Moon, Settings, Sun, X } from 'lucide-react';
-import ColorPicker from './components/ColorPicker/ColorPicker';
+import ColorPickerList from './components/ColorPickerList/ColorPickerList';
 import SettingsField from './components/SettingsField/SettingsField.astro';
 import Heading from '@/components/ui/Heading/Heading.astro';
 import SegmentedControl from '@/components/ui/SegmentedControl/SegmentedControl';
@@ -57,18 +57,7 @@ const colors = ['red', 'lawngreen', 'blue', 'purple'];
 
   </SettingsField> -->
   <SettingsField title="Accent color">
-    <ul class={styles.colorPickerList}>
-      {
-        colors.map((color) => (
-          <li>
-            <ColorPicker color={color} />
-          </li>
-        ))
-      }
-      <li>
-        <ColorPicker onClick={() => {}} />
-      </li>
-    </ul>
+    <ColorPickerList client:load colors={colors} />
   </SettingsField>
   <button type="button" class={styles.systemPreferences}>Use system preferences</button>
 </dialog>

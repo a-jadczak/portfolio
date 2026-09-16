@@ -1,0 +1,14 @@
+.list {
+  width: 100%;
+  display: flex;
+  padding-inline: 0.5rem;
+  justify-content: space-between;
+
+  li {
+    position: relative;
+  }
+}
+
+.colorInput {
+  display: none;
+}
