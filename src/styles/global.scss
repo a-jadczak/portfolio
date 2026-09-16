@@ -20,24 +20,36 @@
   box-sizing: border-box;
 }
 
-.clipped-corners {
-  border-radius: $border-radius;
-  corner-shape: $corner-shape;
-
+@mixin interactive() {
   &:where(a, button) {
     cursor: pointer;
 
-    &:not(:disabled):hover,
-    &:not(:disabled):focus-visible,
-    &:not(:disabled)[aria-current='page'] {
-      border-color: $primary;
-      background: $surface-hover;
-      color: $primary;
-    }
+    &:not(:disabled) {
+      &:hover,
+      &:focus-visible,
+      &[aria-current='page'],
+      &[aria-active='true'] {
+        border-color: $primary;
+        color: $primary;
+      }
 
-    &:not(:disabled):focus-visible {
-      outline: 2px solid $focus-ring;
-      outline-offset: -3px;
+      // hover
+      &:hover,
+      &:focus-visible {
+        background: $surface;
+      }
+
+      // active
+      &[aria-current='page'],
+      &[aria-active='true'] {
+        background: $surface-hover;
+      }
+
+      // tab focus
+      &:focus-visible {
+        outline: 2px solid $focus-ring;
+        outline-offset: -3px;
+      }
     }
 
     &:disabled {
@@ -47,16 +59,20 @@
   }
 }
 
+.clipped-corners {
+  @include interactive();
+  border-radius: $border-radius;
+  corner-shape: $corner-shape;
+}
+
 .clipped-corners-top {
+  corner-shape: $corner-shape;
   border-radius: $border-radius $border-radius 0 0;
-  corner-top-left-shape: bevel;
-  corner-top-right-shape: bevel;
 }
 
 .clipped-corners-bottom {
+  corner-shape: $corner-shape;
   border-radius: 0 0 $border-radius $border-radius;
-  corner-bottom-left-shape: bevel;
-  corner-bottom-right-shape: bevel;
 }
 
 body {
