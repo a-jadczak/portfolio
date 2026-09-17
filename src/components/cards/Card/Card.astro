@@ -1,10 +1,7 @@
 ---
-import Eyebrow from '@/components/ui/Eyebrow/Eyebrow.astro';
-
-const { index, title } = Astro.props;
+import styles from './Card.module.scss';
 ---
 
-<div>
-  <Eyebrow>{index < 9 && '0'}{index} -- {title}</Eyebrow>
+<div class:list={['clipped-corners', styles.card]}>
   <slot />
 </div>

@@ -1,0 +1,43 @@
+---
+import Card from '@/components/cards/Card/Card.astro';
+import Eyebrow from '@/components/ui/Eyebrow/Eyebrow.astro';
+import Heading from '@/components/ui/Heading/Heading.astro';
+import Text from '@/components/ui/Text/Text.astro';
+import styles from './About.module.scss';
+import { CircleCheck, Languages, MapPin } from 'lucide-react';
+---
+
+{
+  [{ title: 'About me', children: '' }].map((section, index) => (
+    <Card>
+      <Eyebrow>
+        {index + 1 < 9 && '0'}
+        {index + 1} -- {section.title}
+      </Eyebrow>
+      <Heading as="h1">Lorem ipsum dolor sit.</Heading>
+      <Text variant="secondary">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam hic velit cupiditate
+        voluptatem dolorem assumenda accusamus saepe asperiores illum. Repellat.
+      </Text>
+    </Card>
+    <Card>
+      <ul class={styles.infoList}>
+        <li class={styles.infoElement}>
+          <MapPin className={styles.infoIcon}/>
+          <span class={styles.infoLabel}>Based in</span>
+          <span class={styles.infoContent}>Poland / Remote</span>
+        </li>
+        <li class={styles.infoElement}>
+          <CircleCheck className={styles.infoIcon}/>
+          <span class={styles.infoLabel}>Status</span>
+          <span class={styles.infoContent}>Open to opportunites</span>
+        </li>
+        <li class={styles.infoElement}>
+          <Languages className={styles.infoIcon}/>
+          <span class={styles.infoLabel}>Languages</span>
+          <span class={styles.infoContent}>Polish / English</span>
+        </li>
+      </ul>
+    </Card>
+  ))
+}

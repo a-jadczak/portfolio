@@ -1,0 +1,23 @@
+@use '@/styles/tokens' as *;
+
+.infoList {
+}
+
+.infoElement {
+  display: grid;
+  grid-template-columns: auto clamp(100px, 20%, 150px) 1fr;
+  align-items: center;
+  width: 100%;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  .infoIcon {
+    color: $primary;
+  }
+
+  .infoLabel {
+    text-transform: uppercase;
+    color: $text-secondary;
+  }
+  .infoContent {
+  }
+}
