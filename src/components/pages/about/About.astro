@@ -1,12 +1,10 @@
 ---
 import AboutCard from './components/AboutCard/AboutCard.astro';
-import IntroCard from './components/AboutCard/cards/IntroCard/IntroCard.astro';
-
-const cards = [{ title: 'About me', Content: IntroCard }];
+import { CARDS } from './components/AboutCard/cards';
 ---
 
 {
-  cards.map(({ title, Content }, index) => (
+  CARDS.map(({ title, Content }, index) => (
     <AboutCard eyebrow={`${index + 1 < 9 && '0'}${index + 1} -- ${title}`}>
       <Content />
     </AboutCard>
