@@ -1,7 +1,12 @@
 ---
+import type { HTMLAttributes } from 'astro/types';
 import styles from './Card.module.scss';
+
+type Props = HTMLAttributes<'div'>;
+
+const { class: className, 'class:list': classList, ...attributes } = Astro.props;
 ---
 
-<div class:list={['clipped-corners', styles.card]}>
+<div {...attributes} class:list={['clipped-corners', styles.card, className, classList]}>
   <slot />
 </div>
