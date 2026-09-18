@@ -1,2 +1,22 @@
 ---
+import Card from '@/components/cards/Card/Card.astro';
+import styles from './WhatICareAboutCard.module.scss';
+import Heading from '@/components/ui/Heading/Heading.astro';
+import Text from '@/components/ui/Text/Text.astro';
+import { Gauge, PersonStanding, Search, CodeXml, ShieldCheck, AppWindow } from 'lucide-react';
 ---
+
+<div class={styles.gridContainer}>
+  <Card class={styles.card}>
+    <header>
+      <div class={`clipped-corners ${styles.icon}`}>
+        <AppWindow size={32} aria-hidden="true" />
+      </div>
+      <Heading class={styles.title} as="h3">UI / UX</Heading>
+    </header>
+    <Text variant="secondary">
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, corporis? Cum quis
+      laboriosam quae asperiores!
+    </Text>
+  </Card>
+</div>
