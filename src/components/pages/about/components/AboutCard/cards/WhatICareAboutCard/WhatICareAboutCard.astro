@@ -3,17 +3,7 @@ import Card from '@/components/cards/Card/Card.astro';
 import styles from './WhatICareAboutCard.module.scss';
 import Heading from '@/components/ui/Heading/Heading.astro';
 import Text from '@/components/ui/Text/Text.astro';
-import { Gauge, PersonStanding, Search, CodeXml, ShieldCheck, AppWindow } from 'lucide-react';
-
-const cards = [
-  {
-    title: 'UI / UX',
-    Icon: AppWindow,
-    description:
-      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, corporis? Cum quis laboriosam quae asperiores!',
-    image: '/images/window.png',
-  },
-];
+import { cards } from './WhatICareAboutCard.data';
 ---
 
 <div class={styles.gridContainer}>
