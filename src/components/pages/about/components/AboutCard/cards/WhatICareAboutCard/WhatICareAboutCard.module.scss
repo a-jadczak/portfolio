@@ -7,7 +7,7 @@
 }
 
 .card {
-  padding: 0.75rem;
+  padding: 1.75rem;
   position: relative;
 
   &::before {
@@ -18,7 +18,7 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
-    opacity: 0.25;
+    opacity: 0.15;
   }
 
   header {
@@ -26,14 +26,6 @@
     align-items: center;
     gap: 1rem;
     margin-bottom: 0.5rem;
-  }
-  .icon {
-    width: 3rem;
-    aspect-ratio: 1 / 1;
-    display: grid;
-    place-items: center;
-    color: $primary;
-    border: 2px solid $primary;
   }
 
   .title {

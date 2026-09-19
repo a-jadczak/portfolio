@@ -4,6 +4,7 @@ import styles from './WhatICareAboutCard.module.scss';
 import Heading from '@/components/ui/Heading/Heading.astro';
 import Text from '@/components/ui/Text/Text.astro';
 import { cards } from './WhatICareAboutCard.data';
+import CardIcon from '@/components/cards/CardIcon/CardIcon.astro';
 ---
 
 <div class={styles.gridContainer}>
@@ -11,9 +12,7 @@ import { cards } from './WhatICareAboutCard.data';
     cards.map(({ title, Icon, description, image }) => (
       <Card class={styles.card} style={`--card-image: url("${image}")`}>
         <header>
-          <div class={`clipped-corners ${styles.icon}`}>
-            <Icon size={32} aria-hidden="true" />
-          </div>
+          <CardIcon Icon={Icon} />
           <Heading class={styles.title} as="h3">
             {title}
           </Heading>

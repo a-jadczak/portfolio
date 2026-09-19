@@ -1,0 +1,10 @@
+@use '@/styles/tokens' as *;
+
+.icon {
+  width: 3rem;
+  aspect-ratio: 1 / 1;
+  display: grid;
+  place-items: center;
+  color: $primary;
+  border: 2px solid $primary;
+}
