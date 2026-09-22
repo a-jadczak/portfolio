@@ -1,2 +1,55 @@
 ---
+import Card from '@/components/cards/Card/Card.astro';
+import CardIcon from '@/components/cards/CardIcon/CardIcon.astro';
+import Heading from '@/components/ui/Heading/Heading.astro';
+import Text from '@/components/ui/Text/Text.astro';
+import Timeline from '@/components/ui/Timeline/Timeline.astro';
+import TimelineItem from '@/components/ui/Timeline/TimelineItem.astro';
+import { BriefcaseBusiness, GraduationCap } from 'lucide-react';
+import styles from './ExperienceCard.module.scss';
+
+const experiences = [
+  {
+    Icon: GraduationCap,
+    period: '2021 – 2026',
+    title: 'Technical Secondary School',
+    subtitle: 'Technik Programista',
+    description: 'Built a solid foundation in programming, web technologies and problem solving.',
+  },
+  {
+    Icon: BriefcaseBusiness,
+    period: '2026 – Present',
+    title: 'Looking for my first job',
+    description:
+      'Actively learning, building projects and preparing for a junior developer position.',
+  },
+];
 ---
+
+<Timeline>
+  {
+    experiences.map(({ Icon, period, title, subtitle, description }) => (
+      <TimelineItem>
+        <Card class={styles.card}>
+          <CardIcon Icon={Icon} />
+          <div class={styles.content}>
+            <Text class={styles.period} size="small">
+              {period}
+            </Text>
+            <Heading as="h3" size="extra-small">
+              {title}
+            </Heading>
+            {subtitle && (
+              <Text size="extra-small" variant="secondary">
+                {subtitle}
+              </Text>
+            )}
+            <Text class={styles.description} size="extra-small" variant="secondary">
+              {description}
+            </Text>
+          </div>
+        </Card>
+      </TimelineItem>
+    ))
+  }
+</Timeline>

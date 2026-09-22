@@ -1,0 +1,23 @@
+@use '@/styles/tokens' as *;
+
+.card {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.content {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.period {
+  color: $text-accent;
+  font-weight: 700;
+}
+
+.description {
+  margin-top: 0.25rem;
+}
