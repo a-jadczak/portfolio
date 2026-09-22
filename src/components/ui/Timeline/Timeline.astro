@@ -1,0 +1,12 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import styles from './Timeline.module.scss';
+
+type Props = HTMLAttributes<'ul'>;
+
+const { class: className, 'class:list': classList, ...attributes } = Astro.props;
+---
+
+<ul role="list" {...attributes} class:list={[styles.list, className, classList]}>
+  <slot />
+</ul>

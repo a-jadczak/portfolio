@@ -3,6 +3,8 @@ import Card from '@/components/cards/Card/Card.astro';
 import CardIcon from '@/components/cards/CardIcon/CardIcon.astro';
 import Heading from '@/components/ui/Heading/Heading.astro';
 import Text from '@/components/ui/Text/Text.astro';
+import Timeline from '@/components/ui/Timeline/Timeline.astro';
+import TimelineItem from '@/components/ui/Timeline/TimelineItem.astro';
 import { CodeXml, Image, Lightbulb, NotebookPen } from 'lucide-react';
 import styles from './WorkflowCard.module.scss';
 
@@ -32,11 +34,10 @@ const workflowCards = [
 ];
 ---
 
-<ul class={styles.list}>
+<Timeline>
   {
     workflowCards.map(({ Icon, title, description }) => (
-      <li>
-        <span class={styles.dot} aria-hidden="true" />
+      <TimelineItem>
         <Card class={styles.card}>
           <div class={styles.icon}>
             <CardIcon Icon={Icon} />
@@ -48,7 +49,7 @@ const workflowCards = [
             {description}
           </Text>
         </Card>
-      </li>
+      </TimelineItem>
     ))
   }
-</ul>
+</Timeline>

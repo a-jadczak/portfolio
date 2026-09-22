@@ -1,0 +1,13 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import styles from './Timeline.module.scss';
+
+type Props = HTMLAttributes<'li'>;
+
+const { class: className, 'class:list': classList, ...attributes } = Astro.props;
+---
+
+<li {...attributes} class:list={[styles.item, className, classList]}>
+  <span class={styles.dot} aria-hidden="true"></span>
+  <slot />
+</li>
