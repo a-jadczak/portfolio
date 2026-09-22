@@ -36,6 +36,7 @@ const workflowCards = [
   {
     workflowCards.map(({ Icon, title, description }) => (
       <li>
+        <span class={styles.dot} aria-hidden="true" />
         <Card class={styles.card}>
           <div class={styles.icon}>
             <CardIcon Icon={Icon} />

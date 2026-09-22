@@ -15,17 +15,20 @@
       margin-top: 0.5rem;
     }
 
-    // Dot
-    &::before {
-      content: '';
+    .dot {
+      box-sizing: content-box;
       z-index: 1;
 
-      width: 1rem;
+      width: 0.75rem;
       aspect-ratio: 1;
 
-      background-color: $primary;
-      border: 3px solid $border;
+      background-color: $text-on-primary;
+      border: 3px solid $primary-dark;
       border-radius: 50%;
+      box-shadow:
+        inset 0 0 3px $primary-light,
+        0 0 0 2px $primary-light,
+        0 0 10px $primary;
     }
 
     // Connecting line
