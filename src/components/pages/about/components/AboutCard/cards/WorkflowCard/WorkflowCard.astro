@@ -3,20 +3,51 @@ import Card from '@/components/cards/Card/Card.astro';
 import CardIcon from '@/components/cards/CardIcon/CardIcon.astro';
 import Heading from '@/components/ui/Heading/Heading.astro';
 import Text from '@/components/ui/Text/Text.astro';
-import { Lightbulb } from 'lucide-react';
+import { CodeXml, Image, Lightbulb, NotebookPen } from 'lucide-react';
 import styles from './WorkflowCard.module.scss';
+
+const workflowCards = [
+  {
+    Icon: Lightbulb,
+    title: 'Idea',
+    description: 'Lorem ipsum dolor sit amet consectetur adipisicing',
+  },
+  {
+    Icon: NotebookPen,
+    title: 'Research & Planning',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem ea doloribus aliquam dolores nam. Laudantium distinctio maxime consequatur assumenda impedit!',
+  },
+  {
+    Icon: Image,
+    title: 'Visual Generation',
+    description: 'Lorem ipsum dolor sit amet consectetur adipisicing ',
+  },
+  {
+    Icon: CodeXml,
+    title: 'Implementation',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem ea doloribus aliquam',
+  },
+];
 ---
 
 <ul class={styles.list}>
-  <li>
-    <Card class={styles.card}>
-      <div class={styles.icon}>
-        <CardIcon Icon={Lightbulb} />
-      </div>
-      <Heading class={styles.title} as="h3" size="extra-small">Idea</Heading>
-      <Text class={styles.description} size="extra-small" variant="secondary">
-        Lorem ipsum dolor sit amet consectetur adipisicing
-      </Text>
-    </Card>
-  </li>
+  {
+    workflowCards.map(({ Icon, title, description }) => (
+      <li>
+        <Card class={styles.card}>
+          <div class={styles.icon}>
+            <CardIcon Icon={Icon} />
+          </div>
+          <Heading class={styles.title} as="h3" size="extra-small">
+            {title}
+          </Heading>
+          <Text class={styles.description} size="extra-small" variant="secondary">
+            {description}
+          </Text>
+        </Card>
+      </li>
+    ))
+  }
 </ul>
