@@ -1,0 +1,29 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto;
+  column-gap: 1rem;
+  width: 100%;
+  padding: 1rem;
+
+  .icon {
+    grid-row: 1 / -1;
+    align-self: center;
+  }
+
+  .title {
+    align-self: end;
+  }
+
+  .description {
+    grid-column: 2;
+    align-self: start;
+  }
+}

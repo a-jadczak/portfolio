@@ -1,2 +1,22 @@
 ---
+import Card from '@/components/cards/Card/Card.astro';
+import CardIcon from '@/components/cards/CardIcon/CardIcon.astro';
+import Heading from '@/components/ui/Heading/Heading.astro';
+import Text from '@/components/ui/Text/Text.astro';
+import { Lightbulb } from 'lucide-react';
+import styles from './WorkflowCard.module.scss';
 ---
+
+<ul class={styles.list}>
+  <li>
+    <Card class={styles.card}>
+      <div class={styles.icon}>
+        <CardIcon Icon={Lightbulb} />
+      </div>
+      <Heading class={styles.title} as="h3" size="extra-small">Idea</Heading>
+      <Text class={styles.description} size="extra-small" variant="secondary">
+        Lorem ipsum dolor sit amet consectetur adipisicing
+      </Text>
+    </Card>
+  </li>
+</ul>
