@@ -39,15 +39,15 @@ const workflowCards = [
     workflowCards.map(({ Icon, title, description }) => (
       <TimelineItem>
         <Card class={styles.card}>
-          <div class={styles.icon}>
-            <CardIcon Icon={Icon} />
+          <CardIcon Icon={Icon} />
+          <div>
+            <Heading as="h3" size="extra-small">
+              {title}
+            </Heading>
+            <Text size="extra-small" variant="secondary">
+              {description}
+            </Text>
           </div>
-          <Heading class={styles.title} as="h3" size="extra-small">
-            {title}
-          </Heading>
-          <Text class={styles.description} size="extra-small" variant="secondary">
-            {description}
-          </Text>
         </Card>
       </TimelineItem>
     ))
