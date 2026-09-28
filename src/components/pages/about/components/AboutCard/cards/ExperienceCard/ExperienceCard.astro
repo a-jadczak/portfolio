@@ -5,16 +5,24 @@ import Heading from '@/components/ui/Heading/Heading.astro';
 import Text from '@/components/ui/Text/Text.astro';
 import Timeline from '@/components/ui/Timeline/Timeline.astro';
 import TimelineItem from '@/components/ui/Timeline/TimelineItem.astro';
-import { BriefcaseBusiness, GraduationCap } from 'lucide-react';
+import { BriefcaseBusiness, GraduationCap, School } from 'lucide-react';
 import styles from './ExperienceCard.module.scss';
 
 const experiences = [
   {
-    Icon: GraduationCap,
+    Icon: School,
     period: '2021 – 2026',
     title: 'Technical Secondary School',
     subtitle: 'Technik Programista',
     description: 'Built a solid foundation in programming, web technologies and problem solving.',
+  },
+  {
+    Icon: GraduationCap,
+    period: '2026 – Present',
+    title: 'Wyższa Szkoła Kształcenia Zawodowego (WSKZ)',
+    subtitle: "Bachelor's Degree in Cybersecurity",
+    description:
+      'Studying Cybersecurity and building practical skills in securing systems, networks, and applications.',
   },
   {
     Icon: BriefcaseBusiness,
