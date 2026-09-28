@@ -5,14 +5,16 @@ import Heading from '@/components/ui/Heading/Heading.astro';
 import StackItem from './components/StackItem/StackItem.astro';
 import styles from './TechStackCard.module.scss';
 import { techStack } from './TechStackCard.data';
-import { AppWindow, Bot, Database, FlaskConical, Wrench } from 'lucide-react';
+import { AppWindow, BookOpen, Bot, Database, FlaskConical, Shapes, Wrench } from 'lucide-react';
 
 const icons = new Map([
   ['frontend', AppWindow],
   ['backend', Database],
   ['tools', Wrench],
   ['testing', FlaskConical],
-  ['ai', Bot],
+  ['AI', Bot],
+  ['others', Shapes],
+  ['familiar with', BookOpen],
 ]);
 ---
 
