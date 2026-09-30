@@ -6,7 +6,7 @@ import ExperienceCard from './ExperienceCard/ExperienceCard.astro';
 
 export { AboutMeCard, TechStackCard, WhatICareAboutCard, WorkflowCard, ExperienceCard };
 
-export const CARDS = [
+export const cards = [
   { title: 'About me', Content: AboutMeCard },
   { title: 'Tech stack', Content: TechStackCard },
   { title: 'What I care about', Content: WhatICareAboutCard },
