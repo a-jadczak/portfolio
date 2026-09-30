@@ -47,6 +47,11 @@
   &:hover {
     color: $primary;
   }
+  &:focus-visible {
+    color: $primary;
+    outline: 2px solid $focus-ring;
+    outline-offset: 3px;
+  }
   // &:not(:disabled):focus-visible {
   //   border: 2px solid $focus-ring;
   //   outline-offset: -3px;

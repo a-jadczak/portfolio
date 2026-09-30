@@ -1,9 +1,8 @@
-import React from 'react';
 import styles from './SearchSection.module.scss';
 import Button from '@/components/ui/Button/Button';
 import { SlidersHorizontal } from 'lucide-react';
 
-const SearchForm = () => {
+const SearchSection = () => {
   return (
     <div className={styles.form}>
       <div className={styles.searchContainer}>
@@ -30,4 +29,4 @@ const SearchForm = () => {
   );
 };
 
-export default SearchForm;
+export default SearchSection;
