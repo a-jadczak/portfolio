@@ -4,8 +4,6 @@ import WhatICareAboutCard from './WhatICareAboutCard/WhatICareAboutCard.astro';
 import WorkflowCard from './WorkflowCard/WorkflowCard.astro';
 import ExperienceCard from './ExperienceCard/ExperienceCard.astro';
 
-export { AboutMeCard, TechStackCard, WhatICareAboutCard, WorkflowCard, ExperienceCard };
-
 export const cards = [
   { title: 'About me', Content: AboutMeCard },
   { title: 'Tech stack', Content: TechStackCard },
