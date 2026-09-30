@@ -6,6 +6,7 @@ type CommonProps = {
   text?: string;
   variant: 'default' | 'primary';
   Icon?: Icon;
+  className?: string;
   style?: CSSProperties;
   onClick?: MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
   'aria-label'?: string;
@@ -37,8 +38,17 @@ const propsMap = {
 };
 
 const Button: FC<ButtonProps> = (props) => {
-  const { as: Component, text, variant, Icon, style, onClick, 'aria-label': label } = props;
-  const buttonClassName = `clipped-corners ${styles.button} ${styles[variant]}`;
+  const {
+    as: Component,
+    text,
+    variant,
+    Icon,
+    className = '',
+    style,
+    onClick,
+    'aria-label': label,
+  } = props;
+  const buttonClassName = `clipped-corners ${styles.button} ${styles[variant]} ${className}`.trim();
   const selectedProps = props.as === 'a' ? propsMap.a(props) : propsMap.button(props);
 
   return (
