@@ -1,0 +1,24 @@
+---
+import Eyebrow from '@/components/ui/Eyebrow/Eyebrow.astro';
+import Heading from '@/components/ui/Heading/Heading.astro';
+import Text from '@/components/ui/Text/Text.astro';
+import styles from './PageHero.module.scss';
+
+interface Props {
+  eyebrow: string;
+  title: string;
+  description: string;
+}
+
+const { eyebrow, title, description } = Astro.props;
+---
+
+<section class={styles.section}>
+  <header class={styles.header}>
+    <Eyebrow>{eyebrow}</Eyebrow>
+    <Heading as="h1" size="large">{title}</Heading>
+    <Text size="large" variant="secondary">{description}</Text>
+  </header>
+
+  <slot />
+</section>
