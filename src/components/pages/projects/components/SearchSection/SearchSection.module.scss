@@ -1,0 +1,44 @@
+@use '@/styles/tokens' as *;
+
+.form {
+  margin-top: 0.5rem;
+}
+
+.searchContainer {
+  display: flex;
+  width: 100%;
+  gap: 0.5rem;
+
+  .searchInput {
+    border: 2px solid $border;
+    flex: 1;
+    min-width: 0;
+
+    padding: 0.5rem;
+
+    &:focus {
+      border-color: $primary;
+    }
+  }
+  .filterButton {
+    border: 2px solid $primary;
+  }
+}
+
+.resultsContainer {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
+  width: 100%;
+  color: $text-secondary;
+
+  .clearFilters {
+    color: $primary;
+    cursor: pointer;
+
+    &:focus-visible {
+      outline: 2px solid $focus-ring;
+      outline-offset: 3px;
+    }
+  }
+}
