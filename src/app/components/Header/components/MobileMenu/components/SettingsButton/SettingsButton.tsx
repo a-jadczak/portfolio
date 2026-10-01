@@ -1,5 +1,5 @@
 import { Settings } from 'lucide-react';
-import styles from '../IconAction.module.scss';
+import { Button } from '@/components/ui/Button/Button';
 
 interface SettingsButtonProps {
   iconSize: number;
@@ -15,16 +15,15 @@ const SettingsButton = ({ iconSize }: SettingsButtonProps) => {
   };
 
   return (
-    <button
-      type="button"
-      className={`clipped-corners ${styles.iconAction}`}
+    <Button
+      iconOnly
       aria-label="Open settings"
       aria-haspopup="dialog"
       aria-controls="settings-dialog"
       onClick={handleClick}
     >
       <Settings size={iconSize} aria-hidden="true" />
-    </button>
+    </Button>
   );
 };
 

@@ -1,6 +1,5 @@
 .externalContainer {
   display: flex;
-  align-items: center;
   justify-content: space-between;
   gap: 0.5rem;
   margin-top: 0.5rem;
@@ -8,11 +7,10 @@
 }
 
 .externalList {
-  all: unset;
-  display: flex;
-  gap: 0.5rem;
+  display: inline-flex;
+  gap: 0.55rem;
 }
 
-.externalItem {
-  all: unset;
+.resumeButton {
+  font-size: 1rem;
 }

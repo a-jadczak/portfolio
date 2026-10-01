@@ -18,6 +18,22 @@
     background: $gradient-primary;
   }
 
+  &[data-variant='link'] {
+    gap: 0;
+    padding: 0;
+    border: 0;
+    font-size: 1.1rem;
+
+    &:hover {
+      color: $primary;
+    }
+    &:focus-visible {
+      color: $primary;
+      outline: 2px solid $focus-ring;
+      outline-offset: 3px;
+    }
+  }
+
   &[data-icon-only] {
     min-width: 2.75rem;
     padding: 0.5rem;

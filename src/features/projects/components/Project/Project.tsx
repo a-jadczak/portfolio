@@ -1,5 +1,6 @@
 import { Eye } from 'lucide-react';
 import Badge from '@/components/ui/Badge/Badge';
+import { Button } from '@/components/ui/Button/Button';
 import headingStyles from '@/components/ui/Heading/Heading.module.scss';
 import textStyles from '@/components/ui/Text/Text.module.scss';
 import dividerStyles from '@/components/ui/Divider/Divider.module.scss';
@@ -44,10 +45,10 @@ const Project = () => {
         </ul>
 
         <div className={dividerStyles.divider} aria-hidden="true" />
-        <button className={styles.showDetails} type="button" aria-haspopup="dialog">
-          <Eye size={18} />
+        <Button variant="link" className={styles.showDetails} aria-haspopup="dialog">
+          <Eye size={18} aria-hidden="true" />
           <span>Show details</span>
-        </button>
+        </Button>
       </article>
     </li>
   );

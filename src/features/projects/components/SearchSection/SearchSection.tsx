@@ -18,9 +18,9 @@ const SearchSection = () => {
       </div>
       <div className={styles.resultsContainer}>
         <span>6 projects</span>
-        <button type="button" className={styles.clearFilters}>
+        <Button variant="link" className={styles.clearFilters}>
           Clear filters
-        </button>
+        </Button>
       </div>
     </div>
   );

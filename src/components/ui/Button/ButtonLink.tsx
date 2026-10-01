@@ -19,7 +19,7 @@ export function ButtonLink({
     <a
       {...props}
       href={href}
-      className={`clipped-corners ${styles.button} ${className}`}
+      className={`${variant === 'link' ? '' : 'clipped-corners '}${styles.button} ${className}`}
       data-variant={variant}
       data-icon-only={iconOnly || undefined}
     >

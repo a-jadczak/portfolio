@@ -2,7 +2,7 @@ import type { ComponentPropsWithoutRef } from 'react';
 import styles from './Button.module.scss';
 
 export type AppearanceProps = {
-  variant?: 'default' | 'primary';
+  variant?: 'default' | 'primary' | 'link';
   iconOnly?: boolean;
 };
 
@@ -20,7 +20,7 @@ export function Button({
     <button
       {...props}
       type={type}
-      className={`clipped-corners ${styles.button} ${className}`}
+      className={`${variant === 'link' ? '' : 'clipped-corners '}${styles.button} ${className}`}
       data-variant={variant}
       data-icon-only={iconOnly || undefined}
     >

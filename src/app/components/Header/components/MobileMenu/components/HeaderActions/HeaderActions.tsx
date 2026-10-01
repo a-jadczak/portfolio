@@ -1,5 +1,4 @@
 import { FaFilePdf, FaGithub, FaLinkedin } from 'react-icons/fa';
-import ExternalLink from '../ExternalLink/ExternalLink';
 import SettingsButton from '../SettingsButton/SettingsButton';
 import styles from './HeaderActions.module.scss';
 import { ButtonLink } from '@/components/ui/Button/ButtonLink';
@@ -17,9 +16,11 @@ const externalLinks = [
 const HeaderActions = () => (
   <div className={styles.externalContainer}>
     <ul className={styles.externalList}>
-      {externalLinks.map((link) => (
-        <li className={styles.externalItem} key={link.href}>
-          <ExternalLink {...link} iconSize={ICON_SIZE} />
+      {externalLinks.map(({ href, label, Icon }) => (
+        <li className={styles.externalItem} key={href}>
+          <ButtonLink iconOnly href={href} target="_blank" rel="noopener" aria-label={label}>
+            <Icon size={ICON_SIZE} aria-hidden="true" />
+          </ButtonLink>
         </li>
       ))}
       <li className={styles.externalItem}>
@@ -27,9 +28,14 @@ const HeaderActions = () => (
       </li>
     </ul>
 
-    <ButtonLink href="/resume.pdf" target="_blank" variant="primary" style={{ fontSize: '0.8rem' }}>
+    <ButtonLink
+      href="/resume.pdf"
+      target="_blank"
+      variant="primary"
+      className={styles.resumeButton}
+    >
       <span>Resume</span>
-      <FaFilePdf size={18} aria-hidden="true" />
+      <FaFilePdf size={16} aria-hidden="true" />
     </ButtonLink>
   </div>
 );
