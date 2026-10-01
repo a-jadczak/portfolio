@@ -1,0 +1,14 @@
+---
+import ConnectSection from '@/features/contact/components/ConnectSection/ConnectSection.astro';
+import PageHero from '@/components/ui/PageHero/PageHero.astro';
+import ContactForm from '@/features/contact/components/ContactForm/ContactForm';
+---
+
+<PageHero
+  eyebrow="Get in touch"
+  title="Let's build something great together!"
+  description="Have a project, an opportunity, or just want to say hello"
+>
+  <ContactForm client:load />
+</PageHero>
+<ConnectSection />

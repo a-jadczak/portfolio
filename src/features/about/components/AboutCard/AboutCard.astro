@@ -1,0 +1,11 @@
+---
+import Card from '@/components/ui/Card/Card.astro';
+import Eyebrow from '@/components/ui/Eyebrow/Eyebrow.astro';
+
+const { eyebrow } = Astro.props;
+---
+
+<Card>
+  <Eyebrow>{eyebrow}</Eyebrow>
+  <slot />
+</Card>

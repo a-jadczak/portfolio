@@ -1,0 +1,17 @@
+---
+import AboutCard from '@/features/about/components/AboutCard/AboutCard.astro';
+import { cards } from '@/features/about/data/cards';
+import styles from './About.module.scss';
+---
+
+<ul class={styles.cardsContainer}>
+  {
+    cards.map(({ title, Content }, index) => (
+      <li>
+        <AboutCard eyebrow={`${index + 1 < 9 && '0'}${index + 1} — ${title}`}>
+          <Content />
+        </AboutCard>
+      </li>
+    ))
+  }
+</ul>

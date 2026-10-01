@@ -1,0 +1,46 @@
+---
+import '@/styles/global.scss';
+import Header from '@/app/components/Header/Header.astro';
+import Footer from '@/app/components/Footer/Footer.astro';
+import PageIndicator from '@/app/components/PageIndicator/PageIndicator.astro';
+import { getCurrentPageInfo } from '@/config/pages';
+import SettingsDialog from '@/features/settings/SettingsDialog/SettingsDialog.astro';
+
+const { title } = Astro.props;
+const currentPath = Astro.url.pathname;
+const currentPageInfo = getCurrentPageInfo(currentPath);
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <Header />
+    <main>
+      <PageIndicator pageInfo={currentPageInfo} />
+      <slot />
+    </main>
+    <Footer />
+    <SettingsDialog />
+  </body>
+</html>
+
+<style lang="scss">
+  @use '../../styles/tokens' as *;
+
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100svh;
+  }
+
+  main {
+    flex: 1;
+    border: 1px solid $border-secondary;
+    border-top: 0;
+    padding: 0.5rem;
+  }
+</style>
