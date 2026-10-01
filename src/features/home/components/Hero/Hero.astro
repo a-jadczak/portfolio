@@ -1,5 +1,5 @@
 ---
-import Button from '@/components/ui/Button/Button';
+import { ButtonLink } from '@/components/ui/Button/ButtonLink';
 import Eyebrow from '@/components/ui/Eyebrow/Eyebrow.astro';
 import Heading from '@/components/ui/Heading/Heading.astro';
 import Text from '@/components/ui/Text/Text.astro';
@@ -17,14 +17,18 @@ import { ArrowRight, Mail } from 'lucide-react';
     </Text>
   </header>
 
-  <Button
-    as="a"
+  <ButtonLink
     href="/projects"
     variant="primary"
-    text="View Projects"
-    Icon={ArrowRight}
+    className={styles.button}
     style={{ margin: '0.5rem 0' }}
-  />
+  >
+    <span>View Projects</span>
+    <ArrowRight className={styles.icon} size={18} aria-hidden="true" />
+  </ButtonLink>
 
-  <Button as="a" href="/contact" variant="default" text="Contact me" Icon={Mail} />
+  <ButtonLink href="/contact" variant="default" className={styles.button}>
+    <span>Contact me</span>
+    <Mail className={styles.icon} size={18} aria-hidden="true" />
+  </ButtonLink>
 </section>

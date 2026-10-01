@@ -1,5 +1,5 @@
 import styles from './SearchSection.module.scss';
-import Button from '@/components/ui/Button/Button';
+import { Button } from '@/components/ui/Button/Button';
 import { SlidersHorizontal } from 'lucide-react';
 
 const SearchSection = () => {
@@ -11,13 +11,10 @@ const SearchSection = () => {
           type="text"
           placeholder="Search projects..."
         />
-        <Button
-          as="button"
-          variant="default"
-          text="Filters"
-          Icon={SlidersHorizontal}
-          className={styles.filterButton}
-        />
+        <Button variant="default" className={styles.filterButton}>
+          <span>Filters</span>
+          <SlidersHorizontal size={18} aria-hidden="true" />
+        </Button>
       </div>
       <div className={styles.resultsContainer}>
         <span>6 projects</span>

@@ -2,7 +2,7 @@ import { FaFilePdf, FaGithub, FaLinkedin } from 'react-icons/fa';
 import ExternalLink from '../ExternalLink/ExternalLink';
 import SettingsButton from '../SettingsButton/SettingsButton';
 import styles from './HeaderActions.module.scss';
-import Button from '@/components/ui/Button/Button';
+import { ButtonLink } from '@/components/ui/Button/ButtonLink';
 
 const ICON_SIZE = 18;
 const externalLinks = [
@@ -27,15 +27,10 @@ const HeaderActions = () => (
       </li>
     </ul>
 
-    <Button
-      as="a"
-      href="/resume.pdf"
-      target="_blank"
-      text="Resume"
-      variant="primary"
-      style={{ fontSize: '0.8rem' }}
-      Icon={FaFilePdf}
-    />
+    <ButtonLink href="/resume.pdf" target="_blank" variant="primary" style={{ fontSize: '0.8rem' }}>
+      <span>Resume</span>
+      <FaFilePdf size={18} aria-hidden="true" />
+    </ButtonLink>
   </div>
 );
 

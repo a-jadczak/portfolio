@@ -1,68 +1,30 @@
-import type { CSSProperties, FC, HTMLAttributeAnchorTarget, MouseEventHandler } from 'react';
-import type { Icon } from '@/types/Icon';
+import type { ComponentPropsWithoutRef } from 'react';
 import styles from './Button.module.scss';
 
-type CommonProps = {
-  text?: string;
-  variant: 'default' | 'primary';
-  Icon?: Icon;
-  className?: string;
-  style?: CSSProperties;
-  onClick?: MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
-  'aria-label'?: string;
+export type AppearanceProps = {
+  variant?: 'default' | 'primary';
+  iconOnly?: boolean;
 };
 
-type ElementPropsMap = {
-  a: {
-    href: string;
-    target?: HTMLAttributeAnchorTarget;
-    rel?: string;
-  };
-  button: {
-    type?: 'button' | 'submit' | 'reset';
-    disabled?: boolean;
-  };
-};
+export type ButtonProps = ComponentPropsWithoutRef<'button'> & AppearanceProps;
 
-type PropsFor<Element extends keyof ElementPropsMap> = CommonProps & {
-  as: Element;
-} & ElementPropsMap[Element];
-
-export type ButtonProps = {
-  [Element in keyof ElementPropsMap]: PropsFor<Element>;
-}[keyof ElementPropsMap];
-
-const propsMap = {
-  a: ({ href, target, rel }: PropsFor<'a'>) => ({ href, target, rel }),
-  button: ({ type = 'button', disabled }: PropsFor<'button'>) => ({ type, disabled }),
-};
-
-const Button: FC<ButtonProps> = (props) => {
-  const {
-    as: Component,
-    text,
-    variant,
-    Icon,
-    className = '',
-    style,
-    onClick,
-    'aria-label': label,
-  } = props;
-  const buttonClassName = `clipped-corners ${styles.button} ${styles[variant]} ${className}`.trim();
-  const selectedProps = props.as === 'a' ? propsMap.a(props) : propsMap.button(props);
-
+export function Button({
+  children,
+  variant = 'default',
+  iconOnly = false,
+  className = '',
+  type = 'button',
+  ...props
+}: ButtonProps) {
   return (
-    <Component
-      {...selectedProps}
-      className={buttonClassName}
-      style={style}
-      onClick={onClick}
-      aria-label={label}
+    <button
+      {...props}
+      type={type}
+      className={`clipped-corners ${styles.button} ${className}`}
+      data-variant={variant}
+      data-icon-only={iconOnly || undefined}
     >
-      {text && <span className={styles.buttonContent}>{text}</span>}
-      {Icon && <Icon className={styles.buttonContentIcon} size={18} />}
-    </Component>
+      {children}
+    </button>
   );
-};
-
-export default Button;
+}

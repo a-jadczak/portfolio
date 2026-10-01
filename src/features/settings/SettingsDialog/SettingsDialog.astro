@@ -7,7 +7,7 @@ import Heading from '@/components/ui/Heading/Heading.astro';
 import SegmentedControl from '@/components/ui/SegmentedControl/SegmentedControl';
 import Divider from '@/components/ui/Divider/Divider.astro';
 import Text from '@/components/ui/Text/Text.astro';
-import Button from '@/components/ui/Button/Button';
+import { Button } from '@/components/ui/Button/Button';
 import Toggle from '@/components/ui/Toggle/Toggle';
 
 const colors = ['red', 'lawngreen', 'blue', 'purple'];
@@ -22,14 +22,9 @@ const colors = ['red', 'lawngreen', 'blue', 'purple'];
     <Settings size={28} aria-hidden="true" />
     <Heading as="h2" size="small" id="settings-title">Settings</Heading>
     <form method="dialog">
-      <Button
-        as="button"
-        type="submit"
-        variant="default"
-        Icon={X}
-        aria-label="Close settings"
-        style={{ padding: '0.5rem' }}
-      />
+      <Button type="submit" variant="default" iconOnly aria-label="Close settings">
+        <X size={18} aria-hidden="true" />
+      </Button>
     </form>
   </header>
   <Divider />

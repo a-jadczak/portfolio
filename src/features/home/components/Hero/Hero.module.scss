@@ -11,28 +11,14 @@
   color: $primary;
 }
 
-.viewProjectsButton,
-.contactButton {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.button {
+  position: relative;
   width: 100%;
-  margin: 0.5rem 0;
-  padding: 0.5rem 1rem;
-  font-size: 0.9rem;
-  border: 1px solid $border-secondary;
+  display: flex;
+  text-align: center;
 
-  .buttonContent {
-    flex: 1 1 auto;
-    text-align: center;
-  }
-}
-
-.viewProjectsButton {
-  background: $gradient-primary;
-
-  &:not(:disabled):hover,
-  &:not(:disabled):focus-visible {
-    border-color: transparent;
+  .icon {
+    position: absolute;
+    right: 1rem;
   }
 }

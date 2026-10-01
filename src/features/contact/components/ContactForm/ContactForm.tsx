@@ -1,5 +1,5 @@
 import { Send } from 'lucide-react';
-import Button from '@/components/ui/Button/Button';
+import { Button } from '@/components/ui/Button/Button';
 import ContactFormHeader from '../ContactFormHeader/ContactFormHeader';
 import FormField from '../FormField/FormField';
 import styles from './ContactForm.module.scss';
@@ -58,14 +58,10 @@ const ContactForm = () => {
             required
           ></textarea>
         </FormField>
-        <Button
-          as="button"
-          text="Send message"
-          variant="primary"
-          Icon={Send}
-          type="submit"
-          style={{ width: '100%' }}
-        />
+        <Button variant="primary" type="submit" style={{ width: '100%' }}>
+          <span>Send message</span>
+          <Send size={18} aria-hidden="true" />
+        </Button>
       </form>
     </div>
   );
