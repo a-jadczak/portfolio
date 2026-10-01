@@ -1,9 +1,9 @@
 ---
 import styles from './SettingsDialog.module.scss';
-import { Moon, Settings, Sun, X } from 'lucide-react';
+import { Moon, Settings, Sun } from 'lucide-react';
 import ColorPickerList from '../components/ColorPickerList/ColorPickerList';
 import SettingsField from '../components/SettingsField/SettingsField.astro';
-import Heading from '@/components/ui/Heading/Heading.astro';
+import Dialog from '@/components/ui/Dialog/Dialog';
 import SegmentedControl from '@/components/ui/SegmentedControl/SegmentedControl';
 import Divider from '@/components/ui/Divider/Divider.astro';
 import Text from '@/components/ui/Text/Text.astro';
@@ -13,20 +13,7 @@ import Toggle from '@/components/ui/Toggle/Toggle';
 const colors = ['red', 'lawngreen', 'blue', 'purple'];
 ---
 
-<dialog
-  id="settings-dialog"
-  class={`clipped-corners ${styles.dialog}`}
-  aria-labelledby="settings-title"
->
-  <header class={styles.header}>
-    <Settings size={28} aria-hidden="true" />
-    <Heading as="h2" size="small" id="settings-title">Settings</Heading>
-    <form method="dialog">
-      <Button type="submit" variant="default" iconOnly aria-label="Close settings">
-        <X size={18} aria-hidden="true" />
-      </Button>
-    </form>
-  </header>
+<Dialog id="settings-dialog" title="Settings" titleId="settings-title" Icon={Settings}>
   <Divider />
   <SettingsField title="Theme">
     <SegmentedControl
@@ -56,5 +43,5 @@ const colors = ['red', 'lawngreen', 'blue', 'purple'];
   <SettingsField title="Accent color">
     <ColorPickerList client:load colors={colors} />
   </SettingsField>
-  <Button variant="link" className={styles.systemPreferences}>Use system preferences</Button>
-</dialog>
+  <Button variant="link">Use system preferences</Button>
+</Dialog>

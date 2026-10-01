@@ -16,7 +16,7 @@
 
     padding: 0.5rem;
 
-    &:focus {
+    &:focus-visible {
       border-color: $primary;
     }
   }

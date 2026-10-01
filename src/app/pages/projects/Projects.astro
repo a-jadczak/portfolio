@@ -1,5 +1,6 @@
 ---
 import PageHero from '@/components/ui/PageHero/PageHero.astro';
+import FilterDialog from '@/features/projects/components/FilterDialog/FilterDialog';
 import ProjectsSection from '@/features/projects/components/ProjectsSection/ProjectsSection';
 ---
 
@@ -10,3 +11,4 @@ import ProjectsSection from '@/features/projects/components/ProjectsSection/Proj
 />
 
 <ProjectsSection client:load />
+<FilterDialog />

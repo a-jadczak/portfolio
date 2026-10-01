@@ -3,6 +3,14 @@ import { Button } from '@/components/ui/Button/Button';
 import { SlidersHorizontal } from 'lucide-react';
 
 const SearchSection = () => {
+  const handleClick = () => {
+    const dialog = document.getElementById('filter-dialog');
+
+    if (dialog instanceof HTMLDialogElement) {
+      dialog.showModal();
+    }
+  };
+
   return (
     <div className={styles.form}>
       <div className={styles.searchContainer}>
@@ -11,7 +19,7 @@ const SearchSection = () => {
           type="text"
           placeholder="Search projects..."
         />
-        <Button variant="default" className={styles.filterButton}>
+        <Button variant="default" className={styles.filterButton} onClick={handleClick}>
           <span>Filters</span>
           <SlidersHorizontal size={18} aria-hidden="true" />
         </Button>
