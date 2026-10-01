@@ -1,0 +1,24 @@
+---
+import { ButtonLink } from '@/components/ui/Button/ButtonLink';
+import Heading from '@/components/ui/Heading/Heading.astro';
+import Text from '@/components/ui/Text/Text.astro';
+import { ArrowRight } from 'lucide-react';
+import styles from './PageNotFound.module.scss';
+---
+
+<section class={styles.container}>
+  <header class={styles.header}>
+    <Heading as="h1" size="large" class={styles.title}>404</Heading>
+    <Text size="large" class={styles.description}>This page went off the grid.</Text>
+    <Text variant="secondary" class={styles.secondary}
+      >The URL may be incorrect, or the page has moved somewhere else.</Text
+    >
+  </header>
+
+  <div>
+    <ButtonLink href="/" variant="primary" className={styles.button} style={{ margin: '0.5rem 0' }}>
+      <span>Back to Home</span>
+      <ArrowRight size={26} aria-hidden="true" />
+    </ButtonLink>
+  </div>
+</section>
