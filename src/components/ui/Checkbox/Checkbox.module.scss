@@ -1,0 +1,50 @@
+@use '@/styles/tokens' as *;
+@use 'sass:math';
+
+.checkbox {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.5rem;
+  border: 2px solid $border-secondary;
+  cursor: pointer;
+
+  &:hover {
+    border-color: $primary-light;
+  }
+
+  &:has(.input:checked) {
+    border-color: $primary-light;
+    background: $primary-subtle;
+
+    .box {
+      border-color: transparent;
+      background: $primary;
+      color: $text-on-primary;
+    }
+  }
+
+  &:has(.input:focus-visible) {
+    outline: 2px solid $focus-ring;
+    outline-offset: 3px;
+  }
+}
+
+.input {
+  position: absolute;
+}
+
+.box {
+  display: grid;
+  place-items: center;
+  width: 1.1rem;
+  height: 1.1rem;
+  color: transparent;
+  border-radius: math.div($border-radius, 1.75);
+  border: 2px solid $text-muted;
+}
+
+.label {
+  font-size: 1rem;
+}
