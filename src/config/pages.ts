@@ -12,5 +12,9 @@ export type PageName = (typeof pages)[number]['name'];
 export const getCurrentPageInfo = (href: string): PageInfo => {
   const index = pages.findIndex((page) => page.href === href);
 
-  return { name: pages[index]?.name ?? '', index };
+  if (index === -1) {
+    return { name: 'Page not found', indicator: '404' };
+  }
+
+  return { name: pages[index]?.name ?? '', indicator: `0${index + 1}` };
 };

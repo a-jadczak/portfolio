@@ -8,11 +8,11 @@ interface Props {
 }
 
 const {
-  pageInfo: { name, index },
+  pageInfo: { name, indicator },
 }: Props = Astro.props;
 ---
 
 <Text class={styles.sidebar}>
-  <span class={styles.index}>0{index + 1} </span>
+  <span class={styles.index}>{indicator} </span>
   / {name}
 </Text>
