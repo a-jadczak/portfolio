@@ -2,23 +2,18 @@ import { Button } from '@/components/ui/Button/Button';
 import styles from './Gallery.module.scss';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 
-const images = [
-  'https://picsum.photos/400/200',
-  'https://picsum.photos/400/200',
-  'https://picsum.photos/400/200',
-  'https://picsum.photos/400/200',
-  'https://picsum.photos/400/200',
-  'https://picsum.photos/400/200',
-  'https://picsum.photos/400/200',
-];
+interface GalleryProps {
+  banner: string;
+  gallery: string[];
+}
 
-const Gallery = () => {
+const Gallery = ({ banner, gallery }: GalleryProps) => {
   return (
     <div className={`${styles.galleryContainer}`}>
       <div className={`${styles.itemPreview}`}>
         <img
           className={`clipped-corners  ${styles.previewImage}`}
-          src="https://picsum.photos/400/200"
+          src={banner}
           alt="Preview"
           draggable={false}
         />
@@ -31,7 +26,7 @@ const Gallery = () => {
       </div>
       <span className={styles.index}>2 / 5</span>
       <ul className={styles.galleryCarousel}>
-        {images.map((image, index) => (
+        {gallery.map((image, index) => (
           <li key={index} className={`clipped-corners ${styles.galleryItem}`}>
             <img
               className={`clipped-corners  ${styles.galleryImage}`}
