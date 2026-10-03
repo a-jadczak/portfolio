@@ -1,0 +1,20 @@
+type:
+  - Mobile
+  - Desktop
+status: Completed
+
+technologies:
+  - React
+  - TypeScript
+  - SCSS
+
+banner: https://picsum.photos/1920/1080
+
+gallery:
+  - https://picsum.photos/800/1800
+  - https://picsum.photos/1200/1800
+  - https://picsum.photos/800/200
+  - https://picsum.photos/400/700
+  - https://picsum.photos/600/600
+  - https://picsum.photos/400/700
+  - https://picsum.photos/500/300
