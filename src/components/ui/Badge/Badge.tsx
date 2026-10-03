@@ -1,7 +1,13 @@
 import styles from './Badge.module.scss';
 
-const Badge = ({ title }: { title: string }) => {
-  return <div className={styles.badge}>{title}</div>;
+type BadgeProps = {
+  title: string;
+  variant?: 'default' | 'secondary';
+  className?: string;
+};
+
+const Badge = ({ title, variant = 'default', className = '' }: BadgeProps) => {
+  return <div className={`${styles.badge} ${styles[variant]} ${className}`}>{title}</div>;
 };
 
 export default Badge;

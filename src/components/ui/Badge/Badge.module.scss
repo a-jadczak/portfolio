@@ -13,3 +13,9 @@
   cursor: default;
   user-select: none;
 }
+
+.secondary {
+  background-color: transparent;
+  border-color: $border-secondary;
+  color: $text-secondary;
+}
