@@ -1,0 +1,91 @@
+import { Button } from '@/components/ui/Button/Button';
+import styles from './Gallery.module.scss';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
+
+const Gallery = () => {
+  return (
+    <div className={`${styles.galleryContainer}`}>
+      <div className={`${styles.itemPreview}`}>
+        <img
+          className={`clipped-corners  ${styles.previewImage}`}
+          src="https://picsum.photos/400/200"
+          alt="Preview"
+        />
+        <Button variant="default" className={styles.arrowButton} iconOnly>
+          <ArrowLeft size={24} />
+        </Button>
+        <Button variant="default" className={styles.arrowButton} iconOnly>
+          <ArrowRight size={24} />
+        </Button>
+      </div>
+      <span>2 / 5</span>
+      <ul className={styles.galleryCarousel}>
+        <li className={`clipped-corners ${styles.galleryItem}`}>
+          <img
+            className={`clipped-corners  ${styles.galleryImage}`}
+            src="https://picsum.photos/400/200"
+            alt="Preview"
+          />
+        </li>
+        <li className={`clipped-corners ${styles.galleryItem}`}>
+          <img
+            className={`clipped-corners  ${styles.galleryImage}`}
+            src="https://picsum.photos/400/200"
+            alt="Preview"
+          />
+        </li>
+        <li className={`clipped-corners ${styles.galleryItem}`}>
+          <img
+            className={`clipped-corners  ${styles.galleryImage}`}
+            src="https://picsum.photos/400/200"
+            alt="Preview"
+          />
+        </li>
+        <li className={`clipped-corners ${styles.galleryItem}`}>
+          <img
+            className={`clipped-corners  ${styles.galleryImage}`}
+            src="https://picsum.photos/400/200"
+            alt="Preview"
+          />
+        </li>
+        <li className={`clipped-corners ${styles.galleryItem}`}>
+          <img
+            className={`clipped-corners  ${styles.galleryImage}`}
+            src="https://picsum.photos/400/200"
+            alt="Preview"
+          />
+        </li>
+        <li className={`clipped-corners ${styles.galleryItem}`}>
+          <img
+            className={`clipped-corners  ${styles.galleryImage}`}
+            src="https://picsum.photos/400/200"
+            alt="Preview"
+          />
+        </li>
+        <li className={`clipped-corners ${styles.galleryItem}`}>
+          <img
+            className={`clipped-corners  ${styles.galleryImage}`}
+            src="https://picsum.photos/400/200"
+            alt="Preview"
+          />
+        </li>
+        <li className={`clipped-corners ${styles.galleryItem}`}>
+          <img
+            className={`clipped-corners  ${styles.galleryImage}`}
+            src="https://picsum.photos/400/200"
+            alt="Preview"
+          />
+        </li>
+        <li className={`clipped-corners ${styles.galleryItem}`}>
+          <img
+            className={`clipped-corners  ${styles.galleryImage}`}
+            src="https://picsum.photos/400/200"
+            alt="Preview"
+          />
+        </li>
+      </ul>
+    </div>
+  );
+};
+
+export default Gallery;
