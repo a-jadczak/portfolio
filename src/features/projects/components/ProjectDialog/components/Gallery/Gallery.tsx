@@ -29,7 +29,7 @@ const Gallery = () => {
           <ArrowRight size={24} />
         </Button>
       </div>
-      <span>2 / 5</span>
+      <span className={styles.index}>2 / 5</span>
       <ul className={styles.galleryCarousel}>
         {images.map((image, index) => (
           <li key={index} className={`clipped-corners ${styles.galleryItem}`}>

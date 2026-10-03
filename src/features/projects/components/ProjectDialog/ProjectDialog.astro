@@ -12,37 +12,39 @@ import Gallery from './components/Gallery/Gallery';
 <Dialog
   className={styles.dialog}
   id="project-dialog"
-  title="Project"
+  title="Project / 01"
+  closeLabel="Close project dialog"
   titleId="project-title"
-  Icon={FolderBookmark}
   open
 >
-  <Heading as="h2">Project name</Heading>
-  <Text variant="secondary" size="small">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, repellendus!
-  </Text>
-  <div class={styles.metaContainer}>
-    <div class={styles.metaItem}>
-      <span class={styles.metaLabel}>Type</span>
-      <span class={styles.metaValue}>Web application</span>
+  <div class={`clipped-corners ${styles.container}`}>
+    <Heading as="h3">Project name</Heading>
+    <Text variant="secondary" size="small">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, repellendus!
+    </Text>
+    <div class={styles.metaContainer}>
+      <div class={styles.metaItem}>
+        <span class={styles.metaLabel}>Type</span>
+        <span class={styles.metaValue}>Web application</span>
+      </div>
+      <div class={styles.metaItem}>
+        <span class={styles.metaLabel}>Status</span>
+        <span class={styles.metaValue}>Completed</span>
+      </div>
+      <div class={styles.metaItem}>
+        <span class={styles.metaLabel}>Year</span>
+        <span class={styles.metaValue}>2026</span>
+      </div>
     </div>
-    <div class={styles.metaItem}>
-      <span class={styles.metaLabel}>Status</span>
-      <span class={styles.metaValue}>Completed</span>
-    </div>
-    <div class={styles.metaItem}>
-      <span class={styles.metaLabel}>Year</span>
-      <span class={styles.metaValue}>2026</span>
-    </div>
-  </div>
-  <ButtonLink variant="primary" href="" target="_blank">
-    <span>Live demo</span>
-    <SquareArrowOutUpRight />
-  </ButtonLink>
-  <ButtonLink variant="default" href="" target="_blank">
-    <span>Github repository</span>
-    <FaGithub />
-  </ButtonLink>
+    <ButtonLink className={styles.button} variant="primary" href="" target="_blank">
+      <span>Live demo</span>
+      <SquareArrowOutUpRight />
+    </ButtonLink>
+    <ButtonLink className={styles.button} variant="default" href="" target="_blank">
+      <span>Github repository</span>
+      <FaGithub />
+    </ButtonLink>
 
-  <Gallery client:load />
+    <Gallery client:load />
+  </div>
 </Dialog>

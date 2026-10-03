@@ -1,3 +1,46 @@
+@use '@/styles/tokens' as *;
+
 .dialog {
   width: min(32rem, calc(100vw - 2rem));
+}
+
+.container {
+  margin-top: 0.5rem;
+  padding: 1rem;
+  border: 1px solid $border-secondary;
+
+  .metaContainer {
+    display: flex;
+    margin-top: 0.5rem;
+    .metaItem {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      flex: 1;
+      padding: 0.5rem;
+      border-right: 2px solid $border-secondary;
+
+      .metaLabel {
+        text-transform: uppercase;
+      }
+
+      .metaValue {
+        color: $text-secondary;
+      }
+    }
+    .metaItem:last-child {
+      border-right: 0px;
+    }
+  }
+
+  .button {
+    position: relative;
+    width: 100%;
+    margin-top: 0.5rem;
+
+    & > svg {
+      position: absolute;
+      right: 1rem;
+    }
+  }
 }
