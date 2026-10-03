@@ -18,6 +18,10 @@
     background: $gradient-primary;
   }
 
+  &[data-variant='default'] {
+    background: $surface;
+  }
+
   &[data-variant='link'] {
     gap: 0;
     padding: 0;
