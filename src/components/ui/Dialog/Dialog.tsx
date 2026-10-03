@@ -1,15 +1,16 @@
-import type { ComponentPropsWithoutRef } from 'react';
-import type { Icon } from '@/types/Icon';
-import { X } from 'lucide-react';
 import { Button } from '@/components/ui/Button/Button';
 import Heading from '@/components/ui/Heading/Heading';
 import styles from './Dialog.module.scss';
+import type { ComponentPropsWithoutRef } from 'react';
+import type { Icon } from '@/types/Icon';
+import { X } from 'lucide-react';
+import Badge from '@/components/ui/Badge/Badge';
 
 type DialogProps = ComponentPropsWithoutRef<'dialog'> & {
   id: string;
   title: string;
   titleId?: string;
-  Icon: Icon;
+  Icon?: Icon;
   closeLabel?: string;
 };
 
@@ -30,10 +31,18 @@ const Dialog = ({
     aria-labelledby={titleId}
   >
     <header className={styles.header}>
-      <Icon size={28} aria-hidden="true" />
-      <Heading as="h2" size="small" id={titleId}>
-        {title}
-      </Heading>
+      {Icon ? (
+        <>
+          <Icon size={28} aria-hidden="true" />
+          <Heading as="h2" size="small" id={titleId}>
+            {title}
+          </Heading>
+        </>
+      ) : (
+        <div className={styles.badgeContainer}>
+          <Badge variant={'secondary'} title={'Project / 01'} className={styles.badge} />
+        </div>
+      )}
       <form method="dialog">
         <Button type="submit" iconOnly aria-label={closeLabel}>
           <X size={18} aria-hidden="true" />
