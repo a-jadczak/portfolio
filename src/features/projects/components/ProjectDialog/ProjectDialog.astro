@@ -11,13 +11,14 @@ import YAML from 'yaml';
 import { readFileSync } from 'node:fs';
 import type { ProjectMetadata } from '@/types/ProjectMetadata';
 import { formatWithComma } from './utils/formatWithComma';
-import { getFeaturedProjects } from '@/lib/github';
+import { getFeaturedProjects, getProjects } from '@/lib/github';
 
 const PATH = './src/mocks/.github';
 const content = readFileSync(`${PATH}/portfolio.yaml`, 'utf-8');
 const metadata: ProjectMetadata = YAML.parse(content);
 
 console.log(JSON.stringify(await getFeaturedProjects(), null, 2));
+console.log(JSON.stringify(await getProjects(), null, 2));
 ---
 
 <Dialog

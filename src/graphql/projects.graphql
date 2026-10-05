@@ -1,0 +1,32 @@
+query PortfolioRepositories {
+  viewer {
+    pinnedItems(first: 6, types: REPOSITORY) {
+      nodes {
+        ... on Repository {
+          name
+        }
+      }
+    }
+
+    repositories(first: 100, orderBy: { field: UPDATED_AT, direction: DESC }) {
+      nodes {
+        name
+        description
+        homepageUrl
+        url
+
+        metadata: object(expression: "HEAD:portfolio.yaml") {
+          ... on Blob {
+            text
+          }
+        }
+
+        readme: object(expression: "HEAD:README.md") {
+          ... on Blob {
+            text
+          }
+        }
+      }
+    }
+  }
+}

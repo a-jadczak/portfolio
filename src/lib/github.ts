@@ -1,12 +1,15 @@
 import { print } from 'graphql';
 import type { DocumentNode } from 'graphql';
 import featuredProjectsQuery from '@/graphql/featuredProjects.graphql';
+import projectsQuery from '@/graphql/projects.graphql';
 
 export async function getFeaturedProjects() {
   return githubGraphQL(featuredProjectsQuery);
 }
 
-export async function getProjects() {}
+export async function getProjects() {
+  return githubGraphQL(projectsQuery);
+}
 
 export async function githubGraphQL<T>(queryAST: DocumentNode, variables = {}): Promise<T> {
   const query = print(queryAST);
