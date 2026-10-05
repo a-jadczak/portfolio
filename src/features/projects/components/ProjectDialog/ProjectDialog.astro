@@ -2,7 +2,7 @@
 import Dialog from '@/components/ui/Dialog/Dialog';
 import Heading from '@/components/ui/Heading/Heading.astro';
 import Text from '@/components/ui/Text/Text.astro';
-import { FolderBookmark, SquareArrowOutUpRight } from 'lucide-react';
+import { SquareArrowOutUpRight } from 'lucide-react';
 import styles from './ProjectDialog.module.scss';
 import { ButtonLink } from '@/components/ui/Button/ButtonLink';
 import { FaGithub } from 'react-icons/fa';
@@ -11,12 +11,13 @@ import YAML from 'yaml';
 import { readFileSync } from 'node:fs';
 import type { ProjectMetadata } from '@/types/ProjectMetadata';
 import { formatWithComma } from './utils/formatWithComma';
+import { getFeaturedProjects } from '@/lib/github';
 
 const PATH = './src/mocks/.github';
 const content = readFileSync(`${PATH}/portfolio.yaml`, 'utf-8');
 const metadata: ProjectMetadata = YAML.parse(content);
 
-console.log(metadata);
+console.log(JSON.stringify(await getFeaturedProjects(), null, 2));
 ---
 
 <Dialog
