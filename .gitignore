@@ -14,6 +14,11 @@ node_modules/
 .codex
 .agents
 
+# Postman
+.postman/
+postman/
+postman/*.environment.json
+
 # test output
 test-results/
 playwright-report/
