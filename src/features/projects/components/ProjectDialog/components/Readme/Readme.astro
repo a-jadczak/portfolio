@@ -8,4 +8,34 @@ interface Props {
 const { html } = Astro.props;
 ---
 
-<div set:html={html} class={styles.readme} />
+<div set:html={html} class:list={['readme', styles.readme]} />
+
+<script>
+  import mermaid from 'mermaid';
+
+  mermaid.initialize({
+    startOnLoad: false,
+    theme: 'default',
+  });
+
+  async function renderMermaid() {
+    const flowcharts = document.querySelectorAll('.readme pre > code.language-mermaid');
+
+    for (const code of flowcharts) {
+      const pre = code.parentElement;
+      if (!pre) continue;
+
+      const container = document.createElement('div');
+      container.classList.add('mermaid');
+      container.textContent = code.textContent;
+
+      pre.replaceWith(container);
+    }
+
+    await mermaid.run({
+      querySelector: '.readme .mermaid',
+    });
+  }
+
+  renderMermaid();
+</script>
