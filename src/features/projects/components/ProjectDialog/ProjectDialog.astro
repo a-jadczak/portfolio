@@ -11,12 +11,24 @@ import YAML from 'yaml';
 import { readFileSync } from 'node:fs';
 import type { ProjectMetadata } from '@/types/ProjectMetadata';
 import { formatWithComma } from './utils/formatWithComma';
-import { getFeaturedProjects, getProjects } from '@/lib/github';
+//import { getFeaturedProjects, getProjects } from '@/lib/github';
 import Divider from '@/components/ui/Divider/Divider';
+import { marked, type Tokens } from 'marked';
+import { removeEmoji } from './utils/emoji';
 
 const PATH = './src/mocks/.github';
 const content = readFileSync(`${PATH}/portfolio.yaml`, 'utf-8');
 const metadata: ProjectMetadata = YAML.parse(content);
+
+const readme = readFileSync(`./src/mocks/project-description.md`, 'utf-8');
+const tokens = marked.lexer(readme);
+
+const headings = tokens
+  .filter((token): token is Tokens.Heading => token.type === 'heading' && token.depth === 2)
+  .map(({ text }) => removeEmoji(text));
+
+const blockedHeadings = ['Table of Contents', 'Demo', 'Screenshots'];
+const finalHeadings: string[] = headings.filter((heading) => !blockedHeadings.includes(heading));
 
 // console.log(JSON.stringify(await getFeaturedProjects(), null, 2));
 // console.log(JSON.stringify(await getProjects(), null, 2));
@@ -65,14 +77,22 @@ const metadata: ProjectMetadata = YAML.parse(content);
 
   <div class={`clipped-corners ${styles.container}`}>
     <ul class={styles.navigationCarousel}>
-      <li class={`clipped-corners ${styles.navigationCarouselItem}`} data-active="true">
-        <span>Overview</span>
-      </li>
-      <li class={`clipped-corners ${styles.navigationCarouselItem}`}><span>Features</span></li>
-      <li class={`clipped-corners ${styles.navigationCarouselItem}`}><span>Tech Stack</span></li>
-      <li class={`clipped-corners ${styles.navigationCarouselItem}`}><span>Architecture</span></li>
-      <li class={`clipped-corners ${styles.navigationCarouselItem}`}><span>Challenges</span></li>
+      {
+        finalHeadings.map((heading) => (
+          <li
+            class={`clipped-corners ${styles.navigationCarouselItem}`}
+            data-active="false"
+            role="button"
+          >
+            <span>{heading}</span>
+          </li>
+        ))
+      }
     </ul>
     <Divider />
+
+    <div class={styles.readme}>
+      <!-- <div set:html={html} /> -->
+    </div>
   </div>
 </Dialog>
