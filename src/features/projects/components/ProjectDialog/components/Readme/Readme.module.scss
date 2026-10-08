@@ -1,0 +1,122 @@
+@use '@/styles/tokens' as *;
+
+.readme {
+  min-width: 0;
+  margin-top: 0.5rem;
+  color: $text-secondary;
+  line-height: 1.65;
+
+  h2,
+  h3,
+  h4 {
+    color: $text-primary;
+    line-height: 1.25;
+  }
+
+  h2 {
+    margin: 2rem 0 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid $border-secondary;
+    font-size: 1.35rem;
+  }
+
+  h2:first-child {
+    margin-top: 0;
+  }
+
+  h3 {
+    margin: 1rem 0 0.5rem;
+    font-size: 1.1rem;
+  }
+
+  p,
+  ol,
+  blockquote,
+  pre,
+  table {
+    margin: 0.75rem 0;
+  }
+
+  li {
+    display: list-item;
+    list-style-position: inside;
+    margin: 0.25rem 0;
+  }
+
+  li::marker {
+    color: $text-accent;
+  }
+
+  a {
+    color: $text-accent;
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+
+  a:hover {
+    color: $primary-hover;
+  }
+
+  code {
+    padding: 0.1em 0.3em;
+    border-radius: 0.25rem;
+    background: $surface-raised;
+    font-size: 0.9em;
+  }
+
+  pre {
+    max-width: 100%;
+    padding: 1rem;
+    overflow-x: auto;
+    border: 1px solid $border-secondary;
+    border-radius: $border-radius;
+    background: $surface-raised;
+
+    code {
+      padding: 0;
+      background: none;
+      white-space: pre;
+    }
+  }
+
+  details {
+    cursor: pointer;
+    br {
+      display: none;
+    }
+    p {
+      margin: 0.5rem 0;
+    }
+  }
+
+  blockquote {
+    padding: 0.25rem 1rem;
+    border-left: 3px solid $primary;
+    color: $text-muted;
+  }
+
+  table {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    border-collapse: collapse;
+  }
+
+  th,
+  td {
+    padding: 0.5rem 0.75rem;
+    border: 1px solid $border-secondary;
+    text-align: left;
+  }
+
+  th {
+    color: $text-primary;
+    background: $surface-raised;
+  }
+
+  hr {
+    margin: 1.5rem 0;
+    border: 0;
+    border-top: 1px solid $border-secondary;
+  }
+}

@@ -1,0 +1,11 @@
+---
+import styles from './Readme.module.scss';
+
+interface Props {
+  html: string;
+}
+
+const { html } = Astro.props;
+---
+
+<div set:html={html} class={styles.readme} />

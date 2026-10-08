@@ -7,6 +7,7 @@
 }
 
 .container {
+  min-width: 0;
   margin-top: 0.5rem;
   padding: 1rem;
   border: 1px solid $border-secondary;
@@ -51,6 +52,7 @@
     display: flex;
     align-items: center;
     gap: 0.25rem;
+    max-width: 100%;
     overflow: auto;
 
     .navigationCarouselItem {
@@ -71,8 +73,5 @@
         background-color: $surface;
       }
     }
-  }
-
-  .readme {
   }
 }
