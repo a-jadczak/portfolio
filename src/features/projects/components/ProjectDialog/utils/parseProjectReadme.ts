@@ -9,9 +9,15 @@ interface ReturnType {
 
 const blockedHeadings = ['Table of Contents', 'Demo', 'Screenshots'];
 
+/**
+ * Checks if a token object is a heading.
+ */
 const isHeading = (token: Nullable<Token>): token is Tokens.Heading =>
   token != null && token.type === 'heading' && token.depth === 2;
 
+/**
+ * Filters readme of blocked content.
+ */
 export const parseProjectReadme = (readme: string): ReturnType => {
   const tokens: Nullable<Token>[] = marked.lexer(readme);
 
@@ -21,6 +27,9 @@ export const parseProjectReadme = (readme: string): ReturnType => {
   return { headings, html };
 };
 
+/**
+ * Removes blocked headings and their content from readme
+ */
 const removeHeadingsContent = (tokens: Nullable<Token>[]) => {
   // Removing = replacing array element with a null
   let removing = true; // If set to true, removes also title and its content
@@ -50,6 +59,9 @@ const removeHeadingsContent = (tokens: Nullable<Token>[]) => {
   return marked.parser(finalContent);
 };
 
+/**
+ * Removes emoji from the heading and excludes blocked elements.
+ */
 const parseHeadings = (tokens: Nullable<Token>[]): string[] => {
   const headings = tokens.filter(isHeading).map(({ text }) => removeEmoji(text));
 
