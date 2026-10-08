@@ -31,6 +31,7 @@
     "i18next": "^26.4.2",
     "lucide-react": "^1.42.0",
     "marked": "^18.0.14",
+    "mermaid": "^12.1.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "react-i18next": "^17.0.13",
