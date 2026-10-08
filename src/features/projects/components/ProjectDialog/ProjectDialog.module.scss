@@ -1,6 +1,8 @@
 @use '@/styles/tokens' as *;
 
 .dialog {
+  max-height: 90svh;
+  overflow: auto;
   width: min(32rem, calc(100vw - 2rem));
 }
 
