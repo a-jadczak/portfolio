@@ -30,7 +30,7 @@ const Dialog = ({
     className={`clipped-corners ${styles.dialog} ${className}`}
     aria-labelledby={titleId}
   >
-    <header className={styles.header}>
+    <header className={`clipped-corners ${styles.header}`}>
       {Icon ? (
         <>
           <Icon size={28} aria-hidden="true" />
