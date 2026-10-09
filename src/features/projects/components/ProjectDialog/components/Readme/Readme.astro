@@ -8,10 +8,11 @@ interface Props {
 const { html } = Astro.props;
 ---
 
-<div set:html={html} class:list={['readme', styles.readme]} />
+<div set:html={html} id="readme" class:list={['readme', styles.readme]} />
 
 <script>
   import mermaid from 'mermaid';
+  import { removeEmoji } from '@/features/projects/components/ProjectDialog/utils/emoji';
 
   mermaid.initialize({
     startOnLoad: false,
@@ -37,5 +38,14 @@ const { html } = Astro.props;
     });
   }
 
+  function assignIds() {
+    const readmeHeadings = document.querySelectorAll('#readme > h2');
+
+    readmeHeadings.forEach((heading) =>
+      heading.setAttribute('id', removeEmoji(heading.textContent).toLowerCase().replace(' ', '-'))
+    );
+  }
+
+  assignIds();
   renderMermaid();
 </script>
