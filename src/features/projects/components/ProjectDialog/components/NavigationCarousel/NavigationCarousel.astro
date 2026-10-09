@@ -9,7 +9,7 @@ const { headings } = Astro.props;
 ---
 
 <nav aria-label="Projects sections" class={styles.navigation}>
-  <ul class={styles.navigationCarousel}>
+  <ul id="navigation-carousel" class={styles.navigationCarousel}>
     {
       headings.map((heading) => (
         <li
@@ -22,7 +22,38 @@ const { headings } = Astro.props;
       ))
     }
   </ul>
-  <div id="project-dialog-progress-bar" class={styles.progressBar}></div>
 </nav>
 
-<script></script>
+<script>
+  const headings = document.querySelectorAll('#readme h2');
+  const navigationCarousel = document.querySelector('#navigation-carousel')!;
+  let activeLink: Element | null = navigationCarousel.children[0];
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+
+        const targetHref = entry.target.id;
+
+        const currentActiveLink = navigationCarousel.querySelector(
+          `li:has(a[href='#${targetHref}'])`
+        );
+
+        activeLink?.setAttribute('data-active', 'false');
+        currentActiveLink?.setAttribute('data-active', 'true');
+
+        activeLink = currentActiveLink;
+
+        console.log(currentActiveLink);
+      });
+    },
+    {
+      root: document.querySelector('#project-dialog'),
+      rootMargin: '0px 0px -80% 0px',
+      threshold: 0,
+    }
+  );
+
+  headings?.forEach((heading) => observer.observe(heading));
+</script>
