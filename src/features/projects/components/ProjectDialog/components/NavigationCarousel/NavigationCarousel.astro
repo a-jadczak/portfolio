@@ -1,0 +1,23 @@
+---
+import styles from './NavigationCarousel.module.scss';
+
+interface Props {
+  headings: string[];
+}
+
+const { headings } = Astro.props;
+---
+
+<ul class={styles.navigationCarousel}>
+  {
+    headings.map((heading) => (
+      <li
+        class={`clipped-corners ${styles.navigationCarouselItem}`}
+        data-active="false"
+        role="button"
+      >
+        <span>{heading}</span>
+      </li>
+    ))
+  }
+</ul>

@@ -1,0 +1,29 @@
+@use '@/styles/tokens' as *;
+
+.navigationCarousel {
+  counter-reset: nav-counter;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  max-width: 100%;
+  overflow: auto;
+
+  .navigationCarouselItem {
+    border: 2px solid $border-secondary;
+    counter-increment: nav-counter;
+    padding: 0.5rem;
+    flex-shrink: 0;
+    cursor: pointer;
+
+    & > span::before {
+      content: counter(nav-counter, decimal-leading-zero);
+      margin-right: 0.5rem;
+    }
+
+    &[data-active='true'] {
+      border-color: $primary;
+      color: $primary;
+      background-color: $surface;
+    }
+  }
+}

@@ -15,6 +15,7 @@ import Divider from '@/components/ui/Divider/Divider';
 import { parseProjectReadme } from './utils/parseProjectReadme';
 import Readme from './components/Readme/Readme.astro';
 import ProjectMeta from './components/ProjectMeta/ProjectMeta.astro';
+import NavigationCarousel from './components/NavigationCarousel/NavigationCarousel.astro';
 
 const PATH = './src/mocks/.github';
 const content = readFileSync(`${PATH}/portfolio.yaml`, 'utf-8');
@@ -55,19 +56,7 @@ const { headings, html } = parseProjectReadme(readme);
   </div>
 
   <div class={`clipped-corners ${styles.container}`}>
-    <ul class={styles.navigationCarousel}>
-      {
-        headings.map((heading) => (
-          <li
-            class={`clipped-corners ${styles.navigationCarouselItem}`}
-            data-active="false"
-            role="button"
-          >
-            <span>{heading}</span>
-          </li>
-        ))
-      }
-    </ul>
+    <NavigationCarousel {headings} />
     <Divider />
 
     <Readme {html} />
