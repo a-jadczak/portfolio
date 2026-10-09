@@ -8,16 +8,21 @@ interface Props {
 const { headings } = Astro.props;
 ---
 
-<ul class={styles.navigationCarousel}>
-  {
-    headings.map((heading) => (
-      <li
-        class={`clipped-corners ${styles.navigationCarouselItem}`}
-        data-active="false"
-        role="button"
-      >
-        <span>{heading}</span>
-      </li>
-    ))
-  }
-</ul>
+<nav aria-label="Projects sections" class={styles.navigation}>
+  <ul class={styles.navigationCarousel}>
+    {
+      headings.map((heading) => (
+        <li
+          class={`clipped-corners ${styles.navigationCarouselItem}`}
+          data-active="false"
+          role="button"
+        >
+          <a href={`#${heading.toLowerCase().replace(' ', '-')}`}>{heading}</a>
+        </li>
+      ))
+    }
+  </ul>
+  <div id="project-dialog-progress-bar" class={styles.progressBar}></div>
+</nav>
+
+<script></script>
