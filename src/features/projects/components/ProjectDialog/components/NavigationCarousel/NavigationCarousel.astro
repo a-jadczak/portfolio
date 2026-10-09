@@ -25,9 +25,26 @@ const { headings } = Astro.props;
 </nav>
 
 <script>
+  import type { Nullable } from '@/types/Nullable';
+
+  const dialog = document.querySelector('#project-dialog')!;
   const headings = document.querySelectorAll('#readme h2');
   const navigationCarousel = document.querySelector('#navigation-carousel')!;
-  let activeLink: Element | null = navigationCarousel.children[0];
+  let activeLink: Nullable<Element> = navigationCarousel.children[0];
+  let currentActiveLink: Nullable<Element> = navigationCarousel.children[0];
+
+  // Prevents Observer to override scrolling
+  let isScrolling = false;
+
+  navigationCarousel.querySelectorAll('li').forEach((e) =>
+    e.addEventListener('click', () => {
+      isScrolling = true;
+    })
+  );
+
+  dialog.addEventListener('scrollend', () => {
+    isScrolling = false;
+  });
 
   const observer = new IntersectionObserver(
     (entries) => {
@@ -36,24 +53,32 @@ const { headings } = Astro.props;
 
         const targetHref = entry.target.id;
 
-        const currentActiveLink = navigationCarousel.querySelector(
-          `li:has(a[href='#${targetHref}'])`
-        );
+        currentActiveLink = navigationCarousel.querySelector(`li:has(a[href='#${targetHref}'])`);
 
         activeLink?.setAttribute('data-active', 'false');
         currentActiveLink?.setAttribute('data-active', 'true');
 
         activeLink = currentActiveLink;
 
-        console.log(currentActiveLink);
+        scrollToHeadingLink(activeLink);
       });
     },
     {
-      root: document.querySelector('#project-dialog'),
-      rootMargin: '0px 0px -80% 0px',
-      threshold: 0,
+      root: null,
+      rootMargin: '0px 0px -600px 0px',
+      threshold: 1,
     }
   );
+
+  function scrollToHeadingLink(target: Nullable<Element>) {
+    if (isScrolling) return;
+
+    target?.scrollIntoView({
+      behavior: 'smooth',
+      inline: 'nearest',
+      block: 'nearest',
+    });
+  }
 
   headings?.forEach((heading) => observer.observe(heading));
 </script>
