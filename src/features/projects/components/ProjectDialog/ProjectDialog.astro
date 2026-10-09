@@ -10,11 +10,11 @@ import Gallery from './components/Gallery/Gallery';
 import YAML from 'yaml';
 import { readFileSync } from 'node:fs';
 import type { ProjectMetadata } from '@/types/ProjectMetadata';
-import { formatWithComma } from './utils/formatWithComma';
 //import { getFeaturedProjects, getProjects } from '@/lib/github';
 import Divider from '@/components/ui/Divider/Divider';
 import { parseProjectReadme } from './utils/parseProjectReadme';
 import Readme from './components/Readme/Readme.astro';
+import ProjectMeta from './components/ProjectMeta/ProjectMeta.astro';
 
 const PATH = './src/mocks/.github';
 const content = readFileSync(`${PATH}/portfolio.yaml`, 'utf-8');
@@ -40,22 +40,8 @@ const { headings, html } = parseProjectReadme(readme);
     <Text variant="secondary" size="small">
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, repellendus!
     </Text>
-    <div class={styles.metaContainer}>
-      <div class={styles.metaItem}>
-        <span class={styles.metaLabel}>Type</span>
-        <span class={styles.metaValue}>
-          {metadata.type.map(formatWithComma)}
-        </span>
-      </div>
-      <div class={styles.metaItem}>
-        <span class={styles.metaLabel}>Status</span>
-        <span class={styles.metaValue}>{metadata.status}</span>
-      </div>
-      <div class={styles.metaItem}>
-        <span class={styles.metaLabel}>Created At</span>
-        <span class={styles.metaValue}>2026</span>
-      </div>
-    </div>
+    <ProjectMeta {metadata} />
+
     <ButtonLink className={styles.button} variant="primary" href="" target="_blank">
       <span>Live demo</span>
       <SquareArrowOutUpRight />

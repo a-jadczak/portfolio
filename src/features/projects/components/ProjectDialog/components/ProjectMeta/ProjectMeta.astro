@@ -1,0 +1,29 @@
+---
+import type { ProjectMetadata } from '@/types/ProjectMetadata';
+import { formatWithComma } from '@/features/projects/components/ProjectDialog/utils/formatWithComma';
+import styles from './ProjectMeta.module.scss';
+
+interface Props {
+  metadata: ProjectMetadata;
+}
+
+const { metadata } = Astro.props;
+
+const items = [
+  { label: 'Type', value: metadata.type.map(formatWithComma).join('') },
+  { label: 'Created At', value: '2026' },
+  { label: 'Status', value: metadata.status },
+  { label: 'License', value: 'MIT' },
+];
+---
+
+<div class={styles.metaContainer}>
+  {
+    items.map(({ label, value }) => (
+      <div class={styles.metaItem}>
+        <span class={styles.metaLabel}>{label}</span>
+        <span class={styles.metaValue}>{value}</span>
+      </div>
+    ))
+  }
+</div>
