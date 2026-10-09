@@ -7,7 +7,7 @@ interface ReturnType {
   html: string;
 }
 
-const blockedHeadings = ['Table of Contents', 'Demo', 'Screenshots'];
+const blockedHeadings = ['Table of Contents', 'Demo', 'Screenshots', 'License'];
 
 /**
  * Checks if a token object is a heading.
