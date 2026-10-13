@@ -1,11 +1,12 @@
 import { Eye } from 'lucide-react';
 import Badge from '@/components/ui/Badge/Badge';
 import { Button } from '@/components/ui/Button/Button';
-import headingStyles from '@/components/ui/Heading/Heading.module.scss';
 import textStyles from '@/components/ui/Text/Text.module.scss';
 import dividerStyles from '@/components/ui/Divider/Divider.module.scss';
 import styles from './Project.module.scss';
 import { openDialog } from '@/utils/dialog';
+import type { FeaturedProject } from '@/types/FeaturedProject';
+import Heading from '@/components/ui/Heading/Heading';
 
 const technologies = [
   { title: 'React' },
@@ -19,7 +20,13 @@ const VISIBLE_TECHNOLOGY_COUNT = 3;
 const technologyBadges = technologies.slice(0, VISIBLE_TECHNOLOGY_COUNT);
 const hiddenTechnologyCount = technologies.length - VISIBLE_TECHNOLOGY_COUNT;
 
-const Project = () => {
+interface Props {
+  projectData: FeaturedProject;
+}
+
+const Project = ({ projectData }: Props) => {
+  const { name, description, metadata } = projectData;
+
   const handleClick = () => {
     openDialog('project-dialog');
   };
@@ -28,13 +35,16 @@ const Project = () => {
     <li className={`clipped-corners ${styles.project}`}>
       <article>
         <img
-          src="https://picsum.photos/400/200"
-          alt="description"
+          src={metadata.banner}
+          alt="Project preview image"
           className={`clipped-corners ${styles.screenshot}`}
         />
-        <h3 className={`${headingStyles.heading} ${headingStyles.small} ${styles.title}`}>Title</h3>
+        <Heading as="h3" size="small" className={styles.title}>
+          {name}
+        </Heading>
+
         <p className={`${textStyles.text} ${textStyles.medium} ${textStyles.secondary}`}>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem, magni!
+          {description}
         </p>
         <ul className={styles.badgesList}>
           {technologyBadges.map(({ title }) => (

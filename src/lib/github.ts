@@ -2,9 +2,18 @@ import { print } from 'graphql';
 import type { DocumentNode } from 'graphql';
 import featuredProjectsQuery from '@/graphql/featuredProjects.graphql';
 import projectsQuery from '@/graphql/projects.graphql';
+import { parseMetadata } from './portfolio';
 
 export async function getFeaturedProjects() {
-  return githubGraphQL(featuredProjectsQuery);
+  const data = await githubGraphQL(featuredProjectsQuery);
+  const featuredProjects = data.viewer.pinnedItems.nodes;
+  featuredProjects.forEach((project) => {
+    project.metadata = parseMetadata(project);
+  });
+
+  console.log(featuredProjects);
+
+  return featuredProjects;
 }
 
 export async function getProjects() {

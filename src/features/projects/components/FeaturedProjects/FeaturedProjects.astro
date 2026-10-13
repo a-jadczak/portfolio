@@ -4,6 +4,11 @@ import styles from './FeaturedProjects.module.scss';
 import Project from '@/features/projects/components/Project/Project';
 import Heading from '@/components/ui/Heading/Heading';
 import { ButtonLink } from '@/components/ui/Button/ButtonLink';
+import { getFeaturedProjects } from '@/lib/github';
+import type { FeaturedProject } from '@/types/FeaturedProject';
+
+const featuredProjects: FeaturedProject[] = await getFeaturedProjects();
+console.log(featuredProjects);
 ---
 
 <section class={`clipped-corners ${styles.featuredProjects}`}>
@@ -15,8 +20,6 @@ import { ButtonLink } from '@/components/ui/Button/ButtonLink';
     </ButtonLink>
   </div>
   <ol class={styles.projectsList}>
-    <Project client:load />
-    <Project client:load />
-    <Project client:load />
+    {featuredProjects.map((project) => <Project projectData={project} client:load />)}
   </ol>
 </section>

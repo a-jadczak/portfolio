@@ -1,7 +1,12 @@
+type ProjectType = 'Mobile' | 'Desktop App' | 'Web App';
+type Status = 'Completed' | 'In Progress' | 'Archived';
+
 export interface ProjectMetadata {
-  type: string[];
-  status: 'Completed' | 'In progress' | 'Archived';
+  type: ProjectType[];
+  status: Status;
   technologies: string[];
   banner: string;
   gallery: string[];
 }
+
+export type RawProjectMetadata = { text: string };
