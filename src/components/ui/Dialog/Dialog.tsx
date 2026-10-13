@@ -40,7 +40,7 @@ const Dialog = ({
         </>
       ) : (
         <div className={styles.badgeContainer}>
-          <Badge variant={'secondary'} title={'Project / 01'} className={styles.badge} />
+          <Badge variant={'secondary'} title={title} className={styles.badge} />
         </div>
       )}
       <form method="dialog">
