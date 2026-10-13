@@ -1,5 +1,6 @@
 import { Settings } from 'lucide-react';
 import { Button } from '@/components/ui/Button/Button';
+import { openDialog } from '@/utils/dialog';
 
 interface SettingsButtonProps {
   iconSize: number;
@@ -7,11 +8,7 @@ interface SettingsButtonProps {
 
 const SettingsButton = ({ iconSize }: SettingsButtonProps) => {
   const handleClick = () => {
-    const dialog = document.getElementById('settings-dialog');
-
-    if (dialog instanceof HTMLDialogElement) {
-      dialog.showModal();
-    }
+    openDialog('settings-dialog');
   };
 
   return (

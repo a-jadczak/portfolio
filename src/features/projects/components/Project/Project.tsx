@@ -5,6 +5,7 @@ import headingStyles from '@/components/ui/Heading/Heading.module.scss';
 import textStyles from '@/components/ui/Text/Text.module.scss';
 import dividerStyles from '@/components/ui/Divider/Divider.module.scss';
 import styles from './Project.module.scss';
+import { openDialog } from '@/utils/dialog';
 
 const technologies = [
   { title: 'React' },
@@ -19,6 +20,10 @@ const technologyBadges = technologies.slice(0, VISIBLE_TECHNOLOGY_COUNT);
 const hiddenTechnologyCount = technologies.length - VISIBLE_TECHNOLOGY_COUNT;
 
 const Project = () => {
+  const handleClick = () => {
+    openDialog('project-dialog');
+  };
+
   return (
     <li className={`clipped-corners ${styles.project}`}>
       <article>
@@ -45,7 +50,12 @@ const Project = () => {
         </ul>
 
         <div className={dividerStyles.divider} aria-hidden="true" />
-        <Button variant="link" className={styles.showDetails} aria-haspopup="dialog">
+        <Button
+          variant="link"
+          className={styles.showDetails}
+          aria-haspopup="dialog"
+          onClick={handleClick}
+        >
           <Eye size={18} aria-hidden="true" />
           <span>Show details</span>
         </Button>

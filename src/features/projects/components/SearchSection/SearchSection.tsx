@@ -1,14 +1,11 @@
 import styles from './SearchSection.module.scss';
 import { Button } from '@/components/ui/Button/Button';
+import { openDialog } from '@/utils/dialog';
 import { SlidersHorizontal } from 'lucide-react';
 
 const SearchSection = () => {
   const handleClick = () => {
-    const dialog = document.getElementById('filter-dialog');
-
-    if (dialog instanceof HTMLDialogElement) {
-      dialog.showModal();
-    }
+    openDialog('filter-dialog');
   };
 
   return (
