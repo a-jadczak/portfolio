@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/Button/Button';
 import styles from './Gallery.module.scss';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
+import { useState } from 'react';
 
 interface GalleryProps {
   banner: string;
@@ -8,25 +9,39 @@ interface GalleryProps {
 }
 
 const Gallery = ({ banner, gallery }: GalleryProps) => {
+  const images = [banner, ...gallery];
+  const [index, setIndex] = useState(0);
+  const imageSrc = images[index];
+
+  const nextImage = () => {
+    setIndex((prev) => (prev + 1) % images.length);
+  };
+
+  const previousImage = () => {
+    setIndex((prev) => (prev - 1 + images.length) % images.length);
+  };
+
   return (
     <div className={`${styles.galleryContainer}`}>
       <div className={`${styles.itemPreview}`}>
         <img
           className={`clipped-corners  ${styles.previewImage}`}
-          src={banner}
-          alt="Preview"
+          src={imageSrc}
+          alt="Preview Image"
           draggable={false}
         />
-        <Button variant="default" className={styles.arrowButton} iconOnly>
+        <Button onClick={previousImage} variant="default" className={styles.arrowButton} iconOnly>
           <ArrowLeft size={24} />
         </Button>
-        <Button variant="default" className={styles.arrowButton} iconOnly>
+        <Button onClick={nextImage} variant="default" className={styles.arrowButton} iconOnly>
           <ArrowRight size={24} />
         </Button>
       </div>
-      <span className={styles.index}>2 / 5</span>
+      <span className={styles.index}>
+        {index + 1} / {images.length}
+      </span>
       <ul className={styles.galleryCarousel}>
-        {gallery.map((image, index) => (
+        {images.map((image, index) => (
           <li key={index} className={`clipped-corners ${styles.galleryItem}`}>
             <img
               className={`clipped-corners  ${styles.galleryImage}`}
