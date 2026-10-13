@@ -41,12 +41,18 @@ const Gallery = ({ banner, gallery }: GalleryProps) => {
         {index + 1} / {images.length}
       </span>
       <ul className={styles.galleryCarousel}>
-        {images.map((image, index) => (
-          <li key={index} className={`clipped-corners ${styles.galleryItem}`}>
+        {images.map((image, _index) => (
+          <li
+            key={_index}
+            className={`clipped-corners ${styles.galleryItem}`}
+            role="button"
+            onClick={() => setIndex(_index)}
+            data-active={index === _index}
+          >
             <img
-              className={`clipped-corners  ${styles.galleryImage}`}
+              className={`${styles.galleryImage}`}
               src={image}
-              alt={`Preview ${index + 1}`}
+              alt={`Preview ${_index + 1}`}
               draggable={false}
             />
           </li>
