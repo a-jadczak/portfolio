@@ -1,5 +1,5 @@
 ---
-import Heading from '@/components/ui/Heading/Heading.astro';
+import Heading from '@/components/ui/Heading/Heading';
 import Text from '@/components/ui/Text/Text.astro';
 import styles from './ConnectionCard.module.scss';
 
@@ -11,7 +11,7 @@ const { icon: Icon, title, description, status } = Astro.props;
     <Icon size={32} />
   </div>
   <div class={styles.contentContainer}>
-    <Heading as="h3" size="extra-small" class={styles.title}>{title}</Heading>
+    <Heading as="h3" size="extra-small" className={styles.title}>{title}</Heading>
     <Text variant="secondary" class={styles.description}>{description}</Text>
   </div>
 </div>

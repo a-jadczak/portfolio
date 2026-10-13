@@ -2,13 +2,13 @@
 import { ArrowRight } from 'lucide-react';
 import styles from './FeaturedProjects.module.scss';
 import Project from '@/features/projects/components/Project/Project';
-import Heading from '@/components/ui/Heading/Heading.astro';
+import Heading from '@/components/ui/Heading/Heading';
 import { ButtonLink } from '@/components/ui/Button/ButtonLink';
 ---
 
 <section class={`clipped-corners ${styles.featuredProjects}`}>
   <div class={styles.titleContainer}>
-    <Heading as="h2" size="small" class={styles.title}>Featured Projects</Heading>
+    <Heading as="h2" size="small" className={styles.title}>Featured Projects</Heading>
     <ButtonLink variant="link" href="/projects">
       <span>View all</span>
       <ArrowRight size={18} aria-hidden="true" />

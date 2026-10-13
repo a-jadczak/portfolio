@@ -1,7 +1,7 @@
 ---
 import Card from '@/components/ui/Card/Card.astro';
 import CardIcon from '@/components/ui/CardIcon/CardIcon.astro';
-import Heading from '@/components/ui/Heading/Heading.astro';
+import Heading from '@/components/ui/Heading/Heading';
 import StackItem from '../StackItem/StackItem.astro';
 import styles from './TechStackCard.module.scss';
 import { techStack } from '../../data/tech-stack';
@@ -25,7 +25,7 @@ const icons = new Map([
         <Card>
           <header class={styles.header}>
             <CardIcon Icon={icons.get(key)} />
-            <Heading size="small" as="h3" class={styles.title}>
+            <Heading size="small" as="h3" className={styles.title}>
               {key}
             </Heading>
           </header>

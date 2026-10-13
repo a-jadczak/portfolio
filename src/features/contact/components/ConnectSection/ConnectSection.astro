@@ -3,7 +3,7 @@ import { FaLinkedin } from 'react-icons/fa';
 import ConnectionCard from '../ConnectionCard/ConnectionCard.astro';
 import { Mail, CalendarCheck } from 'lucide-react';
 import styles from './ConnectSection.module.scss';
-import Heading from '@/components/ui/Heading/Heading.astro';
+import Heading from '@/components/ui/Heading/Heading';
 
 const connections = [
   {
@@ -28,7 +28,7 @@ const connections = [
 ---
 
 <section class={`clipped-corners ${styles.container}`}>
-  <Heading as="h2" size="small" class={styles.title}>Let's connect</Heading>
+  <Heading as="h2" size="small" className={styles.title}>Let's connect</Heading>
   <ul class={styles.list}>
     {
       connections.map((connection) => (

@@ -1,7 +1,7 @@
 ---
 import Card from '@/components/ui/Card/Card.astro';
 import styles from './WhatICareAboutCard.module.scss';
-import Heading from '@/components/ui/Heading/Heading.astro';
+import Heading from '@/components/ui/Heading/Heading';
 import Text from '@/components/ui/Text/Text.astro';
 import { cards } from '../../data/values';
 import CardIcon from '@/components/ui/CardIcon/CardIcon.astro';
@@ -13,7 +13,7 @@ import CardIcon from '@/components/ui/CardIcon/CardIcon.astro';
       <Card class={styles.card} style={`--card-image: url("${image}")`}>
         <header>
           <CardIcon Icon={Icon} />
-          <Heading class={styles.title} as="h3">
+          <Heading className={styles.title} as="h3">
             {title}
           </Heading>
         </header>
