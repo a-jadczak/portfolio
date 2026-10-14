@@ -17,7 +17,10 @@ interface Props {
 
 const Project = ({ projectData }: Props) => {
   const { name, description, metadata } = projectData;
-  const { technologies, banner } = metadata;
+  const { technologies, banner } = metadata ?? {
+    technologies: [],
+    banner: '/images/missing-image.png',
+  };
 
   const technologyBadges = technologies.slice(0, VISIBLE_TECHNOLOGY_COUNT);
   const hiddenTechnologyCount = technologies.length - VISIBLE_TECHNOLOGY_COUNT;
