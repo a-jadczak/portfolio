@@ -1,31 +1,40 @@
 import { print } from 'graphql';
 import type { DocumentNode } from 'graphql';
-import featuredProjectsQuery from '@/graphql/featuredProjects.graphql';
 import projectsQuery from '@/graphql/projects.graphql';
 import { parseMetadata } from './portfolio';
-import type { GithubProject } from '@/types/GithubProject';
+import type { GithubProject, PinnedProject } from '@/types/GithubProject';
 import type { ProjectMetadata, RawProjectMetadata } from '@/types/ProjectMetadata';
 
-export async function getFeaturedProjects(): Promise<GithubProject<ProjectMetadata>[]> {
-  const data = await githubGraphQL<{
-    viewer: {
-      pinnedItems: {
-        nodes: GithubProject<RawProjectMetadata>[];
-      };
+interface ProjectsSchema {
+  viewer: {
+    pinnedItems: {
+      nodes: PinnedProject[];
     };
-  }>(featuredProjectsQuery);
-  const featuredProjects: GithubProject<RawProjectMetadata>[] = data.viewer.pinnedItems.nodes;
-
-  const projects: GithubProject<ProjectMetadata>[] = featuredProjects.map((project) => ({
-    ...project,
-    metadata: parseMetadata(project),
-  }));
-
-  return projects;
+    repositories: {
+      nodes: GithubProject<RawProjectMetadata>[];
+    };
+  };
 }
 
+let projectsData: {
+  pinnedProjects: PinnedProject[];
+  projects: GithubProject<ProjectMetadata>[];
+} | null = null;
+
 export async function getProjects() {
-  return githubGraphQL(projectsQuery);
+  if (projectsData) return projectsData;
+
+  const data = await githubGraphQL<ProjectsSchema>(projectsQuery);
+
+  projectsData = {
+    pinnedProjects: data.viewer.pinnedItems.nodes,
+    projects: data.viewer.repositories.nodes.map((project) => ({
+      ...project,
+      metadata: parseMetadata(project),
+    })),
+  };
+
+  return projectsData;
 }
 
 export async function githubGraphQL<T>(queryAST: DocumentNode, variables = {}): Promise<T> {

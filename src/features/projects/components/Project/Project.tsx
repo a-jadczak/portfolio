@@ -5,13 +5,14 @@ import textStyles from '@/components/ui/Text/Text.module.scss';
 import dividerStyles from '@/components/ui/Divider/Divider.module.scss';
 import styles from './Project.module.scss';
 import { openDialog } from '@/utils/dialog';
-import type { FeaturedProject } from '@/types/FeaturedProject';
 import Heading from '@/components/ui/Heading/Heading';
+import type { GithubProject } from '@/types/GithubProject';
+import type { ProjectMetadata } from '@/types/ProjectMetadata';
 
 const VISIBLE_TECHNOLOGY_COUNT = 3;
 
 interface Props {
-  projectData: FeaturedProject;
+  projectData: GithubProject<ProjectMetadata>;
 }
 
 const Project = ({ projectData }: Props) => {

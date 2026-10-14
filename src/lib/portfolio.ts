@@ -2,7 +2,11 @@ import type { GithubProject } from '@/types/GithubProject';
 import type { ProjectMetadata, RawProjectMetadata } from '@/types/ProjectMetadata';
 import YAML from 'yaml';
 
-export const parseMetadata = (project: GithubProject<RawProjectMetadata>): ProjectMetadata => {
+export const parseMetadata = (
+  project: GithubProject<RawProjectMetadata>
+): ProjectMetadata | null => {
+  if (!project.metadata) return null;
+
   const metadata: ProjectMetadata = YAML.parse(project.metadata.text);
 
   metadata.banner = getImageURL(project, metadata.banner);

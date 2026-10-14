@@ -1,21 +1,37 @@
-query PortfolioRepositories {
+query PortfolioProjects {
   viewer {
     pinnedItems(first: 6, types: REPOSITORY) {
       nodes {
         ... on Repository {
+          id
           name
         }
       }
     }
 
-    repositories(first: 100, orderBy: { field: UPDATED_AT, direction: DESC }) {
+    repositories(first: 50, orderBy: { field: UPDATED_AT, direction: DESC }) {
       nodes {
+        id
         name
         description
         homepageUrl
         url
+        createdAt
 
-        metadata: object(expression: "HEAD:portfolio.yaml") {
+        licenseInfo {
+          name
+          spdxId
+        }
+
+        owner {
+          login
+        }
+
+        defaultBranchRef {
+          name
+        }
+
+        metadata: object(expression: "HEAD:.github/portfolio.yaml") {
           ... on Blob {
             text
           }

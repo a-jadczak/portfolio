@@ -4,11 +4,18 @@ import styles from './FeaturedProjects.module.scss';
 import Project from '@/features/projects/components/Project/Project';
 import Heading from '@/components/ui/Heading/Heading';
 import { ButtonLink } from '@/components/ui/Button/ButtonLink';
-import { getFeaturedProjects } from '@/lib/github';
-import type { FeaturedProject } from '@/types/FeaturedProject';
+import { getProjects } from '@/lib/github';
 
-const featuredProjects: FeaturedProject[] = await getFeaturedProjects();
-console.log(featuredProjects);
+const { pinnedProjects, projects } = await getProjects();
+
+const featuredProjects = projects.filter((project) =>
+  pinnedProjects.some((pinned) => pinned.id === project.id)
+);
+
+featuredProjects.sort(
+  (a, b) =>
+    pinnedProjects.findIndex((p) => p.id === a.id) - pinnedProjects.findIndex((p) => p.id === b.id)
+);
 ---
 
 <section class={`clipped-corners ${styles.featuredProjects}`}>
