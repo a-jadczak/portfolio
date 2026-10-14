@@ -1,0 +1,8 @@
+---
+import { getProjects } from '@/lib/github';
+import SearchSection from '../SearchSection/SearchSection';
+import styles from './ProjectsSection.module.scss';
+---
+
+<SearchSection client:load />
+<ol class={styles.projectsList}></ol>
