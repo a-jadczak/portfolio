@@ -1,7 +1,8 @@
-import type { ProjectMetadata } from '@/types/ProjectMetadata';
+import type { GithubProject } from '@/types/GithubProject';
+import type { ProjectMetadata, RawProjectMetadata } from '@/types/ProjectMetadata';
 import YAML from 'yaml';
 
-export const parseMetadata = (project): ProjectMetadata => {
+export const parseMetadata = (project: GithubProject<RawProjectMetadata>): ProjectMetadata => {
   const metadata: ProjectMetadata = YAML.parse(project.metadata.text);
 
   metadata.banner = getImageURL(project, metadata.banner);
@@ -10,6 +11,6 @@ export const parseMetadata = (project): ProjectMetadata => {
   return metadata;
 };
 
-const getImageURL = (project, imagePath: string) => {
+const getImageURL = (project: GithubProject<RawProjectMetadata>, imagePath: string) => {
   return `https://raw.githubusercontent.com/${project.owner.login}/${project.name}/${project.defaultBranchRef.name}/${imagePath}`;
 };

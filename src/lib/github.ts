@@ -3,17 +3,25 @@ import type { DocumentNode } from 'graphql';
 import featuredProjectsQuery from '@/graphql/featuredProjects.graphql';
 import projectsQuery from '@/graphql/projects.graphql';
 import { parseMetadata } from './portfolio';
+import type { GithubProject } from '@/types/GithubProject';
+import type { ProjectMetadata, RawProjectMetadata } from '@/types/ProjectMetadata';
 
-export async function getFeaturedProjects() {
-  const data = await githubGraphQL(featuredProjectsQuery);
-  const featuredProjects = data.viewer.pinnedItems.nodes;
-  featuredProjects.forEach((project) => {
-    project.metadata = parseMetadata(project);
-  });
+export async function getFeaturedProjects(): Promise<GithubProject<ProjectMetadata>[]> {
+  const data = await githubGraphQL<{
+    viewer: {
+      pinnedItems: {
+        nodes: GithubProject<RawProjectMetadata>[];
+      };
+    };
+  }>(featuredProjectsQuery);
+  const featuredProjects: GithubProject<RawProjectMetadata>[] = data.viewer.pinnedItems.nodes;
 
-  console.log(featuredProjects);
+  const projects: GithubProject<ProjectMetadata>[] = featuredProjects.map((project) => ({
+    ...project,
+    metadata: parseMetadata(project),
+  }));
 
-  return featuredProjects;
+  return projects;
 }
 
 export async function getProjects() {

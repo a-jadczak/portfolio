@@ -1,4 +1,4 @@
-import Project from '@/features/projects/components/Project/Project';
+// import Project from '@/features/projects/components/Project/Project';
 import SearchSection from '../SearchSection/SearchSection';
 import styles from './ProjectsSection.module.scss';
 
@@ -7,9 +7,9 @@ const ProjectsSection = () => {
     <>
       <SearchSection />
       <ol className={styles.projectsList}>
+        {/* <Project />
         <Project />
-        <Project />
-        <Project />
+        <Project /> */}
       </ol>
     </>
   );

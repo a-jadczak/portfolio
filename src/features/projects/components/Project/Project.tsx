@@ -8,17 +8,7 @@ import { openDialog } from '@/utils/dialog';
 import type { FeaturedProject } from '@/types/FeaturedProject';
 import Heading from '@/components/ui/Heading/Heading';
 
-const technologies = [
-  { title: 'React' },
-  { title: 'TypeScript' },
-  { title: 'SCSS' },
-  { title: 'HTML' },
-  { title: 'SQL' },
-];
-
 const VISIBLE_TECHNOLOGY_COUNT = 3;
-const technologyBadges = technologies.slice(0, VISIBLE_TECHNOLOGY_COUNT);
-const hiddenTechnologyCount = technologies.length - VISIBLE_TECHNOLOGY_COUNT;
 
 interface Props {
   projectData: FeaturedProject;
@@ -26,6 +16,10 @@ interface Props {
 
 const Project = ({ projectData }: Props) => {
   const { name, description, metadata } = projectData;
+  const { technologies, banner } = metadata;
+
+  const technologyBadges = technologies.slice(0, VISIBLE_TECHNOLOGY_COUNT);
+  const hiddenTechnologyCount = technologies.length - VISIBLE_TECHNOLOGY_COUNT;
 
   const handleClick = () => {
     openDialog('project-dialog');
@@ -35,7 +29,7 @@ const Project = ({ projectData }: Props) => {
     <li className={`clipped-corners ${styles.project}`}>
       <article>
         <img
-          src={metadata.banner}
+          src={banner}
           alt="Project preview image"
           className={`clipped-corners ${styles.screenshot}`}
         />
@@ -47,7 +41,7 @@ const Project = ({ projectData }: Props) => {
           {description}
         </p>
         <ul className={styles.badgesList}>
-          {technologyBadges.map(({ title }) => (
+          {technologyBadges.map((title) => (
             <li key={title}>
               <Badge title={title} />
             </li>
