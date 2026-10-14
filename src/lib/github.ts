@@ -17,24 +17,35 @@ interface ProjectsSchema {
 }
 
 let projectsData: {
-  pinnedProjects: PinnedProject[];
+  featuredProjects: GithubProject<ProjectMetadata>[];
   projects: GithubProject<ProjectMetadata>[];
 } | null = null;
+
+async function fetchProjects() {
+  const { viewer } = await githubGraphQL<ProjectsSchema>(projectsQuery);
+  const pinnedOrder = new Map(
+    viewer.pinnedItems.nodes.map((project, index) => [project.id, index])
+  );
+
+  const projects = viewer.repositories.nodes
+    .map((project) => ({ ...project, metadata: parseMetadata(project) }))
+    .sort(
+      (a, b) =>
+        (pinnedOrder.get(a.id) ?? pinnedOrder.size) - (pinnedOrder.get(b.id) ?? pinnedOrder.size)
+    );
+
+  projectsData = {
+    featuredProjects: projects.filter((project) => pinnedOrder.has(project.id)),
+    projects,
+  };
+
+  return projectsData;
+}
 
 export async function getProjects() {
   if (projectsData) return projectsData;
 
-  const data = await githubGraphQL<ProjectsSchema>(projectsQuery);
-
-  projectsData = {
-    pinnedProjects: data.viewer.pinnedItems.nodes,
-    projects: data.viewer.repositories.nodes.map((project) => ({
-      ...project,
-      metadata: parseMetadata(project),
-    })),
-  };
-
-  return projectsData;
+  return await fetchProjects();
 }
 
 export async function githubGraphQL<T>(queryAST: DocumentNode, variables = {}): Promise<T> {

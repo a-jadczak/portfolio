@@ -6,16 +6,7 @@ import Heading from '@/components/ui/Heading/Heading';
 import { ButtonLink } from '@/components/ui/Button/ButtonLink';
 import { getProjects } from '@/lib/github';
 
-const { pinnedProjects, projects } = await getProjects();
-
-const featuredProjects = projects.filter((project) =>
-  pinnedProjects.some((pinned) => pinned.id === project.id)
-);
-
-featuredProjects.sort(
-  (a, b) =>
-    pinnedProjects.findIndex((p) => p.id === a.id) - pinnedProjects.findIndex((p) => p.id === b.id)
-);
+const { featuredProjects } = await getProjects();
 ---
 
 <section class={`clipped-corners ${styles.featuredProjects}`}>
