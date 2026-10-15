@@ -9,6 +9,7 @@ import Heading from '@/components/ui/Heading/Heading';
 import type { GithubProject } from '@/types/GithubProject';
 import type { ProjectMetadata } from '@/types/ProjectMetadata';
 import type { Readme } from '@/types/Readme';
+import { useProjectStore } from '@/stores/useProjectStore';
 
 const VISIBLE_TECHNOLOGY_COUNT = 3;
 
@@ -17,7 +18,7 @@ interface Props {
 }
 
 const Project = ({ projectData }: Props) => {
-  const { name, description, metadata } = projectData;
+  const { name, id, description, metadata } = projectData;
   const { technologies, banner } = metadata ?? {
     technologies: [],
     banner: '/images/missing-image.png',
@@ -27,6 +28,7 @@ const Project = ({ projectData }: Props) => {
   const hiddenTechnologyCount = technologies.length - VISIBLE_TECHNOLOGY_COUNT;
 
   const handleClick = () => {
+    useProjectStore.getState().setProjectId(id);
     openDialog('project-dialog');
   };
 

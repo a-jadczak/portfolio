@@ -11,7 +11,7 @@ export interface PinnedProject {
 
 export interface GithubProject<T extends MetadataType, Y extends ReadmeType> extends PinnedProject {
   description: string;
-  homePageUrl: string;
+  homepageUrl: string | null;
   url: string;
   createdAt: Date;
   licenseInfo: {

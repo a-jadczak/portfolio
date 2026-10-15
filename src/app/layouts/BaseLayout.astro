@@ -5,11 +5,13 @@ import Footer from '@/app/components/Footer/Footer.astro';
 import PageIndicator from '@/app/components/PageIndicator/PageIndicator.astro';
 import { getCurrentPageInfo } from '@/config/pages';
 import SettingsDialog from '@/features/settings/SettingsDialog/SettingsDialog.astro';
-import ProjectDialog from '@/features/projects/components/ProjectDialog/ProjectDialog.astro';
+import ProjectDialog from '@/features/projects/components/ProjectDialog/ProjectDialog';
+import { getProjects } from '@/lib/github';
 
 const { title } = Astro.props;
 const currentPath = Astro.url.pathname;
 const currentPageInfo = getCurrentPageInfo(currentPath);
+const { projects } = await getProjects();
 ---
 
 <html lang="en">
@@ -26,7 +28,7 @@ const currentPageInfo = getCurrentPageInfo(currentPath);
     </main>
     <Footer />
     <SettingsDialog />
-    <ProjectDialog />
+    <ProjectDialog {projects} client:load />
   </body>
 </html>
 
