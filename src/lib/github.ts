@@ -4,6 +4,8 @@ import projectsQuery from '@/graphql/projects.graphql';
 import { parseMetadata } from './portfolio';
 import type { GithubProject, PinnedProject } from '@/types/GithubProject';
 import type { ProjectMetadata, RawProjectMetadata } from '@/types/ProjectMetadata';
+import type { RawReadme, Readme } from '@/types/Readme';
+import { parseReadme } from '@/utils/parseReadme';
 
 interface ProjectsSchema {
   viewer: {
@@ -11,14 +13,14 @@ interface ProjectsSchema {
       nodes: PinnedProject[];
     };
     repositories: {
-      nodes: GithubProject<RawProjectMetadata>[];
+      nodes: GithubProject<RawProjectMetadata, RawReadme>[];
     };
   };
 }
 
 let projectsData: {
-  featuredProjects: GithubProject<ProjectMetadata>[];
-  projects: GithubProject<ProjectMetadata>[];
+  featuredProjects: GithubProject<ProjectMetadata, Readme>[];
+  projects: GithubProject<ProjectMetadata, Readme>[];
 } | null = null;
 
 async function fetchProjects() {
@@ -28,7 +30,11 @@ async function fetchProjects() {
   );
 
   const projects = viewer.repositories.nodes
-    .map((project) => ({ ...project, metadata: parseMetadata(project) }))
+    .map((project) => ({
+      ...project,
+      metadata: parseMetadata(project),
+      readme: parseReadme(project),
+    }))
     .sort(
       (a, b) =>
         (pinnedOrder.get(a.id) ?? pinnedOrder.size) - (pinnedOrder.get(b.id) ?? pinnedOrder.size)

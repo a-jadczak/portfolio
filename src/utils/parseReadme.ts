@@ -1,11 +1,9 @@
 import { marked, type Token, type Tokens } from 'marked';
 import { removeEmoji } from './emoji';
 import type { Nullable } from '@/types/Nullable';
-
-interface ReturnType {
-  headings: string[];
-  html: string;
-}
+import type { RawReadme, Readme } from '@/types/Readme';
+import type { GithubProject } from '@/types/GithubProject';
+import type { RawProjectMetadata } from '@/types/ProjectMetadata';
 
 const blockedHeadings = ['Table of Contents', 'Demo', 'Screenshots', 'License'];
 
@@ -18,8 +16,12 @@ const isHeading = (token: Nullable<Token>): token is Tokens.Heading =>
 /**
  * Filters readme of blocked content.
  */
-export const parseProjectReadme = (readme: string): ReturnType => {
-  const tokens: Nullable<Token>[] = marked.lexer(readme);
+export const parseReadme = (
+  project: GithubProject<RawProjectMetadata, RawReadme>
+): Readme | null => {
+  if (!project.readme) return null;
+
+  const tokens: Nullable<Token>[] = marked.lexer(project.readme.text);
 
   const headings = parseHeadings(tokens);
   const html = removeHeadingsContent(tokens);

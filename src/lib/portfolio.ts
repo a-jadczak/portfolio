@@ -1,9 +1,10 @@
 import type { GithubProject } from '@/types/GithubProject';
 import type { ProjectMetadata, RawProjectMetadata } from '@/types/ProjectMetadata';
+import type { RawReadme } from '@/types/Readme';
 import YAML from 'yaml';
 
 export const parseMetadata = (
-  project: GithubProject<RawProjectMetadata>
+  project: GithubProject<RawProjectMetadata, RawReadme>
 ): ProjectMetadata | null => {
   if (!project.metadata) return null;
 
@@ -15,6 +16,6 @@ export const parseMetadata = (
   return metadata;
 };
 
-const getImageURL = (project: GithubProject<RawProjectMetadata>, imagePath: string) => {
+const getImageURL = (project: GithubProject<RawProjectMetadata, RawReadme>, imagePath: string) => {
   return `https://raw.githubusercontent.com/${project.owner.login}/${project.name}/${project.defaultBranchRef.name}/${imagePath}`;
 };

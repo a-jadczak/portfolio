@@ -8,11 +8,12 @@ import { openDialog } from '@/utils/dialog';
 import Heading from '@/components/ui/Heading/Heading';
 import type { GithubProject } from '@/types/GithubProject';
 import type { ProjectMetadata } from '@/types/ProjectMetadata';
+import type { Readme } from '@/types/Readme';
 
 const VISIBLE_TECHNOLOGY_COUNT = 3;
 
 interface Props {
-  projectData: GithubProject<ProjectMetadata>;
+  projectData: GithubProject<ProjectMetadata, Readme>;
 }
 
 const Project = ({ projectData }: Props) => {

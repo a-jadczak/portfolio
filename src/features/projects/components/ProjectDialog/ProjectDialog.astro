@@ -7,24 +7,22 @@ import styles from './ProjectDialog.module.scss';
 import { ButtonLink } from '@/components/ui/Button/ButtonLink';
 import { FaGithub } from 'react-icons/fa';
 import Gallery from './components/Gallery/Gallery';
-import YAML from 'yaml';
 import { readFileSync } from 'node:fs';
 import type { ProjectMetadata } from '@/types/ProjectMetadata';
-//import { getFeaturedProjects, getProjects } from '@/lib/github';
-import { parseProjectReadme } from './utils/parseProjectReadme';
+import { parseReadme } from '@/utils/parseReadme';
 import Readme from './components/Readme/Readme.astro';
 import ProjectMeta from './components/ProjectMeta/ProjectMeta.astro';
 import NavigationCarousel from './components/NavigationCarousel/NavigationCarousel.astro';
+import YAML from 'yaml';
 
 const PATH = './src/mocks/.github';
 const content = readFileSync(`${PATH}/portfolio.yaml`, 'utf-8');
 const metadata: ProjectMetadata = YAML.parse(content);
 
 const readme = readFileSync(`./src/mocks/project-description.md`, 'utf-8');
-const { headings, html } = parseProjectReadme(readme);
-
-// console.log(JSON.stringify(await getFeaturedProjects(), null, 2));
-// console.log(JSON.stringify(await getProjects(), null, 2));
+// const { headings, html } = parseReadme(readme);
+const headings = null;
+const html = null;
 ---
 
 <Dialog
@@ -56,8 +54,8 @@ const { headings, html } = parseProjectReadme(readme);
   {
     readme ? (
       <div class={`clipped-corners ${styles.container}`}>
-        <NavigationCarousel {headings} />
-        <Readme {html} />
+        {/* <NavigationCarousel {headings} />
+        <Readme {html} /> */}
       </div>
     ) : (
       <div class={`clipped-corners ${styles.container}`} style="text-align: center;">
