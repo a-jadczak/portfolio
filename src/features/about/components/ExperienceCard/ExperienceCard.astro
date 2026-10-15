@@ -2,7 +2,7 @@
 import Card from '@/components/ui/Card/Card.astro';
 import CardIcon from '@/components/ui/CardIcon/CardIcon.astro';
 import Heading from '@/components/ui/Heading/Heading';
-import Text from '@/components/ui/Text/Text.astro';
+import Text from '@/components/ui/Text/Text';
 import Timeline from '@/components/ui/Timeline/Timeline.astro';
 import TimelineItem from '@/components/ui/Timeline/TimelineItem.astro';
 import { BriefcaseBusiness, GraduationCap, School } from 'lucide-react';
@@ -41,7 +41,7 @@ const experiences = [
         <Card class={styles.card}>
           <CardIcon Icon={Icon} />
           <div class={styles.content}>
-            <Text class={styles.period} size="small">
+            <Text className={styles.period} size="small">
               {period}
             </Text>
             <Heading as="h3" size="extra-small">
@@ -52,7 +52,7 @@ const experiences = [
                 {subtitle}
               </Text>
             )}
-            <Text class={styles.description} size="extra-small" variant="secondary">
+            <Text className={styles.description} size="extra-small" variant="secondary">
               {description}
             </Text>
           </div>

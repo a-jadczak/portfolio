@@ -1,7 +1,7 @@
 ---
 import { ButtonLink } from '@/components/ui/Button/ButtonLink';
 import Heading from '@/components/ui/Heading/Heading';
-import Text from '@/components/ui/Text/Text.astro';
+import Text from '@/components/ui/Text/Text';
 import { ArrowRight } from 'lucide-react';
 import styles from './PageNotFound.module.scss';
 ---
@@ -9,8 +9,8 @@ import styles from './PageNotFound.module.scss';
 <section class={styles.container}>
   <header class={styles.header}>
     <Heading as="h1" size="large" className={styles.title}>404</Heading>
-    <Text size="large" class={styles.description}>This page went off the grid.</Text>
-    <Text variant="secondary" class={styles.secondary}
+    <Text size="large" className={styles.description}>This page went off the grid.</Text>
+    <Text variant="secondary" className={styles.secondary}
       >The URL may be incorrect, or the page has moved somewhere else.</Text
     >
   </header>

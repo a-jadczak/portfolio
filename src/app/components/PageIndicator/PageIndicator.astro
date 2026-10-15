@@ -1,5 +1,5 @@
 ---
-import Text from '@/components/ui/Text/Text.astro';
+import Text from '@/components/ui/Text/Text';
 import styles from './PageIndicator.module.scss';
 import type { PageInfo } from '@/types/PageInfo';
 
@@ -12,7 +12,7 @@ const {
 }: Props = Astro.props;
 ---
 
-<Text class={styles.sidebar}>
+<Text className={styles.sidebar}>
   <span class={styles.index}>{indicator} </span>
   / {name}
 </Text>
