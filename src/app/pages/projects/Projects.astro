@@ -1,7 +1,10 @@
 ---
 import PageHero from '@/components/ui/PageHero/PageHero.astro';
 import FilterDialog from '@/features/projects/components/FilterDialog/FilterDialog';
-import ProjectsSection from '@/features/projects/components/ProjectsSection/ProjectsSection.astro';
+import ProjectsSection from '@/features/projects/components/ProjectsSection/ProjectsSection';
+import { getProjects } from '@/lib/github';
+
+const { projects } = await getProjects();
 ---
 
 <PageHero
@@ -10,5 +13,5 @@ import ProjectsSection from '@/features/projects/components/ProjectsSection/Proj
   description="Search, filter, and open any project to see the full story."
 />
 
-<ProjectsSection />
+<ProjectsSection {projects} client:load />
 <FilterDialog />

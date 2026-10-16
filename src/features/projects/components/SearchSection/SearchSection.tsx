@@ -3,9 +3,19 @@ import { Button } from '@/components/ui/Button/Button';
 import { openDialog } from '@/utils/dialog';
 import { SlidersHorizontal } from 'lucide-react';
 
-const SearchSection = () => {
+interface Props {
+  searchValue: string;
+  setSearchValue: (value: string) => void;
+  projectsCount: number;
+}
+
+const SearchSection = ({ searchValue, setSearchValue, projectsCount }: Props) => {
   const handleClick = () => {
     openDialog('filter-dialog');
+  };
+
+  const handleClearFilters = () => {
+    setSearchValue('');
   };
 
   return (
@@ -15,6 +25,8 @@ const SearchSection = () => {
           className={`clipped-corners ${styles.searchInput}`}
           type="text"
           placeholder="Search projects..."
+          value={searchValue}
+          onChange={(e) => setSearchValue(e.target.value)}
         />
         <Button variant="default" className={styles.filterButton} onClick={handleClick}>
           <span>Filters</span>
@@ -22,8 +34,8 @@ const SearchSection = () => {
         </Button>
       </div>
       <div className={styles.resultsContainer}>
-        <span>6 projects</span>
-        <Button variant="link" className={styles.clearFilters}>
+        <span>{projectsCount} projects</span>
+        <Button variant="link" className={styles.clearFilters} onClick={handleClearFilters}>
           Clear filters
         </Button>
       </div>
