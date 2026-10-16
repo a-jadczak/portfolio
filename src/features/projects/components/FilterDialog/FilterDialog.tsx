@@ -5,26 +5,27 @@ import { Button } from '@/components/ui/Button/Button';
 import Checkbox from '@/components/ui/Checkbox/Checkbox';
 import styles from './FilterDialog.module.scss';
 import { Fragment } from 'react';
+import type { ProjectsFilterData } from '@/types/ProjectsFilterData';
 
-const filterGroups = [
-  {
-    id: 'project-technologies',
-    label: 'Technologies',
-    options: ['React', 'Vue', 'Angular', 'HTML', 'JavaScript', 'CSS'],
-  },
-  {
-    id: 'project-type',
-    label: 'Project Type',
-    options: ['Web', 'Mobile', 'Desktop', 'CLI Tool', 'Other'],
-  },
-  {
-    id: 'project-status',
-    label: 'Status',
-    options: ['Completed', 'In Progress', 'Archived'],
-  },
-];
+const FilterDialog = ({ technologies, types, statuses }: ProjectsFilterData) => {
+  const filterGroups = [
+    {
+      id: 'project-technologies',
+      label: 'Technologies',
+      options: technologies,
+    },
+    {
+      id: 'project-type',
+      label: 'Project Type',
+      options: types,
+    },
+    {
+      id: 'project-status',
+      label: 'Status',
+      options: statuses,
+    },
+  ];
 
-const FilterDialog = () => {
   return (
     <Dialog id="filter-dialog" title="Filter" titleId="filter-title" Icon={SlidersHorizontal}>
       <Divider />
@@ -37,7 +38,7 @@ const FilterDialog = () => {
             role="group"
             aria-labelledby={`${id}-label`}
           >
-            {options.map((option) => (
+            {[...options].map((option) => (
               <Checkbox key={option} label={option} />
             ))}
           </div>

@@ -6,6 +6,7 @@ import type { GithubProject, PinnedProject } from '@/types/GithubProject';
 import type { ProjectMetadata, RawProjectMetadata } from '@/types/ProjectMetadata';
 import type { RawReadme, Readme } from '@/types/Readme';
 import { parseReadme } from '@/utils/parseReadme';
+import type { ProjectsFilterData } from '@/types/ProjectsFilterData';
 
 interface ProjectsSchema {
   viewer: {
@@ -22,6 +23,8 @@ let projectsData: {
   featuredProjects: GithubProject<ProjectMetadata, Readme>[];
   projects: GithubProject<ProjectMetadata, Readme>[];
 } | null = null;
+
+let projectsFilterData: ProjectsFilterData | null = null;
 
 async function fetchProjects() {
   const { viewer } = await githubGraphQL<ProjectsSchema>(projectsQuery);
@@ -52,6 +55,42 @@ export async function getProjects() {
   if (projectsData) return projectsData;
 
   return await fetchProjects();
+}
+
+export async function getProjectsFilterData(): Promise<ProjectsFilterData> {
+  if (projectsFilterData) return projectsFilterData;
+
+  if (!projectsData) {
+    await fetchProjects();
+  }
+
+  projectsFilterData = {
+    statuses: new Set<string>(),
+    types: new Set<string>(),
+    technologies: new Set<string>(),
+    fillData: function (projects) {
+      if (!projects) return;
+
+      projects.forEach(({ metadata }) => {
+        if (!metadata) return;
+
+        const { status, type, technologies: newTechnologies } = metadata;
+
+        this.statuses.add(status);
+        this.types = new Set([...this.types, ...type]);
+        this.technologies = new Set([...this.technologies, ...newTechnologies]);
+      });
+    },
+  };
+
+  // Doesn't pass forward through components props
+  Object.defineProperty(projectsFilterData, 'fillData', {
+    enumerable: false,
+  });
+
+  projectsFilterData.fillData(projectsData?.projects);
+
+  return projectsFilterData;
 }
 
 export async function githubGraphQL<T>(queryAST: DocumentNode, variables = {}): Promise<T> {

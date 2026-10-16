@@ -2,9 +2,10 @@
 import PageHero from '@/components/ui/PageHero/PageHero.astro';
 import FilterDialog from '@/features/projects/components/FilterDialog/FilterDialog';
 import ProjectsSection from '@/features/projects/components/ProjectsSection/ProjectsSection';
-import { getProjects } from '@/lib/github';
+import { getProjects, getProjectsFilterData } from '@/lib/github';
 
 const { projects } = await getProjects();
+const projectsFilterData = await getProjectsFilterData();
 ---
 
 <PageHero
@@ -14,4 +15,4 @@ const { projects } = await getProjects();
 />
 
 <ProjectsSection {projects} client:load />
-<FilterDialog />
+<FilterDialog {...projectsFilterData} client:load />
