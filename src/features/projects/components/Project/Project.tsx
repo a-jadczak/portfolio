@@ -1,7 +1,6 @@
 import { Eye } from 'lucide-react';
 import Badge from '@/components/ui/Badge/Badge';
 import { Button } from '@/components/ui/Button/Button';
-import textStyles from '@/components/ui/Text/Text.module.scss';
 import dividerStyles from '@/components/ui/Divider/Divider.module.scss';
 import styles from './Project.module.scss';
 import { openDialog } from '@/utils/dialog';
@@ -10,6 +9,7 @@ import type { GithubProject } from '@/types/GithubProject';
 import type { ProjectMetadata } from '@/types/ProjectMetadata';
 import type { Readme } from '@/types/Readme';
 import { useProjectStore } from '@/stores/useProjectStore';
+import Text from '@/components/ui/Text/Text';
 
 const VISIBLE_TECHNOLOGY_COUNT = 3;
 
@@ -44,9 +44,7 @@ const Project = ({ projectData }: Props) => {
           {name}
         </Heading>
 
-        <p className={`${textStyles.text} ${textStyles.medium} ${textStyles.secondary}`}>
-          {description}
-        </p>
+        <Text variant="secondary">{description}</Text>
         <ul className={styles.badgesList}>
           {technologyBadges.map((title) => (
             <li key={title}>

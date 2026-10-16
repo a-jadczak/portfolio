@@ -12,6 +12,7 @@ import type { Readme as ReadmeData } from '@/types/Readme';
 import Readme from './components/Readme/Readme';
 import { useProjectStore } from '@/stores/useProjectStore';
 import ProjectMeta from './components/ProjectMeta/ProjectMeta';
+import NavigationCarousel from './components/NavigationCarousel/NavigationCarousel';
 
 interface Props {
   projects: GithubProject<ProjectMetadata, ReadmeData>[];
@@ -73,7 +74,8 @@ const ProjectDialog = ({ projects }: Props) => {
       </div>
 
       {readme ? (
-        <div className={`clipped-corners ${styles.container}`}>
+        <div key={id} className={`clipped-corners ${styles.container}`}>
+          <NavigationCarousel headings={readme.headings} />
           <Readme html={readme.html} />
         </div>
       ) : (
