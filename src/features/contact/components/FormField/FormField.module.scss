@@ -7,6 +7,10 @@
   &:has(input) {
     display: flex;
   }
+
+  &[data-state='success'] .labelContent::before {
+    color: $success;
+  }
 }
 
 .labelContent {

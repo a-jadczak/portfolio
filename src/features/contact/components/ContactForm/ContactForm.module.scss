@@ -3,10 +3,42 @@
 .container {
   border: 1px solid $border-secondary;
   padding: 0.5rem 0.75rem;
+
+  &[data-send='success'] {
+    border-color: $success;
+
+    .messageContainer {
+      border-color: $success;
+      opacity: 1;
+    }
+
+    .submitButton {
+      background: $success;
+      color: black;
+      opacity: 1;
+    }
+  }
+
+  textarea:disabled {
+    color: $text-muted;
+  }
+
+  &[data-send='error'] {
+    border-color: #e5484d;
+  }
+
+  .submitButton {
+    width: 100%;
+  }
 }
 
 .input {
   width: 100%;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
 }
 
 .messageContainer {
@@ -16,4 +48,9 @@
   padding: 0.5rem 0.75rem;
   resize: vertical;
   border: 1px solid $border-secondary;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
 }

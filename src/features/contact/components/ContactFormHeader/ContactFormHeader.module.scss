@@ -6,6 +6,15 @@
   justify-content: space-between;
   width: 100%;
   color: $primary;
+
+  &[data-send='success'] {
+    span {
+      color: $success;
+    }
+    .circle {
+      background-color: $success;
+    }
+  }
 }
 
 .circleContainer {
