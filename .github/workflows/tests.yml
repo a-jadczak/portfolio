@@ -46,4 +46,12 @@ jobs:
         run: npm test
 
       - name: Build project
-        run: npm run build
+        env:
+          # The portfolio query uses viewer, so authenticate as the portfolio owner.
+          GITHUB_TOKEN: ${{ secrets.PORTFOLIO_GITHUB_TOKEN }}
+        run: |
+          if [ -z "$GITHUB_TOKEN" ]; then
+            echo "::error::Set the PORTFOLIO_GITHUB_TOKEN repository secret to a personal access token for the portfolio owner. Fork pull requests do not receive this secret."
+            exit 1
+          fi
+          npm run build
