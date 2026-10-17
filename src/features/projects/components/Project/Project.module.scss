@@ -9,14 +9,12 @@
   counter-increment: project;
 }
 
-.title::before {
-  content: counter(project, decimal-leading-zero);
+.number::after {
+  content: 'Project / ' counter(project, decimal-leading-zero);
+  text-transform: uppercase;
   color: $primary;
   font-family: $number-font;
-  font-size: 1.45rem;
-  // Adjustments for the number font
-  font-size-adjust: 0.58;
-  margin-right: 0.5rem;
+  font-weight: 600;
 }
 
 .screenshot {
@@ -37,5 +35,6 @@
 
   span {
     margin-left: 0.25rem;
+    font-size: 1rem;
   }
 }

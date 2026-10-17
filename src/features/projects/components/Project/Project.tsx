@@ -40,11 +40,14 @@ const Project = ({ projectData }: Props) => {
           alt="Project preview image"
           className={`clipped-corners ${styles.screenshot}`}
         />
-        <Heading as="h3" size="small" className={styles.title}>
+        <span className={styles.number}></span>
+        <Heading as="h3" size="small">
           {name}
         </Heading>
 
-        <Text variant="secondary">{description}</Text>
+        <Text variant="secondary" size="small">
+          {description}
+        </Text>
         <ul className={styles.badgesList}>
           {technologyBadges.map((title) => (
             <li key={title}>
@@ -65,7 +68,7 @@ const Project = ({ projectData }: Props) => {
           aria-haspopup="dialog"
           onClick={handleClick}
         >
-          <Eye size={18} aria-hidden="true" />
+          <Eye size={16} aria-hidden="true" />
           <span>Show details</span>
         </Button>
       </article>
