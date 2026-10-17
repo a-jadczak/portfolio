@@ -2,7 +2,7 @@ import AboutMeCard from '../components/AboutMeCard/AboutMeCard.astro';
 import TechStackCard from '../components/TechStackCard/TechStackCard.astro';
 import WhatICareAboutCard from '../components/WhatICareAboutCard/WhatICareAboutCard.astro';
 import WorkflowCard from '../components/WorkflowCard/WorkflowCard.astro';
-import ExperienceCard from '../components/ExperienceCard/ExperienceCard.astro';
+import ExperienceCard from '../components/EducationCard/EducationCard.astro';
 
 export const cards = [
   { title: 'About me', Content: AboutMeCard },

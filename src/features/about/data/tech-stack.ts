@@ -62,10 +62,6 @@ export const techStack = new Map([
         title: 'REST API',
         src: `${ICONS_PATH}/rest-api.svg`,
       },
-      {
-        title: 'GraphQL',
-        src: `${ICONS_PATH}/graphql.svg`,
-      },
     ],
   ],
   [
@@ -186,6 +182,10 @@ export const techStack = new Map([
       {
         title: 'WPF',
         src: `${ICONS_PATH}/dotnet.svg`,
+      },
+      {
+        title: 'GraphQL',
+        src: `${ICONS_PATH}/graphql.svg`,
       },
     ],
   ],
