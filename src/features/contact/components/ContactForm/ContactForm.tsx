@@ -5,6 +5,27 @@ import FormField from '../FormField/FormField';
 import styles from './ContactForm.module.scss';
 import { useState, type SubmitEventHandler } from 'react';
 import type { FormState } from '@/features/contact/types/FormState';
+import type { ContactField } from '@/features/contact/types/ContactField';
+
+const formFields: ContactField[] = [
+  {
+    name: 'name',
+    type: 'text',
+    placeholder: 'John Pork',
+    autoComplete: 'name',
+  },
+  {
+    name: 'email',
+    type: 'email',
+    placeholder: 'you@example.com',
+    autoComplete: 'email',
+  },
+  {
+    name: 'subject',
+    type: 'text',
+    placeholder: "What's this about?",
+  },
+];
 
 const submitMessages: Record<FormState, string> = {
   idle: 'Send message',
@@ -22,7 +43,6 @@ const ContactForm = () => {
     setState('loading');
 
     const formData = new FormData(event.currentTarget);
-
     formData.append('access_key', import.meta.env.PUBLIC_WEB3FORMS_KEY);
 
     try {
@@ -47,41 +67,20 @@ const ContactForm = () => {
     <div className={`clipped-corners ${styles.container}`} data-send={state}>
       <ContactFormHeader state={state} />
       <form aria-label="Contact form" aria-busy={state === 'loading'} onSubmit={handleSubmit}>
-        <FormField htmlFor="name" label="name" state={state}>
-          <input
-            className={styles.input}
-            type="text"
-            placeholder="John Pork"
-            id="name"
-            name="name"
-            autoComplete="name"
-            disabled={isDisabled}
-            required
-          />
-        </FormField>
-        <FormField htmlFor="email" label="email" state={state}>
-          <input
-            className={styles.input}
-            type="email"
-            placeholder="you@example.com"
-            id="email"
-            name="email"
-            autoComplete="email"
-            disabled={isDisabled}
-            required
-          />
-        </FormField>
-        <FormField htmlFor="subject" label="subject" state={state}>
-          <input
-            className={styles.input}
-            type="text"
-            placeholder="What's this about?"
-            id="subject"
-            name="subject"
-            disabled={isDisabled}
-            required
-          />
-        </FormField>
+        {formFields.map(({ name, type, placeholder, autoComplete }) => (
+          <FormField key={name} htmlFor={name} label={name} state={state}>
+            <input
+              className={styles.input}
+              type={type}
+              placeholder={placeholder}
+              id={name}
+              name={name}
+              autoComplete={autoComplete}
+              disabled={isDisabled}
+              required
+            />
+          </FormField>
+        ))}
         <FormField htmlFor="message" label="message" state={state}>
           <textarea
             className={`clipped-corners ${styles.messageContainer}`}
@@ -91,7 +90,7 @@ const ContactForm = () => {
             disabled={isDisabled}
             placeholder="Tell me about your project..."
             required
-          ></textarea>
+          />
         </FormField>
         <Button
           className={styles.submitButton}
