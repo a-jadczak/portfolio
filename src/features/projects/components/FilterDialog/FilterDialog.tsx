@@ -9,14 +9,15 @@ import type { ProjectsFilterData } from '@/types/ProjectsFilterData';
 import type { SelectedFilters } from '@/features/projects/types/SelectedFilters';
 
 interface Props {
-  selectedFilters: ProjectsFilterData;
+  projectsFilterData: ProjectsFilterData;
+  selectedFilters: SelectedFilters;
   setSelectedFilters: React.Dispatch<React.SetStateAction<SelectedFilters>>;
 }
 
 type FilterKey = 'technologies' | 'types' | 'statuses';
 
-const FilterDialog = ({ selectedFilters, setSelectedFilters }: Props) => {
-  const { technologies, types, statuses } = selectedFilters;
+const FilterDialog = ({ projectsFilterData, selectedFilters, setSelectedFilters }: Props) => {
+  const { technologies, types, statuses } = projectsFilterData;
 
   const filterGroups: {
     id: string;
@@ -90,6 +91,7 @@ const FilterDialog = ({ selectedFilters, setSelectedFilters }: Props) => {
               <Checkbox
                 key={option}
                 label={option}
+                checked={selectedFilters[category].includes(option)}
                 onChange={(e) => handleCheckbox(e, category, option)}
               />
             ))}

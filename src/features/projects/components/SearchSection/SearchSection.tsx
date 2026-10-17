@@ -14,10 +14,6 @@ const SearchSection = ({ searchValue, setSearchValue, projectsCount }: Props) =>
     openDialog('filter-dialog');
   };
 
-  const handleClearFilters = () => {
-    setSearchValue('');
-  };
-
   return (
     <div className={styles.form}>
       <div className={styles.searchContainer}>
@@ -35,9 +31,6 @@ const SearchSection = ({ searchValue, setSearchValue, projectsCount }: Props) =>
       </div>
       <div className={styles.resultsContainer}>
         <span>{projectsCount} projects</span>
-        <Button variant="link" className={styles.clearFilters} onClick={handleClearFilters}>
-          Clear filters
-        </Button>
       </div>
     </div>
   );

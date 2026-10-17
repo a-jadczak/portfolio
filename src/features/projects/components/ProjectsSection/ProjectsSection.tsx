@@ -53,7 +53,11 @@ const ProjectsSection = ({ projects, projectsFilterData }: Props) => {
         ))}
       </ol>
 
-      <FilterDialog selectedFilters={projectsFilterData} setSelectedFilters={setSelectedFilters} />
+      <FilterDialog
+        projectsFilterData={projectsFilterData}
+        selectedFilters={selectedFilters}
+        setSelectedFilters={setSelectedFilters}
+      />
     </>
   );
 };
