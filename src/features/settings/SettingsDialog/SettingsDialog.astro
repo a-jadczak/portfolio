@@ -34,14 +34,11 @@ const colors = ['red', 'lawngreen', 'blue', 'purple'];
   <div class={styles.toggleContainer}>
     <label>Reduce motion</label>
     <Toggle client:load aria-label="Reduce motion" className={styles.toggle} />
-    <Text variant="secondary" size="small">Disable interface animations</Text>
+    <Text variant="secondary" size="extra-small">Disable interface animations</Text>
   </div>
   <Divider />
-  <!-- <SettingsField title="Reduce motion">
-
-  </SettingsField> -->
   <SettingsField title="Accent color">
     <ColorPickerList client:load colors={colors} />
   </SettingsField>
-  <Button variant="link">Use system preferences</Button>
+  <Button className={styles.systemPreferencesButton} variant="link">Use system preferences</Button>
 </Dialog>

@@ -1,5 +1,5 @@
 ---
-import { ArrowRight } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import styles from './FeaturedProjects.module.scss';
 import Project from '@/features/projects/components/Project/Project';
 import Heading from '@/components/ui/Heading/Heading';
@@ -12,9 +12,9 @@ const { featuredProjects } = await getProjects();
 <section class={`clipped-corners ${styles.featuredProjects}`}>
   <div class={styles.titleContainer}>
     <Heading as="h2" size="small" className={styles.title}>Featured Projects</Heading>
-    <ButtonLink variant="link" href="/projects">
+    <ButtonLink variant="link" href="/projects" className={styles.link}>
       <span>View all</span>
-      <ArrowRight size={18} aria-hidden="true" />
+      <ArrowUpRight size={16} aria-hidden="true" />
     </ButtonLink>
   </div>
   <ol class={styles.projectsList}>

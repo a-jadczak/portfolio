@@ -1,10 +1,13 @@
 .checkboxContainer {
-  display: grid;
   box-sizing: border-box;
   margin-top: 0.5rem;
+  columns: 2;
+  column-gap: 0.5rem;
 
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.5rem;
+  > * {
+    break-inside: avoid;
+    margin-bottom: 0.5rem;
+  }
 }
 
 .buttonsContainer {
@@ -13,4 +16,8 @@
   justify-content: space-between;
   width: 100%;
   gap: 0.5rem;
+
+  > button {
+    font-size: 1rem !important;
+  }
 }

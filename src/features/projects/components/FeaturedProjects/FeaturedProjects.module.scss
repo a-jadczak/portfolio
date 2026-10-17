@@ -9,7 +9,7 @@
   }
 
   .title {
-    font-size: 1rem;
+    font-size: 1.1rem;
     text-transform: uppercase;
   }
 
@@ -20,5 +20,9 @@
     gap: 0.5rem;
     list-style: none;
     padding: 0;
+  }
+
+  .link {
+    font-size: 1rem !important;
   }
 }

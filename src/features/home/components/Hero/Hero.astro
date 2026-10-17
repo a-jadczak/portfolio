@@ -4,7 +4,7 @@ import Eyebrow from '@/components/ui/Eyebrow/Eyebrow.astro';
 import Heading from '@/components/ui/Heading/Heading';
 import Text from '@/components/ui/Text/Text';
 import styles from './Hero.module.scss';
-import { ArrowRight, Mail } from 'lucide-react';
+import { ArrowUpRight, Mail } from 'lucide-react';
 import ProfileImage from '../ProfileImage/ProfileImage.astro';
 ---
 
@@ -12,7 +12,7 @@ import ProfileImage from '../ProfileImage/ProfileImage.astro';
 
 <section>
   <header class={styles.intro}>
-    <Eyebrow>SOFTWARE ENGINEER · FRONT-END FOCUSED</Eyebrow>
+    <Eyebrow>Arkadiusz Jadczak · SOFTWARE ENGINEER</Eyebrow>
     <Heading as="h1" size="large">Building modern software.</Heading>
     <Text size="large" variant="secondary">
       I focus on building <span class={styles.blazinglyFast}>blazingly fast</span>, accessible and
@@ -27,7 +27,7 @@ import ProfileImage from '../ProfileImage/ProfileImage.astro';
     style={{ margin: '0.5rem 0' }}
   >
     <span>View Projects</span>
-    <ArrowRight className={styles.icon} size={18} aria-hidden="true" />
+    <ArrowUpRight className={styles.icon} size={18} aria-hidden="true" />
   </ButtonLink>
 
   <ButtonLink href="/contact" variant="default" className={styles.button}>

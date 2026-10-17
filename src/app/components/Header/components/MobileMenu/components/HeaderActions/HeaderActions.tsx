@@ -3,7 +3,7 @@ import SettingsButton from '../SettingsButton/SettingsButton';
 import styles from './HeaderActions.module.scss';
 import { ButtonLink } from '@/components/ui/Button/ButtonLink';
 
-const ICON_SIZE = 18;
+const ICON_SIZE = 22;
 const externalLinks = [
   { href: 'https://github.com/a-jadczak', label: 'GitHub', Icon: FaGithub },
   {

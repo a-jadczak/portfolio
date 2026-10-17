@@ -6,12 +6,12 @@ import Text from '@/components/ui/Text/Text';
 import styles from './AboutMeCard.module.scss';
 ---
 
-<Heading as="h1">Lorem ipsum dolor sit.</Heading>
+<Heading as="h1" className={styles.title}>Arkadiusz Jadczak</Heading>
 <Text variant="secondary">
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam hic velit cupiditate voluptatem
-  dolorem assumenda accusamus saepe asperiores illum. Repellat.
+  I'm a software developer focused on building modern web applications and exploring technologies in
+  the IT industry. Currently searching for my first job.
 </Text>
-<Card>
+<Card class={styles.card}>
   <ul class={styles.infoList}>
     <li class={styles.infoElement}>
       <MapPin className={styles.infoIcon} />

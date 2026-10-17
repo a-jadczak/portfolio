@@ -12,8 +12,8 @@ import CardIcon from '@/components/ui/CardIcon/CardIcon.astro';
     cards.map(({ title, Icon, description, image }) => (
       <Card class={styles.card} style={`--card-image: url("${image}")`}>
         <header>
-          <CardIcon Icon={Icon} />
-          <Heading className={styles.title} as="h3">
+          <CardIcon Icon={Icon} style={{ width: '2.5rem' }} size={24} />
+          <Heading className={styles.title} as="h3" size="medium">
             {title}
           </Heading>
         </header>

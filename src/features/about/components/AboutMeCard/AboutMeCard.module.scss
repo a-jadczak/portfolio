@@ -1,23 +1,32 @@
 @use '@/styles/tokens' as *;
 
-.infoList {
+.card {
+  margin-top: 0.5rem;
+}
+.title {
+  font-size: 1.85rem;
+  margin-bottom: 0.25rem;
+  margin-top: 0.5rem;
 }
 
-.infoElement {
-  display: grid;
-  grid-template-columns: auto clamp(100px, 20%, 150px) 1fr;
-  align-items: center;
-  width: 100%;
-  gap: 0.5rem;
-  padding: 0.5rem;
-  .infoIcon {
-    color: $primary;
-  }
+.infoList {
+  .infoElement {
+    display: grid;
+    grid-template-columns: auto clamp(100px, 20%, 150px) 1fr;
+    align-items: center;
+    padding: 0.15rem;
 
-  .infoLabel {
-    text-transform: uppercase;
-    color: $text-secondary;
-  }
-  .infoContent {
+    .infoIcon {
+      color: $primary;
+      margin-right: 0.25rem;
+    }
+
+    .infoLabel {
+      text-transform: uppercase;
+      color: $text-secondary;
+    }
+    .infoContent {
+      font-size: 0.9rem;
+    }
   }
 }
