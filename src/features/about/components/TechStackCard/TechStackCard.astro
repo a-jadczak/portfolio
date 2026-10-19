@@ -6,6 +6,7 @@ import StackItem from '../StackItem/StackItem.astro';
 import styles from './TechStackCard.module.scss';
 import { techStack } from '../../data/tech-stack';
 import { AppWindow, BookOpen, Bot, Database, FlaskConical, Shapes, Wrench } from 'lucide-react';
+import Divider from '@/components/ui/Divider/Divider';
 
 const icons = new Map([
   ['frontend', AppWindow],
@@ -24,11 +25,12 @@ const icons = new Map([
       <li>
         <Card>
           <header class={styles.header}>
-            <CardIcon Icon={icons.get(key)} />
-            <Heading size="small" as="h3" className={styles.title}>
+            <CardIcon Icon={icons.get(key)} size={24} class={styles.cardIcon} />
+            <Heading size="extra-small" as="h3" className={styles.title}>
               {key}
             </Heading>
           </header>
+          <Divider />
           <ul class={styles.techList}>
             {techStack.get(key)!.map((item) => (
               <li>

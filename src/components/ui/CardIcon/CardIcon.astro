@@ -1,9 +1,9 @@
 ---
 import styles from './CardIcon.module.scss';
 
-const { Icon, size = 32, ...props } = Astro.props;
+const { Icon, size = 32, class: className, ...props } = Astro.props;
 ---
 
-<div class={`clipped-corners ${styles.icon}`} {...props}>
+<div {...props} class:list={['clipped-corners', styles.icon, className]}>
   <Icon size={size} aria-hidden="true" />
 </div>

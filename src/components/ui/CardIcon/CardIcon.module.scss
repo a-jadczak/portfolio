@@ -6,5 +6,16 @@
   display: grid;
   place-items: center;
   color: $primary;
-  border: 2px solid $primary;
+  border: 1px solid $primary;
+  background:
+    radial-gradient(
+      circle at 50% 35%,
+      color-mix(in srgb, $primary 18%, transparent),
+      transparent 85%
+    ),
+    $background-lighter;
+
+  box-shadow:
+    inset 0 0 18px color-mix(in srgb, $primary 7%, transparent),
+    0 0 12px color-mix(in srgb, $primary 5%, transparent);
 }
