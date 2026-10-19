@@ -4,18 +4,20 @@ import Heading from '@/components/ui/Heading/Heading';
 import { MapPin, CircleCheck, Languages } from 'lucide-react';
 import Text from '@/components/ui/Text/Text';
 import styles from './AboutMeCard.module.scss';
+import Divider from '@/components/ui/Divider/Divider';
 ---
 
 <Heading as="h1" className={styles.title}>Arkadiusz Jadczak</Heading>
-<Text variant="secondary">
+<Text variant="secondary" size="small" className={styles.description}>
   I'm a software developer focused on building modern web applications and exploring technologies in
   the IT industry. Currently searching for my first job.
 </Text>
-<Card class={styles.card}>
+<Divider />
+<Card class={styles.card} border={false}>
   <ul class={styles.infoList}>
     <li class={styles.infoElement}>
       <MapPin className={styles.infoIcon} />
-      <span class={styles.infoLabel}>Based in</span>
+      <span class={styles.infoLabel}>Location</span>
       <span class={styles.infoContent}>Poland / Remote</span>
     </li>
     <li class={styles.infoElement}>

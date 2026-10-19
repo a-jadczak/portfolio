@@ -3,27 +3,44 @@
 .card {
   margin-top: 0.5rem;
 }
+
 .title {
-  font-size: 1.85rem;
+  font-size: 1.75rem;
   margin-bottom: 0.25rem;
   margin-top: 0.5rem;
 }
 
+.description {
+  line-height: 1.4;
+  margin-bottom: 1rem;
+}
+
 .infoList {
+  margin-top: -0.25rem;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 0.5rem;
+
   .infoElement {
     display: grid;
-    grid-template-columns: auto clamp(100px, 20%, 150px) 1fr;
     align-items: center;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: repeat(2, auto);
+    // gap: 0.5rem;
     padding: 0.15rem;
 
     .infoIcon {
+      grid-row: span 2;
       color: $primary;
-      margin-right: 0.25rem;
+      margin-right: 0.75rem;
+      width: 1.25rem;
     }
 
     .infoLabel {
       text-transform: uppercase;
       color: $text-secondary;
+      font-size: 0.8rem;
     }
     .infoContent {
       font-size: 0.9rem;
