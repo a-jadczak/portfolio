@@ -27,33 +27,35 @@ const experiences = [
 ];
 ---
 
-<Timeline data-orientation="vertical" id="education-card__timeline" class={styles.timeline}>
-  {
-    experiences.map(({ Icon, period, title, subtitle, description }) => (
-      <TimelineItem>
-        <Card class={styles.card}>
-          <CardIcon Icon={Icon} />
-          <div class={styles.content}>
-            <Text className={styles.period} size="small">
-              {period}
-            </Text>
-            <Heading as="h3" size="extra-small">
-              {title}
-            </Heading>
-            {subtitle && (
-              <Text size="extra-small" variant="secondary">
-                {subtitle}
+<div class={styles.timelineContainer}>
+  <Timeline data-orientation="vertical" id="education-card__timeline" class={styles.timeline}>
+    {
+      experiences.map(({ Icon, period, title, subtitle, description }) => (
+        <TimelineItem>
+          <Card class={styles.card}>
+            <CardIcon Icon={Icon} />
+            <div class={styles.content}>
+              <Text className={styles.period} size="small">
+                {period}
               </Text>
-            )}
-            <Text className={styles.description} size="extra-small" variant="secondary">
-              {description}
-            </Text>
-          </div>
-        </Card>
-      </TimelineItem>
-    ))
-  }
-</Timeline>
+              <Heading as="h3" size="extra-small">
+                {title}
+              </Heading>
+              {subtitle && (
+                <Text size="extra-small" variant="secondary">
+                  {subtitle}
+                </Text>
+              )}
+              <Text className={styles.description} size="extra-small" variant="secondary">
+                {description}
+              </Text>
+            </div>
+          </Card>
+        </TimelineItem>
+      ))
+    }
+  </Timeline>
+</div>
 
 <script>
   import breakpoints from '@/styles/breakpoints.module.scss';

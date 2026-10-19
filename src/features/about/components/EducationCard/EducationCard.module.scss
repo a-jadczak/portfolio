@@ -1,4 +1,17 @@
 @use '@/styles/tokens' as *;
+@use '@/styles/breakpoints' as bp;
+
+.timelineContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .timeline {
+    width: 100%;
+    max-width: bp.$breakpoint-desktop;
+  }
+}
 
 .card {
   display: grid;
