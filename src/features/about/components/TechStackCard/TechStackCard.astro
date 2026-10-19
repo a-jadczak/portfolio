@@ -19,27 +19,29 @@ const icons = new Map([
 ]);
 ---
 
-<ul class={styles.categoryList}>
-  {
-    techStack.keys().map((key) => (
-      <li>
-        <Card border={false}>
-          <header class={styles.header}>
-            <CardIcon Icon={icons.get(key)} size={24} class={styles.cardIcon} />
-            <Heading size="extra-small" as="h3" className={styles.title}>
-              {key}
-            </Heading>
-          </header>
-          <Divider />
-          <ul class={styles.techList}>
-            {techStack.get(key)!.map((item) => (
-              <li>
-                <StackItem {...item} />
-              </li>
-            ))}
-          </ul>
-        </Card>
-      </li>
-    ))
-  }
-</ul>
+<div class={styles.categoryListContainer}>
+  <ul class={styles.categoryList}>
+    {
+      techStack.keys().map((key) => (
+        <li>
+          <Card border={false}>
+            <header class={styles.header}>
+              <CardIcon Icon={icons.get(key)} size={24} class={styles.cardIcon} />
+              <Heading size="extra-small" as="h3" className={styles.title}>
+                {key}
+              </Heading>
+            </header>
+            <Divider />
+            <ul class={styles.techList}>
+              {techStack.get(key)!.map((item) => (
+                <li>
+                  <StackItem {...item} />
+                </li>
+              ))}
+            </ul>
+          </Card>
+        </li>
+      ))
+    }
+  </ul>
+</div>

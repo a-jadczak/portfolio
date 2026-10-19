@@ -16,23 +16,34 @@
     }
   }
 }
+.categoryListContainer {
+  display: flex;
+  width: 100%;
+  justify-content: center;
 
-.categoryList {
-  display: grid;
+  .categoryList {
+    display: grid;
+    max-width: bp.$breakpoint-desktop;
 
-  @include bp.tablet {
-    grid-template-columns: 1fr 1fr;
-  }
+    @include bp.tablet {
+      grid-template-columns: repeat(2, 1fr);
+    }
 
-  .cardIcon {
-    width: 2.5rem;
-    border-radius: math.div($border-radius, 1.75);
+    @include bp.desktop {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .cardIcon {
+      width: 2.5rem;
+      border-radius: math.div($border-radius, 1.75);
+    }
   }
 }
-
 .techList {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+
   gap: 0.5rem;
   padding: 0.5rem;
 }
