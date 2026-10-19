@@ -1,4 +1,9 @@
 @use '@/styles/tokens' as *;
+@use '@/styles/breakpoints' as bp;
+
+:export {
+  tabletBreakpoint: bp.$breakpoint-tablet;
+}
 
 .card {
   display: grid;

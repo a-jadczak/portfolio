@@ -2,11 +2,13 @@
 import type { HTMLAttributes } from 'astro/types';
 import styles from './Timeline.module.scss';
 
-type Props = HTMLAttributes<'ul'>;
+type Props = HTMLAttributes<'ul'> & {
+  'data-orientation'?: 'vertical' | 'horizontal';
+};
 
-const { class: className, 'class:list': classList, ...attributes } = Astro.props;
+const { class: className, ...attributes } = Astro.props;
 ---
 
-<ul role="list" {...attributes} class:list={[styles.list, className, classList]}>
+<ul role="list" {...attributes} class:list={[styles.list, className]}>
   <slot />
 </ul>

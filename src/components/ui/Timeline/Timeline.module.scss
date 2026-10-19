@@ -52,3 +52,41 @@
     0 0 0 2px $primary-light,
     0 0 10px $primary;
 }
+
+.list[data-orientation='horizontal'] {
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(min(100%, 18rem), 1fr);
+  min-width: 0;
+  overflow-x: auto;
+  padding: 0.75rem 0.25rem;
+
+  > .item {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto 1fr;
+    align-items: stretch;
+    gap: 0.75rem;
+
+    &::after {
+      grid-column: auto;
+      justify-self: auto;
+      top: calc(0.375rem + 1.5px);
+      bottom: auto;
+      left: 0;
+      right: calc(-1 * var(--timeline-gap));
+      width: auto;
+      height: 3px;
+    }
+
+    &:first-child::after {
+      left: 50%;
+    }
+
+    &:last-child::after {
+      right: 50%;
+    }
+
+    > .dot {
+      justify-self: center;
+    }
+  }
+}

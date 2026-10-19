@@ -27,7 +27,7 @@ const experiences = [
 ];
 ---
 
-<Timeline>
+<Timeline data-orientation="vertical" id="education-card__timeline">
   {
     experiences.map(({ Icon, period, title, subtitle, description }) => (
       <TimelineItem>
@@ -54,3 +54,20 @@ const experiences = [
     ))
   }
 </Timeline>
+
+<script>
+  import styles from './EducationCard.module.scss';
+
+  const educationTimeline = document.querySelector<HTMLUListElement>('#education-card__timeline')!;
+  const query = window.matchMedia(`(min-width: ${styles.tabletBreakpoint})`);
+
+  updateOrientation();
+
+  query.addEventListener('change', () => {
+    updateOrientation();
+  });
+
+  function updateOrientation() {
+    educationTimeline.dataset.orientation = query.matches ? 'horizontal' : 'vertical';
+  }
+</script>
