@@ -1,4 +1,5 @@
 @use '@/styles/tokens' as *;
+@use '@/styles/breakpoints' as bp;
 @use 'sass:math';
 
 .header {
@@ -17,8 +18,11 @@
 }
 
 .categoryList {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+
+  @include bp.tablet {
+    grid-template-columns: 1fr 1fr;
+  }
 
   .cardIcon {
     width: 2.5rem;
@@ -28,9 +32,7 @@
 
 .techList {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  flex-wrap: wrap;
+  grid-template-columns: repeat(3, 1fr);
   gap: 0.5rem;
   padding: 0.5rem;
-  width: 100%;
 }

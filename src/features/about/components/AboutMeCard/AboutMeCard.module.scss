@@ -1,7 +1,17 @@
 @use '@/styles/tokens' as *;
+@use '@/styles/breakpoints' as bp;
 
-.card {
-  margin-top: 0.5rem;
+.container {
+  display: grid;
+  @include bp.tablet {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .divider {
+    @include bp.tablet {
+      display: none;
+    }
+  }
 }
 
 .title {
@@ -12,7 +22,7 @@
 
 .description {
   line-height: 1.4;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .infoList {

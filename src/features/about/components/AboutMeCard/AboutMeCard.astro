@@ -7,28 +7,33 @@ import styles from './AboutMeCard.module.scss';
 import Divider from '@/components/ui/Divider/Divider';
 ---
 
-<Heading as="h1" className={styles.title}>Arkadiusz Jadczak</Heading>
-<Text variant="secondary" size="small" className={styles.description}>
-  I'm a software developer focused on building modern web applications and exploring technologies in
-  the IT industry. Currently searching for my first job.
-</Text>
-<Divider />
-<Card class={styles.card} border={false}>
-  <ul class={styles.infoList}>
-    <li class={styles.infoElement}>
-      <MapPin className={styles.infoIcon} />
-      <span class={styles.infoLabel}>Location</span>
-      <span class={styles.infoContent}>Poland / Remote</span>
-    </li>
-    <li class={styles.infoElement}>
-      <CircleCheck className={styles.infoIcon} />
-      <span class={styles.infoLabel}>Status</span>
-      <span class={styles.infoContent}>Open to opportunites</span>
-    </li>
-    <li class={styles.infoElement}>
-      <Languages className={styles.infoIcon} />
-      <span class={styles.infoLabel}>Languages</span>
-      <span class={styles.infoContent}>Polish / English</span>
-    </li>
-  </ul>
-</Card>
+<div class={styles.container}>
+  <header class={styles.header}>
+    <Heading as="h1" className={styles.title}>Arkadiusz Jadczak</Heading>
+    <Text variant="secondary" size="small" className={styles.description}>
+      I'm a software developer focused on building modern web applications and exploring
+      technologies in the IT industry. Currently searching for my first job.
+    </Text>
+  </header>
+
+  <Divider className={styles.divider} />
+  <Card class={styles.card} border={false}>
+    <ul class={styles.infoList}>
+      <li class={styles.infoElement}>
+        <MapPin className={styles.infoIcon} />
+        <span class={styles.infoLabel}>Location</span>
+        <span class={styles.infoContent}>Poland / Remote</span>
+      </li>
+      <li class={styles.infoElement}>
+        <CircleCheck className={styles.infoIcon} />
+        <span class={styles.infoLabel}>Status</span>
+        <span class={styles.infoContent}>Open to opportunites</span>
+      </li>
+      <li class={styles.infoElement}>
+        <Languages className={styles.infoIcon} />
+        <span class={styles.infoLabel}>Languages</span>
+        <span class={styles.infoContent}>Polish / English</span>
+      </li>
+    </ul>
+  </Card>
+</div>
