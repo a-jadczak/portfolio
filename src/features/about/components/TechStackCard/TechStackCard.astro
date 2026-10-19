@@ -23,7 +23,7 @@ const icons = new Map([
   {
     techStack.keys().map((key) => (
       <li>
-        <Card>
+        <Card style={{ borderWidth: 0 }}>
           <header class={styles.header}>
             <CardIcon Icon={icons.get(key)} size={24} class={styles.cardIcon} />
             <Heading size="extra-small" as="h3" className={styles.title}>
