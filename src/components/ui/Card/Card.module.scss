@@ -3,6 +3,9 @@
 
 .card {
   @include interactive();
-  border: 1px solid $border-secondary;
   padding: 0.5rem;
+}
+
+.bordered {
+  border: 1px solid $border-secondary;
 }
