@@ -1,9 +1,11 @@
 ---
 import styles from './StackItem.module.scss';
-const { title, src, size = 50 } = Astro.props;
+const { title, accentColor = 'white', src } = Astro.props;
 ---
 
 <div class={styles.item}>
-  <img src={src} alt="" width={size} height={size} />
-  <p>{title}</p>
+  <div class={`clipped-corners ${styles.imageCard}`} style={`--accent: ${accentColor}`}>
+    <img class={styles.image} src={src} alt={`${title} icon`} />
+  </div>
+  <p class={styles.title}>{title}</p>
 </div>

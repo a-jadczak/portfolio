@@ -1,5 +1,37 @@
+@use '@/styles/tokens' as *;
+
 .item {
   display: grid;
   place-items: center;
   text-align: center;
+  gap: 0.25rem;
+
+  .imageCard {
+    --accent: white; // default
+
+    padding: 0.5rem;
+    display: grid;
+    place-items: center;
+    border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+    background:
+      radial-gradient(
+        ellipse at 50% 0%,
+        color-mix(in srgb, var(--accent) 12%, transparent),
+        transparent 75%
+      ),
+      $background;
+
+    box-shadow:
+      inset 0 0 20px color-mix(in srgb, var(--accent) 4%, transparent),
+      0 0 12px color-mix(in srgb, var(--accent) 5%, transparent);
+  }
+
+  .image {
+    width: 2.5rem;
+    aspect-ratio: 1;
+  }
+
+  .title {
+    font-size: 0.8rem;
+  }
 }
