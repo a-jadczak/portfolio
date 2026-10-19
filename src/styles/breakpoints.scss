@@ -3,6 +3,13 @@ $breakpoint-tablet: 768px;
 $breakpoint-desktop: 1024px;
 $breakpoint-wide-screen: 1440px;
 
+:export {
+  mobile: $breakpoint-mobile;
+  tablet: $breakpoint-tablet;
+  desktop: $breakpoint-desktop;
+  wideScreen: $breakpoint-wide-screen;
+}
+
 @mixin mobile {
   @media (min-width: $breakpoint-mobile) {
     @content;

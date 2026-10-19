@@ -27,7 +27,7 @@ const experiences = [
 ];
 ---
 
-<Timeline data-orientation="vertical" id="education-card__timeline">
+<Timeline data-orientation="vertical" id="education-card__timeline" class={styles.timeline}>
   {
     experiences.map(({ Icon, period, title, subtitle, description }) => (
       <TimelineItem>
@@ -56,10 +56,10 @@ const experiences = [
 </Timeline>
 
 <script>
-  import styles from './EducationCard.module.scss';
+  import breakpoints from '@/styles/breakpoints.module.scss';
 
   const educationTimeline = document.querySelector<HTMLUListElement>('#education-card__timeline')!;
-  const query = window.matchMedia(`(min-width: ${styles.tabletBreakpoint})`);
+  const query = window.matchMedia(`(min-width: ${breakpoints.tablet})`);
 
   updateOrientation();
 
