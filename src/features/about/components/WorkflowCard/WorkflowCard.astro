@@ -5,31 +5,38 @@ import Heading from '@/components/ui/Heading/Heading';
 import Text from '@/components/ui/Text/Text';
 import Timeline from '@/components/ui/Timeline/Timeline.astro';
 import TimelineItem from '@/components/ui/Timeline/TimelineItem.astro';
-import { CodeXml, Image, Lightbulb, NotebookPen } from 'lucide-react';
+import { CodeXml, FlaskConical, Lightbulb, MopSparkles, Palette } from 'lucide-react';
 import styles from './WorkflowCard.module.scss';
 
 const workflowCards = [
   {
     Icon: Lightbulb,
-    title: 'Idea',
-    description: 'Lorem ipsum dolor sit amet consectetur adipisicing',
-  },
-  {
-    Icon: NotebookPen,
-    title: 'Research & Planning',
+    title: 'Idea & Planning',
     description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem ea doloribus aliquam dolores nam. Laudantium distinctio maxime consequatur assumenda impedit!',
+      'I start with an idea, research possible solutions, and plan application features, the tech stack, and design elements with the help of ChatGPT.',
   },
   {
-    Icon: Image,
-    title: 'Visual Generation',
-    description: 'Lorem ipsum dolor sit amet consectetur adipisicing ',
+    Icon: Palette,
+    title: 'UI/UX Design',
+    description: 'I experiment with generate visual concepts using AI before implementing them.',
   },
   {
     Icon: CodeXml,
-    title: 'Implementation',
+    title: 'Development',
     description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem ea doloribus aliquam',
+      'I turn plans and designs into working applications, using Trello to organize development tasks and track progress.',
+  },
+  {
+    Icon: FlaskConical,
+    title: 'Testing',
+    description:
+      'I test functionality, fix issues, and improve performance, accessibility, and user experience.',
+  },
+  {
+    Icon: MopSparkles,
+    title: 'Polishing & Final Touches',
+    description:
+      'I refine visual details, animations, and interactions to create a polished and consistent user experience.',
   },
 ];
 ---
