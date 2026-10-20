@@ -4,7 +4,7 @@
 .container {
   display: grid;
   @include bp.tablet {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr auto;
   }
 
   .divider {
@@ -14,21 +14,35 @@
   }
 }
 
+.header {
+  max-width: 570px;
+  @include bp.tablet {
+    padding: 0.5rem;
+  }
+}
+
 .title {
   font-size: 1.75rem;
   margin-bottom: 0.25rem;
   margin-top: 0.5rem;
+
+  @include bp.tablet {
+    font-size: 2.25rem;
+  }
 }
 
 .description {
   line-height: 1.4;
   margin-bottom: 0.5rem;
+  @include bp.tablet {
+    font-size: 1rem;
+  }
 }
 
 .infoList {
   margin-top: -0.25rem;
-  display: flex;
   width: 100%;
+  display: flex;
   flex-direction: column;
   gap: 0.5rem;
 
@@ -37,7 +51,7 @@
     align-items: center;
     grid-template-columns: auto 1fr;
     grid-template-rows: repeat(2, auto);
-    // gap: 0.5rem;
+
     padding: 0.15rem;
 
     .infoIcon {
