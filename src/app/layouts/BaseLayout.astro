@@ -21,24 +21,34 @@ const { projects } = await getProjects();
     <title>{title}</title>
   </head>
   <body>
-    <Header />
-    <main>
-      <PageIndicator pageInfo={currentPageInfo} />
-      <slot />
-    </main>
-    <Footer />
-    <SettingsDialog />
-    <ProjectDialog {projects} client:load />
+    <div class="app">
+      <Header />
+      <main>
+        <PageIndicator pageInfo={currentPageInfo} />
+        <slot />
+      </main>
+      <Footer />
+      <SettingsDialog />
+      <ProjectDialog {projects} client:load />
+    </div>
   </body>
 </html>
 
 <style lang="scss">
   @use '../../styles/tokens' as *;
+  @use '../../styles/breakpoints' as bp;
 
   body {
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
+    width: 100%;
     min-height: 100svh;
+  }
+
+  .app {
+    width: clamp(200px, 100%, bp.$breakpoint-wide-screen);
   }
 
   main {
