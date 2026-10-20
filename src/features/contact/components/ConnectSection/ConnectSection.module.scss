@@ -1,9 +1,16 @@
 @use '@/styles/tokens' as *;
+@use '@/styles/breakpoints' as bp;
 
 .container {
   margin-top: 0.5rem;
-  padding: 0.5rem;
-  // border: 1px solid $border-secondary;
+}
+
+.card {
+  padding: 0.75rem !important;
+
+  @include bp.tablet {
+    border: 1px solid $border;
+  }
 }
 
 .title {
@@ -14,4 +21,14 @@
   display: grid;
   gap: 0.5rem;
   list-style: none;
+
+  @include bp.tablet {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr 1fr;
+
+    > :last-child {
+      grid-row-start: 2 span;
+      grid-column-end: 2 span;
+    }
+  }
 }

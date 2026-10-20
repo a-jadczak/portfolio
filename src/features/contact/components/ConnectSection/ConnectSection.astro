@@ -4,6 +4,7 @@ import ConnectionCard from '../ConnectionCard/ConnectionCard.astro';
 import { Mail, CalendarCheck } from 'lucide-react';
 import styles from './ConnectSection.module.scss';
 import Heading from '@/components/ui/Heading/Heading';
+import Card from '@/components/ui/Card/Card.astro';
 
 const connections = [
   {
@@ -28,14 +29,16 @@ const connections = [
 ---
 
 <section class={`clipped-corners ${styles.container}`}>
-  <Heading as="h2" size="small" className={styles.title}>Let's connect</Heading>
-  <ul class={styles.list}>
-    {
-      connections.map((connection) => (
-        <li>
-          <ConnectionCard key={connection.title} {...connection} />
-        </li>
-      ))
-    }
-  </ul>
+  <Card class={styles.card} border={false}>
+    <Heading as="h2" size="small" className={styles.title}>Let's connect</Heading>
+    <ul class={styles.list}>
+      {
+        connections.map((connection) => (
+          <li>
+            <ConnectionCard key={connection.title} {...connection} />
+          </li>
+        ))
+      }
+    </ul>
+  </Card>
 </section>
