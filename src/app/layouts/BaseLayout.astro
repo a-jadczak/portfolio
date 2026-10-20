@@ -41,14 +41,14 @@ const { projects } = await getProjects();
   body {
     display: flex;
     justify-content: center;
-    align-items: center;
-    flex-direction: column;
     width: 100%;
-    min-height: 100svh;
   }
 
   .app {
     width: clamp(200px, 100%, bp.$breakpoint-wide-screen);
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
   }
 
   main {
