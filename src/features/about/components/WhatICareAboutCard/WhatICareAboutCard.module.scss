@@ -9,11 +9,24 @@
   @include bp.tablet {
     grid-template-columns: auto auto;
   }
+
+  @include bp.desktop {
+    grid-template-columns: repeat(3, auto);
+    grid-template-rows: 4fr 3fr auto;
+    grid-template-areas:
+      'performance performance ui-ux'
+      'accessibility testing seo'
+      'scalable-code scalable-code scalable-code';
+  }
 }
 
 .card {
   position: relative;
   padding: 1rem;
+
+  @include bp.desktop {
+    grid-area: var(--grid-area);
+  }
 
   &::before {
     content: '';
@@ -21,9 +34,19 @@
     inset: 0;
     background-image: var(--card-image);
     background-position: center;
+    opacity: 0.05;
+
     background-repeat: no-repeat;
     background-size: 75%;
-    opacity: 0.05;
+
+    @include bp.mobile {
+      background-repeat: repeat;
+      background-size: 50%;
+    }
+
+    @include bp.desktop {
+      background-size: 15%;
+    }
   }
 
   header {

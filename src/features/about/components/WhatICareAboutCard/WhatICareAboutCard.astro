@@ -10,7 +10,10 @@ import CardIcon from '@/components/ui/CardIcon/CardIcon.astro';
 <div class={styles.gridContainer}>
   {
     cards.map(({ title, Icon, description, image }) => (
-      <Card class={styles.card} style={`--card-image: url("${image}")`}>
+      <Card
+        class={styles.card}
+        style={`--card-image: url("${image}"); --grid-area: ${title.toLowerCase().replace(/[\s/]+/g, '-')}`}
+      >
         <header>
           <CardIcon Icon={Icon} style={{ width: '2.5rem' }} size={24} />
           <Heading className={styles.title} as="h3" size="medium">
