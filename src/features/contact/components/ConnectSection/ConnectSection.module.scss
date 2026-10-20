@@ -3,6 +3,8 @@
 
 .container {
   margin-top: 0.5rem;
+  display: grid;
+  align-items: center;
 }
 
 .card {
@@ -29,6 +31,15 @@
     > :last-child {
       grid-row-start: 2 span;
       grid-column-end: 2 span;
+    }
+  }
+  @include bp.tablet {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    align-items: center;
+
+    > :last-child {
+      all: unset;
     }
   }
 }

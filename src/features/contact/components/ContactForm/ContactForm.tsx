@@ -84,7 +84,7 @@ const ContactForm = () => {
         <FormField htmlFor="message" label="message" state={state}>
           <textarea
             className={`clipped-corners ${styles.messageContainer}`}
-            rows={5}
+            rows={10}
             id="message"
             name="message"
             disabled={isDisabled}

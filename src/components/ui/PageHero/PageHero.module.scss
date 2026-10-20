@@ -1,6 +1,25 @@
-.section,
+@use '@/styles/breakpoints' as bp;
+
 .header {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  padding: 3rem;
+  max-width: 625px;
+
+  @include bp.tablet {
+    justify-content: center;
+  }
+}
+
+.section {
+  display: grid;
+  align-items: center;
+  gap: 0.5rem;
+
+  flex: 1;
+
+  @include bp.tablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
