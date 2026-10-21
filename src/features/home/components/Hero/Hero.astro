@@ -8,30 +8,31 @@ import { ArrowUpRight, Mail } from 'lucide-react';
 import ProfileImage from '../ProfileImage/ProfileImage.astro';
 ---
 
-<ProfileImage />
+<section class={styles.section}>
+  <ProfileImage />
+  <div class={styles.infoContainer}>
+    <header class={styles.intro}>
+      <Eyebrow>Arkadiusz Jadczak · SOFTWARE ENGINEER</Eyebrow>
+      <Heading as="h1" size="large">Building modern software.</Heading>
+      <Text size="large" variant="secondary">
+        I focus on building <span class={styles.blazinglyFast}>blazingly fast</span>, accessible and
+        well-crafted web applications with clean, maintainable code.
+      </Text>
+    </header>
 
-<section>
-  <header class={styles.intro}>
-    <Eyebrow>Arkadiusz Jadczak · SOFTWARE ENGINEER</Eyebrow>
-    <Heading as="h1" size="large">Building modern software.</Heading>
-    <Text size="large" variant="secondary">
-      I focus on building <span class={styles.blazinglyFast}>blazingly fast</span>, accessible and
-      well-crafted web applications with clean, maintainable code.
-    </Text>
-  </header>
+    <ButtonLink
+      href="/projects"
+      variant="primary"
+      className={styles.button}
+      style={{ margin: '0.5rem 0' }}
+    >
+      <span>View Projects</span>
+      <ArrowUpRight className={styles.icon} size={18} aria-hidden="true" />
+    </ButtonLink>
 
-  <ButtonLink
-    href="/projects"
-    variant="primary"
-    className={styles.button}
-    style={{ margin: '0.5rem 0' }}
-  >
-    <span>View Projects</span>
-    <ArrowUpRight className={styles.icon} size={18} aria-hidden="true" />
-  </ButtonLink>
-
-  <ButtonLink href="/contact" variant="default" className={styles.button}>
-    <span>Contact me</span>
-    <Mail className={styles.icon} size={18} aria-hidden="true" />
-  </ButtonLink>
+    <ButtonLink href="/contact" variant="default" className={styles.button}>
+      <span>Contact me</span>
+      <Mail className={styles.icon} size={18} aria-hidden="true" />
+    </ButtonLink>
+  </div>
 </section>
