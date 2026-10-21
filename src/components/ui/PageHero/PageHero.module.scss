@@ -4,11 +4,16 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  padding: 3rem;
-  max-width: 625px;
 
-  @include bp.tablet {
+  @include bp.desktop {
     justify-content: center;
+  }
+}
+
+.section,
+.header {
+  @include bp.desktop {
+    padding: 0.5rem;
   }
 }
 
@@ -17,9 +22,8 @@
   align-items: center;
   gap: 0.5rem;
 
-  flex: 1;
-
-  @include bp.tablet {
+  @include bp.desktop {
+    flex: 1;
     grid-template-columns: repeat(2, 1fr);
   }
 }
