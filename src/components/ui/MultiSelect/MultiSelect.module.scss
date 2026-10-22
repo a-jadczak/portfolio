@@ -1,0 +1,107 @@
+@use '@/styles/tokens' as *;
+
+.control {
+  min-width: 9rem;
+  min-height: 2.75rem;
+  border: 2px solid $primary;
+  background: $surface;
+  color: $text-primary;
+  cursor: pointer;
+
+  &:hover {
+    background: $surface-hover;
+  }
+}
+
+.focused {
+  outline: 2px solid $focus-ring;
+  outline-offset: 2px;
+}
+
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.valueContainer {
+  gap: 0.25rem;
+  padding: 0.375rem 0.5rem;
+}
+
+.input {
+  color: $text-primary;
+}
+
+.placeholder,
+.noOptions {
+  color: $text-muted;
+}
+
+.menu {
+  margin-top: 0.375rem;
+  border: 2px solid $primary;
+  background: $surface-raised;
+  color: $text-primary;
+  box-shadow: $glow-primary;
+  z-index: 10;
+}
+
+.menuList {
+  padding: 0.25rem;
+}
+
+.option {
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.optionFocused {
+  background: $surface-hover;
+}
+
+.optionSelected {
+  background: $primary;
+  color: $text-on-primary;
+}
+
+.multiValue {
+  background: $primary-subtle;
+  color: $text-accent;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.multiValueLabel {
+  padding: 0.125rem 0.375rem;
+  font-size: 0.875rem;
+}
+
+.multiValueRemove {
+  padding: 0.125rem;
+
+  &:hover {
+    background: $primary;
+    color: $text-on-primary;
+  }
+}
+
+.indicator {
+  padding: 0.375rem;
+  color: $text-secondary;
+
+  &:hover {
+    color: $text-accent;
+  }
+}
+
+.separator {
+  align-self: stretch;
+  width: 1px;
+  margin-block: 0.5rem;
+  background: $border;
+}
+
+.noOptions {
+  padding: 0.75rem;
+}
