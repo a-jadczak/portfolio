@@ -1,5 +1,6 @@
 ---
 import styles from './ProfileImage.module.scss';
+import DecorationImage from './components/DecorationImage.astro';
 ---
 
 <div class={styles.container}>
@@ -9,10 +10,26 @@ import styles from './ProfileImage.module.scss';
       src="/public/images/avatar-temp.png"
       alt="Picture of Arkadiusz Jadczak"
     />
-    <div class:list={[styles.decoration, styles.dots]} aria-hidden="true"></div>
-    <div class:list={[styles.decoration, styles.plus]} aria-hidden="true"></div>
-    <div class:list={[styles.decoration, styles.square]} aria-hidden="true"></div>
-    <div class:list={[styles.decoration, styles.brackets]} aria-hidden="true"></div>
-    <div class:list={[styles.decoration, styles.lines]} aria-hidden="true"></div>
+    <DecorationImage src="/images/decorations/dots-4x4.svg" right="-15%" top="2.5%" z-index={-1} />
+    <DecorationImage src="/images/decorations/plus.svg" left="-20%" top="50%" width="10%" />
+    <DecorationImage
+      src="/images/decorations/square-outline.svg"
+      right="-15.5%"
+      bottom="1%"
+      width="12.5%"
+      z-index={-1}
+    />
+    <DecorationImage
+      src="/images/decorations/corner-brackets.svg"
+      bottom="-5%"
+      left="-5%"
+      width="25%"
+    />
+    <DecorationImage
+      src="/images/decorations/diagonal-lines.svg"
+      left="-4%"
+      top="-5%"
+      width="25%"
+    />
   </div>
 </div>

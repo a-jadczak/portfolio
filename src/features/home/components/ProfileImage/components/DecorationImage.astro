@@ -1,0 +1,28 @@
+---
+import styles from './DecorationImage.module.scss';
+
+interface Props {
+  src: string;
+  top?: string;
+  left?: string;
+  bottom?: string;
+  right?: string;
+  width?: string;
+  height?: string;
+  opacity?: number;
+  'z-index'?: number;
+  transform?: string;
+}
+
+const { src, ...style } = Astro.props;
+---
+
+<div
+  class={styles.decoration}
+  aria-hidden="true"
+  style={{
+    ...style,
+    'mask-image': `url("${src}")`,
+  }}
+>
+</div>
