@@ -1,6 +1,52 @@
 ---
+import type { ComponentProps } from 'astro/types';
 import styles from './ProfileImage.module.scss';
 import DecorationImage from './components/DecorationImage.astro';
+
+const decorations = [
+  {
+    src: '/images/decorations/dots-4x4.svg',
+    right: '-10%',
+    top: '8%',
+    width: '22%',
+    opacity: 0.65,
+    'z-index': -1,
+  },
+  {
+    src: '/images/decorations/dots-4x4.svg',
+    left: '-12%',
+    bottom: '16%',
+    width: '20%',
+    opacity: 0.35,
+    'z-index': -1,
+  },
+  {
+    src: '/images/decorations/plus.svg',
+    left: '-14%',
+    top: '38%',
+    width: '8%',
+  },
+  {
+    src: '/images/decorations/square-outline.svg',
+    right: '-8%',
+    bottom: '10%',
+    width: '12%',
+    transform: 'rotate(12deg)',
+  },
+  {
+    src: '/images/decorations/corner-brackets.svg',
+    bottom: '-4%',
+    left: '-6%',
+    width: '20%',
+  },
+  {
+    src: '/images/decorations/diagonal-lines.svg',
+    left: '-6%',
+    top: '-4%',
+    width: '22%',
+    opacity: 0.8,
+  },
+] satisfies ComponentProps<typeof DecorationImage>[];
 ---
 
 <div class={styles.container}>
@@ -10,26 +56,6 @@ import DecorationImage from './components/DecorationImage.astro';
       src="/public/images/avatar-temp.png"
       alt="Picture of Arkadiusz Jadczak"
     />
-    <DecorationImage src="/images/decorations/dots-4x4.svg" right="-15%" top="2.5%" z-index={-1} />
-    <DecorationImage src="/images/decorations/plus.svg" left="-20%" top="50%" width="10%" />
-    <DecorationImage
-      src="/images/decorations/square-outline.svg"
-      right="-15.5%"
-      bottom="1%"
-      width="12.5%"
-      z-index={-1}
-    />
-    <DecorationImage
-      src="/images/decorations/corner-brackets.svg"
-      bottom="-5%"
-      left="-5%"
-      width="25%"
-    />
-    <DecorationImage
-      src="/images/decorations/diagonal-lines.svg"
-      left="-4%"
-      top="-5%"
-      width="25%"
-    />
+    {decorations.map((decoration) => <DecorationImage {...decoration} />)}
   </div>
 </div>
