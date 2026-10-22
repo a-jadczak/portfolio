@@ -3,11 +3,16 @@ import styles from './ProfileImage.module.scss';
 ---
 
 <div class={styles.container}>
-  <img
-    class={`clipped-corners ${styles.profile}`}
-    src="/public/images/avatar-temp.png"
-    alt="Picture of Arkadiusz Jadczak"
-  />
-  <div class={`clipped-corners ${styles.decorationBlock}`}></div>
-  <div class={`clipped-corners ${styles.decorationBlock}`}></div>
+  <div class={styles.profileContainer}>
+    <img
+      class={`clipped-corners ${styles.profile}`}
+      src="/public/images/avatar-temp.png"
+      alt="Picture of Arkadiusz Jadczak"
+    />
+    <div class:list={[styles.decoration, styles.dots]} aria-hidden="true"></div>
+    <div class:list={[styles.decoration, styles.plus]} aria-hidden="true"></div>
+    <div class:list={[styles.decoration, styles.square]} aria-hidden="true"></div>
+    <div class:list={[styles.decoration, styles.brackets]} aria-hidden="true"></div>
+    <div class:list={[styles.decoration, styles.lines]} aria-hidden="true"></div>
+  </div>
 </div>

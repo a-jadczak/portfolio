@@ -1,12 +1,14 @@
 @use '@/styles/tokens' as *;
 @use '@/styles/breakpoints' as bp;
 
+//  background: linear-gradient(to top, $light-shadow, $primary);
+
 .container {
   $light-shadow: rgba(0, 0, 0, 0.25);
   position: relative;
   margin-inline: auto;
   margin-bottom: 1rem;
-
+  isolation: isolate;
   width: 100%;
   z-index: -1;
   display: flex;
@@ -17,33 +19,67 @@
     margin-bottom: 0rem;
   }
 
-  .profile {
-    border-radius: 40px 20px 20px 30px;
+  .profileContainer {
+    position: relative;
+    display: flex;
+    justify-content: center;
     width: max(225px, 50%);
+  }
+
+  .profileContainer > .profile {
+    border-radius: 40px 20px 20px 30px;
+    width: 100%;
     aspect-ratio: 7 / 9;
     object-fit: cover;
     border: 3px solid $primary;
   }
 
-  .decorationBlock {
-    position: absolute;
-    top: 50%;
-    left: 35%;
-    transform: translate(-50%, -50%);
+  .decoration {
+    width: 20%;
+    aspect-ratio: 1 / 1;
 
-    width: max(175px, 25%);
-    height: 55%;
-    background: linear-gradient(to top, $light-shadow, $primary);
+    position: absolute;
+
+    background-color: $primary;
+
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: contain;
+  }
+
+  .dots {
+    right: -15%;
+    top: 2.5%;
+    mask-image: url('/images/decorations/dots-4x4.svg');
     z-index: -1;
   }
 
-  .decorationBlock:nth-child(2) {
-    top: 55%;
-    left: 65%;
+  .plus {
+    left: -20%;
+    top: 50%;
+    width: 10%;
+    mask-image: url('/images/decorations/plus.svg');
+  }
 
-    width: max(175px, 25%);
-    height: 50%;
-    background: linear-gradient(to top, $light-shadow, $surface-hover);
+  .square {
+    right: -15.5%;
+    bottom: 1%;
+    width: 12.5%;
+    mask-image: url('/images/decorations/square-outline.svg');
     z-index: -1;
+  }
+
+  .brackets {
+    bottom: -5%;
+    left: -5%;
+    width: 25%;
+    mask-image: url('/images/decorations/corner-brackets.svg');
+  }
+
+  .lines {
+    left: -4%;
+    top: -5%;
+    width: 25%;
+    mask-image: url('/images/decorations/diagonal-lines.svg');
   }
 }
