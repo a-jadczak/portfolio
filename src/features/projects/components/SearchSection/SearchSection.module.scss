@@ -25,20 +25,35 @@
     flex-direction: column;
   }
 
-  .searchInput {
-    border: 2px solid $border;
+  .searchField {
+    position: relative;
     flex: 1;
-    padding: 0.5rem;
 
-    &:focus-visible {
-      border-color: $primary;
-    }
     @include bp.desktop {
       max-width: 25rem;
     }
 
     @include bp.desktop-medium {
       width: 100%;
+    }
+  }
+
+  .searchIcon {
+    position: absolute;
+    inset-inline-start: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: $text-secondary;
+  }
+
+  .searchInput {
+    border: 2px solid $border;
+    width: 100%;
+    padding: 0.5rem;
+    padding-inline-start: 2.5rem;
+
+    &:focus-visible {
+      border-color: $primary;
     }
   }
 

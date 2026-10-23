@@ -2,7 +2,7 @@ import type { ProjectsFilterData } from '@/types/ProjectsFilterData';
 import styles from './SearchSection.module.scss';
 import { Button } from '@/components/ui/Button/Button';
 import { openDialog } from '@/utils/dialog';
-import { SlidersHorizontal } from 'lucide-react';
+import { Search, SlidersHorizontal } from 'lucide-react';
 import MultiSelect from '@/components/ui/MultiSelect/MultiSelect';
 import Text from '@/components/ui/Text/Text';
 import Divider from '@/components/ui/Divider/Divider';
@@ -29,13 +29,17 @@ const SearchSection = ({
   return (
     <div className={styles.form}>
       <div className={`clipped-corners ${styles.searchContainer}`}>
-        <input
-          className={`clipped-corners ${styles.searchInput}`}
-          type="text"
-          placeholder="Search projects..."
-          value={searchValue}
-          onChange={(e) => setSearchValue(e.target.value)}
-        />
+        <div className={styles.searchField}>
+          <Search className={styles.searchIcon} size={18} aria-hidden="true" />
+          <input
+            className={`clipped-corners ${styles.searchInput}`}
+            type="text"
+            aria-label="Search projects"
+            placeholder="Search projects..."
+            value={searchValue}
+            onChange={(e) => setSearchValue(e.target.value)}
+          />
+        </div>
 
         <div className={styles.optionsContainer}>
           <MultiSelect
