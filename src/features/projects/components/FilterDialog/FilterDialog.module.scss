@@ -1,8 +1,14 @@
+@use '@/styles/breakpoints' as bp;
+
 .checkboxContainer {
   box-sizing: border-box;
   margin-top: 0.5rem;
   columns: 2;
   column-gap: 0.5rem;
+
+  @include bp.tablet {
+    columns: 3;
+  }
 
   > * {
     break-inside: avoid;

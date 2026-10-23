@@ -1,4 +1,5 @@
 @use '@/styles/tokens' as *;
+@use '@/styles/breakpoints' as bp;
 
 .form {
   margin-top: 0.5rem;
@@ -6,23 +7,40 @@
 
 .searchContainer {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
   gap: 0.5rem;
 
   .searchInput {
     border: 2px solid $border;
     flex: 1;
-    min-width: 0;
-
     padding: 0.5rem;
 
     &:focus-visible {
       border-color: $primary;
     }
+    @include bp.desktop {
+      max-width: 25rem;
+    }
   }
+
   .filterButton {
     border: 2px solid $primary;
+    @include bp.desktop {
+      display: none;
+    }
   }
+}
+
+.optionsContainer {
+  display: none;
+
+  @include bp.desktop {
+    display: flex;
+  }
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .resultsContainer {

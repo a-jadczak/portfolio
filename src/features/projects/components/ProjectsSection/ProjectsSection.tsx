@@ -22,6 +22,7 @@ const ProjectsSection = ({ projects, projectsFilterData }: Props) => {
       <SearchSection
         searchValue={searchValue}
         setSearchValue={setSearchValue}
+        projectsFilterData={projectsFilterData}
         projectsCount={filteredProjects.length}
       />
 
