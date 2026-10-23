@@ -2,6 +2,7 @@
 @use '@/styles/breakpoints' as bp;
 
 .container {
+  height: 100%;
   margin-top: 0.5rem;
   display: grid;
   align-items: center;
@@ -21,25 +22,26 @@
 
 .list {
   display: grid;
+
   gap: 0.5rem;
   list-style: none;
 
   @include bp.tablet {
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 1fr;
+    align-items: stretch;
 
-    > :last-child {
-      grid-row-start: 2 span;
-      grid-column-end: 2 span;
+    > li:last-child {
+      grid-column: 2 span;
     }
   }
-  @include bp.tablet {
+  @include bp.desktop {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1fr;
-    align-items: center;
+    align-items: stretch;
 
-    > :last-child {
-      all: unset;
+    > li:last-child {
+      grid-column: auto;
     }
   }
 }
