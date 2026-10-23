@@ -4,6 +4,8 @@ import { Button } from '@/components/ui/Button/Button';
 import { openDialog } from '@/utils/dialog';
 import { SlidersHorizontal } from 'lucide-react';
 import MultiSelect from '@/components/ui/MultiSelect/MultiSelect';
+import Text from '@/components/ui/Text/Text';
+import Divider from '@/components/ui/Divider/Divider';
 
 interface Props {
   projectsFilterData: ProjectsFilterData;
@@ -48,6 +50,17 @@ const SearchSection = ({
             options={[...statuses].map((value) => ({ value, label: value }))}
             placeholder="Status"
           />
+
+          <Divider className={styles.divider} />
+          <div className={styles.resultsOptionsContainer}>
+            <Text size="small" variant="secondary">
+              {projectsCount} projects
+            </Text>
+
+            <Button variant="link" className={styles.clearFilters}>
+              Clear Filters
+            </Button>
+          </div>
         </div>
         <Button variant="default" className={styles.filterButton} onClick={handleClick}>
           <SlidersHorizontal size={18} aria-hidden="true" />

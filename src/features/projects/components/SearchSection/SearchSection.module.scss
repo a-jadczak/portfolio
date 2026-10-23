@@ -3,6 +3,10 @@
 
 .form {
   margin-top: 0.5rem;
+
+  @include bp.desktop-medium {
+    max-width: 25rem;
+  }
 }
 
 .searchContainer {
@@ -17,6 +21,10 @@
     border: 1px solid $border;
   }
 
+  @include bp.desktop-medium {
+    flex-direction: column;
+  }
+
   .searchInput {
     border: 2px solid $border;
     flex: 1;
@@ -28,6 +36,10 @@
     @include bp.desktop {
       max-width: 25rem;
     }
+
+    @include bp.desktop-medium {
+      width: 100%;
+    }
   }
 
   .filterButton {
@@ -38,14 +50,46 @@
   }
 }
 
+.divider {
+  display: none;
+
+  @include bp.desktop-medium {
+    display: block;
+  }
+}
+
 .optionsContainer {
   display: none;
+  align-items: center;
+  gap: 0.5rem;
 
   @include bp.desktop {
     display: flex;
   }
-  align-items: center;
-  gap: 0.5rem;
+
+  @include bp.desktop-medium {
+    flex-direction: column;
+    width: 100%;
+
+    > * {
+      width: 100%;
+    }
+  }
+
+  .resultsOptionsContainer {
+    display: none;
+
+    @include bp.desktop-medium {
+      display: flex;
+      width: 100%;
+      padding: 0.1rem;
+      justify-content: space-between;
+
+      > .clearFilters {
+        font-size: 1rem;
+      }
+    }
+  }
 }
 
 .resultsContainer {
@@ -54,4 +98,8 @@
   padding: 0.5rem;
   width: 100%;
   color: $text-secondary;
+
+  @include bp.desktop-medium {
+    display: none;
+  }
 }

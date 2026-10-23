@@ -1,3 +1,20 @@
+@use '@/styles/breakpoints' as bp;
+
+.projectsContainer {
+  display: flex;
+  flex-direction: column;
+
+  @include bp.desktop-medium {
+    margin-top: 1rem;
+    flex-direction: row;
+    gap: 2rem;
+  }
+
+  > :last-child {
+    flex: 1;
+  }
+}
+
 .projectsList {
   counter-reset: project;
   display: flex;

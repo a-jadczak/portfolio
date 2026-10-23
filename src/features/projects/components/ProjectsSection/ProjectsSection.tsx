@@ -19,18 +19,20 @@ const ProjectsSection = ({ projects, projectsFilterData }: Props) => {
 
   return (
     <>
-      <SearchSection
-        searchValue={searchValue}
-        setSearchValue={setSearchValue}
-        projectsFilterData={projectsFilterData}
-        projectsCount={filteredProjects.length}
-      />
+      <div className={styles.projectsContainer}>
+        <SearchSection
+          searchValue={searchValue}
+          setSearchValue={setSearchValue}
+          projectsFilterData={projectsFilterData}
+          projectsCount={filteredProjects.length}
+        />
 
-      <ol className={styles.projectsList}>
-        {filteredProjects.map((project) => (
-          <Project key={project.id} projectData={project} />
-        ))}
-      </ol>
+        <ol className={styles.projectsList}>
+          {filteredProjects.map((project) => (
+            <Project key={project.id} projectData={project} />
+          ))}
+        </ol>
+      </div>
 
       <FilterDialog
         projectsFilterData={projectsFilterData}
