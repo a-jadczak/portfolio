@@ -13,7 +13,7 @@ export const getCurrentPageInfo = (href: string): PageInfo => {
   const index = pages.findIndex((page) => page.href === href);
 
   if (index === -1) {
-    return { name: 'Page not found', indicator: '404' };
+    return { name: 'not found', indicator: '404' };
   }
 
   return { name: pages[index]?.name ?? '', indicator: `0${index + 1}` };
