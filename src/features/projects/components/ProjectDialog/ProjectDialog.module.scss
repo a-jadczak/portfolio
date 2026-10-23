@@ -1,9 +1,10 @@
 @use '@/styles/tokens' as *;
+@use '@/styles/breakpoints' as bp;
 
 .dialog {
   max-height: 90svh;
   overflow: auto;
-  width: min(32rem, calc(100vw - 2rem));
+  width: min(calc(100vw - 2rem), bp.$breakpoint-desktop-md);
 }
 
 .container {
