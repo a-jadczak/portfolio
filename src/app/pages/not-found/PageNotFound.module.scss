@@ -7,16 +7,18 @@
 
   .header {
     .title {
-      font-size: 15rem;
+      font-size: clamp(9rem, 30vw, 15rem);
+      line-height: 1;
     }
     .description {
-      font-size: 1.75rem;
+      font-size: clamp(1.25rem, 75%, 1.75rem);
     }
     .secondary {
-      font-size: 1.25rem;
+      font-size: clamp(1rem, 75%, 1.5rem);
     }
   }
   .button {
-    font-size: 1.75rem;
+    font-size: 1.25rem;
+    margin: 0.5rem 0;
   }
 }
