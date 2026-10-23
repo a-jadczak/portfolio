@@ -10,20 +10,12 @@
   }
 }
 
-.section,
-.header {
-  @include bp.desktop {
-    padding: 0.5rem;
-  }
-}
-
 .section {
   display: grid;
   align-items: center;
   gap: 0.5rem;
 
   @include bp.desktop {
-    flex: 1;
     grid-template-columns: repeat(2, 1fr);
   }
 }
