@@ -1,8 +1,35 @@
 @use '@/styles/tokens' as *;
+@use '@/styles/breakpoints' as bp;
 
 .project {
   border: 1px solid $border-secondary;
   padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  @include bp.tablet {
+    flex-direction: row-reverse;
+  }
+
+  .screenshot {
+    @include bp.tablet {
+      flex: 3;
+    }
+  }
+
+  .info {
+    @include bp.tablet {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 0.5rem;
+      flex: 2;
+    }
+    .showDetails {
+      width: fit-content;
+    }
+  }
 }
 
 .project {

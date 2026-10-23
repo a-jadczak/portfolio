@@ -1,7 +1,6 @@
 import { Eye } from 'lucide-react';
 import Badge from '@/components/ui/Badge/Badge';
 import { Button } from '@/components/ui/Button/Button';
-import dividerStyles from '@/components/ui/Divider/Divider.module.scss';
 import styles from './Project.module.scss';
 import { openDialog } from '@/utils/dialog';
 import Heading from '@/components/ui/Heading/Heading';
@@ -10,6 +9,7 @@ import type { ProjectMetadata } from '@/types/ProjectMetadata';
 import type { Readme } from '@/types/Readme';
 import { useProjectStore } from '@/stores/useProjectStore';
 import Text from '@/components/ui/Text/Text';
+import Divider from '@/components/ui/Divider/Divider';
 
 const VISIBLE_TECHNOLOGY_COUNT = 3;
 
@@ -34,12 +34,12 @@ const Project = ({ projectData }: Props) => {
 
   return (
     <li className={`clipped-corners ${styles.project}`}>
-      <article>
-        <img
-          src={banner}
-          alt="Project preview image"
-          className={`clipped-corners ${styles.screenshot}`}
-        />
+      <img
+        src={banner}
+        alt="Project preview image"
+        className={`clipped-corners ${styles.screenshot}`}
+      />
+      <div className={styles.info}>
         <span className={styles.number}></span>
         <Heading as="h3" size="small">
           {name}
@@ -61,7 +61,8 @@ const Project = ({ projectData }: Props) => {
           )}
         </ul>
 
-        <div className={dividerStyles.divider} aria-hidden="true" />
+        <Divider className={styles.divider} />
+
         <Button
           variant="link"
           className={styles.showDetails}
@@ -71,7 +72,7 @@ const Project = ({ projectData }: Props) => {
           <Eye size={16} aria-hidden="true" />
           <span>Show details</span>
         </Button>
-      </article>
+      </div>
     </li>
   );
 };
