@@ -7,6 +7,7 @@ import { getCurrentPageInfo } from '@/config/pages';
 import SettingsDialog from '@/features/settings/SettingsDialog/SettingsDialog.astro';
 import ProjectDialog from '@/features/projects/components/ProjectDialog/ProjectDialog';
 import { getProjects } from '@/lib/github';
+import SidebarPageIndicator from '../components/SidebarPageIndicator/SidebarPageIndicator.astro';
 
 const { title } = Astro.props;
 const currentPath = Astro.url.pathname;
@@ -22,6 +23,7 @@ const { projects } = await getProjects();
   </head>
   <body>
     <div class="app">
+      <SidebarPageIndicator pageInfo={currentPageInfo} />
       <Header />
       <main>
         <div class="container">
@@ -51,6 +53,11 @@ const { projects } = await getProjects();
     min-height: 100svh;
     display: flex;
     flex-direction: column;
+    position: relative;
+
+    @include bp.desktop {
+      margin-inline: 1rem;
+    }
   }
 
   main {
@@ -65,7 +72,6 @@ const { projects } = await getProjects();
 
   .container {
     width: min(100%, bp.$breakpoint-desktop-md);
-
     @include bp.desktop {
       padding-inline: 1rem;
     }

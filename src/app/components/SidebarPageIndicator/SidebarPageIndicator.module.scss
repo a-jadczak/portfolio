@@ -1,0 +1,39 @@
+@use '@/styles/tokens' as *;
+@use '@/styles/breakpoints' as bp;
+
+.sidebar {
+  position: absolute;
+  top: 10rem;
+  left: -1.5rem;
+  font-size: 1.25rem;
+  font-family: $number-font;
+  text-transform: uppercase;
+  display: none;
+  width: fit-content;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.75rem;
+
+  border: 1px solid $border;
+
+  padding: 1rem 0.75rem;
+
+  background-color: $surface;
+
+  @include bp.desktop {
+    display: flex;
+  }
+
+  .index {
+    display: block;
+    color: $primary;
+  }
+
+  .upsideDownText {
+    display: block;
+    writing-mode: vertical-rl;
+    letter-spacing: 0.25rem;
+    transform: rotate(180deg);
+  }
+}
