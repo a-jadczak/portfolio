@@ -1,13 +1,15 @@
 $breakpoint-mobile: 480px;
 $breakpoint-tablet: 768px;
 $breakpoint-desktop: 1024px;
-$breakpoint-wide-screen: 1440px;
+$breakpoint-desktop-md: 1440px;
+$breakpoint-desktop-lg: 1600px;
 
 :export {
   mobile: $breakpoint-mobile;
   tablet: $breakpoint-tablet;
   desktop: $breakpoint-desktop;
-  wideScreen: $breakpoint-wide-screen;
+  desktopMedium: $breakpoint-desktop-md;
+  desktopLarge: $breakpoint-desktop-lg;
 }
 
 @mixin mobile {
@@ -28,8 +30,14 @@ $breakpoint-wide-screen: 1440px;
   }
 }
 
-@mixin wide-screen {
-  @media (min-width: $breakpoint-wide-screen) {
+@mixin desktop-medium {
+  @media (min-width: $breakpoint-desktop-md) {
+    @content;
+  }
+}
+
+@mixin desktop-large {
+  @media (min-width: $breakpoint-desktop-lg) {
     @content;
   }
 }
