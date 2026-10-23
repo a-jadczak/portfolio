@@ -1,12 +1,13 @@
 @use '@/styles/tokens' as *;
 
 .menuPanel {
-  top: 4.5rem;
-  margin: 0 0.5rem;
-  left: 0.5rem;
-  right: 0.5rem;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  right: 0;
+  margin-inline: 0.5rem;
   box-sizing: border-box;
   position: absolute;
+  z-index: 100;
   display: flex;
   flex-direction: column;
   border: 1px solid $border;
