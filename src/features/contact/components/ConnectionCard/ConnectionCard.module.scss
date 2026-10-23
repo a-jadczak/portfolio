@@ -2,25 +2,25 @@
 
 .container {
   display: flex;
+  flex-direction: column;
   width: 100%;
   padding: 1rem;
+  gap: 0.5rem;
   border: 1px solid $border-secondary;
 }
 
 .iconContainer {
   display: grid;
-  place-items: center;
-  place-self: center;
+  align-self: flex-start;
   aspect-ratio: 1 / 1;
-  border: 1px solid $primary;
+  border: 1px solid var(--icon-color);
+  color: var(--icon-color);
   padding: 0.5rem;
 }
 
 .contentContainer {
-  margin-left: 1rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   gap: 0.1rem;
 }
 
@@ -29,10 +29,34 @@
   white-space: pre-line;
 }
 
-.available {
-  color: $success;
+.actionCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-  .iconContainer {
-    border-color: $success;
-  }
+  padding: 0.75rem 1rem !important;
+}
+
+.actionIcon {
+  color: var(--icon-color);
+}
+
+.actionIcon[data-active='true'] {
+  cursor: pointer;
+}
+
+.default {
+  --icon-color: #{$primary};
+}
+
+.linkedin {
+  --icon-color: #0077b5;
+}
+
+.available {
+  --icon-color: #{$success};
+}
+
+.unavailable {
+  --icon-color: #{$danger};
 }
