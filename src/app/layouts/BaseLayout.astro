@@ -24,8 +24,10 @@ const { projects } = await getProjects();
     <div class="app">
       <Header />
       <main>
-        <PageIndicator pageInfo={currentPageInfo} />
-        <slot />
+        <div class="container">
+          <PageIndicator pageInfo={currentPageInfo} />
+          <slot />
+        </div>
       </main>
       <Footer />
       <SettingsDialog />
@@ -45,7 +47,7 @@ const { projects } = await getProjects();
   }
 
   .app {
-    width: clamp(200px, 100%, bp.$breakpoint-desktop-lg);
+    width: min(100%, bp.$breakpoint-desktop-lg);
     min-height: 100svh;
     display: flex;
     flex-direction: column;
@@ -53,10 +55,19 @@ const { projects } = await getProjects();
 
   main {
     display: flex;
+    align-items: center;
     flex-direction: column;
     flex: 1;
     border: 1px solid $border-secondary;
     border-top: 0;
     padding: 0.5rem;
+  }
+
+  .container {
+    width: min(100%, bp.$breakpoint-desktop-md);
+
+    @include bp.desktop {
+      padding-inline: 1rem;
+    }
   }
 </style>
