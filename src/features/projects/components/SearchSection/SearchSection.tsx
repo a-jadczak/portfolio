@@ -26,7 +26,7 @@ const SearchSection = ({
 
   return (
     <div className={styles.form}>
-      <div className={styles.searchContainer}>
+      <div className={`clipped-corners ${styles.searchContainer}`}>
         <input
           className={`clipped-corners ${styles.searchInput}`}
           type="text"
