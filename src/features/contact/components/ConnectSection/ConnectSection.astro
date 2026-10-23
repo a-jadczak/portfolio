@@ -1,53 +1,11 @@
 ---
-import { FaCircle, FaLinkedinIn } from 'react-icons/fa';
-import ConnectionCard from '../ConnectionCard/ConnectionCard.astro';
-import { Copy, ExternalLink, Mail, Radio } from 'lucide-react';
+import { connections, type ConnectionId } from '../../config/connections';
+import ConnectionCard from '../ConnectionCard/ConnectionCard';
 import styles from './ConnectSection.module.scss';
 import Heading from '@/components/ui/Heading/Heading';
 import Card from '@/components/ui/Card/Card.astro';
-import type { Icon } from '@/types/Icon';
 
-type Role = 'default' | 'linkedin' | 'available' | 'unavailable';
-
-interface ConnectionOption {
-  icon: Icon;
-  title: string;
-  description: string;
-  role: Role;
-  actionIcon: Icon;
-  actionLabel: string;
-  action: (() => void) | null;
-}
-
-const connections: ConnectionOption[] = [
-  {
-    icon: Mail,
-    title: 'Email',
-    description: 'Drop me a message anytime.',
-    role: 'default',
-    actionLabel: 'email@example.com',
-    action: () => {},
-    actionIcon: Copy,
-  },
-  {
-    icon: FaLinkedinIn,
-    title: 'LinkedIn',
-    description: 'Connect with me on LinkedIn.',
-    role: 'linkedin',
-    actionLabel: 'Connect with me',
-    action: () => {},
-    actionIcon: ExternalLink,
-  },
-  {
-    icon: Radio,
-    title: 'Available',
-    description: "Let's collaborate\nRemote · Poland",
-    role: 'available',
-    actionLabel: 'Open to opportunites',
-    action: null,
-    actionIcon: FaCircle,
-  },
-];
+const connectionIds = Object.keys(connections) as ConnectionId[];
 ---
 
 <section class={`clipped-corners ${styles.container}`}>
@@ -55,9 +13,9 @@ const connections: ConnectionOption[] = [
     <Heading as="h2" size="small" className={styles.title}>Let's connect</Heading>
     <ul class={styles.list}>
       {
-        connections.map((connection) => (
+        connectionIds.map((connectionId) => (
           <li>
-            <ConnectionCard key={connection.title} {...connection} />
+            <ConnectionCard connectionId={connectionId} client:load />
           </li>
         ))
       }
