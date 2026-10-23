@@ -47,6 +47,9 @@ $border-secondary: $border;
 $success: #6ee700;
 $success-subtle: color-mix(in srgb, $success 12%, transparent);
 
+$danger: #dc2626;
+$danger-subtle: color-mix(in srgb, $danger 12%, transparent);
+
 // Primary button gradient
 $gradient-primary: linear-gradient(
   180deg,
