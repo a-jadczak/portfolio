@@ -12,6 +12,7 @@
   grid-template-columns: 32px minmax(0, 1fr) 360px;
   width: 100%;
   z-index: 0;
+  pointer-events: none;
 
   rect {
     fill: $surface;
@@ -33,5 +34,17 @@
 
 .content {
   position: relative;
-  z-index: 1;
+  z-index: auto;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1.5rem;
+  height: 100%;
+
+  // Let clicks reach actions painted below this layout layer.
+  pointer-events: none;
+
+  a,
+  button {
+    pointer-events: auto;
+  }
 }

@@ -20,6 +20,13 @@
   width: 100%;
   flex: 1;
   gap: 1rem;
+
+  @include bp.desktop {
+    gap: 2rem;
+  }
+  @include bp.desktop-medium {
+    gap: 4rem;
+  }
 }
 
 .naviagtionAnchor {
