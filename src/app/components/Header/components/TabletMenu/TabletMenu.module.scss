@@ -1,0 +1,29 @@
+@use '@/styles/tokens' as *;
+
+.navigationContainer {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.naviagtionAnchor {
+  position: relative;
+  padding: 0.5rem;
+  text-decoration: none;
+  color: $text-primary;
+}
+
+.naviagtionAnchor[aria-current='page'] {
+  color: $primary;
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -5%;
+    left: 0px;
+    border-radius: 2px;
+    corner-shape: bevel;
+
+    width: 100%;
+    height: 2px;
+    background-color: $primary;
+  }
+}
