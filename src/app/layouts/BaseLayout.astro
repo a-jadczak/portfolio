@@ -8,6 +8,7 @@ import SettingsDialog from '@/features/settings/SettingsDialog/SettingsDialog.as
 import ProjectDialog from '@/features/projects/components/ProjectDialog/ProjectDialog';
 import { getProjects } from '@/lib/github';
 import SidebarPageIndicator from '../components/SidebarPageIndicator/SidebarPageIndicator.astro';
+import { ClientRouter } from 'astro:transitions';
 
 const { title } = Astro.props;
 const currentPath = Astro.url.pathname;
@@ -20,6 +21,7 @@ const { projects } = await getProjects();
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
+    <ClientRouter />
   </head>
   <body>
     <div class="app">
