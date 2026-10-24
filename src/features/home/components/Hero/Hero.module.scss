@@ -31,6 +31,18 @@
   color: $primary;
 }
 
+.buttonContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  @include bp.desktop {
+    gap: 1.5rem;
+    flex-direction: row;
+  }
+}
+
 .button {
   position: relative;
   width: 100%;
@@ -40,5 +52,18 @@
   .icon {
     position: absolute;
     right: 1rem;
+    @include bp.desktop {
+      position: relative;
+      right: 0rem;
+    }
+  }
+
+  @include bp.desktop {
+    font-size: 1.25rem;
+    max-width: 15rem;
+
+    > span {
+      flex: 1;
+    }
   }
 }

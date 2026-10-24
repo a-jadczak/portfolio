@@ -20,19 +20,16 @@ import ProfileImage from '../ProfileImage/ProfileImage.astro';
       </Text>
     </header>
 
-    <ButtonLink
-      href="/projects"
-      variant="primary"
-      className={styles.button}
-      style={{ margin: '0.5rem 0' }}
-    >
-      <span>View Projects</span>
-      <ArrowUpRight className={styles.icon} size={18} aria-hidden="true" />
-    </ButtonLink>
+    <div class={styles.buttonContainer}>
+      <ButtonLink href="/projects" variant="primary" className={styles.button}>
+        <span>View Projects</span>
+        <ArrowUpRight className={styles.icon} size={18} aria-hidden="true" />
+      </ButtonLink>
 
-    <ButtonLink href="/contact" variant="default" className={styles.button}>
-      <span>Contact me</span>
-      <Mail className={styles.icon} size={18} aria-hidden="true" />
-    </ButtonLink>
+      <ButtonLink href="/contact" variant="default" className={styles.button}>
+        <span>Contact me</span>
+        <Mail className={styles.icon} size={18} aria-hidden="true" />
+      </ButtonLink>
+    </div>
   </div>
 </section>
