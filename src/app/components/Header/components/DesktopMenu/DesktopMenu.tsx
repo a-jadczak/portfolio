@@ -1,6 +1,6 @@
 import { type ComponentPropsWithoutRef } from 'react';
 import { pages } from '@/config/pages';
-import styles from './TabletMenu.module.scss';
+import styles from './DesktopMenu.module.scss';
 import HeaderActions from '../MobileMenu/components/HeaderActions/HeaderActions';
 
 interface TabletMenuProps extends ComponentPropsWithoutRef<'div'> {
