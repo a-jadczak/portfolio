@@ -12,17 +12,33 @@
   border: 1px solid $border-secondary;
   background-color: $surface;
   padding: 0.5rem 1rem;
-}
 
-.mobileMenu {
-  @include bp.tablet {
+  .mobileMenu {
+    @include bp.tablet {
+      display: none;
+    }
+  }
+
+  .tabletMenu {
+    display: none;
+    @include bp.tablet {
+      display: flex;
+    }
+  }
+
+  @include bp.desktop {
     display: none;
   }
 }
 
-.tabletMenu {
+.headerDesktop {
   display: none;
-  @include bp.tablet {
-    display: flex;
+  .clippedBorder {
+    max-height: 5rem;
+    max-width: bp.$breakpoint-desktop-lg;
+  }
+
+  @include bp.desktop {
+    display: block;
   }
 }

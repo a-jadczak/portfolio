@@ -3,6 +3,7 @@ import HeaderLogo from './components/HeaderLogo/HeaderLogo';
 import MobileMenu from './components/MobileMenu/MobileMenu';
 import TabletMenu from './components/TabletMenu/TabletMenu';
 import styles from './Header.module.scss';
+import HeaderSvg from './svg/HeaderSvg.astro';
 
 const currentPath = Astro.url.pathname === '/' ? '/' : Astro.url.pathname.replace(/\/$/, '');
 ---
@@ -11,4 +12,10 @@ const currentPath = Astro.url.pathname === '/' ? '/' : Astro.url.pathname.replac
   <HeaderLogo />
   <MobileMenu className={styles.mobileMenu} currentPath={currentPath} client:load />
   <TabletMenu className={styles.tabletMenu} currentPath={currentPath} client:load />
+</header>
+
+<header class={styles.headerDesktop}>
+  <HeaderSvg>
+    <div></div>
+  </HeaderSvg>
 </header>
