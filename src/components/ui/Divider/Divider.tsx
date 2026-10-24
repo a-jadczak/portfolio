@@ -4,8 +4,8 @@ type DividerProps = {
   className?: string;
 };
 
-const Divider = ({ className = '' }: DividerProps) => (
-  <div className={[styles.divider, className].filter(Boolean).join(' ')} aria-hidden="true" />
+const Divider = ({ className }: DividerProps) => (
+  <div className={`${styles.divider} ${className}`} aria-hidden="true" />
 );
 
 export default Divider;
