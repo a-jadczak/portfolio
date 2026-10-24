@@ -1,6 +1,6 @@
+@use '@/styles/mixins' as mx;
 @use '@/styles/tokens' as *;
 @use '@/styles/breakpoints' as bp;
-@use 'sass:math';
 
 .header {
   display: flex;
@@ -35,7 +35,7 @@
 
     .cardIcon {
       width: 2.5rem;
-      border-radius: math.div($border-radius, 1.75);
+      @include mx.corners($divisor: 1.75);
     }
   }
 }

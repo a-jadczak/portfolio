@@ -20,11 +20,7 @@ const MobileMenu = ({ currentPath, ...props }: MobileMenuProps) => {
       <MenuButton isMobileMenuOpen={isMobileMenuOpen} onToggleMobileMenu={toggleMobileMenu} />
 
       {isMobileMenuOpen && (
-        <div
-          id="navigation-menu"
-          className={`clipped-corners ${styles.menuPanel}`}
-          aria-label="Navigation menu"
-        >
+        <div id="navigation-menu" className={styles.menuPanel} aria-label="Navigation menu">
           <span>
             <small className={styles.menuLabel}>Menu</small>
           </span>

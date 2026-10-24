@@ -1,3 +1,4 @@
+@use '@/styles/mixins' as mx;
 @use '@/styles/tokens' as *;
 @use '@/styles/breakpoints' as bp;
 
@@ -10,6 +11,7 @@
 }
 
 .searchContainer {
+  @include mx.corners();
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -47,6 +49,7 @@
   }
 
   .searchInput {
+    @include mx.corners();
     border: 2px solid $border;
     width: 100%;
     padding: 0.5rem;

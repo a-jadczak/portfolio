@@ -64,7 +64,7 @@ const ContactForm = () => {
   };
 
   return (
-    <div className={`clipped-corners ${styles.container}`} data-send={state}>
+    <div className={styles.container} data-send={state}>
       <ContactFormHeader state={state} />
       <form aria-label="Contact form" aria-busy={state === 'loading'} onSubmit={handleSubmit}>
         {formFields.map(({ name, type, placeholder, autoComplete }) => (
@@ -83,7 +83,7 @@ const ContactForm = () => {
         ))}
         <FormField htmlFor="message" label="message" state={state}>
           <textarea
-            className={`clipped-corners ${styles.messageContainer}`}
+            className={styles.messageContainer}
             rows={10}
             id="message"
             name="message"

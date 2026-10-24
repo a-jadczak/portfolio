@@ -20,7 +20,7 @@ export function Button({
     <button
       {...props}
       type={type}
-      className={`${variant === 'link' ? '' : 'clipped-corners '}${styles.button} ${className}`}
+      className={`${styles.button} ${className}`}
       data-variant={variant}
       data-icon-only={iconOnly || undefined}
     >

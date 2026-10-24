@@ -1,3 +1,4 @@
+@use '@/styles/mixins' as mx;
 @use '@/styles/tokens' as *;
 
 .navigation {
@@ -33,6 +34,7 @@
   }
 
   .navigationCarouselItem {
+    @include mx.corners();
     border: 2px solid $border-secondary;
     counter-increment: nav-counter;
     padding: 0.5rem;

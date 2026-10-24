@@ -61,11 +61,7 @@ const NavigationCarousel = ({ headings }: Props) => {
     <nav aria-label="Project sections" className={styles.navigation}>
       <ul ref={listRef} id="navigation-carousel" className={styles.navigationCarousel}>
         {headings.map((heading) => (
-          <li
-            key={heading}
-            className={`clipped-corners ${styles.navigationCarouselItem}`}
-            data-active="false"
-          >
+          <li key={heading} className={styles.navigationCarouselItem} data-active="false">
             <a href={`#${headingId(heading)}`} onClick={() => (isScrolling.current = true)}>
               {heading}
             </a>

@@ -30,11 +30,11 @@ const MultiSelect = ({ options, ...props }: Props) => {
         unstyled
         classNames={{
           control: ({ isFocused, isDisabled }) =>
-            `clipped-corners ${styles.control} ${isFocused ? styles.focused : ''} ${isDisabled ? styles.disabled : ''}`,
+            `${styles.control} ${isFocused ? styles.focused : ''} ${isDisabled ? styles.disabled : ''}`,
           valueContainer: () => styles.valueContainer,
           input: () => styles.input,
           placeholder: () => styles.placeholder,
-          menu: () => `clipped-corners ${styles.menu}`,
+          menu: () => styles.menu,
           menuList: () => styles.menuList,
           option: ({ isFocused, isSelected }) =>
             `${styles.option} ${isFocused ? styles.optionFocused : ''} ${isSelected ? styles.optionSelected : ''}`,

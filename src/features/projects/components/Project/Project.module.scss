@@ -1,7 +1,9 @@
+@use '@/styles/mixins' as mx;
 @use '@/styles/tokens' as *;
 @use '@/styles/breakpoints' as bp;
 
 .project {
+  @include mx.corners();
   border: 1px solid $border-secondary;
   padding: 0.5rem;
   display: flex;
@@ -15,6 +17,7 @@
   }
 
   .screenshot {
+    @include mx.corners();
     @include bp.tablet {
       flex: 0 0 auto;
       width: 20rem;

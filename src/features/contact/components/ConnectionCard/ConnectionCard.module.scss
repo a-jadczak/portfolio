@@ -2,6 +2,7 @@
 @use '@/styles/mixins' as mx;
 
 .container {
+  @include mx.corners();
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -12,6 +13,7 @@
 }
 
 .iconContainer {
+  @include mx.corners();
   display: grid;
   align-self: flex-start;
   aspect-ratio: 1 / 1;

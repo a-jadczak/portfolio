@@ -1,6 +1,13 @@
+@use '@/styles/interactive';
+@use '@/styles/mixins' as mx;
 @use '@/styles/tokens' as *;
 
 .button {
+  &:where(:not([data-variant='link'])) {
+    @include mx.corners();
+    @include interactive.interactive();
+  }
+
   display: inline-flex;
   align-items: center;
   justify-content: center;

@@ -1,7 +1,8 @@
+@use '@/styles/mixins' as mx;
 @use '@/styles/tokens' as *;
-@use 'sass:math';
 
 .dialog {
+  @include mx.corners();
   position: fixed;
   inset: 0;
   margin: auto;
@@ -21,12 +22,13 @@
   .badge {
     font-size: 1rem;
     padding: 0.5rem 1rem;
-    border-radius: math.div($border-radius, 1.25);
+    @include mx.corners($divisor: 1.25);
     text-transform: uppercase;
   }
 }
 
 .header {
+  @include mx.corners();
   display: grid;
   grid-template-columns: auto 1fr auto;
   gap: 0.5rem;

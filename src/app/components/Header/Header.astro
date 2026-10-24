@@ -7,7 +7,7 @@ import styles from './Header.module.scss';
 const currentPath = Astro.url.pathname === '/' ? '/' : Astro.url.pathname.replace(/\/$/, '');
 ---
 
-<header class={`clipped-corners-top ${styles.header}`}>
+<header class={styles.header}>
   <HeaderLogo />
   <MobileMenu className={styles.mobileMenu} currentPath={currentPath} client:load />
   <TabletMenu className={styles.tabletMenu} currentPath={currentPath} client:load />

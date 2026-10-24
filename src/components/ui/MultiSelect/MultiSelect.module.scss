@@ -1,6 +1,8 @@
+@use '@/styles/mixins' as mx;
 @use '@/styles/tokens' as *;
 
 .control {
+  @include mx.corners();
   min-width: 9rem;
   min-height: 2.75rem;
   border: 2px solid $border-secondary;
@@ -38,6 +40,7 @@
 }
 
 .menu {
+  @include mx.corners();
   margin-top: 0.375rem;
   border: 2px solid $border-secondary;
   background: $surface-raised;

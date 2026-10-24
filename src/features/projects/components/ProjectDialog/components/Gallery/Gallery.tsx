@@ -22,14 +22,9 @@ const Gallery = ({ banner, gallery }: GalleryProps) => {
   };
 
   return (
-    <div className={`${styles.galleryContainer}`}>
-      <div className={`${styles.itemPreview}`}>
-        <img
-          className={`clipped-corners  ${styles.previewImage}`}
-          src={imageSrc}
-          alt="Preview Image"
-          draggable={false}
-        />
+    <div className={styles.galleryContainer}>
+      <div className={styles.itemPreview}>
+        <img className={styles.previewImage} src={imageSrc} alt="Preview Image" draggable={false} />
         <Button onClick={previousImage} variant="default" className={styles.arrowButton} iconOnly>
           <ArrowLeft size={24} />
         </Button>
@@ -44,13 +39,13 @@ const Gallery = ({ banner, gallery }: GalleryProps) => {
         {images.map((image, _index) => (
           <li
             key={_index}
-            className={`clipped-corners ${styles.galleryItem}`}
+            className={styles.galleryItem}
             role="button"
             onClick={() => setIndex(_index)}
             data-active={index === _index}
           >
             <img
-              className={`${styles.galleryImage}`}
+              className={styles.galleryImage}
               src={image}
               alt={`Preview ${_index + 1}`}
               draggable={false}

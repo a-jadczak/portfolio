@@ -20,8 +20,8 @@ const ConnectionCard = ({ connectionId }: ConnectionCardProps) => {
   } = connections[connectionId];
 
   return (
-    <div className={`clipped-corners ${styles.container} ${styles[role]}`}>
-      <div className={`clipped-corners ${styles.iconContainer}`} aria-hidden={true}>
+    <div className={`${styles.container} ${styles[role]}`}>
+      <div className={styles.iconContainer} aria-hidden={true}>
         <Icon size={32} />
       </div>
       <div className={styles.contentContainer}>
@@ -32,9 +32,7 @@ const ConnectionCard = ({ connectionId }: ConnectionCardProps) => {
           {description}
         </Text>
       </div>
-      <div
-        className={`clipped-corners ${cardStyles.card} ${cardStyles.bordered} ${styles.actionCard}`}
-      >
+      <div className={`${cardStyles.card} ${cardStyles.bordered} ${styles.actionCard}`}>
         {actionLabel}
         <ActionIcon
           onClick={() => action?.()}

@@ -33,12 +33,8 @@ const Project = ({ projectData }: Props) => {
   };
 
   return (
-    <li className={`clipped-corners ${styles.project}`}>
-      <img
-        src={banner}
-        alt="Project preview image"
-        className={`clipped-corners ${styles.screenshot}`}
-      />
+    <li className={styles.project}>
+      <img src={banner} alt="Project preview image" className={styles.screenshot} />
       <div className={styles.info}>
         <span className={styles.number}></span>
         <Heading as="h3" size="small">

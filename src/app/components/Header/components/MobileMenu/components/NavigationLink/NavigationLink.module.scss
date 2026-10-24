@@ -1,6 +1,10 @@
+@use '@/styles/interactive';
+@use '@/styles/mixins' as mx;
 @use '@/styles/tokens' as *;
 
 .navigationLink {
+  @include mx.corners();
+  @include interactive.interactive();
   display: flex;
   position: relative;
   z-index: 1;

@@ -1,6 +1,8 @@
+@use '@/styles/mixins' as mx;
 @use '@/styles/tokens' as *;
 
 .container {
+  @include mx.corners();
   border: 1px solid $border-secondary;
   padding: 0.5rem 0.75rem;
 
@@ -8,6 +10,7 @@
     border-color: $success;
 
     .messageContainer {
+      @include mx.corners();
       border-color: $success;
       opacity: 1;
     }

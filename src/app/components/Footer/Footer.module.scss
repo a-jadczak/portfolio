@@ -1,6 +1,8 @@
+@use '@/styles/mixins' as mx;
 @use '@/styles/tokens' as *;
 
 .footer {
+  @include mx.corners($sides: bottom);
   padding: 0.5rem;
   border: 1px solid $border-secondary;
   border-top: transparent;

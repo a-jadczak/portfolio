@@ -60,7 +60,7 @@ const ProjectDialog = ({ projects }: Props) => {
       closeLabel="Close project dialog"
       titleId="project-title"
     >
-      <div className={`clipped-corners ${styles.container}`}>
+      <div className={styles.container}>
         <Heading as="h3">{name}</Heading>
         <Text variant="secondary" size="small">
           {description}
@@ -74,12 +74,12 @@ const ProjectDialog = ({ projects }: Props) => {
       </div>
 
       {readme ? (
-        <div key={id} className={`clipped-corners ${styles.container}`}>
+        <div key={id} className={styles.container}>
           <NavigationCarousel headings={readme.headings} />
           <Readme html={readme.html} />
         </div>
       ) : (
-        <div className={`clipped-corners ${styles.container}`} style={{ textAlign: 'center' }}>
+        <div className={styles.container} style={{ textAlign: 'center' }}>
           <Text variant="secondary">This project doesn't contain a description ☹️</Text>
         </div>
       )}

@@ -9,9 +9,6 @@ type Props = HTMLAttributes<'div'> & {
 const { border = true, class: className, 'class:list': classList, ...attributes } = Astro.props;
 ---
 
-<div
-  {...attributes}
-  class:list={['clipped-corners', styles.card, border && styles.bordered, className, classList]}
->
+<div {...attributes} class:list={[styles.card, border && styles.bordered, className, classList]}>
   <slot />
 </div>

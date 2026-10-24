@@ -1,7 +1,8 @@
+@use '@/styles/mixins' as mx;
 @use '@/styles/tokens' as *;
-@use 'sass:math';
 
 .checkbox {
+  @include mx.corners();
   position: relative;
   display: flex;
   align-items: center;
@@ -41,7 +42,7 @@
   width: 1.1rem;
   height: 1.1rem;
   color: transparent;
-  border-radius: math.div($border-radius, 1.75);
+  @include mx.corners($divisor: 1.75);
   border: 2px solid $text-muted;
 }
 

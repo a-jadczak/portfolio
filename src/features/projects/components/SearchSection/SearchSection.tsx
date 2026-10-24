@@ -28,11 +28,11 @@ const SearchSection = ({
 
   return (
     <div className={styles.form}>
-      <div className={`clipped-corners ${styles.searchContainer}`}>
+      <div className={styles.searchContainer}>
         <div className={styles.searchField}>
           <Search className={styles.searchIcon} size={18} aria-hidden="true" />
           <input
-            className={`clipped-corners ${styles.searchInput}`}
+            className={styles.searchInput}
             type="text"
             aria-label="Search projects"
             placeholder="Search projects..."

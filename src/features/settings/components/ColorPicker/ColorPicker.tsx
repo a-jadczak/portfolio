@@ -17,7 +17,7 @@ const ColorPicker = ({ color, active = false, onClick, children, 'aria-label': l
   return (
     <button
       type="button"
-      className={`clipped-corners ${styles.colorBox}`}
+      className={styles.colorBox}
       style={{ backgroundColor: color }}
       aria-label={label ?? (color ? `Select ${color}` : 'Choose custom color')}
       aria-pressed={active}

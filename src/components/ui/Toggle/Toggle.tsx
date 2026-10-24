@@ -41,9 +41,9 @@ const Toggle = ({
       aria-checked={isChecked}
       disabled={disabled}
       onClick={handleClick}
-      className={`clipped-corners ${styles.toggle} ${className}`}
+      className={`${styles.toggle} ${className}`}
     >
-      <span className={`clipped-corners ${styles.thumb}`} aria-hidden="true" />
+      <span className={styles.thumb} aria-hidden="true" />
     </button>
   );
 };

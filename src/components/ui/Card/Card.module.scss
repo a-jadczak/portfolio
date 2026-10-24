@@ -1,7 +1,9 @@
+@use '@/styles/mixins' as mx;
 @use '@/styles/tokens' as *;
 @use '@/styles/interactive' as *;
 
 .card {
+  @include mx.corners();
   @include interactive();
   padding: 0.5rem;
 }

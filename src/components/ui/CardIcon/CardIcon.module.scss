@@ -2,6 +2,7 @@
 @use '@/styles/mixins' as mx;
 
 .icon {
+  @include mx.corners();
   width: 3rem;
   aspect-ratio: 1 / 1;
   display: grid;

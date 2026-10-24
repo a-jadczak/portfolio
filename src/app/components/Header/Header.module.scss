@@ -1,7 +1,9 @@
+@use '@/styles/mixins' as mx;
 @use '@/styles/tokens' as *;
 @use '@/styles/breakpoints' as bp;
 
 .header {
+  @include mx.corners($sides: top);
   position: relative;
   display: flex;
   width: 100%;

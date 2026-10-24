@@ -1,7 +1,9 @@
+@use '@/styles/mixins' as mx;
 @use '@/styles/tokens' as *;
 @use '@/styles/breakpoints' as bp;
 
 .container {
+  @include mx.corners();
   height: 100%;
   margin-top: 0.5rem;
   display: grid;

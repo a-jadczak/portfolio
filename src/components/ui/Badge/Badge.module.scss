@@ -1,11 +1,10 @@
+@use '@/styles/mixins' as mx;
 @use '@/styles/tokens' as *;
-@use 'sass:math';
 
 .badge {
   background-color: $surface-hover;
   color: $primary;
-  border-radius: math.div($border-radius, 2);
-  corner-shape: $corner-shape;
+  @include mx.corners($divisor: 2);
   width: fit-content;
   font-size: 0.8rem;
   padding: 0.25rem 0.5rem;

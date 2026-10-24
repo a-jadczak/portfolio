@@ -1,6 +1,10 @@
+@use '@/styles/interactive';
+@use '@/styles/mixins' as mx;
 @use '@/styles/tokens' as *;
 
 .menuButton {
+  @include mx.corners();
+  @include interactive.interactive();
   display: grid;
   place-items: center;
   width: 2.5rem;

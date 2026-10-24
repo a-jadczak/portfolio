@@ -16,7 +16,7 @@ const NavigationLink = ({
   iconSize,
   'aria-current': ariaCurrent,
 }: NavigationLinkProps) => (
-  <a href={href} aria-current={ariaCurrent} className={`clipped-corners ${styles.navigationLink}`}>
+  <a href={href} aria-current={ariaCurrent} className={styles.navigationLink}>
     <Icon className={styles.navigationIcon} size={iconSize} aria-hidden="true" />
     <span className={styles.navigationText}>{text}</span>
   </a>

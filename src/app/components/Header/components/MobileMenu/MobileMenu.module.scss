@@ -1,6 +1,8 @@
+@use '@/styles/mixins' as mx;
 @use '@/styles/tokens' as *;
 
 .menuPanel {
+  @include mx.corners();
   top: calc(100% + 0.5rem);
   left: 0;
   right: 0;

@@ -31,10 +31,10 @@ const Dialog = ({
       {...props}
       id={id}
       ref={dialogRef}
-      className={`clipped-corners ${styles.dialog} ${className}`}
+      className={`${styles.dialog} ${className}`}
       aria-labelledby={titleId}
     >
-      <header className={`clipped-corners ${styles.header}`}>
+      <header className={styles.header}>
         {Icon ? (
           <>
             <Icon size={28} aria-hidden="true" />

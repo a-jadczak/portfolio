@@ -1,3 +1,4 @@
+@use '@/styles/mixins' as mx;
 @use '@/styles/tokens' as *;
 @use '@/styles/breakpoints' as bp;
 
@@ -25,7 +26,9 @@
   }
 
   .profileContainer > .profile {
-    border-radius: 40px 20px 20px 30px;
+    @include mx.corners(
+      $radius: $border-radius * 5 $border-radius * 2.5 $border-radius * 2.5 $border-radius * 3.75
+    );
     width: 100%;
     aspect-ratio: 7 / 9;
     object-fit: cover;

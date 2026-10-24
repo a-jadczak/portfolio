@@ -8,7 +8,7 @@ import Card from '@/components/ui/Card/Card.astro';
 const connectionIds = Object.keys(connections) as ConnectionId[];
 ---
 
-<section class={`clipped-corners ${styles.container}`}>
+<section class={styles.container}>
   <Card class={styles.card} border={false}>
     <Heading as="h2" size="small" className={styles.title}>Let's connect</Heading>
     <ul class={styles.list}>

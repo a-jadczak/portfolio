@@ -12,7 +12,7 @@ const MenuButton = ({
     <button
       id="menu"
       type="button"
-      className={`clipped-corners ${styles.menuButton}`}
+      className={styles.menuButton}
       aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
       aria-controls="navigation-menu"
       aria-expanded={isMobileMenuOpen}

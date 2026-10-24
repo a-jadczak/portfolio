@@ -1,7 +1,9 @@
+@use '@/styles/mixins' as mx;
 @use '@/styles/tokens' as *;
 @use '@/styles/breakpoints' as bp;
 
 .sidebar {
+  @include mx.corners();
   position: absolute;
   top: 12.5rem;
   left: -1.5rem;
@@ -45,8 +47,7 @@
       background-color: $primary;
       width: 10px;
       aspect-ratio: 1 / 1;
-      corner-shape: bevel;
-      border-radius: 3px;
+      @include mx.corners($radius: $border-radius * 0.375);
       top: -1.25rem;
       left: 0.5rem;
     }

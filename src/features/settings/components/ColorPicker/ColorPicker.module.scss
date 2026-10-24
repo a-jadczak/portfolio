@@ -1,6 +1,10 @@
+@use '@/styles/interactive';
+@use '@/styles/mixins' as mx;
 @use '@/styles/tokens' as *;
 
 .colorBox {
+  @include mx.corners();
+  @include interactive.interactive();
   width: 2rem;
   aspect-ratio: 1 / 1;
   border: 2px solid transparent;

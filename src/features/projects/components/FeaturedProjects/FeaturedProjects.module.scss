@@ -1,4 +1,6 @@
+@use '@/styles/mixins' as mx;
 .featuredProjects {
+  @include mx.corners();
   margin-top: 0.5rem;
   .titleContainer {
     display: flex;

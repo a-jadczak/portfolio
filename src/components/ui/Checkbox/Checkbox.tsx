@@ -7,9 +7,9 @@ export type CheckboxProps = Omit<ComponentPropsWithoutRef<'input'>, 'type' | 'ch
 };
 
 const Checkbox = ({ label, className = '', ...props }: CheckboxProps) => (
-  <label className={`clipped-corners ${styles.checkbox} ${className}`}>
+  <label className={`${styles.checkbox} ${className}`}>
     <input {...props} type="checkbox" className={styles.input} />
-    <span className={`clipped-corners ${styles.box}`} aria-hidden="true">
+    <span className={styles.box} aria-hidden="true">
       <Check className={styles.check} size={14} strokeWidth={3} />
     </span>
     <span className={styles.label}>{label}</span>

@@ -11,7 +11,7 @@ const {
 }: Props = Astro.props;
 ---
 
-<div class={`clipped-corners ${styles.sidebar}`}>
+<div class={styles.sidebar}>
   <span class={styles.index}>{indicator} </span>
   <span class={styles.upsideDownText}>{name}</span>
 </div>
