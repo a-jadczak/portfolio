@@ -1,6 +1,6 @@
 import { useState, type ComponentPropsWithoutRef } from 'react';
 import styles from './MobileMenu.module.scss';
-import HeaderActions from './components/HeaderActions/HeaderActions';
+import HeaderActions from './../HeaderActions/HeaderActions';
 import NavigationMenu from './components/NavigationMenu/NavigationMenu';
 import MenuButton from './components/MenuButton/MenuButton';
 
