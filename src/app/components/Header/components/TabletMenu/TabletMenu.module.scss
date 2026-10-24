@@ -1,12 +1,33 @@
 @use '@/styles/tokens' as *;
+@use '@/styles/breakpoints' as bp;
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+}
 
 .navigationContainer {
+  flex: 1;
+}
+
+.navigationListContainer {
   display: flex;
-  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  flex: 1;
+  gap: 1rem;
+
+  @include bp.desktop {
+    gap: 2rem;
+  }
 }
 
 .naviagtionAnchor {
   position: relative;
+  font-size: 1.1rem;
   padding: 0.5rem;
   text-decoration: none;
   color: $text-primary;
