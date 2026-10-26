@@ -1,0 +1,24 @@
+---
+import styles from './NotchedBorder.module.scss';
+
+interface Props {
+  class?: string;
+}
+
+const { class: className, ...rest } = Astro.props;
+---
+
+<svg
+  {...rest}
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="-0.75 0 31.5 498"
+  preserveAspectRatio="none"
+  class:list={[styles.notchedBorder, className]}
+>
+  <path
+    d="M30 0 V209 L15 224 V354 L30 369 V498"
+    fill="none"
+    stroke="currentColor"
+    vector-effect="non-scaling-stroke"
+    stroke-linejoin="round"></path>
+</svg>

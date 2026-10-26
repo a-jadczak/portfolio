@@ -1,0 +1,16 @@
+@use '@/styles/tokens' as *;
+
+.notchedBorder {
+  position: absolute;
+  top: 0;
+  right: -0.055rem;
+  height: calc(100%);
+  color: $border-secondary;
+
+  svg {
+    fill: $border-secondary;
+    stroke: $border-secondary;
+    stroke-width: 1;
+    stroke-linejoin: round;
+  }
+}

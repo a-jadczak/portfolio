@@ -9,6 +9,7 @@ import ProjectDialog from '@/features/projects/components/ProjectDialog/ProjectD
 import { getProjects } from '@/lib/github';
 import SidebarPageIndicator from '../components/SidebarPageIndicator/SidebarPageIndicator.astro';
 import { ClientRouter } from 'astro:transitions';
+import NotchedBorder from '../components/NotchedBorder/NotchedBorder.astro';
 
 const { title } = Astro.props;
 const currentPath = Astro.url.pathname;
@@ -32,6 +33,7 @@ const { projects } = await getProjects();
           <PageIndicator pageInfo={currentPageInfo} />
           <slot />
         </div>
+        <NotchedBorder class="notched-border" />
       </main>
       <Footer />
       <SettingsDialog />
@@ -63,6 +65,8 @@ const { projects } = await getProjects();
   }
 
   main {
+    position: relative;
+    z-index: -1;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -70,6 +74,17 @@ const { projects } = await getProjects();
     border: 1px solid $border-secondary;
     border-top: 0;
     padding: 0.5rem;
+
+    @include bp.desktop {
+      border-right: 0;
+    }
+  }
+
+  .notched-border {
+    display: none;
+    @include bp.desktop {
+      display: block;
+    }
   }
 
   .container {
