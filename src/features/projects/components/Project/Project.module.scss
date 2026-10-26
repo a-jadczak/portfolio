@@ -14,29 +14,55 @@
     flex-direction: row-reverse;
     align-items: center;
     gap: 1.5rem;
-  }
 
-  .screenshot {
-    @include mx.corners();
-    @include bp.tablet {
+    .screenshot {
       flex: 0 0 auto;
       width: 20rem;
       max-width: 45%;
       aspect-ratio: 16 / 9;
     }
-  }
 
-  .info {
-    @include bp.tablet {
+    .info {
       display: flex;
       flex-direction: column;
       justify-content: center;
       flex: 1;
+    }
+
+    .badgesList {
+      flex-wrap: wrap;
+    }
+  }
+
+  @include bp.desktop {
+    &.horizontalOnDesktop {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.5rem;
+
+      .screenshot {
+        flex: initial;
+        width: 100%;
+        max-width: none;
+        aspect-ratio: auto;
+      }
+
+      .info {
+        display: block;
+        flex: initial;
+      }
 
       .badgesList {
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
       }
     }
+  }
+
+  .screenshot {
+    @include mx.corners();
+  }
+
+  .info {
     .showDetails {
       width: fit-content;
     }

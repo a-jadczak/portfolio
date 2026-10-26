@@ -15,9 +15,10 @@ const VISIBLE_TECHNOLOGY_COUNT = 3;
 
 interface Props {
   projectData: GithubProject<ProjectMetadata, Readme>;
+  horizontalOnDesktop?: boolean;
 }
 
-const Project = ({ projectData }: Props) => {
+const Project = ({ projectData, horizontalOnDesktop = false }: Props) => {
   const { name, id, description, metadata } = projectData;
   const { technologies, banner } = metadata ?? {
     technologies: [],
@@ -33,7 +34,7 @@ const Project = ({ projectData }: Props) => {
   };
 
   return (
-    <li className={styles.project}>
+    <li className={`${styles.project} ${horizontalOnDesktop ? styles.horizontalOnDesktop : ''}`}>
       <img src={banner} alt="Project preview image" className={styles.screenshot} />
       <div className={styles.info}>
         <span className={styles.number}></span>

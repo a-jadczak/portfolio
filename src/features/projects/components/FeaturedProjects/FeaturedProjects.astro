@@ -18,6 +18,10 @@ const { featuredProjects } = await getProjects();
     </ButtonLink>
   </div>
   <ol class={styles.projectsList}>
-    {featuredProjects.map((project) => <Project projectData={project} client:load />)}
+    {
+      featuredProjects.map((project) => (
+        <Project projectData={project} horizontalOnDesktop client:load />
+      ))
+    }
   </ol>
 </section>
