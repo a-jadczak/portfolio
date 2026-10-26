@@ -36,6 +36,7 @@ const Project = ({ projectData, horizontalOnDesktop = false }: Props) => {
   return (
     <li className={`${styles.project} ${horizontalOnDesktop ? styles.horizontalOnDesktop : ''}`}>
       <img src={banner} alt="Project preview image" className={styles.screenshot} />
+
       <div className={styles.info}>
         <span className={styles.number}></span>
         <Heading as="h3" size="small">

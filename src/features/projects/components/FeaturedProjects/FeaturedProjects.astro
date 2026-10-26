@@ -9,6 +9,8 @@ import { getProjects } from '@/lib/github';
 const { featuredProjects } = await getProjects();
 ---
 
+<div class={styles.featuredProjectsHitbox}></div>
+
 <section class={styles.featuredProjects}>
   <div class={styles.titleContainer}>
     <Heading as="h2" size="small" className={styles.title}>Featured Projects</Heading>

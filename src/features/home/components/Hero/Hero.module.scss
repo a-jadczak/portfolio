@@ -16,6 +16,10 @@
     padding: 1rem;
   }
 
+  @include bp.desktop {
+    flex: 2;
+  }
+
   .infoContainer {
     display: flex;
     flex-direction: column;
