@@ -77,6 +77,9 @@ const SearchSection = () => {
       </div>
       <div className={styles.resultsContainer}>
         <span>{projectsCount} projects</span>
+        <Button variant="link" className={styles.clearFilters} onClick={resetFilterValues}>
+          Clear Filters
+        </Button>
       </div>
     </div>
   );

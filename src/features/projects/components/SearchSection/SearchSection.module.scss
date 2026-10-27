@@ -120,4 +120,12 @@
   @include bp.desktop-medium {
     display: none;
   }
+  .clearFilters {
+    display: none;
+    font-size: 1rem;
+
+    @include bp.desktop {
+      display: block;
+    }
+  }
 }
