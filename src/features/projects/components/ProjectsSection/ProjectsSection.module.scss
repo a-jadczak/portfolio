@@ -4,6 +4,8 @@
   display: flex;
   flex-direction: column;
 
+  min-height: 0;
+
   @include bp.desktop-medium {
     margin-top: 1rem;
     flex-direction: row;
@@ -22,4 +24,5 @@
   gap: 0.5rem;
   list-style: none;
   padding: 0;
+  overflow-y: auto;
 }
