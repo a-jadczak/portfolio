@@ -24,6 +24,8 @@ const ProjectsSection = ({ projects, projectsFilterData }: Props) => {
           searchValue={searchValue}
           setSearchValue={setSearchValue}
           projectsFilterData={projectsFilterData}
+          setSelectedFilters={setSelectedFilters}
+          selectedFilters={selectedFilters}
           projectsCount={filteredProjects.length}
         />
 

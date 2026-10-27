@@ -1,7 +1,7 @@
 import { useId, useState } from 'react';
 import createCache from '@emotion/cache';
 import { CacheProvider } from '@emotion/react';
-import Select from 'react-select';
+import Select, { type MultiValue } from 'react-select';
 import styles from './MultiSelect.module.scss';
 
 interface Option {
@@ -12,6 +12,8 @@ interface Option {
 interface Props {
   options: Option[];
   placeholder?: string;
+  value?: MultiValue<Option>;
+  onChange?: (selected: MultiValue<Option>) => void;
 }
 
 const MultiSelect = ({ options, ...props }: Props) => {

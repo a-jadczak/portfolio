@@ -6,12 +6,15 @@ import { Search, SlidersHorizontal } from 'lucide-react';
 import MultiSelect from '@/components/ui/MultiSelect/MultiSelect';
 import Text from '@/components/ui/Text/Text';
 import Divider from '@/components/ui/Divider/Divider';
+import type { SelectedFilters } from '../../types/SelectedFilters';
 
 interface Props {
   projectsFilterData: ProjectsFilterData;
   searchValue: string;
   setSearchValue: (value: string) => void;
   projectsCount: number;
+  selectedFilters: SelectedFilters;
+  setSelectedFilters: React.Dispatch<React.SetStateAction<SelectedFilters>>;
 }
 
 const SearchSection = ({
@@ -19,11 +22,21 @@ const SearchSection = ({
   setSearchValue,
   projectsCount,
   projectsFilterData,
+  setSelectedFilters,
+  selectedFilters,
 }: Props) => {
   const { technologies, types, statuses } = projectsFilterData;
 
   const handleClick = () => {
     openDialog('filter-dialog');
+  };
+
+  const resetFilterValues = () => {
+    setSelectedFilters({
+      technologies: [],
+      types: [],
+      statuses: [],
+    });
   };
 
   return (
@@ -45,14 +58,35 @@ const SearchSection = ({
           <MultiSelect
             options={[...technologies].map((value) => ({ value, label: value }))}
             placeholder="Technologies"
+            value={selectedFilters.technologies.map((value) => ({ value, label: value }))}
+            onChange={(selected) =>
+              setSelectedFilters((previous) => ({
+                ...previous,
+                technologies: selected.map(({ value }) => value),
+              }))
+            }
           />
           <MultiSelect
             options={[...types].map((value) => ({ value, label: value }))}
             placeholder="Type"
+            value={selectedFilters.types.map((value) => ({ value, label: value }))}
+            onChange={(selected) =>
+              setSelectedFilters((previous) => ({
+                ...previous,
+                types: selected.map(({ value }) => value),
+              }))
+            }
           />
           <MultiSelect
             options={[...statuses].map((value) => ({ value, label: value }))}
             placeholder="Status"
+            value={selectedFilters.statuses.map((value) => ({ value, label: value }))}
+            onChange={(selected) =>
+              setSelectedFilters((previous) => ({
+                ...previous,
+                statuses: selected.map(({ value }) => value),
+              }))
+            }
           />
 
           <Divider className={styles.divider} />
@@ -61,7 +95,7 @@ const SearchSection = ({
               {projectsCount} projects
             </Text>
 
-            <Button variant="link" className={styles.clearFilters}>
+            <Button variant="link" className={styles.clearFilters} onClick={resetFilterValues}>
               Clear Filters
             </Button>
           </div>
