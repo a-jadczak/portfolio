@@ -7,6 +7,8 @@ import MultiSelect from '@/components/ui/MultiSelect/MultiSelect';
 import Text from '@/components/ui/Text/Text';
 import Divider from '@/components/ui/Divider/Divider';
 import type { SelectedFilters } from '../../types/SelectedFilters';
+import type { MultiValue } from 'react-select';
+import type { FilterKey } from '../../types/FilterKey';
 
 interface Props {
   projectsFilterData: ProjectsFilterData;
@@ -27,6 +29,28 @@ const SearchSection = ({
 }: Props) => {
   const { technologies, types, statuses } = projectsFilterData;
 
+  const filterGroups: {
+    options: Set<string>;
+    label: string;
+    category: FilterKey;
+  }[] = [
+    {
+      label: 'Technologies',
+      category: 'technologies',
+      options: technologies,
+    },
+    {
+      label: 'Type',
+      category: 'types',
+      options: types,
+    },
+    {
+      label: 'Status',
+      category: 'statuses',
+      options: statuses,
+    },
+  ];
+
   const handleClick = () => {
     openDialog('filter-dialog');
   };
@@ -37,6 +61,13 @@ const SearchSection = ({
       types: [],
       statuses: [],
     });
+  };
+
+  const handleOnChange = (selected: MultiValue<string>, key: FilterKey) => {
+    setSelectedFilters((previous) => ({
+      ...previous,
+      [key]: [...selected],
+    }));
   };
 
   return (
@@ -55,39 +86,15 @@ const SearchSection = ({
         </div>
 
         <div className={styles.optionsContainer}>
-          <MultiSelect
-            options={[...technologies].map((value) => ({ value, label: value }))}
-            placeholder="Technologies"
-            value={selectedFilters.technologies.map((value) => ({ value, label: value }))}
-            onChange={(selected) =>
-              setSelectedFilters((previous) => ({
-                ...previous,
-                technologies: selected.map(({ value }) => value),
-              }))
-            }
-          />
-          <MultiSelect
-            options={[...types].map((value) => ({ value, label: value }))}
-            placeholder="Type"
-            value={selectedFilters.types.map((value) => ({ value, label: value }))}
-            onChange={(selected) =>
-              setSelectedFilters((previous) => ({
-                ...previous,
-                types: selected.map(({ value }) => value),
-              }))
-            }
-          />
-          <MultiSelect
-            options={[...statuses].map((value) => ({ value, label: value }))}
-            placeholder="Status"
-            value={selectedFilters.statuses.map((value) => ({ value, label: value }))}
-            onChange={(selected) =>
-              setSelectedFilters((previous) => ({
-                ...previous,
-                statuses: selected.map(({ value }) => value),
-              }))
-            }
-          />
+          {filterGroups.map(({ options, label, category }) => (
+            <MultiSelect
+              key={category}
+              options={[...options]}
+              placeholder={label}
+              value={selectedFilters[category]}
+              onChange={(selected) => handleOnChange(selected, category)}
+            />
+          ))}
 
           <Divider className={styles.divider} />
           <div className={styles.resultsOptionsContainer}>

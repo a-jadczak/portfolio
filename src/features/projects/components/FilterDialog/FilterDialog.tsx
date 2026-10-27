@@ -7,14 +7,13 @@ import styles from './FilterDialog.module.scss';
 import { Fragment, type ChangeEvent } from 'react';
 import type { ProjectsFilterData } from '@/types/ProjectsFilterData';
 import type { SelectedFilters } from '@/features/projects/types/SelectedFilters';
+import type { FilterKey } from '@/features/projects/types/FilterKey';
 
 interface Props {
   projectsFilterData: ProjectsFilterData;
   selectedFilters: SelectedFilters;
   setSelectedFilters: React.Dispatch<React.SetStateAction<SelectedFilters>>;
 }
-
-type FilterKey = 'technologies' | 'types' | 'statuses';
 
 const FilterDialog = ({ projectsFilterData, selectedFilters, setSelectedFilters }: Props) => {
   const { technologies, types, statuses } = projectsFilterData;
