@@ -6,7 +6,8 @@ import type { ProjectMetadata } from '@/types/ProjectMetadata';
 import type { Readme } from '@/types/Readme';
 import FilterDialog from '@/features/projects/components/FilterDialog/FilterDialog';
 import type { ProjectsFilterData } from '@/types/ProjectsFilterData';
-import { useProjectFilters } from '@/features/projects/hooks/useProjectFilters';
+import { ProjectFiltersProvider } from '../../context/ProjectFiltersContext';
+import { useProjectFilters } from '../../hooks/useProjectFilters';
 
 interface Props {
   projects: GithubProject<ProjectMetadata, Readme>[];
@@ -14,34 +15,22 @@ interface Props {
 }
 
 const ProjectsSection = ({ projects, projectsFilterData }: Props) => {
-  const { searchValue, setSearchValue, selectedFilters, setSelectedFilters, filteredProjects } =
-    useProjectFilters(projects);
+  const filters = useProjectFilters(projects, projectsFilterData);
 
   return (
-    <>
+    <ProjectFiltersProvider value={filters}>
       <div className={styles.projectsContainer}>
-        <SearchSection
-          searchValue={searchValue}
-          setSearchValue={setSearchValue}
-          projectsFilterData={projectsFilterData}
-          setSelectedFilters={setSelectedFilters}
-          selectedFilters={selectedFilters}
-          projectsCount={filteredProjects.length}
-        />
+        <SearchSection />
 
         <ol className={styles.projectsList}>
-          {filteredProjects.map((project) => (
+          {filters.filteredProjects.map((project) => (
             <Project key={project.id} projectData={project} />
           ))}
         </ol>
       </div>
 
-      <FilterDialog
-        projectsFilterData={projectsFilterData}
-        selectedFilters={selectedFilters}
-        setSelectedFilters={setSelectedFilters}
-      />
-    </>
+      <FilterDialog />
+    </ProjectFiltersProvider>
   );
 };
 

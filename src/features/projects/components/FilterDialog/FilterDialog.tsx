@@ -5,66 +5,12 @@ import { Button } from '@/components/ui/Button/Button';
 import Checkbox from '@/components/ui/Checkbox/Checkbox';
 import styles from './FilterDialog.module.scss';
 import { Fragment, type ChangeEvent } from 'react';
-import type { ProjectsFilterData } from '@/types/ProjectsFilterData';
-import type { SelectedFilters } from '@/features/projects/types/SelectedFilters';
 import type { FilterKey } from '@/features/projects/types/FilterKey';
+import { useProjectFiltersContext } from '../../context/ProjectFiltersContext';
 
-interface Props {
-  projectsFilterData: ProjectsFilterData;
-  selectedFilters: SelectedFilters;
-  setSelectedFilters: React.Dispatch<React.SetStateAction<SelectedFilters>>;
-}
-
-const FilterDialog = ({ projectsFilterData, selectedFilters, setSelectedFilters }: Props) => {
-  const { technologies, types, statuses } = projectsFilterData;
-
-  const filterGroups: {
-    id: string;
-    label: string;
-    category: FilterKey;
-    options: Set<string>;
-  }[] = [
-    {
-      id: 'project-technologies',
-      label: 'Technologies',
-      category: 'technologies',
-      options: technologies,
-    },
-    {
-      id: 'project-type',
-      label: 'Project Type',
-      category: 'types',
-      options: types,
-    },
-    {
-      id: 'project-status',
-      label: 'Status',
-      category: 'statuses',
-      options: statuses,
-    },
-  ];
-
-  const addFilterValue = (key: FilterKey, value: string) => {
-    setSelectedFilters((prev) => ({
-      ...prev,
-      [key]: [...prev[key], value],
-    }));
-  };
-
-  const removeFilterValue = (key: FilterKey, value: string) => {
-    setSelectedFilters((prev) => ({
-      ...prev,
-      [key]: prev[key].filter((item: string) => item !== value),
-    }));
-  };
-
-  const resetFilterValues = () => {
-    setSelectedFilters({
-      technologies: [],
-      types: [],
-      statuses: [],
-    });
-  };
+const FilterDialog = () => {
+  const { selectedFilters, addFilterValue, removeFilterValue, resetFilterValues, filterGroups } =
+    useProjectFiltersContext();
 
   const handleCheckbox = (e: ChangeEvent<HTMLInputElement>, key: FilterKey, option: string) => {
     if (e.target.checked) {
@@ -86,7 +32,7 @@ const FilterDialog = ({ projectsFilterData, selectedFilters, setSelectedFilters 
             role="group"
             aria-labelledby={`${id}-label`}
           >
-            {[...options].map((option) => (
+            {options.map((option) => (
               <Checkbox
                 key={option}
                 label={option}

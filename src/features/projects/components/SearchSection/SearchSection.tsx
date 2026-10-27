@@ -1,4 +1,3 @@
-import type { ProjectsFilterData } from '@/types/ProjectsFilterData';
 import styles from './SearchSection.module.scss';
 import { Button } from '@/components/ui/Button/Button';
 import { openDialog } from '@/utils/dialog';
@@ -6,61 +5,25 @@ import { Search, SlidersHorizontal } from 'lucide-react';
 import MultiSelect from '@/components/ui/MultiSelect/MultiSelect';
 import Text from '@/components/ui/Text/Text';
 import Divider from '@/components/ui/Divider/Divider';
-import type { SelectedFilters } from '../../types/SelectedFilters';
 import type { MultiValue } from 'react-select';
 import type { FilterKey } from '../../types/FilterKey';
+import { useProjectFiltersContext } from '../../context/ProjectFiltersContext';
 
-interface Props {
-  projectsFilterData: ProjectsFilterData;
-  searchValue: string;
-  setSearchValue: (value: string) => void;
-  projectsCount: number;
-  selectedFilters: SelectedFilters;
-  setSelectedFilters: React.Dispatch<React.SetStateAction<SelectedFilters>>;
-}
+const SearchSection = () => {
+  const {
+    searchValue,
+    setSearchValue,
+    filteredProjects,
+    filterGroups,
+    setSelectedFilters,
+    selectedFilters,
+    resetFilterValues,
+  } = useProjectFiltersContext();
 
-const SearchSection = ({
-  searchValue,
-  setSearchValue,
-  projectsCount,
-  projectsFilterData,
-  setSelectedFilters,
-  selectedFilters,
-}: Props) => {
-  const { technologies, types, statuses } = projectsFilterData;
-
-  const filterGroups: {
-    options: Set<string>;
-    label: string;
-    category: FilterKey;
-  }[] = [
-    {
-      label: 'Technologies',
-      category: 'technologies',
-      options: technologies,
-    },
-    {
-      label: 'Type',
-      category: 'types',
-      options: types,
-    },
-    {
-      label: 'Status',
-      category: 'statuses',
-      options: statuses,
-    },
-  ];
+  const projectsCount = filteredProjects.length;
 
   const handleClick = () => {
     openDialog('filter-dialog');
-  };
-
-  const resetFilterValues = () => {
-    setSelectedFilters({
-      technologies: [],
-      types: [],
-      statuses: [],
-    });
   };
 
   const handleOnChange = (selected: MultiValue<string>, key: FilterKey) => {
