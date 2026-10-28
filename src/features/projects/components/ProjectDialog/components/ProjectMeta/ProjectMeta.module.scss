@@ -1,5 +1,9 @@
 @use '@/styles/tokens' as *;
 
+.metaWrapper {
+  container-type: inline-size;
+}
+
 .metaContainer {
   display: grid;
   grid-template: 1fr 1fr / 1fr 1fr;
@@ -30,5 +34,21 @@
 
   .metaItem:nth-child(2n) {
     border-right: 0px;
+  }
+}
+
+@container (width >= 30rem) {
+  .metaContainer {
+    display: flex;
+
+    .metaItem:nth-child(2n + 1) {
+      text-align: left;
+    }
+
+    .metaItem {
+      border-right: 1px solid $border-secondary;
+      margin: 0.25rem;
+      padding: 0 1.5rem;
+    }
   }
 }
