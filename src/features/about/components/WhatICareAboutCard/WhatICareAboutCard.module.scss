@@ -56,3 +56,11 @@
     margin-bottom: 0.5rem;
   }
 }
+
+.card .title {
+  font-size: 1.375rem;
+
+  @include bp.tablet {
+    font-size: 1.5rem;
+  }
+}

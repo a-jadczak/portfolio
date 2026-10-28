@@ -1,7 +1,22 @@
+@use '@/styles/breakpoints' as bp;
+
 .card {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
-  align-items: center;
+  align-items: start;
   gap: 1rem;
   padding: 1rem;
+}
+
+.content {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.card .title {
+  font-size: 1.375rem;
+
+  @include bp.tablet {
+    font-size: 1.5rem;
+  }
 }

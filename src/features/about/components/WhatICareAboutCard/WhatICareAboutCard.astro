@@ -16,11 +16,13 @@ import CardIcon from '@/components/ui/CardIcon/CardIcon.astro';
       >
         <header>
           <CardIcon Icon={Icon} style={{ width: '2.5rem' }} size={24} />
-          <Heading className={styles.title} as="h3" size="medium">
+          <Heading className={styles.title} as="h3" size="extra-small">
             {title}
           </Heading>
         </header>
-        <Text variant="secondary">{description}</Text>
+        <Text variant="secondary" size="small">
+          {description}
+        </Text>
       </Card>
     ))
   }
