@@ -1,4 +1,5 @@
 import Dialog from '@/components/ui/Dialog/Dialog';
+import { formatTwoDigitNumber } from '@/utils/formatTwoDigitNumber';
 import Heading from '@/components/ui/Heading/Heading';
 import Text from '@/components/ui/Text/Text';
 import styles from './ProjectDialog.module.scss';
@@ -65,7 +66,7 @@ const ProjectDialog = ({ projects }: Props) => {
     <Dialog
       className={styles.dialog}
       id="project-dialog"
-      title={`Project / ${String(currentProjectIndex + 1).padStart(2, '0')}`}
+      title={`Project / ${formatTwoDigitNumber(currentProjectIndex + 1)}`}
       closeLabel="Close project dialog"
       titleId="project-title"
     >

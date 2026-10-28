@@ -2,13 +2,14 @@
 import AboutCard from '@/features/about/components/AboutCard/AboutCard.astro';
 import { cards } from '@/features/about/data/cards';
 import styles from './About.module.scss';
+import { formatTwoDigitNumber } from '@/utils/formatTwoDigitNumber';
 ---
 
 <ul class={styles.cardsContainer}>
   {
     cards.map(({ title, Content, border }, index) => (
       <li>
-        <AboutCard eyebrow={`${index + 1 < 9 && '0'}${index + 1} — ${title}`} {border}>
+        <AboutCard eyebrow={`${formatTwoDigitNumber(index + 1)} — ${title}`} {border}>
           <Content />
         </AboutCard>
       </li>
