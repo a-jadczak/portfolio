@@ -60,13 +60,13 @@ const experiences = [
 <script>
   import breakpoints from '@/styles/breakpoints.module.scss';
 
-  const educationTimeline = document.querySelector<HTMLUListElement>('#education-card__timeline');
   const query = window.matchMedia(`(min-width: ${breakpoints.tablet})`);
 
   query.addEventListener('change', updateOrientation);
   document.addEventListener('astro:page-load', updateOrientation);
 
   function updateOrientation() {
+    const educationTimeline = document.querySelector<HTMLUListElement>('#education-card__timeline');
     if (!educationTimeline) return;
 
     educationTimeline.dataset.orientation = query.matches ? 'horizontal' : 'vertical';
