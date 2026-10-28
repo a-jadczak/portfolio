@@ -6,9 +6,10 @@ import { useState } from 'react';
 interface GalleryProps {
   banner: string;
   gallery: string[];
+  className?: string;
 }
 
-const Gallery = ({ banner, gallery }: GalleryProps) => {
+const Gallery = ({ banner, gallery, className = '' }: GalleryProps) => {
   const images = [banner, ...gallery];
   const [index, setIndex] = useState(0);
   const imageSrc = images[index];
@@ -22,7 +23,7 @@ const Gallery = ({ banner, gallery }: GalleryProps) => {
   };
 
   return (
-    <div className={styles.galleryContainer}>
+    <div className={`${styles.galleryContainer} ${className}`}>
       <div className={styles.itemPreview}>
         <img className={styles.previewImage} src={imageSrc} alt="Preview Image" draggable={false} />
         <Button onClick={previousImage} variant="default" className={styles.arrowButton} iconOnly>

@@ -15,7 +15,7 @@
     flex-direction: column;
     flex: 1;
 
-    padding: 0.25rem 0.5rem;
+    padding: 0.25rem 0.25rem;
     margin-top: 0.25rem;
     border-right: 2px solid $border-secondary;
 
@@ -48,7 +48,6 @@
     .metaItem {
       border-right: 1px solid $border-secondary;
       margin: 0.25rem;
-      padding: 0 1.5rem;
     }
   }
 }

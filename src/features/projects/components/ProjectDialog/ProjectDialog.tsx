@@ -1,16 +1,16 @@
 import Dialog from '@/components/ui/Dialog/Dialog';
 import Heading from '@/components/ui/Heading/Heading';
 import Text from '@/components/ui/Text/Text';
-import { SquareArrowOutUpRight } from 'lucide-react';
 import styles from './ProjectDialog.module.scss';
+import { SquareArrowOutUpRight } from 'lucide-react';
 import { ButtonLink } from '@/components/ui/Button/ButtonLink';
 import { FaGithub } from 'react-icons/fa';
-import Gallery from './components/Gallery/Gallery';
 import type { ProjectMetadata } from '@/types/ProjectMetadata';
 import type { GithubProject } from '@/types/GithubProject';
 import type { Readme as ReadmeData } from '@/types/Readme';
-import Readme from './components/Readme/Readme';
 import { useProjectStore } from '@/stores/useProjectStore';
+import Gallery from './components/Gallery/Gallery';
+import Readme from './components/Readme/Readme';
 import ProjectMeta from './components/ProjectMeta/ProjectMeta';
 import NavigationCarousel from './components/NavigationCarousel/NavigationCarousel';
 
@@ -24,20 +24,27 @@ interface ProjectLinksProps {
 }
 
 const ProjectLinks = ({ homepageUrl, repositoryUrl }: ProjectLinksProps) => (
-  <>
-    {homepageUrl && (
-      <ButtonLink className={styles.button} variant="primary" href={homepageUrl} target="_blank">
-        <span>Live demo</span>
-        <SquareArrowOutUpRight />
-      </ButtonLink>
-    )}
-    {repositoryUrl && (
-      <ButtonLink className={styles.button} variant="default" href={repositoryUrl} target="_blank">
-        <span>Github repository</span>
-        <FaGithub />
-      </ButtonLink>
-    )}
-  </>
+  <div className={styles.buttonsContainerWrapper}>
+    <div className={styles.buttonsContainer}>
+      {homepageUrl && (
+        <ButtonLink className={styles.button} variant="primary" href={homepageUrl} target="_blank">
+          <span>Live demo</span>
+          <SquareArrowOutUpRight size={16} />
+        </ButtonLink>
+      )}
+      {repositoryUrl && (
+        <ButtonLink
+          className={styles.button}
+          variant="default"
+          href={repositoryUrl}
+          target="_blank"
+        >
+          <span>Github repository</span>
+          <FaGithub size={16} />
+        </ButtonLink>
+      )}
+    </div>
+  </div>
 );
 
 const ProjectDialog = ({ projects }: Props) => {
@@ -60,17 +67,33 @@ const ProjectDialog = ({ projects }: Props) => {
       closeLabel="Close project dialog"
       titleId="project-title"
     >
-      <div className={styles.container}>
-        <Heading as="h3">{name}</Heading>
-        <Text variant="secondary" size="small">
-          {description}
-        </Text>
+      <div className={styles.metadataContainer}>
+        <div className={styles.metadata}>
+          <Heading as="h3">{name}</Heading>
+          <Text className={styles.description} variant="secondary" size="small">
+            {description}
+          </Text>
 
-        <ProjectMeta metadata={metadata} createdAt={createdAt} licenseInfo={licenseInfo} />
+          <div className={styles.metaContainer}>
+            <ProjectMeta
+              className={styles.meta}
+              metadata={metadata}
+              createdAt={createdAt}
+              licenseInfo={licenseInfo}
+            />
+          </div>
 
-        <ProjectLinks homepageUrl={homepageUrl} repositoryUrl={url} />
+          <ProjectLinks homepageUrl={homepageUrl} repositoryUrl={url} />
+        </div>
 
-        {metadata && <Gallery key={id} banner={metadata.banner} gallery={metadata.gallery} />}
+        {metadata && (
+          <Gallery
+            className={styles.gallery}
+            key={id}
+            banner={metadata.banner}
+            gallery={metadata.gallery}
+          />
+        )}
       </div>
 
       {readme ? (
