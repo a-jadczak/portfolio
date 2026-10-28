@@ -50,7 +50,8 @@ const ProjectLinks = ({ homepageUrl, repositoryUrl }: ProjectLinksProps) => (
 
 const ProjectDialog = ({ projects }: Props) => {
   const selectedProjectId = useProjectStore((state) => state.id);
-  const currentProjectData = projects.find((project) => project.id === selectedProjectId);
+  const currentProjectIndex = projects.findIndex((project) => project.id === selectedProjectId);
+  const currentProjectData = projects[currentProjectIndex];
 
   const { id, name, homepageUrl, url, readme, metadata, description, createdAt, licenseInfo } =
     currentProjectData ?? {
@@ -64,7 +65,7 @@ const ProjectDialog = ({ projects }: Props) => {
     <Dialog
       className={styles.dialog}
       id="project-dialog"
-      title="Project / 01"
+      title={`Project / ${String(currentProjectIndex + 1).padStart(2, '0')}`}
       closeLabel="Close project dialog"
       titleId="project-title"
     >
