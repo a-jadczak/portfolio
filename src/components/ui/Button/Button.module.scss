@@ -24,6 +24,7 @@
 
   &[data-variant='primary'] {
     background: $gradient-primary;
+    color: $text-on-primary;
   }
 
   &[data-variant='default'] {
