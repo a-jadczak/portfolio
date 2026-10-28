@@ -1,33 +1,8 @@
-@use '@/styles/mixins' as mx;
-@use '@/styles/tokens' as *;
+@use '@/styles/bottom-panel' as panel;
 @use '@/styles/breakpoints' as bp;
 
-.featuredProjectsHitbox {
-  display: none;
-  @include bp.desktop {
-    display: block;
-
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-  }
-}
-
 .featuredProjects {
-  margin-top: 0.5rem;
-
-  @include bp.desktop {
-    @include mx.corners($radius: 1.5rem 2.5rem 0rem 1rem);
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    z-index: 1;
-    padding: 1rem 4rem;
-    width: 100%;
-
-    background-color: $surface;
-    border: 1px solid $border-secondary;
-  }
+  @include panel.bottom-panel();
 
   .titleContainer {
     display: flex;

@@ -1,0 +1,17 @@
+@use './mixins' as mx;
+@use './tokens' as *;
+@use './breakpoints' as bp;
+
+@mixin bottom-panel() {
+  margin-top: 0.5rem;
+
+  @include bp.desktop {
+    @include mx.corners($radius: 1.5rem 2.5rem 0rem 1rem);
+    flex-shrink: 0;
+    z-index: 1;
+    padding: 1rem 4rem;
+    width: 100%;
+    background-color: $surface;
+    border: 1px solid $border-secondary;
+  }
+}

@@ -79,6 +79,10 @@ const { projects } = await getProjects();
 
     @include bp.desktop {
       border-right: 0;
+
+      &:has([data-ignore-padding]) {
+        padding: 0;
+      }
     }
   }
 
@@ -99,6 +103,11 @@ const { projects } = await getProjects();
 
     @include bp.desktop {
       padding-inline: 1rem;
+
+      &:has([data-ignore-padding]) {
+        width: 100%;
+        padding: 0;
+      }
     }
   }
 </style>

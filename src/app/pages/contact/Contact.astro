@@ -6,12 +6,14 @@ import styles from './Contact.module.scss';
 ---
 
 <div class={styles.container}>
-  <PageHero
-    eyebrow="Get in touch"
-    title="Let's build something great together!"
-    description="Have a project, an opportunity, or just want to say hello?"
-  >
-    <ContactForm client:load />
-  </PageHero>
+  <div class={styles.hero}>
+    <PageHero
+      eyebrow="Get in touch"
+      title="Let's build something great together!"
+      description="Have a project, an opportunity, or just want to say hello?"
+    >
+      <ContactForm client:load />
+    </PageHero>
+  </div>
   <ConnectSection />
 </div>

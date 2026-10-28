@@ -1,25 +1,15 @@
-@use '@/styles/mixins' as mx;
-@use '@/styles/tokens' as *;
+@use '@/styles/bottom-panel' as panel;
 @use '@/styles/breakpoints' as bp;
 
 .container {
-  @include mx.corners();
-  height: 100%;
-  margin-top: 0.5rem;
-  display: grid;
-  align-items: center;
-}
-
-.card {
-  padding: 0.75rem !important;
-
-  @include bp.tablet {
-    border: 1px solid $border;
-  }
+  @include panel.bottom-panel();
 }
 
 .title {
-  margin-bottom: 0.5rem;
+  padding: 0.25rem;
+  margin-bottom: 0.25rem;
+  font-size: 1.1rem;
+  text-transform: uppercase;
 }
 
 .list {
@@ -38,9 +28,7 @@
     }
   }
   @include bp.desktop {
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 1fr;
-    align-items: stretch;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
 
     > li:last-child {
       grid-column: auto;

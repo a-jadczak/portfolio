@@ -3,22 +3,19 @@ import { connections, type ConnectionId } from '../../config/connections';
 import ConnectionCard from '../ConnectionCard/ConnectionCard';
 import styles from './ConnectSection.module.scss';
 import Heading from '@/components/ui/Heading/Heading';
-import Card from '@/components/ui/Card/Card.astro';
 
 const connectionIds = Object.keys(connections) as ConnectionId[];
 ---
 
-<section class={styles.container}>
-  <Card class={styles.card} border={false}>
-    <Heading as="h2" size="small" className={styles.title}>Let's connect</Heading>
-    <ul class={styles.list}>
-      {
-        connectionIds.map((connectionId) => (
-          <li>
-            <ConnectionCard connectionId={connectionId} client:load />
-          </li>
-        ))
-      }
-    </ul>
-  </Card>
+<section class={styles.container} data-ignore-padding>
+  <Heading as="h2" size="small" className={styles.title}>Let's connect</Heading>
+  <ul class={styles.list}>
+    {
+      connectionIds.map((connectionId) => (
+        <li>
+          <ConnectionCard connectionId={connectionId} client:load />
+        </li>
+      ))
+    }
+  </ul>
 </section>
