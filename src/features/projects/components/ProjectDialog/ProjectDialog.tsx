@@ -13,6 +13,7 @@ import Gallery from './components/Gallery/Gallery';
 import Readme from './components/Readme/Readme';
 import ProjectMeta from './components/ProjectMeta/ProjectMeta';
 import NavigationCarousel from './components/NavigationCarousel/NavigationCarousel';
+import Badge from '@/components/ui/Badge/Badge';
 
 interface Props {
   projects: GithubProject<ProjectMetadata, ReadmeData>[];
@@ -82,6 +83,13 @@ const ProjectDialog = ({ projects }: Props) => {
               licenseInfo={licenseInfo}
             />
           </div>
+          <ul className={styles.badgesList}>
+            {metadata?.technologies?.map((title) => (
+              <li key={title}>
+                <Badge title={title} />
+              </li>
+            ))}
+          </ul>
 
           <ProjectLinks homepageUrl={homepageUrl} repositoryUrl={url} />
         </div>

@@ -32,6 +32,16 @@
   display: flex;
   flex-direction: column;
 
+  .badgesList {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    width: 100%;
+    overflow-x: hidden;
+    margin-top: 0.5rem;
+  }
+
   @include bp.desktop {
     display: grid;
     grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
