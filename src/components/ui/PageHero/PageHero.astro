@@ -5,15 +5,16 @@ import Text from '@/components/ui/Text/Text';
 import styles from './PageHero.module.scss';
 
 interface Props {
+  class?: string;
   eyebrow: string;
   title: string;
   description: string;
 }
 
-const { eyebrow, title, description } = Astro.props;
+const { eyebrow, title, description, class: className } = Astro.props;
 ---
 
-<section class={styles.section}>
+<section class:list={[styles.section, className]}>
   <header class={styles.header}>
     <Eyebrow>{eyebrow}</Eyebrow>
     <Heading as="h1" size="large">{title}</Heading>

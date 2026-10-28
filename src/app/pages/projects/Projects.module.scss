@@ -1,0 +1,7 @@
+@use '@/styles/breakpoints' as bp;
+
+.pageHero {
+  @include bp.desktop {
+    padding: 1rem 0;
+  }
+}

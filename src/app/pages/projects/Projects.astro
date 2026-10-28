@@ -1,6 +1,7 @@
 ---
 import PageHero from '@/components/ui/PageHero/PageHero.astro';
 import ProjectsSection from '@/features/projects/components/ProjectsSection/ProjectsSection';
+import styles from './Projects.module.scss';
 import { getProjects, getProjectsFilterData } from '@/lib/github';
 
 const { projects } = await getProjects();
@@ -8,6 +9,7 @@ const projectsFilterData = await getProjectsFilterData();
 ---
 
 <PageHero
+  class={styles.pageHero}
   eyebrow="Project archive"
   title="Explore my projects"
   description="Search, filter, and open any project to see the full story."
