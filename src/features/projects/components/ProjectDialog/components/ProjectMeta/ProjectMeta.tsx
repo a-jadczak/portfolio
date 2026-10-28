@@ -12,10 +12,10 @@ interface Props {
 
 const ProjectMeta = ({ metadata, createdAt, licenseInfo, className = '' }: Props) => {
   const items = [
-    { label: 'Type', value: metadata?.type.map(formatWithComma).join('') },
+    { label: 'Type', value: metadata?.type.map(formatWithComma).join('') ?? 'Unknown' },
     { label: 'Created At', value: new Date(createdAt).getFullYear() },
-    { label: 'Status', value: metadata?.status },
-    { label: 'License', value: licenseInfo?.name },
+    { label: 'Status', value: metadata?.status ?? 'Unknown' },
+    { label: 'License', value: licenseInfo?.name ?? 'Unknown' },
   ];
 
   return (
