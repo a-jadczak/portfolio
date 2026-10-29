@@ -22,7 +22,10 @@ const colors = ['red', 'lawngreen', 'blue', 'purple'];
   <SettingsField title="Language">
     <SegmentedControl
       client:load
-      options={[{ text: 'Polski' }, { text: 'English' }]}
+      options={[
+        { text: 'Polski', onClick: () => {} },
+        { text: 'English', onClick: () => {} },
+      ]}
       value={'English'}
     />
   </SettingsField>

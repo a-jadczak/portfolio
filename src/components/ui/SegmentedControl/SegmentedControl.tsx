@@ -1,20 +1,23 @@
 import { useState } from 'react';
 import styles from './SegmentedControl.module.scss';
 import Control from './components/Control/Control';
-import type { Option } from '@/components/ui/SegmentedControl/types/Option';
+import type { SegmentedControlOption } from '@/components/ui/SegmentedControl/types/SegmentedControlOption';
 
 interface Props {
-  options: Option[];
+  options: SegmentedControlOption[];
   value: string;
 }
 
-const SegmentedControl = ({ options }: Props) => {
-  const [active, setActive] = useState<number>(0);
+const SegmentedControl = ({ options, value }: Props) => {
+  const [active, setActive] = useState<number>(
+    options.findIndex((option) => option.text === value)
+  );
 
   const handleControlClick = (index: number) => {
     if (active === index) return;
 
     setActive(index);
+    options[index].onClick();
   };
 
   return (
