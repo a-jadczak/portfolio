@@ -1,4 +1,4 @@
-import { useId, useState } from 'react';
+import { useEffect, useId, useState } from 'react';
 import createCache from '@emotion/cache';
 import { CacheProvider } from '@emotion/react';
 import Select, { type MultiValue } from 'react-select';
@@ -21,6 +21,15 @@ const MultiSelect = ({ options, value, onChange, ...props }: Props) => {
   // Astro removes runtime styles on navigation, so a fresh cache reinserts them on mount.
   const [cache] = useState(() => createCache({ key: 'multi-select' }));
   const toOption = (value: string): Option => ({ value, label: value });
+
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    // Wait until hydration finishes before rendering Emotion-generated styles.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
 
   return (
     <CacheProvider value={cache}>
