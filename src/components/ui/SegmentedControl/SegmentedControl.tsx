@@ -10,6 +10,7 @@ interface Props {
 
 const SegmentedControl = ({ options }: Props) => {
   const [active, setActive] = useState<number>(0);
+
   const handleControlClick = (index: number) => {
     if (active === index) return;
 
