@@ -42,6 +42,7 @@ $secondary: transparent;
 $secondary-hover: $surface-hover;
 $text-on-secondary: $text-primary;
 $border-secondary: $border;
+$border-primary: color-mix(in srgb, $primary 22%, $border-secondary);
 
 // Status indicators
 $success: #00ff66;

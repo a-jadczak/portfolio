@@ -1,0 +1,43 @@
+@use '@/styles/mixins' as mx;
+@use '@/styles/tokens' as *;
+
+.textarea {
+  @include mx.corners();
+  display: block;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: light-dark($surface, #0f0f15);
+  border: 1px solid $border-primary;
+  color: $text-primary;
+  resize: vertical;
+  transition:
+    border-color $transition-duration $transition-easing,
+    box-shadow $transition-duration $transition-easing;
+
+  &::placeholder {
+    color: $text-muted;
+    opacity: 1;
+  }
+
+  &:hover:not(:disabled) {
+    border-color: color-mix(in srgb, $primary 40%, $border-secondary);
+  }
+
+  &:focus-visible:not(:disabled) {
+    outline: none;
+    border-color: $primary;
+    box-shadow:
+      0 0 0 1px $primary,
+      0 0 14px color-mix(in srgb, $primary 25%, transparent);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &.error {
+    border-color: $danger;
+    box-shadow: 0 0 0 1px $danger;
+  }
+}
