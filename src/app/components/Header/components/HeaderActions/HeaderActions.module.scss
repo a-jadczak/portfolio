@@ -1,4 +1,6 @@
 @use '@/styles/breakpoints' as bp;
+@use '@/styles/tokens' as *;
+@use '@/styles/mixins' as mx;
 
 .externalContainer {
   display: flex;
@@ -29,4 +31,18 @@
 .resumeButton {
   font-size: 1rem;
   padding: 0.65rem;
+}
+
+@include bp.desktop {
+  @include mx.hover-motion {
+    .externalItem > a,
+    .externalItem > button,
+    .resumeButton {
+      transition: transform $transition-duration $transition-easing;
+
+      &:hover {
+        transform: translateY(-3px);
+      }
+    }
+  }
 }
