@@ -1,0 +1,71 @@
+@use '@/styles/mixins' as mx;
+@use '@/styles/tokens' as *;
+
+.container {
+  @include mx.corners();
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  min-height: 3rem;
+  background: light-dark($surface, #0f0f15);
+  border: 1px solid $border-primary;
+  color: $text-primary;
+  transition:
+    border-color $transition-duration $transition-easing,
+    box-shadow $transition-duration $transition-easing;
+
+  &:hover:not(.disabled) {
+    border-color: color-mix(in srgb, $primary 40%, $border-secondary);
+  }
+
+  &:focus-within:not(.disabled) {
+    border-color: $primary;
+    box-shadow:
+      0 0 0 1px $primary,
+      0 0 14px color-mix(in srgb, $primary 25%, transparent);
+
+    .icon {
+      color: $primary-light;
+    }
+  }
+
+  &.error {
+    border-color: $danger;
+    box-shadow: 0 0 0 1px $danger;
+  }
+
+  &.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  background: transparent;
+  padding: 0;
+  color: $text-primary;
+  outline: none;
+
+  &::placeholder {
+    color: $text-muted;
+    opacity: 1;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: $text-accent;
+  transition: color $transition-duration $transition-easing;
+}
