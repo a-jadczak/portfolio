@@ -1,19 +1,20 @@
 @use '@/styles/mixins' as mx;
+@use '@/styles/breakpoints' as bp;
 @use '@/styles/tokens' as *;
 
 .container {
-  @include mx.corners();
-  border: 1px solid $border-secondary;
-  padding: 0.5rem 0.75rem;
+  @include mx.corners($radius: 12px);
+  border: 1px solid color-mix(in srgb, $primary 25%, $border-secondary);
+  background: light-dark($surface, #0c0d12);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  transition: border-color $transition-duration $transition-easing;
+  z-index: 10;
 
   &[data-send='success'] {
     border-color: $success;
-
-    .messageContainer {
-      @include mx.corners();
-      border-color: $success;
-      opacity: 1;
-    }
 
     .submitButton {
       background: $success;
@@ -22,38 +23,38 @@
     }
   }
 
-  textarea:disabled {
-    color: $text-muted;
-  }
-
   &[data-send='error'] {
-    border-color: #e5484d;
+    border-color: $danger;
   }
 
-  .submitButton {
-    width: 100%;
-  }
-}
-
-.input {
-  width: 100%;
-
-  &:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
+  @include bp.desktop {
+    @include mx.corners($radius: 1rem);
+    padding: 1.75rem 2rem;
+    gap: 1.75rem;
   }
 }
 
-.messageContainer {
-  display: block;
-  margin: 0.75rem 0;
-  width: 100%;
-  padding: 0.5rem 0.75rem;
-  resize: vertical;
-  border: 1px solid $border-secondary;
+.form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
 
-  &:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
+  @include bp.desktop {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 1.25rem;
+    row-gap: 1.5rem;
   }
+}
+
+.fullWidth {
+  @include bp.desktop {
+    grid-column: 1 / -1;
+  }
+}
+
+.submitButton {
+  width: 100%;
+  min-height: 3rem;
+  font-size: 1rem;
+  font-weight: 500;
 }

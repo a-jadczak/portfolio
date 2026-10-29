@@ -5,7 +5,9 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  color: $primary;
+  color: $primary-light;
+  font-family: $number-font;
+  font-size: 0.95rem;
 
   &[data-send='success'] {
     span {
@@ -13,18 +15,20 @@
     }
     .circle {
       background-color: $success;
+      box-shadow: 0 0 6px color-mix(in srgb, $success 50%, transparent);
     }
   }
 }
 
 .circleContainer {
   display: flex;
-  gap: 0.5rem;
+  gap: 0.45rem;
 }
 
 .circle {
-  width: 0.5rem;
+  width: 0.55rem;
   aspect-ratio: 1;
   border-radius: 100%;
-  background-color: $primary;
+  background-color: $primary-light;
+  box-shadow: 0 0 6px color-mix(in srgb, $primary 50%, transparent);
 }

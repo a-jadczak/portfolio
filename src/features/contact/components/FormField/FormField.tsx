@@ -6,14 +6,23 @@ type FormFieldProps = {
   children: ReactNode;
   htmlFor: string;
   label: string;
-  state: FormState;
+  state?: FormState;
+  className?: string;
 };
 
-const FormField = ({ children, htmlFor, label, state }: FormFieldProps) => (
-  <label className={styles.label} htmlFor={htmlFor} data-state={state}>
-    <span className={styles.labelContent}>{label}: </span>
+const FormField = ({
+  children,
+  htmlFor,
+  label,
+  state = 'idle',
+  className = '',
+}: FormFieldProps) => (
+  <div className={`${styles.field} ${className}`} data-state={state}>
+    <label className={styles.label} htmlFor={htmlFor}>
+      {label}
+    </label>
     {children}
-  </label>
+  </div>
 );
 
 export default FormField;

@@ -1,24 +1,14 @@
 @use '@/styles/tokens' as *;
 
-.label {
-  display: block;
-  margin: 0.75rem 0;
-
-  &:has(input) {
-    display: flex;
-  }
-
-  &[data-state='success'] .labelContent::before {
-    color: $success;
-  }
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
 }
 
-.labelContent {
-  flex: 0 0 100px;
-
-  &::before {
-    content: '>';
-    margin-right: 5px;
-    color: $primary;
-  }
+.label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: $text-primary;
 }
