@@ -1,5 +1,6 @@
 @use '@/styles/tokens' as *;
 @use '@/styles/breakpoints' as bp;
+@use '@/styles/mixins' as mx;
 
 .logo {
   all: unset;
@@ -11,4 +12,19 @@
 
 .logoAccent {
   color: $primary;
+
+  @include mx.hover-motion {
+    animation: blink 1.5s steps(1, end) infinite;
+  }
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
 }
