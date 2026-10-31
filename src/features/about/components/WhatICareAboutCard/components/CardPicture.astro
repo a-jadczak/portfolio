@@ -1,0 +1,14 @@
+---
+import { readFile } from 'node:fs/promises';
+import styles from './CardPicture.module.scss';
+
+interface Props {
+  src: string;
+}
+
+const { src } = Astro.props;
+// Read the SVG file asynchronously, so the SCSS can be applied to it. This is necessary because Astro does not support importing SVGs as components with styles applied to them.
+const svg = await readFile(src, 'utf8');
+---
+
+<div class={styles.illustration} aria-hidden="true" set:html={svg} />

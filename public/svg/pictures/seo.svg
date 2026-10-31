@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 200" fill="none" aria-hidden="true">
+<defs>
+<linearGradient id="fill" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="currentColor" stop-opacity=".5"/><stop offset="1" stop-color="currentColor" stop-opacity=".09"/></linearGradient>
+<linearGradient id="shine" x1="0" y1="0" x2=".9" y2="1"><stop offset="0" stop-color="currentColor" stop-opacity=".7"/><stop offset="1" stop-color="currentColor" stop-opacity=".2"/></linearGradient>
+<filter id="glow" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="4"/></filter>
+</defs>
+<!-- Search magnifying glass and ranking/text lines -->
+<g fill="currentColor" opacity=".3" filter="url(#glow)"><circle cx="105" cy="84" r="42"/><path d="M137 116L181 160" stroke="currentColor" stroke-width="12" stroke-linecap="round"/></g>
+<circle cx="105" cy="84" r="42" fill="url(#fill)" stroke="currentColor" stroke-width="5"/>
+<path d="M136 115L182 161" stroke="currentColor" stroke-width="9" stroke-linecap="round"/>
+<path d="M61 155H174M61 171H151M61 187H130" stroke="currentColor" stroke-opacity=".25" stroke-width="5" stroke-linecap="round"/>
+</svg>

@@ -5,24 +5,25 @@ import Heading from '@/components/ui/Heading/Heading';
 import Text from '@/components/ui/Text/Text';
 import { cards } from '../../data/values';
 import CardIcon from '@/components/ui/CardIcon/CardIcon.astro';
+import CardPicture from './components/CardPicture.astro';
 ---
 
 <div class={styles.gridContainer}>
   {
     cards.map(({ title, Icon, description, image }) => (
-      <Card
-        class={styles.card}
-        style={`--card-image: url("${image}"); --grid-area: ${title.toLowerCase().replace(/[\s/]+/g, '-')}`}
-      >
-        <header>
-          <CardIcon Icon={Icon} style={{ width: '2.5rem' }} size={24} />
+      <Card class={styles.card}>
+        <CardIcon Icon={Icon} class={styles.icon} size={28} />
+        <header class={styles.header}>
           <Heading className={styles.title} as="h3" size="extra-small">
             {title}
           </Heading>
+          <Text variant="muted" size="small">
+            {description}
+          </Text>
         </header>
-        <Text variant="secondary" size="small">
-          {description}
-        </Text>
+        <div class={styles.picture}>
+          <CardPicture src={image} />
+        </div>
       </Card>
     ))
   }

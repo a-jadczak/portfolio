@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 200" fill="none" aria-hidden="true">
+  <defs>
+    <linearGradient id="liquid" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="currentColor" stop-opacity=".44"/>
+      <stop offset="1" stop-color="currentColor" stop-opacity=".16"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="currentColor" stop-opacity=".18"/>
+      <stop offset="1" stop-color="currentColor" stop-opacity=".06"/>
+    </linearGradient>
+    <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="4"/>
+    </filter>
+  </defs>
+
+  <!-- glow -->
+  <g stroke="currentColor" stroke-width="5" opacity=".18" filter="url(#glow)" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M103 28H137"/>
+    <path d="M112 28V62L74 128C65 144 77 164 96 164H144C163 164 175 144 166 128L128 62V28"/>
+    <path d="M82 116C95 123 106 126 120 126C134 126 147 123 158 117"/>
+  </g>
+
+  <!-- flask outline -->
+  <g stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- neck -->
+    <path d="M103 28H137"/>
+    <path d="M112 28V62"/>
+    <path d="M128 28V62"/>
+
+    <!-- outer body -->
+    <path d="M112 62L74 128C65 144 77 164 96 164H144C163 164 175 144 166 128L128 62" fill="url(#glass)"/>
+
+    <!-- liquid -->
+    <path d="M82 116C95 123 106 126 120 126C134 126 147 123 158 117L166 128C175 144 163 164 144 164H96C77 164 65 144 74 128L82 116Z" fill="url(#liquid)" stroke="none"/>
+
+    <!-- liquid wave -->
+    <path d="M82 116C95 123 106 126 120 126C134 126 147 123 158 117"/>
+
+    <!-- bubbles -->
+    <circle cx="104" cy="141" r="5" fill="currentColor" fill-opacity=".22"/>
+    <circle cx="122" cy="149" r="3.5" fill="currentColor" fill-opacity=".26"/>
+    <circle cx="136" cy="137" r="4.5" fill="currentColor" fill-opacity=".18"/>
+
+    <!-- highlight -->
+    <path d="M101 76L84 107" opacity=".55"/>
+    <path d="M94 118L89 128" opacity=".35"/>
+  </g>
+</svg>

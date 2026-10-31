@@ -7,60 +7,37 @@
   gap: 0.5rem;
 
   @include bp.tablet {
-    grid-template-columns: auto auto;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   @include bp.desktop {
-    grid-template-columns: repeat(3, auto);
-    grid-template-rows: 4fr 3fr auto;
-    grid-template-areas:
-      'performance performance ui-ux'
-      'accessibility testing seo'
-      'scalable-code scalable-code scalable-code';
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
 .card {
   position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
   padding: 1rem;
-
-  @include bp.desktop {
-    grid-area: var(--grid-area);
-  }
-
-  &::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: var(--card-image);
-    background-position: center;
-    opacity: 0.05;
-
-    background-repeat: no-repeat;
-    background-size: 75%;
-
-    @include bp.mobile {
-      background-repeat: repeat;
-      background-size: 50%;
-    }
-
-    @include bp.desktop {
-      background-size: 15%;
-    }
-  }
-
-  header {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 0.5rem;
-  }
 }
 
-.card .title {
-  font-size: 1.375rem;
+.header {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
 
-  @include bp.tablet {
-    font-size: 1.5rem;
+.picture {
+  display: none;
+  flex-shrink: 0;
+  width: clamp(3rem, 20%, 6rem);
+  align-self: center;
+
+  @include bp.mobile {
+    display: block;
   }
 }
