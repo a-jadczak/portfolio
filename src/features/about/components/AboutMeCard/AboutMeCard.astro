@@ -1,5 +1,6 @@
 ---
 import Card from '@/components/ui/Card/Card.astro';
+import CardIcon from '@/components/ui/CardIcon/CardIcon.astro';
 import Heading from '@/components/ui/Heading/Heading';
 import { MapPin, CircleCheck, Languages } from 'lucide-react';
 import Text from '@/components/ui/Text/Text';
@@ -20,17 +21,17 @@ import Divider from '@/components/ui/Divider/Divider';
   <Card class={styles.card} border={false}>
     <ul class={styles.infoList}>
       <li class={styles.infoElement}>
-        <MapPin className={styles.infoIcon} />
+        <CardIcon Icon={MapPin} class={styles.infoIcon} size={20} />
         <span class={styles.infoLabel}>Location</span>
         <span class={styles.infoContent}>Poland / Remote</span>
       </li>
       <li class={styles.infoElement}>
-        <CircleCheck className={styles.infoIcon} />
+        <CardIcon Icon={CircleCheck} class={styles.infoIcon} size={20} />
         <span class={styles.infoLabel}>Status</span>
         <span class={styles.infoContent}>Open to opportunites</span>
       </li>
       <li class={styles.infoElement}>
-        <Languages className={styles.infoIcon} />
+        <CardIcon Icon={Languages} class={styles.infoIcon} size={20} />
         <span class={styles.infoLabel}>Languages</span>
         <span class={styles.infoContent}>Polish / English</span>
       </li>
