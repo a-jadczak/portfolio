@@ -1,0 +1,18 @@
+---
+import Heading from '@/components/ui/Heading/Heading';
+import styles from './ProductApproachCard.module.scss';
+import Text from '@/components/ui/Text/Text';
+
+const { icon: Icon, title, description } = Astro.props;
+---
+
+<li class={styles.card}>
+  <div class={styles.header}>
+    <Icon size={36} />
+    <span class={styles.eyebrow}> / Discover </span>
+  </div>
+
+  <Heading as="h3" size="small">{title}</Heading>
+  <Text className={styles.description} variant="secondary" size="small">{description}</Text>
+  <span class={styles.accent} aria-hidden="true"></span>
+</li>

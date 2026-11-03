@@ -1,7 +1,7 @@
 @use '@/styles/bottom-panel' as panel;
 @use '@/styles/breakpoints' as bp;
 
-.featuredProjects {
+.productApproach {
   @include panel.bottom-panel();
 
   .titleContainer {
@@ -17,8 +17,8 @@
     text-transform: uppercase;
   }
 
-  .projectsList {
-    counter-reset: project;
+  .productsList {
+    counter-reset: product;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;

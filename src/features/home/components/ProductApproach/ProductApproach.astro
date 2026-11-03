@@ -1,0 +1,34 @@
+---
+import { ArrowUpRight, Layers, Search, Target } from 'lucide-react';
+import styles from './ProductApproach.module.scss';
+import Heading from '@/components/ui/Heading/Heading';
+import { ButtonLink } from '@/components/ui/Button/ButtonLink';
+import ProductApproachCard from '@/features/home/components/ProductApproachCard/ProductApproachCard.astro';
+
+const productApproachCards = [
+  {
+    icon: Search,
+    title: 'Understand the problem',
+    description: 'Know the users, their needs, and how they work.',
+  },
+  {
+    icon: Layers,
+    title: 'Define the solution',
+    description: 'Identify the right solution to meet user needs.',
+  },
+  {
+    icon: Target,
+    title: 'Deliver the product',
+    description: 'Build and ship the product to users.',
+  },
+];
+---
+
+<section class={styles.productApproach} data-ignore-padding>
+  <div class={styles.titleContainer}>
+    <Heading as="h2" size="small" className={styles.title}>My Product Approach</Heading>
+  </div>
+  <ol class={styles.productsList}>
+    {productApproachCards.map((card) => <ProductApproachCard {...card} />)}
+  </ol>
+</section>
