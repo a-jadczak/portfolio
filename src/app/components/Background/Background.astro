@@ -1,0 +1,212 @@
+<div class="background" data-flow-background aria-hidden="true"><canvas></canvas></div>
+<script>
+  function initializeBackground() {
+    const root = document.querySelector<HTMLElement>('[data-flow-background]');
+    if (!root) return;
+    const canvas = root.querySelector<HTMLCanvasElement>('canvas')!;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+    const context = ctx;
+    let colors: string[] = [];
+    let blend: GlobalCompositeOperation = 'screen';
+    function refreshColors() {
+      const styles = getComputedStyle(root!);
+      colors = [1, 2, 3].map((index) => styles.getPropertyValue(`--ribbon-${index}`).trim());
+      blend = styles.getPropertyValue('--ribbon-blend').trim() as GlobalCompositeOperation;
+    }
+    refreshColors();
+    const motion = matchMedia('(prefers-reduced-motion: reduce)');
+    let width = 1,
+      height = 1,
+      time = 0,
+      previous = 0,
+      frame = 0;
+    let visible = true;
+    // Normalized ribbon positions keep the composition responsive.
+    const ribbons = [
+      { base: 0.23, slope: 0.28, amplitude: 0.15, phase: 0.2, count: 19 },
+      { base: 0.76, slope: -0.28, amplitude: 0.13, phase: 2.7, count: 17 },
+      { base: 0.55, slope: 0.38, amplitude: 0.12, phase: 4.1, count: 13 },
+    ];
+    function point(u: number, ribbon: (typeof ribbons)[number], index: number) {
+      const offset = index - (ribbon.count - 1) / 2;
+      const phase = ribbon.phase;
+      const wave = Math.sin(u * 5.1 + time * 0.22 + phase) * ribbon.amplitude;
+      const detail = Math.sin(u * 8.7 - time * 0.13 + phase) * 0.025;
+      const spread = 0.0038 + 0.0035 * (1 + Math.sin(u * 5.5 + time * 0.12 + phase));
+      return (ribbon.base + (u - 0.5) * ribbon.slope + wave + detail + offset * spread) * height;
+    }
+    function path(ribbon: (typeof ribbons)[number], index: number) {
+      context.beginPath();
+      const steps = Math.ceil(width / 7);
+      for (let i = 0; i <= steps; i++) {
+        const u = i / steps;
+        const x = u * (width + 60) - 30;
+        const y = point(u, ribbon, index);
+        if (i === 0) context.moveTo(x, y);
+        else context.lineTo(x, y);
+      }
+    }
+    function draw() {
+      context.clearRect(0, 0, width, height);
+      context.globalCompositeOperation = blend;
+      for (const [ribbonIndex, ribbon] of ribbons.entries()) {
+        const color = colors[ribbonIndex];
+        // A broad, faint stroke produces the halo without expensive blur filters.
+        path(ribbon, (ribbon.count - 1) / 2);
+        context.strokeStyle = `rgba(${color}, 0.024)`;
+        context.lineWidth = height * 0.11;
+        context.stroke();
+        for (let line = 0; line < ribbon.count; line++) {
+          const center = (ribbon.count - 1) / 2;
+          const strength = 1 - Math.abs(line - center) / (center + 1);
+          const gradient = context.createLinearGradient(0, 0, width, 0);
+          const alpha = 0.085 + strength * 0.24;
+          gradient.addColorStop(0, `rgba(${color}, 0)`);
+          gradient.addColorStop(0.18, `rgba(${color}, ${alpha})`);
+          gradient.addColorStop(0.55, `rgba(${color}, ${alpha * 0.55})`);
+          gradient.addColorStop(0.84, `rgba(${color}, ${alpha})`);
+          gradient.addColorStop(1, `rgba(${color}, 0)`);
+          path(ribbon, line);
+          context.strokeStyle = gradient;
+          context.lineWidth = line % 6 === 0 ? 1.05 : 0.6;
+          context.stroke();
+        }
+      }
+      context.globalCompositeOperation = 'source-over';
+    }
+    function tick(stamp: number) {
+      frame = 0;
+      if (!root!.isConnected || !visible || document.hidden || motion.matches) {
+        previous = 0;
+        return;
+      }
+      if (previous) time += Math.min((stamp - previous) / 1000, 0.05);
+      previous = stamp;
+      draw();
+      frame = requestAnimationFrame(tick);
+    }
+    function sync() {
+      cancelAnimationFrame(frame);
+      frame = 0;
+      previous = 0;
+      draw();
+      if (visible && !document.hidden && !motion.matches) frame = requestAnimationFrame(tick);
+    }
+    const resize = new ResizeObserver(() => {
+      const box = root.getBoundingClientRect();
+      width = Math.max(1, box.width);
+      height = Math.max(1, box.height);
+      const dpr = Math.min(devicePixelRatio || 1, 2);
+      canvas.width = Math.round(width * dpr);
+      canvas.height = Math.round(height * dpr);
+      context.setTransform(dpr, 0, 0, dpr, 0, 0);
+      sync();
+    });
+    resize.observe(root);
+    const visibility = new IntersectionObserver((entries) => {
+      visible = entries[0].isIntersecting;
+      sync();
+    });
+    visibility.observe(root);
+    document.addEventListener('visibilitychange', sync);
+    motion.addEventListener('change', sync);
+    const themeObserver = new MutationObserver(() => {
+      refreshColors();
+      sync();
+    });
+    themeObserver.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-theme', 'style', 'class'],
+    });
+    const systemTheme = matchMedia('(prefers-color-scheme: dark)');
+    function updateTheme() {
+      refreshColors();
+      sync();
+    }
+    systemTheme.addEventListener('change', updateTheme);
+    document.addEventListener(
+      'astro:before-swap',
+      () => {
+        cancelAnimationFrame(frame);
+        resize.disconnect();
+        visibility.disconnect();
+        themeObserver.disconnect();
+        document.removeEventListener('visibilitychange', sync);
+        motion.removeEventListener('change', sync);
+        systemTheme.removeEventListener('change', updateTheme);
+      },
+      { once: true }
+    );
+  }
+  document.addEventListener('astro:page-load', initializeBackground);
+</script>
+
+<style lang="scss">
+  @use 'sass:color';
+  @use '../../../styles/tokens' as *;
+
+  .background {
+    --ribbon-1:
+      #{color.channel($primary, 'red', $space: rgb)},
+      #{color.channel($primary, 'green', $space: rgb)},
+      #{color.channel($primary, 'blue', $space: rgb)};
+    --ribbon-2:
+      #{color.channel($primary-dark, 'red', $space: rgb)},
+      #{color.channel($primary-dark, 'green', $space: rgb)},
+      #{color.channel($primary-dark, 'blue', $space: rgb)};
+    --ribbon-3:
+      #{color.channel($primary-light, 'red', $space: rgb)},
+      #{color.channel($primary-light, 'green', $space: rgb)},
+      #{color.channel($primary-light, 'blue', $space: rgb)};
+    --ribbon-blend: source-over;
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    isolation: isolate;
+    background: $background;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+    }
+    &::before {
+      background:
+        radial-gradient(ellipse at 3% 20%, rgba($primary, 0.13), transparent 52%),
+        radial-gradient(ellipse at 95% 80%, rgba($primary-dark, 0.14), transparent 53%);
+    }
+    canvas {
+      position: absolute;
+      inset: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+    &::after {
+      background:
+        radial-gradient(
+          ellipse at 50% 45%,
+          color-mix(in srgb, #{$background} 33%, transparent),
+          transparent 65%
+        ),
+        linear-gradient(
+          0deg,
+          color-mix(in srgb, #{$background} 53%, transparent),
+          transparent 18%,
+          transparent 82%,
+          color-mix(in srgb, #{$background} 53%, transparent)
+        );
+    }
+  }
+  :global([data-theme='dark']) .background {
+    --ribbon-blend: screen;
+  }
+  @media (prefers-color-scheme: dark) {
+    :global(:root:not([data-theme='light'])) .background {
+      --ribbon-blend: screen;
+    }
+  }
+</style>
