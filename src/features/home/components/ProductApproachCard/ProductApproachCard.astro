@@ -3,13 +3,13 @@ import Heading from '@/components/ui/Heading/Heading';
 import styles from './ProductApproachCard.module.scss';
 import Text from '@/components/ui/Text/Text';
 
-const { icon: Icon, title, description } = Astro.props;
+const { icon: Icon, title, eyebrow, description } = Astro.props;
 ---
 
 <li class={styles.card}>
   <div class={styles.header}>
     <Icon size={36} />
-    <span class={styles.eyebrow}> / Discover </span>
+    <span class={styles.eyebrow}> / {eyebrow} </span>
   </div>
 
   <Heading as="h3" size="small">{title}</Heading>
