@@ -1,4 +1,6 @@
 @use '@/styles/breakpoints' as bp;
+@use '@/styles/mixins' as mx;
+@use '@/styles/tokens' as *;
 
 .card {
   display: grid;
@@ -6,6 +8,7 @@
   align-items: start;
   gap: 1rem;
   padding: 1rem;
+  @include mx.gradient-card($primary);
 }
 
 .content {

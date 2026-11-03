@@ -1,0 +1,6 @@
+@use '@/styles/tokens' as *;
+@use '@/styles/mixins' as mx;
+
+.card {
+  @include mx.gradient-card($primary);
+}

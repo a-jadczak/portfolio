@@ -1,5 +1,6 @@
 @use '@/styles/tokens' as *;
 @use '@/styles/breakpoints' as bp;
+@use '@/styles/mixins' as mx;
 
 .timelineContainer {
   width: 100%;
@@ -19,6 +20,7 @@
   align-items: center;
   gap: 1rem;
   padding: 1rem;
+  @include mx.gradient-card($primary);
 }
 
 .content {

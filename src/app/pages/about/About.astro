@@ -7,9 +7,9 @@ import { formatTwoDigitNumber } from '@/utils/formatTwoDigitNumber';
 
 <ul class={styles.cardsContainer}>
   {
-    cards.map(({ title, Content, border }, index) => (
+    cards.map(({ title, Content, styles }, index) => (
       <li>
-        <AboutCard eyebrow={`${formatTwoDigitNumber(index + 1)} — ${title}`} {border}>
+        <AboutCard eyebrow={`${formatTwoDigitNumber(index + 1)} — ${title}`} {styles}>
           <Content />
         </AboutCard>
       </li>

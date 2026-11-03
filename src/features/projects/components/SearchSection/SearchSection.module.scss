@@ -12,6 +12,7 @@
 
 .searchContainer {
   @include mx.corners();
+  @include mx.gradient-card($primary);
   display: flex;
   justify-content: space-between;
   align-items: center;
