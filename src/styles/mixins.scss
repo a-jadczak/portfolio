@@ -42,3 +42,19 @@
 
   border: $width solid color-mix(in srgb, $color 35%, transparent);
 }
+
+// Soft corner glows over a theme-aware base. Accepts Sass colors or CSS variables.
+@mixin gradient-card($color: $primary, $bg: $background, $accent: $primary) {
+  background:
+    radial-gradient(
+      ellipse at 0% 100%,
+      color-mix(in srgb, $color 16%, transparent),
+      transparent 65%
+    ),
+    radial-gradient(
+      ellipse at 100% 0%,
+      color-mix(in srgb, $accent 8%, transparent),
+      transparent 60%
+    ),
+    $bg;
+}
