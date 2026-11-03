@@ -29,6 +29,10 @@
   gap: 0.1rem;
 }
 
+.title {
+  --heading-accent-color: var(--icon-color);
+}
+
 .description {
   color: $text-secondary;
   white-space: pre-line;

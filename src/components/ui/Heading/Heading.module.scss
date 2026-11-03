@@ -1,8 +1,15 @@
 @use '@/styles/breakpoints' as bp;
+@use '@/styles/tokens' as *;
 
 .heading {
   font-weight: 700;
   line-height: 1.1;
+  color: transparent;
+  background-color: $text-primary;
+  -webkit-background-clip: text;
+  background-clip: text;
+  text-shadow: 0 1px 3px
+    color-mix(in srgb, var(--heading-accent-color, #{$primary}) 60%, transparent);
 }
 
 .large {
