@@ -1,4 +1,5 @@
 import { Eye } from 'lucide-react';
+import type { CSSProperties } from 'react';
 import Badge from '@/components/ui/Badge/Badge';
 import { Button } from '@/components/ui/Button/Button';
 import styles from './Project.module.scss';
@@ -10,6 +11,7 @@ import type { Readme } from '@/types/Readme';
 import { useProjectStore } from '@/stores/useProjectStore';
 import Text from '@/components/ui/Text/Text';
 import Divider from '@/components/ui/Divider/Divider';
+import { DEFAULT_PROJECT_ACCENT_COLOR } from '@/config/projects';
 
 const VISIBLE_TECHNOLOGY_COUNT = 3;
 
@@ -34,7 +36,12 @@ const Project = ({ projectData, horizontalOnDesktop = false }: Props) => {
   };
 
   return (
-    <li className={`${styles.project} ${horizontalOnDesktop ? styles.horizontalOnDesktop : ''}`}>
+    <li
+      className={`${styles.project} ${horizontalOnDesktop ? styles.horizontalOnDesktop : ''}`}
+      style={
+        { '--accent-color': metadata?.accentColor || DEFAULT_PROJECT_ACCENT_COLOR } as CSSProperties
+      }
+    >
       <img src={banner} alt="Project preview image" className={styles.screenshot} />
 
       <div className={styles.info}>

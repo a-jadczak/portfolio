@@ -4,6 +4,7 @@ export interface ProjectMetadata {
   technologies: string[];
   banner: string;
   gallery: string[];
+  accentColor: string;
 }
 
 export type RawProjectMetadata = { text: string };

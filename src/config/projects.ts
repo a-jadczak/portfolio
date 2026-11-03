@@ -1,0 +1,1 @@
+export const DEFAULT_PROJECT_ACCENT_COLOR = '#252a31';

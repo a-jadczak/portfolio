@@ -2,6 +2,7 @@ import type { GithubProject } from '@/types/GithubProject';
 import type { ProjectMetadata, RawProjectMetadata } from '@/types/ProjectMetadata';
 import type { RawReadme } from '@/types/Readme';
 import YAML from 'yaml';
+import { DEFAULT_PROJECT_ACCENT_COLOR } from '@/config/projects';
 
 export const parseMetadata = (
   project: GithubProject<RawProjectMetadata, RawReadme>
@@ -12,6 +13,7 @@ export const parseMetadata = (
 
   metadata.banner = getImageURL(project, metadata.banner);
   metadata.gallery = metadata.gallery.map((image) => getImageURL(project, image));
+  metadata.accentColor = metadata.accentColor || DEFAULT_PROJECT_ACCENT_COLOR;
 
   return metadata;
 };
