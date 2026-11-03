@@ -44,7 +44,7 @@
 }
 
 // Soft corner glows over a theme-aware base. Accepts Sass colors or CSS variables.
-@mixin gradient-card($color: $primary, $bg: $background, $accent: $primary) {
+@mixin gradient-card($color: $primary, $bg: $surface, $accent: $primary) {
   background:
     radial-gradient(
       ellipse at 0% 100%,
