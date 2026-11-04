@@ -1,6 +1,6 @@
 ---
 import '@/styles/global.scss';
-import ThemeInit from '@/app/components/ThemeInit/ThemeInit.astro';
+import SettingsInit from '@/app/components/SettingsInit/SettingsInit.astro';
 import Header from '@/app/components/Header/Header.astro';
 import Footer from '@/app/components/Footer/Footer.astro';
 import PageIndicator from '@/app/components/PageIndicator/PageIndicator.astro';
@@ -25,7 +25,7 @@ const { projects } = await getProjects();
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <ClientRouter />
-    <ThemeInit />
+    <SettingsInit />
   </head>
   <body>
     <Background />

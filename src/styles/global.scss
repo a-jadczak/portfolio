@@ -72,3 +72,14 @@ select {
   box-sizing: border-box;
   font: inherit;
 }
+
+:root[data-reduced-motion='true'] {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

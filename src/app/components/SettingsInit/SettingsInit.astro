@@ -1,0 +1,29 @@
+<script is:inline>
+  function applyTheme() {
+    const storedTheme = localStorage.getItem('theme');
+    if (storedTheme) {
+      document.documentElement.dataset.theme = storedTheme;
+    } else {
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.dataset.theme = prefersDark ? 'dark' : 'light';
+    }
+  }
+
+  applyTheme();
+
+  function applyReduceMotion() {
+    const storedReduceMotion = localStorage.getItem('reduceMotion');
+    if (storedReduceMotion) {
+      document.documentElement.dataset.reducedMotion = storedReduceMotion;
+    } else {
+      const prefersReduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      document.documentElement.dataset.reducedMotion = String(prefersReduceMotion);
+    }
+  }
+
+  applyReduceMotion();
+
+  // Astro ClientRouter navigation
+  document.addEventListener('astro:after-swap', applyTheme);
+  document.addEventListener('astro:after-swap', applyReduceMotion);
+</script>

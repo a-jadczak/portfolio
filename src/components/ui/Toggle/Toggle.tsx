@@ -40,7 +40,10 @@ const Toggle = ({
       aria-describedby={describedBy}
       aria-checked={isChecked}
       disabled={disabled}
-      onClick={handleClick}
+      onClick={() => {
+        if (disabled) return;
+        handleClick();
+      }}
       className={`${styles.toggle} ${className}`}
     >
       <span className={styles.thumb} aria-hidden="true" />

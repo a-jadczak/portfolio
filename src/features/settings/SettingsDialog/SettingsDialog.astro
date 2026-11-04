@@ -9,7 +9,7 @@ import SegmentedControl from '@/components/ui/SegmentedControl/SegmentedControl'
 import Divider from '@/components/ui/Divider/Divider';
 import Text from '@/components/ui/Text/Text';
 import { Button } from '@/components/ui/Button/Button';
-import Toggle from '@/components/ui/Toggle/Toggle';
+import ReduceMotionControl from '../components/ReduceMotionControl/ReduceMotionControl';
 
 const colors = ['red', 'lawngreen', 'blue', 'purple'];
 ---
@@ -31,7 +31,7 @@ const colors = ['red', 'lawngreen', 'blue', 'purple'];
   </SettingsField>
   <div class={styles.toggleContainer}>
     <label>Reduce motion</label>
-    <Toggle client:load aria-label="Reduce motion" className={styles.toggle} />
+    <ReduceMotionControl className={styles.toggle} client:load />
     <Text variant="secondary" size="extra-small">Disable interface animations</Text>
   </div>
   <Divider />
