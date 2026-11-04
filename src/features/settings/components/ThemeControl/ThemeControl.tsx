@@ -10,9 +10,9 @@ const setTheme = (theme: Theme) => {
   localStorage.setItem('theme', theme);
 };
 
-const options: SegmentedControlOption[] = [
-  { Icon: Sun, text: 'light', onClick: () => setTheme('light') },
-  { Icon: Moon, text: 'dark', onClick: () => setTheme('dark') },
+const options: SegmentedControlOption<Theme>[] = [
+  { Icon: Sun, text: 'Light', value: 'light', onClick: () => setTheme('light') },
+  { Icon: Moon, text: 'Dark', value: 'dark', onClick: () => setTheme('dark') },
 ];
 
 const ThemeControl = () => {
