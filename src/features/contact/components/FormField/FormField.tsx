@@ -18,7 +18,7 @@ const FormField = ({
   className = '',
 }: FormFieldProps) => (
   <div className={`${styles.field} ${className}`} data-state={state}>
-    <label className={styles.label} htmlFor={htmlFor}>
+    <label className={styles.label} htmlFor={htmlFor} onClick={(event) => event.preventDefault()}>
       {label}
     </label>
     {children}
