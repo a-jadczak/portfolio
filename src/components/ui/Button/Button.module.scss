@@ -1,3 +1,4 @@
+@use 'sass:color';
 @use '@/styles/interactive';
 @use '@/styles/mixins' as mx;
 @use '@/styles/tokens' as *;
@@ -14,21 +15,39 @@
   gap: 0.5rem;
   padding: 0.5rem 1rem;
   border: 1px solid $border-secondary;
-  font-size: 1.25rem;
   color: $text-primary;
   font-size: 1rem;
 
   text-align: center;
   text-decoration: none;
   cursor: pointer;
+  transition: $transition-duration $transition-easing;
 
   &[data-variant='primary'] {
     background: $gradient-primary;
     color: $text-on-primary;
+
+    &:not(:disabled) {
+      box-shadow:
+        inset 0 1px 2px rgba(255, 255, 255, 0.5),
+        0 0 8px color.change($primary, $alpha: 0.65),
+        0 0 26px color.change($primary, $alpha: 0.45);
+
+      &:hover,
+      &:focus-visible {
+        background: $gradient-primary;
+        border-color: $primary-light;
+        color: $text-on-primary;
+        box-shadow:
+          inset 0 1px 2px rgba(255, 255, 255, 0.5),
+          0 0 12px color.change($primary, $alpha: 0.8),
+          0 0 34px color.change($primary, $alpha: 0.6);
+      }
+    }
   }
 
   &[data-variant='default'] {
-    background: $surface;
+    background: light-dark($surface, #0f0f15);
   }
 
   &[data-variant='link'] {

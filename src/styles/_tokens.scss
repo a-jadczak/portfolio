@@ -54,9 +54,9 @@ $danger-subtle: color-mix(in srgb, $danger 12%, transparent);
 // Primary button gradient
 $gradient-primary: linear-gradient(
   180deg,
-  color.mix(white, $primary, 12%) 0%,
-  $primary 45%,
-  $primary-dark 100%
+  color.adjust($primary, $hue: 10deg, $saturation: 15%, $lightness: 10%) 0%,
+  color.adjust($primary, $saturation: 15%) 50%,
+  color.adjust($primary, $saturation: 15%, $lightness: -8%) 100%
 );
 
 // Visual effects
