@@ -17,6 +17,7 @@ const ConnectionCard = ({ connectionId }: ConnectionCardProps) => {
     actionLabel,
     action,
     actionIcon: ActionIcon,
+    iconSize,
   } = connections[connectionId];
 
   return (
@@ -35,9 +36,18 @@ const ConnectionCard = ({ connectionId }: ConnectionCardProps) => {
       <div className={`${cardStyles.card} ${cardStyles.bordered} ${styles.actionCard}`}>
         {actionLabel}
         <ActionIcon
-          onClick={() => action?.()}
+          onClick={(e) => {
+            if (action) {
+              action();
+              e.currentTarget.classList.add(styles.pressed);
+            }
+          }}
+          onAnimationEnd={(e) => {
+            e.currentTarget.classList.remove(styles.pressed);
+          }}
           className={styles.actionIcon}
           role="button"
+          size={iconSize}
           data-active={action ? true : false}
         />
       </div>

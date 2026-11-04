@@ -11,6 +11,7 @@ export interface ConnectionConfig {
   role: Role;
   actionLabel: string;
   action: (() => void) | null;
+  iconSize?: number;
   actionIcon: Icon;
 }
 
@@ -27,6 +28,7 @@ export const connections = {
       await navigator.clipboard.writeText(emailAdress);
     },
     actionIcon: Copy,
+    iconSize: 20,
   },
   linkedin: {
     icon: FaLinkedinIn,
@@ -36,6 +38,7 @@ export const connections = {
     actionLabel: 'Connect with me',
     action: () => window.open('https://www.linkedin.com/in/arkadiusz-jadczak/', '_blank'),
     actionIcon: ExternalLink,
+    iconSize: 20,
   },
   available: {
     icon: Radio,
@@ -45,6 +48,7 @@ export const connections = {
     actionLabel: 'Open to opportunites',
     action: null,
     actionIcon: FaCircle,
+    iconSize: 10,
   },
 } satisfies Record<string, ConnectionConfig>;
 
