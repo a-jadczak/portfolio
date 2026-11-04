@@ -46,6 +46,15 @@ const { projects } = await getProjects();
   </body>
 </html>
 
+<script>
+  document.addEventListener('astro:before-swap', ({ newDocument }) => {
+    // The hydration error happened because an Emotion <style> tag remained inside the incoming page’s React markup during Astro navigation. The layout script moves those tags into <head> before hydration, where they can still style the select without interfering with React’s expected HTML.
+    newDocument.body.querySelectorAll('style[data-emotion]').forEach((style) => {
+      newDocument.head.appendChild(style);
+    });
+  });
+</script>
+
 <style lang="scss">
   @use '../../styles/tokens' as *;
   @use '../../styles/breakpoints' as bp;
