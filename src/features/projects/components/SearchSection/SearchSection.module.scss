@@ -12,7 +12,6 @@
 
 .searchContainer {
   @include mx.corners();
-  @include mx.gradient-card($primary);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -20,6 +19,7 @@
   gap: 0.5rem;
 
   @include bp.desktop {
+    @include mx.gradient-card($primary);
     padding: 0.75rem 1.25rem;
     border: 1px solid $border;
   }
@@ -31,6 +31,8 @@
   .searchField {
     position: relative;
     flex: 1;
+    padding-block: 0.5rem;
+    min-height: 2.5rem;
 
     @include bp.desktop {
       min-width: 20rem;
@@ -38,26 +40,6 @@
 
     @include bp.desktop-medium {
       width: 100%;
-    }
-  }
-
-  .searchIcon {
-    position: absolute;
-    inset-inline-start: 0.75rem;
-    top: 50%;
-    transform: translateY(-50%);
-    color: $text-secondary;
-  }
-
-  .searchInput {
-    @include mx.corners();
-    border: 2px solid $border;
-    width: 100%;
-    padding: 0.5rem;
-    padding-inline-start: 2.5rem;
-
-    &:focus-visible {
-      border-color: $primary;
     }
   }
 

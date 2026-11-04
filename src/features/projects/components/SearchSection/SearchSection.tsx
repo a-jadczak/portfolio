@@ -5,6 +5,7 @@ import { Search, SlidersHorizontal } from 'lucide-react';
 import MultiSelect from '@/components/ui/MultiSelect/MultiSelect';
 import Text from '@/components/ui/Text/Text';
 import Divider from '@/components/ui/Divider/Divider';
+import Input from '@/components/ui/Input/Input';
 import type { MultiValue } from 'react-select';
 import type { FilterKey } from '../../types/FilterKey';
 import { useProjectFiltersContext } from '../../context/ProjectFiltersContext';
@@ -36,17 +37,15 @@ const SearchSection = () => {
   return (
     <div className={styles.form}>
       <div className={styles.searchContainer}>
-        <div className={styles.searchField}>
-          <Search className={styles.searchIcon} size={18} aria-hidden="true" />
-          <input
-            className={styles.searchInput}
-            type="text"
-            aria-label="Search projects"
-            placeholder="Search projects..."
-            value={searchValue}
-            onChange={(e) => setSearchValue(e.target.value)}
-          />
-        </div>
+        <Input
+          containerClassName={styles.searchField}
+          startIcon={Search}
+          type="text"
+          aria-label="Search projects"
+          placeholder="Search projects..."
+          value={searchValue}
+          onChange={(e) => setSearchValue(e.target.value)}
+        />
 
         <div className={styles.optionsContainer}>
           {filterGroups.map(({ options, label, category }) => (
