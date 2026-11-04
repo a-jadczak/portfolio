@@ -11,7 +11,12 @@
   padding: 1rem;
   gap: 0.5rem;
   border: 1px solid $border-secondary;
-  @include mx.gradient-card(var(--icon-color));
+  @include mx.gradient-card(var(--accent-color));
+
+  &::selection,
+  & *::selection {
+    background-color: var(--accent-color);
+  }
 }
 
 .iconContainer {
@@ -19,8 +24,8 @@
   display: grid;
   align-self: flex-start;
   aspect-ratio: 1 / 1;
-  @include mx.glow-card(var(--icon-color), $background-lighter);
-  color: var(--icon-color);
+  @include mx.glow-card(var(--accent-color), $background-lighter);
+  color: var(--accent-color);
   padding: 0.5rem;
 }
 
@@ -31,7 +36,7 @@
 }
 
 .title {
-  --heading-accent-color: var(--icon-color);
+  --heading-accent-color: var(--accent-color);
 }
 
 .description {
@@ -55,7 +60,7 @@
 }
 
 .actionIcon {
-  color: var(--icon-color);
+  color: var(--accent-color);
   transform-box: fill-box;
   transform-origin: center;
 }
@@ -85,17 +90,17 @@
 }
 
 .default {
-  --icon-color: #{$primary};
+  --accent-color: #{$primary};
 }
 
 .linkedin {
-  --icon-color: #0077b5;
+  --accent-color: #0077b5;
 }
 
 .available {
-  --icon-color: #{$success};
+  --accent-color: #{$success};
 }
 
 .unavailable {
-  --icon-color: #{$danger};
+  --accent-color: #{$danger};
 }
