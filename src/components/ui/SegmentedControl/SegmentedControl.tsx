@@ -8,8 +8,10 @@ interface Props<T extends string | number> {
   value: T;
 }
 
-const SegmentedControl = <T extends string | number,>({ options, value }: Props<T>) => {
-  const [active, setActive] = useState<number>(options.findIndex((option) => option.value === value));
+const SegmentedControl = <T extends string | number>({ options, value }: Props<T>) => {
+  const [active, setActive] = useState<number>(
+    options.findIndex((option) => option.value === value)
+  );
 
   const handleControlClick = (index: number) => {
     if (active === index) return;
