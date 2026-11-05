@@ -3,8 +3,8 @@ import type { GithubProject } from '@/types/GithubProject';
 import type { ProjectMetadata } from '@/types/ProjectMetadata';
 import type { Readme } from '@/types/Readme';
 import type { SelectedFilters } from '@/features/projects/types/SelectedFilters';
-import type { FilterGroup } from '../types/FilterGroup';
-import type { FilterKey } from '../types/FilterKey';
+import type { FilterGroup } from '@/features/projects/types/FilterGroup';
+import type { FilterKey } from '@/features/projects/types/FilterKey';
 import type { ProjectsFilterData } from '@/types/ProjectsFilterData';
 
 const EMPTY_FILTERS: SelectedFilters = {

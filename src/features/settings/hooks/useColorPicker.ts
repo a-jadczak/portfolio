@@ -1,4 +1,4 @@
-import type { ColorSetting } from '../types/ColorSetting';
+import type { ColorSetting } from '@/features/settings/types/ColorSetting';
 import { useEffect, useState } from 'react';
 
 const DEFAULT_COLOR = '#7038e8';

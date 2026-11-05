@@ -1,8 +1,8 @@
 import { useRef, type SyntheticEvent } from 'react';
-import ColorPicker from '../ColorPicker/ColorPicker';
+import ColorPicker from '@/features/settings/components/ColorPicker/ColorPicker';
 import styles from './ColorPickerList.module.scss';
 import { Pipette } from 'lucide-react';
-import { useColorPicker } from '../../hooks/useColorPicker';
+import { useColorPicker } from '@/features/settings/hooks/useColorPicker';
 
 const ColorPickerList = () => {
   const { colors, colorSetting, setAccentColor } = useColorPicker();

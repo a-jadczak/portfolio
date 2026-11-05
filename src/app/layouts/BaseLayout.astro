@@ -8,10 +8,10 @@ import { getCurrentPageInfo } from '@/config/pages';
 import SettingsDialog from '@/features/settings/SettingsDialog/SettingsDialog.astro';
 import ProjectDialog from '@/features/projects/components/ProjectDialog/ProjectDialog';
 import { getProjects } from '@/lib/github';
-import SidebarPageIndicator from '../components/SidebarPageIndicator/SidebarPageIndicator.astro';
+import SidebarPageIndicator from '@/app/components/SidebarPageIndicator/SidebarPageIndicator.astro';
 import { ClientRouter } from 'astro:transitions';
-import NotchedBorder from '../components/NotchedBorder/NotchedBorder.astro';
-import Background from '../components/Background/Background.astro';
+import NotchedBorder from '@/app/components/NotchedBorder/NotchedBorder.astro';
+import Background from '@/app/components/Background/Background.astro';
 
 const { title } = Astro.props;
 const currentPath = Astro.url.pathname;

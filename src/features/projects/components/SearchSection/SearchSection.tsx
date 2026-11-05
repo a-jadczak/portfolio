@@ -7,8 +7,8 @@ import Text from '@/components/ui/Text/Text';
 import Divider from '@/components/ui/Divider/Divider';
 import Input from '@/components/ui/Input/Input';
 import type { MultiValue } from 'react-select';
-import type { FilterKey } from '../../types/FilterKey';
-import { useProjectFiltersContext } from '../../context/ProjectFiltersContext';
+import type { FilterKey } from '@/features/projects/types/FilterKey';
+import { useProjectFiltersContext } from '@/features/projects/context/ProjectFiltersContext';
 
 const SearchSection = () => {
   const {

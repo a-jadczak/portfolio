@@ -1,8 +1,8 @@
-import AboutMeCard from '../components/AboutMeCard/AboutMeCard.astro';
-import TechStackCard from '../components/TechStackCard/TechStackCard.astro';
-import WhatICareAboutCard from '../components/WhatICareAboutCard/WhatICareAboutCard.astro';
-import WorkflowCard from '../components/WorkflowCard/WorkflowCard.astro';
-import EducationCard from '../components/EducationCard/EducationCard.astro';
+import AboutMeCard from '@/features/about/components/AboutMeCard/AboutMeCard.astro';
+import TechStackCard from '@/features/about/components/TechStackCard/TechStackCard.astro';
+import WhatICareAboutCard from '@/features/about/components/WhatICareAboutCard/WhatICareAboutCard.astro';
+import WorkflowCard from '@/features/about/components/WorkflowCard/WorkflowCard.astro';
+import EducationCard from '@/features/about/components/EducationCard/EducationCard.astro';
 
 export const cards = [
   { title: 'About me', Content: AboutMeCard, styles: true },

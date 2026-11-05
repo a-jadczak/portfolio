@@ -1,13 +1,13 @@
-import SearchSection from '../SearchSection/SearchSection';
+import SearchSection from '@/features/projects/components/SearchSection/SearchSection';
 import styles from './ProjectsSection.module.scss';
-import Project from '../Project/Project';
+import Project from '@/features/projects/components/Project/Project';
 import type { GithubProject } from '@/types/GithubProject';
 import type { ProjectMetadata } from '@/types/ProjectMetadata';
 import type { Readme } from '@/types/Readme';
 import FilterDialog from '@/features/projects/components/FilterDialog/FilterDialog';
 import type { ProjectsFilterData } from '@/types/ProjectsFilterData';
-import { ProjectFiltersProvider } from '../../context/ProjectFiltersContext';
-import { useProjectFilters } from '../../hooks/useProjectFilters';
+import { ProjectFiltersProvider } from '@/features/projects/context/ProjectFiltersContext';
+import { useProjectFilters } from '@/features/projects/hooks/useProjectFilters';
 
 interface Props {
   projects: GithubProject<ProjectMetadata, Readme>[];

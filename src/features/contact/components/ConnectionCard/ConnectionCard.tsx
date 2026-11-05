@@ -2,7 +2,7 @@ import Heading from '@/components/ui/Heading/Heading';
 import Text from '@/components/ui/Text/Text';
 import styles from './ConnectionCard.module.scss';
 import cardStyles from '@/components/ui/Card/Card.module.scss';
-import { connections, type ConnectionId } from '../../config/connections';
+import { connections, type ConnectionId } from '@/features/contact/config/connections';
 
 export interface ConnectionCardProps {
   connectionId: ConnectionId;

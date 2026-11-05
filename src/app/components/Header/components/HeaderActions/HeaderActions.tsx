@@ -1,5 +1,5 @@
 import { FaFilePdf, FaGithub, FaLinkedin } from 'react-icons/fa';
-import SettingsButton from '../SettingsButton/SettingsButton';
+import SettingsButton from '@/app/components/Header/components/SettingsButton/SettingsButton';
 import styles from './HeaderActions.module.scss';
 import { ButtonLink } from '@/components/ui/Button/ButtonLink';
 

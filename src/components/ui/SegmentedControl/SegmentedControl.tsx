@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styles from './SegmentedControl.module.scss';
 import Control from './components/Control/Control';
-import type { SegmentedControlOption } from '@/components/ui/SegmentedControl/types/SegmentedControlOption';
+import type { SegmentedControlOption } from './types/SegmentedControlOption';
 
 interface Props<T extends string | number> {
   options: SegmentedControlOption<T>[];

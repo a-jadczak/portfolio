@@ -1,5 +1,5 @@
 import { createContext, useContext } from 'react';
-import type { useProjectFilters } from '../hooks/useProjectFilters';
+import type { useProjectFilters } from '@/features/projects/hooks/useProjectFilters';
 import type { Nullable } from '@/types/Nullable';
 
 const ProjectFiltersContext = createContext<Nullable<ReturnType<typeof useProjectFilters>>>(null);

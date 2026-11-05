@@ -1,7 +1,7 @@
 import { FolderClosed, Home as HomeIcon, Mail, User } from 'lucide-react';
 import { pages, type PageName } from '@/config/pages';
 import type { Icon } from '@/types/Icon';
-import NavigationLink from '../NavigationLink/NavigationLink';
+import NavigationLink from '@/app/components/Header/components/MobileMenu/components/NavigationLink/NavigationLink';
 import styles from './NavigationMenu.module.scss';
 
 const ICON_SIZE = 20;

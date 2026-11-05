@@ -1,15 +1,15 @@
 ---
 import styles from './SettingsDialog.module.scss';
 import { Settings } from 'lucide-react';
-import ThemeControl from '../components/ThemeControl/ThemeControl';
-import ColorPickerList from '../components/ColorPickerList/ColorPickerList';
-import SettingsField from '../components/SettingsField/SettingsField.astro';
+import ThemeControl from '@/features/settings/components/ThemeControl/ThemeControl';
+import ColorPickerList from '@/features/settings/components/ColorPickerList/ColorPickerList';
+import SettingsField from '@/features/settings/components/SettingsField/SettingsField.astro';
 import Dialog from '@/components/ui/Dialog/Dialog';
 import SegmentedControl from '@/components/ui/SegmentedControl/SegmentedControl';
 import Divider from '@/components/ui/Divider/Divider';
 import Text from '@/components/ui/Text/Text';
 import { Button } from '@/components/ui/Button/Button';
-import ReduceMotionControl from '../components/ReduceMotionControl/ReduceMotionControl';
+import ReduceMotionControl from '@/features/settings/components/ReduceMotionControl/ReduceMotionControl';
 ---
 
 <Dialog id="settings-dialog" title="Settings" titleId="settings-title" Icon={Settings}>

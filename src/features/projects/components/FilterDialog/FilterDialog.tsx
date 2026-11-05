@@ -6,7 +6,7 @@ import Checkbox from '@/components/ui/Checkbox/Checkbox';
 import styles from './FilterDialog.module.scss';
 import { Fragment, type ChangeEvent } from 'react';
 import type { FilterKey } from '@/features/projects/types/FilterKey';
-import { useProjectFiltersContext } from '../../context/ProjectFiltersContext';
+import { useProjectFiltersContext } from '@/features/projects/context/ProjectFiltersContext';
 
 const FilterDialog = () => {
   const { selectedFilters, addFilterValue, removeFilterValue, resetFilterValues, filterGroups } =
