@@ -1,27 +1,20 @@
-import { useRef, useState, type ChangeEvent } from 'react';
+import { useRef, type SyntheticEvent } from 'react';
 import ColorPicker from '../ColorPicker/ColorPicker';
 import styles from './ColorPickerList.module.scss';
 import { Pipette } from 'lucide-react';
+import { useColorPicker } from '../../hooks/useColorPicker';
 
-interface Props {
-  colors: string[];
-}
+const ColorPickerList = () => {
+  const { colors, colorSetting, setAccentColor } = useColorPicker();
+  const { color: activeColor, index: activeIndex } = colorSetting;
 
-const ColorPickerList = ({ colors }: Props) => {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [customColor, setCustomColor] = useState('#7038e8');
   const inputRef = useRef<HTMLInputElement>(null);
-  const customIndex = colors.length;
+  const lastColorIndex = colors.length;
 
-  const handleCustomClick = () => {
-    setActiveIndex(customIndex);
-    inputRef.current?.click();
-  };
+  const handleCustomClick = () => inputRef.current?.click();
 
-  const handleCustomColorChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setCustomColor(event.target.value);
-    setActiveIndex(customIndex);
-  };
+  const handleCustomColorChange = (event: SyntheticEvent<HTMLInputElement>) =>
+    setAccentColor(event.currentTarget.value, lastColorIndex);
 
   return (
     <>
@@ -31,15 +24,15 @@ const ColorPickerList = ({ colors }: Props) => {
             <ColorPicker
               color={color}
               active={activeIndex === index}
-              onClick={() => setActiveIndex(index)}
+              onClick={() => setAccentColor(color, index)}
             />
           </li>
         ))}
         <li>
           <ColorPicker
-            active={activeIndex === customIndex}
+            active={activeIndex === lastColorIndex}
             onClick={handleCustomClick}
-            color={customColor}
+            color={activeColor}
             aria-label="Choose custom color"
           >
             <Pipette size={16} aria-hidden="true" />
@@ -51,7 +44,8 @@ const ColorPickerList = ({ colors }: Props) => {
         type="color"
         className={styles.colorInput}
         hidden
-        value={customColor}
+        value={activeColor}
+        onInput={handleCustomColorChange}
         onChange={handleCustomColorChange}
       />
     </>

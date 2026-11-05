@@ -23,7 +23,17 @@
 
   applyReduceMotion();
 
+  function applyAccentColor() {
+    const storedAccentColor = localStorage.getItem('accentColor');
+    if (storedAccentColor) {
+      const parsed = JSON.parse(storedAccentColor);
+      document.documentElement.style.setProperty('--primary', parsed.color);
+    }
+  }
+  applyAccentColor();
+
   // Astro ClientRouter navigation
   document.addEventListener('astro:after-swap', applyTheme);
   document.addEventListener('astro:after-swap', applyReduceMotion);
+  document.addEventListener('astro:after-swap', applyAccentColor);
 </script>

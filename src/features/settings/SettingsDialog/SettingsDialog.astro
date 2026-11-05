@@ -10,8 +10,6 @@ import Divider from '@/components/ui/Divider/Divider';
 import Text from '@/components/ui/Text/Text';
 import { Button } from '@/components/ui/Button/Button';
 import ReduceMotionControl from '../components/ReduceMotionControl/ReduceMotionControl';
-
-const colors = ['red', 'lawngreen', 'blue', 'purple'];
 ---
 
 <Dialog id="settings-dialog" title="Settings" titleId="settings-title" Icon={Settings}>
@@ -36,7 +34,7 @@ const colors = ['red', 'lawngreen', 'blue', 'purple'];
   </div>
   <Divider />
   <SettingsField title="Accent color">
-    <ColorPickerList client:load colors={colors} />
+    <ColorPickerList client:load />
   </SettingsField>
   <Button className={styles.systemPreferencesButton} variant="link">Use system preferences</Button>
 </Dialog>

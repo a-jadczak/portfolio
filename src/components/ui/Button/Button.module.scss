@@ -1,4 +1,3 @@
-@use 'sass:color';
 @use '@/styles/interactive';
 @use '@/styles/mixins' as mx;
 @use '@/styles/tokens' as *;
@@ -30,8 +29,8 @@
     &:not(:disabled) {
       box-shadow:
         inset 0 1px 2px rgba(255, 255, 255, 0.5),
-        0 0 8px color.change($primary, $alpha: 0.65),
-        0 0 26px color.change($primary, $alpha: 0.45);
+        0 0 8px color-mix(in srgb, $primary 65%, transparent),
+        0 0 26px color-mix(in srgb, $primary 45%, transparent);
 
       &:hover,
       &:focus-visible {
@@ -40,8 +39,8 @@
         color: $text-on-primary;
         box-shadow:
           inset 0 1px 2px rgba(255, 255, 255, 0.5),
-          0 0 12px color.change($primary, $alpha: 0.8),
-          0 0 34px color.change($primary, $alpha: 0.6);
+          0 0 12px color-mix(in srgb, $primary 80%, transparent),
+          0 0 34px color-mix(in srgb, $primary 60%, transparent);
       }
     }
   }

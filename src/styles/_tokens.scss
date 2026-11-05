@@ -1,24 +1,34 @@
-@use 'sass:color';
-
-// Brand color — change this to update both themes
-$primary: #7038e8;
+// Runtime accent shared by both themes.
+$primary: var(--primary, #7038e8);
 
 // Accent shades shared by both themes
-$primary-light: color.mix(white, $primary, 30%);
-$primary-dark: color.mix(black, $primary, 18%);
-$primary-hover: color.mix(white, $primary, 10%);
-$primary-subtle: color.change($primary, $alpha: 0.12);
+$primary-light: color-mix(in srgb, white 30%, $primary);
+$primary-dark: color-mix(in srgb, black 18%, $primary);
+$primary-hover: color-mix(in srgb, white 10%, $primary);
+$primary-subtle: color-mix(in srgb, $primary 12%, transparent);
 
 // Backgrounds — light-dark(light value, dark value)
-$background: light-dark(color.mix($primary, #f7f8fa, 2%), color.mix($primary, #08090c, 2%));
+$background: light-dark(
+  color-mix(in srgb, $primary 2%, #f7f8fa),
+  color-mix(in srgb, $primary 2%, #08090c)
+);
 
-$background-lighter: light-dark(color.mix($primary, #f7f8fa, 2%), color.mix($primary, #19191f, 5%));
+$background-lighter: light-dark(
+  color-mix(in srgb, $primary 2%, #f7f8fa),
+  color-mix(in srgb, $primary 5%, #19191f)
+);
 
-$surface: light-dark(#ffffff, color.mix($primary, #100e1a, 3%));
+$surface: light-dark(#ffffff, color-mix(in srgb, $primary 3%, #100e1a));
 
-$surface-raised: light-dark(color.mix($primary, #f3f4f6, 2%), color.mix($primary, #17181e, 4%));
+$surface-raised: light-dark(
+  color-mix(in srgb, $primary 2%, #f3f4f6),
+  color-mix(in srgb, $primary 4%, #17181e)
+);
 
-$surface-hover: light-dark(color.mix($primary, #eceef2, 5%), color.mix($primary, #1c1d24, 7%));
+$surface-hover: light-dark(
+  color-mix(in srgb, $primary 5%, #eceef2),
+  color-mix(in srgb, $primary 7%, #1c1d24)
+);
 
 // Text
 $text-primary: light-dark(#191922, #f2f2f5);
@@ -28,11 +38,14 @@ $text-accent: light-dark($primary-dark, $primary-light);
 $text-on-primary: #ffffff;
 
 // Borders and focus indicators
-$border: light-dark(color.mix($primary, #dcdde4, 8%), color.mix($primary, #252630, 8%));
+$border: light-dark(
+  color-mix(in srgb, $primary 8%, #dcdde4),
+  color-mix(in srgb, $primary 8%, #252630)
+);
 
 $border-accent: light-dark(
-  color.change($primary, $alpha: 0.4),
-  color.change($primary, $alpha: 0.45)
+  color-mix(in srgb, $primary 40%, transparent),
+  color-mix(in srgb, $primary 45%, transparent)
 );
 
 $focus-ring: light-dark($primary, $primary-light);
@@ -54,14 +67,17 @@ $danger-subtle: color-mix(in srgb, $danger 12%, transparent);
 // Primary button gradient
 $gradient-primary: linear-gradient(
   180deg,
-  color.adjust($primary, $hue: 10deg, $saturation: 15%, $lightness: 10%) 0%,
-  color.adjust($primary, $saturation: 15%) 50%,
-  color.adjust($primary, $saturation: 15%, $lightness: -8%) 100%
+  hsl(from $primary calc(h + 10) calc(s + 15) calc(l + 10)) 0%,
+  hsl(from $primary h calc(s + 15) l) 50%,
+  hsl(from $primary h calc(s + 15) calc(l - 8)) 100%
 );
 
 // Visual effects
 $glow-primary: 0 0 24px
-  light-dark(color.change($primary, $alpha: 0.12), color.change($primary, $alpha: 0.2));
+  light-dark(
+    color-mix(in srgb, $primary 12%, transparent),
+    color-mix(in srgb, $primary 20%, transparent)
+  );
 
 $highlight-inset: inset 0 1px 0 rgba(255, 255, 255, 0.2);
 

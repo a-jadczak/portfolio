@@ -57,7 +57,7 @@
         const color = colors[ribbonIndex];
         // A broad, faint stroke produces the halo without expensive blur filters.
         path(ribbon, (ribbon.count - 1) / 2);
-        context.strokeStyle = `rgba(${color}, 0.024)`;
+        context.strokeStyle = `color-mix(in srgb, ${color} 2.4%, transparent)`;
         context.lineWidth = height * 0.11;
         context.stroke();
         for (let line = 0; line < ribbon.count; line++) {
@@ -65,11 +65,11 @@
           const strength = 1 - Math.abs(line - center) / (center + 1);
           const gradient = context.createLinearGradient(0, 0, width, 0);
           const alpha = 0.085 + strength * 0.24;
-          gradient.addColorStop(0, `rgba(${color}, 0)`);
-          gradient.addColorStop(0.18, `rgba(${color}, ${alpha})`);
-          gradient.addColorStop(0.55, `rgba(${color}, ${alpha * 0.55})`);
-          gradient.addColorStop(0.84, `rgba(${color}, ${alpha})`);
-          gradient.addColorStop(1, `rgba(${color}, 0)`);
+          gradient.addColorStop(0, `color-mix(in srgb, ${color} 0%, transparent)`);
+          gradient.addColorStop(0.18, `color-mix(in srgb, ${color} ${alpha * 100}%, transparent)`);
+          gradient.addColorStop(0.55, `color-mix(in srgb, ${color} ${alpha * 55}%, transparent)`);
+          gradient.addColorStop(0.84, `color-mix(in srgb, ${color} ${alpha * 100}%, transparent)`);
+          gradient.addColorStop(1, `color-mix(in srgb, ${color} 0%, transparent)`);
           path(ribbon, line);
           context.strokeStyle = gradient;
           context.lineWidth = line % 6 === 0 ? 1.05 : 0.6;
@@ -146,22 +146,12 @@
 </script>
 
 <style lang="scss">
-  @use 'sass:color';
   @use '../../../styles/tokens' as *;
 
   .background {
-    --ribbon-1:
-      #{color.channel($primary, 'red', $space: rgb)},
-      #{color.channel($primary, 'green', $space: rgb)},
-      #{color.channel($primary, 'blue', $space: rgb)};
-    --ribbon-2:
-      #{color.channel($primary-dark, 'red', $space: rgb)},
-      #{color.channel($primary-dark, 'green', $space: rgb)},
-      #{color.channel($primary-dark, 'blue', $space: rgb)};
-    --ribbon-3:
-      #{color.channel($primary-light, 'red', $space: rgb)},
-      #{color.channel($primary-light, 'green', $space: rgb)},
-      #{color.channel($primary-light, 'blue', $space: rgb)};
+    --ribbon-1: #{$primary};
+    --ribbon-2: #{$primary-dark};
+    --ribbon-3: #{$primary-light};
     --ribbon-blend: source-over;
     position: fixed;
     inset: 0;
@@ -178,8 +168,16 @@
     }
     &::before {
       background:
-        radial-gradient(ellipse at 3% 20%, rgba($primary, 0.13), transparent 52%),
-        radial-gradient(ellipse at 95% 80%, rgba($primary-dark, 0.14), transparent 53%);
+        radial-gradient(
+          ellipse at 3% 20%,
+          color-mix(in srgb, $primary 13%, transparent),
+          transparent 52%
+        ),
+        radial-gradient(
+          ellipse at 95% 80%,
+          color-mix(in srgb, $primary-dark 14%, transparent),
+          transparent 53%
+        );
     }
     canvas {
       position: absolute;

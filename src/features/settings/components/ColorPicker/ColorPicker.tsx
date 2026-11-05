@@ -10,16 +10,14 @@ interface Props {
 }
 
 const ColorPicker = ({ color, active = false, onClick, children, 'aria-label': label }: Props) => {
-  const handleClick = () => {
-    onClick?.();
-  };
+  const handleClick = () => onClick?.();
 
   return (
     <button
       type="button"
       className={styles.colorBox}
       style={{ backgroundColor: color }}
-      aria-label={label ?? (color ? `Select ${color}` : 'Choose custom color')}
+      aria-label={label ?? 'Select the color'}
       aria-pressed={active}
       onClick={handleClick}
     >
