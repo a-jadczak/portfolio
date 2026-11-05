@@ -1,0 +1,26 @@
+@use '@/styles/mixins' as mx;
+@use '@/styles/tokens' as *;
+
+.navigationLink {
+  position: relative;
+  font-size: 1.1rem;
+  padding: 0.5rem;
+  text-decoration: none;
+  color: $text-primary;
+}
+
+.navigationLink[aria-current='page'] {
+  cursor: default;
+  color: $primary;
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -5%;
+    left: 0px;
+    @include mx.corners($divisor: 4);
+
+    width: 100%;
+    height: 2px;
+    background-color: $primary;
+  }
+}

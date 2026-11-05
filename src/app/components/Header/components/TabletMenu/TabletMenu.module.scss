@@ -1,5 +1,3 @@
-@use '@/styles/mixins' as mx;
-@use '@/styles/tokens' as *;
 @use '@/styles/breakpoints' as bp;
 
 .container {
@@ -26,29 +24,5 @@
   }
   @include bp.desktop-medium {
     gap: 4rem;
-  }
-}
-
-.naviagtionAnchor {
-  position: relative;
-  font-size: 1.1rem;
-  padding: 0.5rem;
-  text-decoration: none;
-  color: $text-primary;
-}
-
-.naviagtionAnchor[aria-current='page'] {
-  cursor: default;
-  color: $primary;
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: -5%;
-    left: 0px;
-    @include mx.corners($divisor: 4);
-
-    width: 100%;
-    height: 2px;
-    background-color: $primary;
   }
 }
