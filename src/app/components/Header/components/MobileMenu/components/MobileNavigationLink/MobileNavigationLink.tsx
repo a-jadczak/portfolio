@@ -1,7 +1,7 @@
-import styles from './NavigationLink.module.scss';
+import styles from './MobileNavigationLink.module.scss';
 import type { Icon } from '@/types/Icon';
 
-interface NavigationLinkProps {
+interface MobileNavigationLinkProps {
   href: string;
   text: string;
   Icon: Icon;
@@ -9,13 +9,13 @@ interface NavigationLinkProps {
   'aria-current'?: 'page';
 }
 
-const NavigationLink = ({
+const MobileNavigationLink = ({
   href,
   text,
   Icon,
   iconSize,
   'aria-current': ariaCurrent,
-}: NavigationLinkProps) => (
+}: MobileNavigationLinkProps) => (
   <a
     href={href}
     onClick={(event) => {
@@ -31,4 +31,4 @@ const NavigationLink = ({
   </a>
 );
 
-export default NavigationLink;
+export default MobileNavigationLink;

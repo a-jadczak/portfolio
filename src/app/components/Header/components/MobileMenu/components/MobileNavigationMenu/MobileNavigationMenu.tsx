@@ -1,8 +1,8 @@
 import { FolderClosed, Home as HomeIcon, Mail, User } from 'lucide-react';
 import { pages, type PageName } from '@/config/pages';
 import type { Icon } from '@/types/Icon';
-import NavigationLink from '@/app/components/Header/components/MobileMenu/components/NavigationLink/NavigationLink';
-import styles from './NavigationMenu.module.scss';
+import MobileNavigationLink from '@/app/components/Header/components/MobileMenu/components/MobileNavigationLink/MobileNavigationLink';
+import styles from './MobileNavigationMenu.module.scss';
 
 const ICON_SIZE = 20;
 
@@ -13,16 +13,16 @@ const pageIcons = {
   Contact: Mail,
 } satisfies Record<PageName, Icon>;
 
-interface NavigationMenuProps {
+interface MobileNavigationMenuProps {
   currentPath: string;
 }
 
-const NavigationMenu = ({ currentPath }: NavigationMenuProps) => (
+const MobileNavigationMenu = ({ currentPath }: MobileNavigationMenuProps) => (
   <nav className={styles.navigation} aria-label="Navigation">
     <ul className={styles.navigationList}>
       {pages.map(({ href, name }) => (
         <li className={styles.navigationItem} key={href}>
-          <NavigationLink
+          <MobileNavigationLink
             href={href}
             text={name}
             Icon={pageIcons[name]}
@@ -36,4 +36,4 @@ const NavigationMenu = ({ currentPath }: NavigationMenuProps) => (
   </nav>
 );
 
-export default NavigationMenu;
+export default MobileNavigationMenu;

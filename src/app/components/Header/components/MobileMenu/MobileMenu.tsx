@@ -1,7 +1,7 @@
 import { useState, type ComponentPropsWithoutRef } from 'react';
 import styles from './MobileMenu.module.scss';
 import HeaderActions from '@/app/components/Header/components/HeaderActions/HeaderActions';
-import NavigationMenu from './components/NavigationMenu/NavigationMenu';
+import MobileNavigationMenu from './components/MobileNavigationMenu/MobileNavigationMenu';
 import MenuButton from './components/MenuButton/MenuButton';
 
 interface MobileMenuProps extends ComponentPropsWithoutRef<'div'> {
@@ -24,7 +24,7 @@ const MobileMenu = ({ currentPath, ...props }: MobileMenuProps) => {
           <span>
             <small className={styles.menuLabel}>Menu</small>
           </span>
-          <NavigationMenu currentPath={currentPath} />
+          <MobileNavigationMenu currentPath={currentPath} />
           <HeaderActions />
         </div>
       )}
