@@ -1,28 +1,5 @@
-@use '@/styles/breakpoints' as bp;
-
 .container {
   display: flex;
   justify-content: space-between;
   flex: 1;
-}
-
-.navigationContainer {
-  flex: 1;
-}
-
-.navigationListContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  width: 100%;
-  flex: 1;
-  gap: 1rem;
-
-  @include bp.desktop {
-    gap: 2rem;
-  }
-  @include bp.desktop-medium {
-    gap: 4rem;
-  }
 }
