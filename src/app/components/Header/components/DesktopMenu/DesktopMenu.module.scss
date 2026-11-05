@@ -38,6 +38,7 @@
 }
 
 .naviagtionAnchor[aria-current='page'] {
+  cursor: default;
   color: $primary;
   &::after {
     content: '';

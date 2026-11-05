@@ -9,14 +9,14 @@ const currentPath = Astro.url.pathname === '/' ? '/' : Astro.url.pathname.replac
 ---
 
 <header class={styles.header}>
-  <HeaderLogo />
+  <HeaderLogo currentPath={currentPath} client:load />
   <MobileMenu className={styles.mobileMenu} currentPath={currentPath} client:load />
   <TabletMenu className={styles.tabletMenu} currentPath={currentPath} client:load />
 </header>
 
 <header class={styles.headerDesktop}>
   <HeaderSvg>
-    <HeaderLogo />
+    <HeaderLogo currentPath={currentPath} client:load />
     <TabletMenu className={styles.tabletMenu} currentPath={currentPath} client:load />
   </HeaderSvg>
 </header>

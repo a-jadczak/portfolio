@@ -16,6 +16,12 @@
   background-clip: padding-box;
   color: inherit;
   text-decoration: none;
+
+  cursor: pointer;
+
+  &[aria-current='page'] {
+    cursor: default;
+  }
 }
 
 .navigationIcon {

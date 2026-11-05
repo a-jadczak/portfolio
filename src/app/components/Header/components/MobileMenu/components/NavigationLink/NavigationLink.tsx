@@ -16,7 +16,16 @@ const NavigationLink = ({
   iconSize,
   'aria-current': ariaCurrent,
 }: NavigationLinkProps) => (
-  <a href={href} aria-current={ariaCurrent} className={styles.navigationLink}>
+  <a
+    href={href}
+    onClick={(event) => {
+      if (ariaCurrent === 'page') {
+        event.preventDefault();
+      }
+    }}
+    aria-current={ariaCurrent}
+    className={styles.navigationLink}
+  >
     <Icon className={styles.navigationIcon} size={iconSize} aria-hidden="true" />
     <span className={styles.navigationText}>{text}</span>
   </a>

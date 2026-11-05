@@ -17,6 +17,11 @@ const TabletMenu = ({ currentPath, className }: TabletMenuProps) => {
               <a
                 className={styles.naviagtionAnchor}
                 href={href}
+                onClick={(event) => {
+                  if (currentPath === href) {
+                    event.preventDefault();
+                  }
+                }}
                 aria-current={currentPath === href ? 'page' : undefined}
               >
                 {name}
