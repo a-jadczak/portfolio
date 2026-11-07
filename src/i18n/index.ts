@@ -6,7 +6,7 @@ type Translation = {
   [key: string]: string | Translation;
 };
 
-const resources = {
+export const resources = {
   en: { translation: en },
   pl: { translation: pl },
 } satisfies Record<Language, { translation: Translation }>;
