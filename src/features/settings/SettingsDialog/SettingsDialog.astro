@@ -5,11 +5,14 @@ import ThemeControl from '@/features/settings/components/ThemeControl/ThemeContr
 import ColorPickerList from '@/features/settings/components/ColorPickerList/ColorPickerList';
 import SettingsField from '@/features/settings/components/SettingsField/SettingsField.astro';
 import Dialog from '@/components/ui/Dialog/Dialog';
-import SegmentedControl from '@/components/ui/SegmentedControl/SegmentedControl';
+import LanguageControl from '@/features/settings/components/LanguageControl/LanguageControl';
+import { getLangFromUrl } from '@/i18n/utils';
 import Divider from '@/components/ui/Divider/Divider';
 import Text from '@/components/ui/Text/Text';
 import { Button } from '@/components/ui/Button/Button';
 import ReduceMotionControl from '@/features/settings/components/ReduceMotionControl/ReduceMotionControl';
+
+const lang = getLangFromUrl(Astro.url);
 ---
 
 <Dialog id="settings-dialog" title="Settings" titleId="settings-title" Icon={Settings}>
@@ -18,14 +21,7 @@ import ReduceMotionControl from '@/features/settings/components/ReduceMotionCont
     <ThemeControl client:load />
   </SettingsField>
   <SettingsField title="Language">
-    <SegmentedControl
-      client:load
-      options={[
-        { value: 'Polski', text: 'Polski', onClick: () => {} },
-        { value: 'English', text: 'English', onClick: () => {} },
-      ]}
-      value={'English'}
-    />
+    <LanguageControl lang={lang} client:load />
   </SettingsField>
   <div class={styles.toggleContainer}>
     <label>Reduce motion</label>
