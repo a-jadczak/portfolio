@@ -3,9 +3,10 @@ import { defaultLanguage, isLanguageSupported } from './config';
 import { resources } from '.';
 
 export function getLangFromUrl(url: URL): Language {
-  const lang = url.pathname.split('/')[1];
+  // Astro renders static variants at /localized/{lang}/ during the build.
+  const [, prefix, lang] = url.pathname.split('/');
 
-  return isLanguageSupported(lang) ? (lang as Language) : defaultLanguage;
+  return prefix === 'localized' && lang && isLanguageSupported(lang) ? lang : defaultLanguage;
 }
 
 export const getTranslations = (lang: Language) => resources[lang];

@@ -1,5 +1,4 @@
 ---
-import '@/styles/global.scss';
 import SettingsInit from '@/app/components/SettingsInit/SettingsInit.astro';
 import Header from '@/app/components/Header/Header.astro';
 import Footer from '@/app/components/Footer/Footer.astro';
@@ -12,14 +11,16 @@ import SidebarPageIndicator from '@/app/components/SidebarPageIndicator/SidebarP
 import { ClientRouter } from 'astro:transitions';
 import NotchedBorder from '@/app/components/NotchedBorder/NotchedBorder.astro';
 import Background from '@/app/components/Background/Background.astro';
+import { defaultLanguage } from '@/i18n/config';
+import '@/styles/global.scss';
 
-const { title } = Astro.props;
-const currentPath = Astro.url.pathname;
-const currentPageInfo = getCurrentPageInfo(currentPath);
+const { lang, title, publicPath } = Astro.props;
+
+const currentPageInfo = getCurrentPageInfo(publicPath);
 const { projects } = await getProjects();
 ---
 
-<html lang="en">
+<html lang={lang ?? defaultLanguage}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -31,7 +32,7 @@ const { projects } = await getProjects();
     <Background />
     <div class="app">
       <SidebarPageIndicator pageInfo={currentPageInfo} />
-      <Header />
+      <Header currentPath={publicPath} />
       <main>
         <div class="container">
           <PageIndicator pageInfo={currentPageInfo} />

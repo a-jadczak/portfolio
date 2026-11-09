@@ -5,7 +5,7 @@ import TabletMenu from './components/TabletMenu/TabletMenu';
 import styles from './Header.module.scss';
 import HeaderSvg from './svg/HeaderSvg.astro';
 
-const currentPath = Astro.url.pathname === '/' ? '/' : Astro.url.pathname.replace(/\/$/, '');
+const { currentPath } = Astro.props;
 ---
 
 <header class={styles.header}>

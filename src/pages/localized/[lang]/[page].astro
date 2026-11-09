@@ -1,0 +1,27 @@
+---
+import PageNotFound from '@/app/pages/not-found/PageNotFound.astro';
+import { supportedLanguages } from '@/i18n/config';
+import { getTranslations } from '@/i18n/utils';
+import type { Language } from '@/types/Language';
+import BaseLayout from '@/app/layouts/BaseLayout.astro';
+import { pages } from '@/config/pages';
+
+export function getStaticPaths() {
+  return supportedLanguages.flatMap((lang) =>
+    pages
+      .filter(({ href }) => href !== '/')
+      .map(({ href }) => ({
+        params: { lang, page: href.slice(1) },
+      }))
+  );
+}
+
+const { lang, page } = Astro.params as { lang: Language; page: string };
+
+const View = pages.find((p) => p.href === `/${page}`)?.view ?? PageNotFound;
+const t = getTranslations(lang);
+---
+
+<BaseLayout lang={lang} publicPath={`/${page}`} title={t.translation.navigation.home}>
+  <View lang={lang} />
+</BaseLayout>

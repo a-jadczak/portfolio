@@ -1,0 +1,18 @@
+---
+import Home from '@/app/pages/home/Home.astro';
+import BaseLayout from '@/app/layouts/BaseLayout.astro';
+import { supportedLanguages } from '@/i18n/config';
+import type { Language } from '@/types/Language';
+
+export function getStaticPaths() {
+  return supportedLanguages.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const { lang } = Astro.params;
+---
+
+<BaseLayout lang={lang} publicPath="/" title="Portfolio">
+  <Home />
+</BaseLayout>
