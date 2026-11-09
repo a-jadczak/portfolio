@@ -1,13 +1,11 @@
 import { next, rewrite } from '@vercel/functions';
 import Negotiator from 'negotiator';
+import { supportedLanguages, defaultLanguage } from './src/i18n/config';
 
 export const config = {
   runtime: 'nodejs',
   matcher: ['/', '/about', '/projects', '/contact'],
 };
-
-const supportedLanguages = ['en', 'pl'];
-const defaultLanguage = 'en';
 
 export default function middleware(request: Request) {
   if (request.method !== 'GET' && request.method !== 'HEAD') {
