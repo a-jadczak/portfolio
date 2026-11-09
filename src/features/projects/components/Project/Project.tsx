@@ -8,10 +8,10 @@ import Heading from '@/components/ui/Heading/Heading';
 import type { GithubProject } from '@/types/GithubProject';
 import type { ProjectMetadata } from '@/types/ProjectMetadata';
 import type { Readme } from '@/types/Readme';
-import { useProjectStore } from '@/stores/useProjectStore';
 import Text from '@/components/ui/Text/Text';
 import Divider from '@/components/ui/Divider/Divider';
 import { DEFAULT_PROJECT_ACCENT_COLOR } from '@/config/projects';
+import { $openedProject } from '@/stores/openedProject';
 
 const VISIBLE_TECHNOLOGY_COUNT = 3;
 
@@ -31,7 +31,7 @@ const Project = ({ projectData, horizontalOnDesktop = false }: Props) => {
   const hiddenTechnologyCount = technologies.length - VISIBLE_TECHNOLOGY_COUNT;
 
   const handleClick = () => {
-    useProjectStore.getState().setProjectId(id);
+    $openedProject.set(id);
     openDialog('project-dialog');
   };
 

@@ -9,12 +9,13 @@ import { FaGithub } from 'react-icons/fa';
 import type { ProjectMetadata } from '@/types/ProjectMetadata';
 import type { GithubProject } from '@/types/GithubProject';
 import type { Readme as ReadmeData } from '@/types/Readme';
-import { useProjectStore } from '@/stores/useProjectStore';
+import { useStore } from '@nanostores/react';
 import Gallery from './components/Gallery/Gallery';
 import Readme from './components/Readme/Readme';
 import ProjectMeta from './components/ProjectMeta/ProjectMeta';
 import NavigationCarousel from './components/NavigationCarousel/NavigationCarousel';
 import Badge from '@/components/ui/Badge/Badge';
+import { $openedProject } from '@/stores/openedProject';
 
 interface Props {
   projects: GithubProject<ProjectMetadata, ReadmeData>[];
@@ -50,7 +51,7 @@ const ProjectLinks = ({ homepageUrl, repositoryUrl }: ProjectLinksProps) => (
 );
 
 const ProjectDialog = ({ projects }: Props) => {
-  const selectedProjectId = useProjectStore((state) => state.id);
+  const selectedProjectId = useStore($openedProject);
   const currentProjectIndex = projects.findIndex((project) => project.id === selectedProjectId);
   const currentProjectData = projects[currentProjectIndex];
 
