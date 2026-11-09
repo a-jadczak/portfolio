@@ -1,4 +1,4 @@
-import type { Language } from '@/types/Language';
+import type { Language } from '../types/Language.js';
 
 export const languages = {
   en: 'English',

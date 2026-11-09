@@ -1,6 +1,6 @@
 import { next, rewrite } from '@vercel/functions';
 import Negotiator from 'negotiator';
-import { supportedLanguages, defaultLanguage } from './src/i18n/config';
+import { supportedLanguages, defaultLanguage } from './src/i18n/config.js';
 
 export const config = {
   runtime: 'nodejs',
