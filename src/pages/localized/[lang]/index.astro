@@ -2,7 +2,6 @@
 import Home from '@/app/pages/home/Home.astro';
 import BaseLayout from '@/app/layouts/BaseLayout.astro';
 import { supportedLanguages } from '@/i18n/config';
-import type { Language } from '@/types/Language';
 
 export function getStaticPaths() {
   return supportedLanguages.map((lang) => ({
@@ -13,6 +12,6 @@ export function getStaticPaths() {
 const { lang } = Astro.params;
 ---
 
-<BaseLayout lang={lang} publicPath="/" title="Portfolio">
+<BaseLayout lang={lang} pageHref="/" title="Portfolio">
   <Home />
 </BaseLayout>

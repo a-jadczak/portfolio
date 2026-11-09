@@ -1,8 +1,9 @@
 ---
 import BaseLayout from '@/app/layouts/BaseLayout.astro';
 import PageNotFound from '@/app/pages/not-found/PageNotFound.astro';
+import { defaultLanguage } from '@/i18n/config';
 ---
 
-<BaseLayout lang="en" publicPath="/404" title="404 — Page not found">
+<BaseLayout lang={defaultLanguage} pageHref="/404" title="404 — Page not found">
   <PageNotFound />
 </BaseLayout>
