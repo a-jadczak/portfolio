@@ -6,6 +6,10 @@ import Text from '@/components/ui/Text/Text';
 import styles from './Hero.module.scss';
 import { ArrowUpRight, Mail } from 'lucide-react';
 import ProfileImage from '@/features/home/components/ProfileImage/ProfileImage.astro';
+import { getLangFromUrl, getTranslations } from '@/i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = getTranslations(lang).translation.pages.home;
 ---
 
 <section class={styles.section}>
@@ -13,7 +17,7 @@ import ProfileImage from '@/features/home/components/ProfileImage/ProfileImage.a
   <div class={styles.infoContainer}>
     <header class={styles.intro}>
       <Eyebrow>Arkadiusz Jadczak · SOFTWARE ENGINEER</Eyebrow>
-      <Heading as="h1" size="large">Building modern software.</Heading>
+      <Heading as="h1" size="large">{t.title}</Heading>
       <Text size="large" variant="secondary">
         I focus on building <span class={styles.blazinglyFast}>blazingly fast</span>, accessible and
         well-crafted web applications with clean, maintainable code.
@@ -22,12 +26,12 @@ import ProfileImage from '@/features/home/components/ProfileImage/ProfileImage.a
 
     <div class={styles.buttonContainer}>
       <ButtonLink href="/projects" variant="primary" className={styles.button}>
-        <span>View Projects</span>
+        <span>{t.viewProjects}</span>
         <ArrowUpRight className={styles.icon} size={18} aria-hidden="true" />
       </ButtonLink>
 
       <ButtonLink href="/contact" variant="default" className={styles.button}>
-        <span>Contact me</span>
+        <span>{t.contactMe}</span>
         <Mail className={styles.icon} size={18} aria-hidden="true" />
       </ButtonLink>
     </div>

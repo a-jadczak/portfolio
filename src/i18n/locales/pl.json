@@ -1,8 +1,23 @@
 {
-  "navigation": {
-    "home": "Strona główna",
-    "about": "O mnie",
-    "projects": "Projekty",
-    "contact": "Kontakt"
-  }
+  "header": {
+    "navigation": {
+      "home": "Strona główna",
+      "about": "O mnie",
+      "projects": "Projekty",
+      "contact": "Kontakt"
+    },
+    "settings": {}
+  },
+  "pages": {
+    "home": {
+      "title": "Tworze nowoczesne oprogramowanie.",
+      "viewProjects": "Zobacz projekty",
+      "contactMe": "Skontaktuj się ze mną"
+    },
+    "about": {},
+    "projects": {},
+    "contact": {},
+    "notFound": {}
+  },
+  "footer": {}
 }

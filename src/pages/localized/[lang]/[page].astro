@@ -19,9 +19,9 @@ export function getStaticPaths() {
 const { lang, page } = Astro.params as { lang: Language; page: string };
 
 const View = pages.find((p) => p.href === `/${page}`)?.view ?? PageNotFound;
-const t = getTranslations(lang);
+const t = getTranslations(lang); // TODO: Find a way to get a current view title
 ---
 
-<BaseLayout lang={lang} publicPath={`/${page}`} title={t.translation.navigation.home}>
-  <View lang={lang} />
+<BaseLayout lang={lang} pageHref={`/${page}`} title={t.translation.header.navigation.home}>
+  <View />
 </BaseLayout>

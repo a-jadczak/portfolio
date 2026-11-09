@@ -1,8 +1,23 @@
 {
-  "navigation": {
-    "home": "Home",
-    "about": "About",
-    "projects": "Projects",
-    "contact": "Contact"
-  }
+  "header": {
+    "navigation": {
+      "home": "Home",
+      "about": "About",
+      "projects": "Projects",
+      "contact": "Contact"
+    },
+    "settings": {}
+  },
+  "pages": {
+    "home": {
+      "title": "Building modern software.",
+      "viewProjects": "View Projects",
+      "contactMe": "Contact me"
+    },
+    "about": {},
+    "projects": {},
+    "contact": {},
+    "notFound": {}
+  },
+  "footer": {}
 }
