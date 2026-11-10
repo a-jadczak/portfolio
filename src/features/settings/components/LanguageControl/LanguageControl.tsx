@@ -1,5 +1,5 @@
 import SegmentedControl from '@/components/ui/SegmentedControl/SegmentedControl';
-import { switchLanguage } from '@/i18n/switchLanguage';
+import { switchLanguage } from '@/i18n/utils';
 import { languages, supportedLanguages } from '@/i18n/config';
 import type { Language } from '@/types/Language';
 
