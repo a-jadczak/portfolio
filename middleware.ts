@@ -13,7 +13,7 @@ export default function middleware(request: Request) {
   }
 
   const cookie = request.headers.get('cookie') ?? '';
-  const savedLanguage = cookie.match(/(?:^|;\s*)locale=(en|pl)(?:;|$)/)?.[1];
+  const savedLanguage = cookie.match(/(?:^|;\s*)language=(en|pl)(?:;|$)/)?.[1];
 
   const negotiator = new Negotiator({
     headers: {

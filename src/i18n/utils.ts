@@ -12,7 +12,12 @@ export function getLangFromUrl(url: URL): Language {
 export const getTranslations = (lang: Language) => resources[lang];
 
 export async function switchLanguage(lang: Language) {
-  document.cookie = `locale=${lang}; Path=/; SameSite=Lax`;
+  await window.cookieStore.set({
+    name: 'language',
+    value: lang,
+    path: '/',
+    sameSite: 'lax',
+  });
 
   const { pathname, search, hash } = window.location;
   const path = pathname + search;
