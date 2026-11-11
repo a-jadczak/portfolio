@@ -2,6 +2,7 @@ import { Button } from '@/components/ui/Button/Button';
 import styles from './Gallery.module.scss';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { useState } from 'react';
+import { useTranslations } from '@/i18n/useTranslations';
 
 interface GalleryProps {
   banner: string;
@@ -10,6 +11,7 @@ interface GalleryProps {
 }
 
 const Gallery = ({ banner, gallery, className = '' }: GalleryProps) => {
+  const t = useTranslations().t.pages.projects.projectDialog.gallery;
   const images = [banner, ...gallery];
   const [index, setIndex] = useState(0);
   const imageSrc = images[index];
@@ -25,11 +27,23 @@ const Gallery = ({ banner, gallery, className = '' }: GalleryProps) => {
   return (
     <div className={`${styles.galleryContainer} ${className}`}>
       <div className={styles.itemPreview}>
-        <img className={styles.previewImage} src={imageSrc} alt="Preview Image" draggable={false} />
-        <Button onClick={previousImage} variant="default" className={styles.arrowButton} iconOnly>
+        <img className={styles.previewImage} src={imageSrc} alt={t.previewAlt} draggable={false} />
+        <Button
+          onClick={previousImage}
+          variant="default"
+          className={styles.arrowButton}
+          iconOnly
+          aria-label={t.previousImage}
+        >
           <ArrowLeft size={24} />
         </Button>
-        <Button onClick={nextImage} variant="default" className={styles.arrowButton} iconOnly>
+        <Button
+          onClick={nextImage}
+          variant="default"
+          className={styles.arrowButton}
+          iconOnly
+          aria-label={t.nextImage}
+        >
           <ArrowRight size={24} />
         </Button>
       </div>
@@ -48,7 +62,7 @@ const Gallery = ({ banner, gallery, className = '' }: GalleryProps) => {
             <img
               className={styles.galleryImage}
               src={image}
-              alt={`Preview ${_index + 1}`}
+              alt={`${t.thumbnailAlt} ${_index + 1}`}
               draggable={false}
             />
           </li>

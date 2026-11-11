@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { removeEmoji } from '@/utils/emoji';
 import styles from './NavigationCarousel.module.scss';
+import { useTranslations } from '@/i18n/useTranslations';
 
 interface Props {
   headings: string[];
@@ -9,6 +10,7 @@ interface Props {
 const headingId = (heading: string) => removeEmoji(heading).toLowerCase().replace(' ', '-');
 
 const NavigationCarousel = ({ headings }: Props) => {
+  const t = useTranslations().t.pages.projects.projectDialog;
   const listRef = useRef<HTMLUListElement>(null);
   const isScrolling = useRef(false);
 
@@ -58,7 +60,7 @@ const NavigationCarousel = ({ headings }: Props) => {
   }, []);
 
   return (
-    <nav aria-label="Project sections" className={styles.navigation}>
+    <nav aria-label={t.sectionsLabel} className={styles.navigation}>
       <ul ref={listRef} id="navigation-carousel" className={styles.navigationCarousel}>
         {headings.map((heading) => (
           <li key={heading} className={styles.navigationCarouselItem} data-active="false">

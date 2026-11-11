@@ -68,6 +68,29 @@
         "label": "Projekt",
         "previewAlt": "Podgląd projektu",
         "showDetails": "Pokaż szczegóły"
+      },
+      "projectDialog": {
+        "label": "Projekt",
+        "closeLabel": "Zamknij okno projektu",
+        "sectionsLabel": "Sekcje projektu",
+        "liveDemo": "Zobacz demo",
+        "repository": "Repozytorium GitHub",
+        "missingDescription": "Ten projekt nie zawiera opisu ☹️",
+        "metadata": {
+          "unknown": "Brak danych",
+          "labels": {
+            "type": "Typ",
+            "createdAt": "Rok utworzenia",
+            "status": "Status",
+            "license": "Licencja"
+          }
+        },
+        "gallery": {
+          "previewAlt": "Podgląd obrazu",
+          "thumbnailAlt": "Podgląd",
+          "previousImage": "Poprzedni obraz",
+          "nextImage": "Następny obraz"
+        }
       }
     },
     "contact": {

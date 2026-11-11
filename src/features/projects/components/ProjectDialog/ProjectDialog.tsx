@@ -16,41 +16,55 @@ import ProjectMeta from './components/ProjectMeta/ProjectMeta';
 import NavigationCarousel from './components/NavigationCarousel/NavigationCarousel';
 import Badge from '@/components/ui/Badge/Badge';
 import { $openedProject } from '@/stores/openedProject';
+import type { Nullable } from '@/types/Nullable';
+import { LanguageProvider } from '@/i18n/LanguageProvider';
+import type { Language } from '@/types/Language';
+import { useTranslations } from '@/i18n/useTranslations';
 
 interface Props {
+  lang: Language;
   projects: GithubProject<ProjectMetadata, ReadmeData>[];
 }
 
 interface ProjectLinksProps {
-  homepageUrl?: string | null;
+  homepageUrl?: Nullable<string>;
   repositoryUrl?: string;
 }
 
-const ProjectLinks = ({ homepageUrl, repositoryUrl }: ProjectLinksProps) => (
-  <div className={styles.buttonsContainerWrapper}>
-    <div className={styles.buttonsContainer}>
-      {homepageUrl && (
-        <ButtonLink className={styles.button} variant="primary" href={homepageUrl} target="_blank">
-          <span>Live demo</span>
-          <SquareArrowOutUpRight size={16} />
-        </ButtonLink>
-      )}
-      {repositoryUrl && (
-        <ButtonLink
-          className={styles.button}
-          variant="default"
-          href={repositoryUrl}
-          target="_blank"
-        >
-          <span>Github repository</span>
-          <FaGithub size={16} />
-        </ButtonLink>
-      )}
+const ProjectLinks = ({ homepageUrl, repositoryUrl }: ProjectLinksProps) => {
+  const t = useTranslations().t.pages.projects.projectDialog;
+  return (
+    <div className={styles.buttonsContainerWrapper}>
+      <div className={styles.buttonsContainer}>
+        {homepageUrl && (
+          <ButtonLink
+            className={styles.button}
+            variant="primary"
+            href={homepageUrl}
+            target="_blank"
+          >
+            <span>{t.liveDemo}</span>
+            <SquareArrowOutUpRight size={16} />
+          </ButtonLink>
+        )}
+        {repositoryUrl && (
+          <ButtonLink
+            className={styles.button}
+            variant="default"
+            href={repositoryUrl}
+            target="_blank"
+          >
+            <span>{t.repository}</span>
+            <FaGithub size={16} />
+          </ButtonLink>
+        )}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
-const ProjectDialog = ({ projects }: Props) => {
+const ProjectDialogContent = ({ projects }: Omit<Props, 'lang'>) => {
+  const t = useTranslations().t.pages.projects.projectDialog;
   const selectedProjectId = useStore($openedProject);
   const currentProjectIndex = projects.findIndex((project) => project.id === selectedProjectId);
   const currentProjectData = projects[currentProjectIndex];
@@ -67,8 +81,8 @@ const ProjectDialog = ({ projects }: Props) => {
     <Dialog
       className={styles.dialog}
       id="project-dialog"
-      title={`Project / ${formatTwoDigitNumber(currentProjectIndex + 1)}`}
-      closeLabel="Close project dialog"
+      title={`${t.label} / ${formatTwoDigitNumber(currentProjectIndex + 1)}`}
+      closeLabel={t.closeLabel}
       titleId="project-title"
     >
       <div className={styles.metadataContainer}>
@@ -114,11 +128,17 @@ const ProjectDialog = ({ projects }: Props) => {
         </div>
       ) : (
         <div className={styles.container} style={{ textAlign: 'center' }}>
-          <Text variant="secondary">This project doesn't contain a description ☹️</Text>
+          <Text variant="secondary">{t.missingDescription}</Text>
         </div>
       )}
     </Dialog>
   );
 };
+
+const ProjectDialog = ({ lang, ...props }: Props) => (
+  <LanguageProvider lang={lang}>
+    <ProjectDialogContent {...props} />
+  </LanguageProvider>
+);
 
 export default ProjectDialog;

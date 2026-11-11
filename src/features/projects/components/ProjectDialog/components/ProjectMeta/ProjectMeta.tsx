@@ -2,6 +2,7 @@ import type { ProjectMetadata } from '@/types/ProjectMetadata';
 import { formatWithComma } from '@/features/projects/components/ProjectDialog/utils/formatWithComma';
 import styles from './ProjectMeta.module.scss';
 import type { Nullable } from '@/types/Nullable';
+import { useTranslations } from '@/i18n/useTranslations';
 
 interface Props {
   metadata: Nullable<ProjectMetadata>;
@@ -11,19 +12,20 @@ interface Props {
 }
 
 const ProjectMeta = ({ metadata, createdAt, licenseInfo, className = '' }: Props) => {
+  const t = useTranslations().t.pages.projects.projectDialog.metadata;
   const items = [
-    { label: 'Type', value: metadata?.type.map(formatWithComma).join('') ?? 'Unknown' },
-    { label: 'Created At', value: new Date(createdAt).getFullYear() },
-    { label: 'Status', value: metadata?.status ?? 'Unknown' },
-    { label: 'License', value: licenseInfo?.name ?? 'Unknown' },
-  ];
+    { id: 'type', value: metadata?.type.map(formatWithComma).join('') ?? t.unknown },
+    { id: 'createdAt', value: new Date(createdAt).getFullYear() },
+    { id: 'status', value: metadata?.status ?? t.unknown },
+    { id: 'license', value: licenseInfo?.name ?? t.unknown },
+  ] as const;
 
   return (
     <div className={`${styles.metaWrapper} ${className}`}>
       <div className={styles.metaContainer}>
-        {items.map(({ label, value }) => (
-          <div className={styles.metaItem} key={label}>
-            <span className={styles.metaLabel}>{label}</span>
+        {items.map(({ id, value }) => (
+          <div className={styles.metaItem} key={id}>
+            <span className={styles.metaLabel}>{t.labels[id]}</span>
             <span className={styles.metaValue}>{value}</span>
           </div>
         ))}
