@@ -11,25 +11,33 @@ import Text from '@/components/ui/Text/Text';
 import { Button } from '@/components/ui/Button/Button';
 import ReduceMotionControl from '@/features/settings/components/ReduceMotionControl/ReduceMotionControl';
 
-const { lang } = Astro.locals.i18n;
+const { lang, t } = Astro.locals.i18n;
 ---
 
-<Dialog id="settings-dialog" title="Settings" titleId="settings-title" Icon={Settings}>
+<Dialog
+  id="settings-dialog"
+  title={t.settingsDialog.title}
+  closeLabel={t.settingsDialog.closeLabel}
+  titleId="settings-title"
+  Icon={Settings}
+>
   <Divider />
-  <SettingsField title="Theme">
-    <ThemeControl client:load />
+  <SettingsField title={t.settingsDialog.theme.label}>
+    <ThemeControl lang={lang} client:load />
   </SettingsField>
-  <SettingsField title="Language">
+  <SettingsField title={t.settingsDialog.language}>
     <LanguageControl lang={lang} client:load />
   </SettingsField>
   <div class={styles.toggleContainer}>
-    <label>Reduce motion</label>
-    <ReduceMotionControl className={styles.toggle} client:load />
-    <Text variant="secondary" size="extra-small">Disable interface animations</Text>
+    <label>{t.settingsDialog.reduceMotion.label}</label>
+    <ReduceMotionControl lang={lang} className={styles.toggle} client:load />
+    <Text variant="secondary" size="extra-small">{t.settingsDialog.reduceMotion.description}</Text>
   </div>
   <Divider />
-  <SettingsField title="Accent color">
-    <ColorPickerList client:load />
+  <SettingsField title={t.settingsDialog.accentColor.label}>
+    <ColorPickerList lang={lang} client:load />
   </SettingsField>
-  <Button className={styles.systemPreferencesButton} variant="link">Use system preferences</Button>
+  <Button className={styles.systemPreferencesButton} variant="link">
+    {t.settingsDialog.useSystemPreferences}
+  </Button>
 </Dialog>

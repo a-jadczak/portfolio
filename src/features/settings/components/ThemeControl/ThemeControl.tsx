@@ -1,3 +1,6 @@
+import { LanguageProvider } from '@/i18n/LanguageProvider';
+import { useTranslations } from '@/i18n/useTranslations';
+import type { Language } from '@/types/Language';
 import { Moon, Sun } from 'lucide-react';
 import SegmentedControl from '@/components/ui/SegmentedControl/SegmentedControl';
 import type { Theme } from '@/types/Theme';
@@ -10,12 +13,13 @@ const setTheme = (theme: Theme) => {
   localStorage.setItem('theme', theme);
 };
 
-const options: SegmentedControlOption<Theme>[] = [
-  { Icon: Sun, text: 'Light', value: 'light', onClick: () => setTheme('light') },
-  { Icon: Moon, text: 'Dark', value: 'dark', onClick: () => setTheme('dark') },
-];
+const ThemeControlContent = () => {
+  const t = useTranslations().t.settingsDialog.theme;
+  const options: SegmentedControlOption<Theme>[] = [
+    { Icon: Sun, text: t.light, value: 'light', onClick: () => setTheme('light') },
+    { Icon: Moon, text: t.dark, value: 'dark', onClick: () => setTheme('dark') },
+  ];
 
-const ThemeControl = () => {
   const [preferredTheme, setPreferredTheme] = useState<Nullable<Theme>>(null);
 
   useEffect(() => {
@@ -29,5 +33,11 @@ const ThemeControl = () => {
 
   return <SegmentedControl options={options} value={preferredTheme as Theme} />;
 };
+
+const ThemeControl = ({ lang }: { lang: Language }) => (
+  <LanguageProvider lang={lang}>
+    <ThemeControlContent />
+  </LanguageProvider>
+);
 
 export default ThemeControl;

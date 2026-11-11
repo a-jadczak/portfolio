@@ -154,5 +154,25 @@
     },
     "notFound": {}
   },
-  "footer": {}
+  "footer": {},
+  "settingsDialog": {
+    "useSystemPreferences": "Użyj ustawień systemowych",
+    "reduceMotion": {
+      "label": "Ogranicz animacje",
+      "description": "Wyłącz animacje interfejsu"
+    },
+    "title": "Ustawienia",
+    "closeLabel": "Zamknij okno ustawień",
+    "theme": {
+      "label": "Motyw",
+      "light": "Jasny",
+      "dark": "Ciemny"
+    },
+    "language": "Język",
+    "accentColor": {
+      "label": "Kolor akcentu",
+      "selectColor": "Wybierz kolor",
+      "customColor": "Wybierz własny kolor"
+    }
+  }
 }

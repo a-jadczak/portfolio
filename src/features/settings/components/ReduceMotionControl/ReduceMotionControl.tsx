@@ -1,3 +1,6 @@
+import { LanguageProvider } from '@/i18n/LanguageProvider';
+import { useTranslations } from '@/i18n/useTranslations';
+import type { Language } from '@/types/Language';
 import Toggle from '@/components/ui/Toggle/Toggle';
 import type { Nullable } from '@/types/Nullable';
 import { useEffect, useState } from 'react';
@@ -6,7 +9,8 @@ interface Props {
   className?: string;
 }
 
-const ReduceMotionControl = ({ className }: Props) => {
+const ReduceMotionControlContent = ({ className }: Props) => {
+  const t = useTranslations().t.settingsDialog.reduceMotion;
   const [preferReducedMotion, setPreferReducedMotion] = useState<Nullable<boolean>>(null);
 
   useEffect(() => {
@@ -20,7 +24,7 @@ const ReduceMotionControl = ({ className }: Props) => {
 
   return (
     <Toggle
-      aria-label="Reduce motion"
+      aria-label={t.label}
       className={className}
       disabled={window.matchMedia('(prefers-reduced-motion: reduce)').matches}
       defaultChecked={preferReducedMotion}
@@ -31,5 +35,11 @@ const ReduceMotionControl = ({ className }: Props) => {
     />
   );
 };
+
+const ReduceMotionControl = ({ lang, ...props }: Props & { lang: Language }) => (
+  <LanguageProvider lang={lang}>
+    <ReduceMotionControlContent {...props} />
+  </LanguageProvider>
+);
 
 export default ReduceMotionControl;

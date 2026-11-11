@@ -1,10 +1,14 @@
+import { LanguageProvider } from '@/i18n/LanguageProvider';
+import { useTranslations } from '@/i18n/useTranslations';
+import type { Language } from '@/types/Language';
 import { useRef, type SyntheticEvent } from 'react';
 import ColorPicker from '@/features/settings/components/ColorPicker/ColorPicker';
 import styles from './ColorPickerList.module.scss';
 import { Pipette } from 'lucide-react';
 import { useColorPicker } from '@/features/settings/hooks/useColorPicker';
 
-const ColorPickerList = () => {
+const ColorPickerListContent = () => {
+  const t = useTranslations().t.settingsDialog.accentColor;
   const { colors, colorSetting, setAccentColor } = useColorPicker();
   const { color: activeColor, index: activeIndex } = colorSetting;
 
@@ -18,10 +22,11 @@ const ColorPickerList = () => {
 
   return (
     <>
-      <ul className={styles.list} aria-label="Accent color">
+      <ul className={styles.list} aria-label={t.label}>
         {colors.map((color, index) => (
           <li key={color}>
             <ColorPicker
+              aria-label={`${t.selectColor} ${color}`}
               color={color}
               active={activeIndex === index}
               onClick={() => setAccentColor(color, index)}
@@ -33,7 +38,7 @@ const ColorPickerList = () => {
             active={activeIndex === lastColorIndex}
             onClick={handleCustomClick}
             color={activeColor}
-            aria-label="Choose custom color"
+            aria-label={t.customColor}
           >
             <Pipette size={16} aria-hidden="true" />
           </ColorPicker>
@@ -42,6 +47,7 @@ const ColorPickerList = () => {
       <input
         ref={inputRef}
         type="color"
+        aria-label={t.customColor}
         className={styles.colorInput}
         hidden
         value={activeColor}
@@ -51,5 +57,11 @@ const ColorPickerList = () => {
     </>
   );
 };
+
+const ColorPickerList = ({ lang }: { lang: Language }) => (
+  <LanguageProvider lang={lang}>
+    <ColorPickerListContent />
+  </LanguageProvider>
+);
 
 export default ColorPickerList;
