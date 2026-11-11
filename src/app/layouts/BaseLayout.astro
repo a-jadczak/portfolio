@@ -24,7 +24,6 @@ interface Props {
 const { lang, title, pageHref } = Astro.props;
 
 const currentPageInfo = getCurrentPageInfo(pageHref);
-const { projects } = await getProjects();
 
 const language = lang ?? defaultLanguage;
 ---
@@ -51,7 +50,6 @@ const language = lang ?? defaultLanguage;
       </main>
       <Footer />
       <SettingsDialog />
-      <ProjectDialog {projects} client:load />
     </div>
   </body>
 </html>

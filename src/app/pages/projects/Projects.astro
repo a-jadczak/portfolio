@@ -3,6 +3,7 @@ import PageHero from '@/components/ui/PageHero/PageHero.astro';
 import ProjectsSection from '@/features/projects/components/ProjectsSection/ProjectsSection';
 import styles from './Projects.module.scss';
 import { getProjects, getProjectsFilterData } from '@/lib/github';
+import ProjectDialog from '@/features/projects/components/ProjectDialog/ProjectDialog';
 
 const { projects } = await getProjects();
 const projectsFilterData = await getProjectsFilterData();
@@ -13,3 +14,5 @@ const { lang } = Astro.locals.i18n;
 <PageHero class={styles.pageHero} eyebrow={t.eyebrow} title={t.title} description={t.description} />
 
 <ProjectsSection {projects} {projectsFilterData} {lang} client:load />
+
+<ProjectDialog {projects} client:load />
