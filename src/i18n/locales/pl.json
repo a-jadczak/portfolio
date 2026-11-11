@@ -154,7 +154,9 @@
     },
     "notFound": {}
   },
-  "footer": {},
+  "footer": {
+    "rightsReserved": "Wszelkie prawa zastrzeżone."
+  },
   "settingsDialog": {
     "useSystemPreferences": "Użyj ustawień systemowych",
     "reduceMotion": {

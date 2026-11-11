@@ -1,10 +1,12 @@
 ---
 import styles from './Footer.module.scss';
 import Text from '@/components/ui/Text/Text';
+
+const t = Astro.locals.i18n.t.footer;
 ---
 
 <footer class={styles.footer}>
   <Text size="extra-small" variant="muted">
-    © {new Date().getFullYear()} Arkadiusz Jadczak · All rights reserved.
+    © {new Date().getFullYear()} Arkadiusz Jadczak · {t.rightsReserved}
   </Text>
 </footer>
