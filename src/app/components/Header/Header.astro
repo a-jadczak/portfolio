@@ -6,17 +6,19 @@ import styles from './Header.module.scss';
 import HeaderSvg from './svg/HeaderSvg.astro';
 
 const { currentPath } = Astro.props;
+
+const { lang } = Astro.locals.i18n;
 ---
 
 <header class={styles.header}>
   <HeaderLogo currentPath={currentPath} client:load />
-  <MobileMenu className={styles.mobileMenu} currentPath={currentPath} client:load />
-  <TabletMenu className={styles.tabletMenu} currentPath={currentPath} client:load />
+  <MobileMenu className={styles.mobileMenu} currentPath={currentPath} lang={lang} client:load />
+  <TabletMenu className={styles.tabletMenu} currentPath={currentPath} lang={lang} client:load />
 </header>
 
 <header class={styles.headerDesktop}>
   <HeaderSvg>
     <HeaderLogo currentPath={currentPath} client:load />
-    <TabletMenu className={styles.tabletMenu} currentPath={currentPath} client:load />
+    <TabletMenu className={styles.tabletMenu} currentPath={currentPath} lang={lang} client:load />
   </HeaderSvg>
 </header>

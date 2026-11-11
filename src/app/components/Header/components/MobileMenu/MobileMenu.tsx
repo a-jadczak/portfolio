@@ -3,12 +3,15 @@ import styles from './MobileMenu.module.scss';
 import HeaderActions from '@/app/components/Header/components/HeaderActions/HeaderActions';
 import MobileNavigationMenu from './components/MobileNavigationMenu/MobileNavigationMenu';
 import MenuButton from './components/MenuButton/MenuButton';
+import { LanguageProvider } from '@/i18n/LanguageProvider';
+import type { Language } from '@/types/Language';
 
 interface MobileMenuProps extends ComponentPropsWithoutRef<'div'> {
   currentPath: string;
+  lang: Language;
 }
 
-const MobileMenu = ({ currentPath, ...props }: MobileMenuProps) => {
+const MobileMenuContent = ({ currentPath, ...props }: Omit<MobileMenuProps, 'lang'>) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const toggleMobileMenu = () => {
@@ -29,6 +32,14 @@ const MobileMenu = ({ currentPath, ...props }: MobileMenuProps) => {
         </div>
       )}
     </div>
+  );
+};
+
+const MobileMenu = ({ lang, ...props }: MobileMenuProps) => {
+  return (
+    <LanguageProvider lang={lang}>
+      <MobileMenuContent {...props} />
+    </LanguageProvider>
   );
 };
 

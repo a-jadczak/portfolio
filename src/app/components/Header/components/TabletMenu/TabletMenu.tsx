@@ -2,17 +2,22 @@ import { type ComponentPropsWithoutRef } from 'react';
 import styles from './TabletMenu.module.scss';
 import TabletNavigationMenu from './components/TabletNavigationMenu/TabletNavigationMenu';
 import HeaderActions from '@/app/components/Header/components/HeaderActions/HeaderActions';
+import type { Language } from '@/types/Language';
+import { LanguageProvider } from '@/i18n/LanguageProvider';
 
 interface TabletMenuProps extends ComponentPropsWithoutRef<'div'> {
   currentPath: string;
+  lang: Language;
 }
 
-const TabletMenu = ({ currentPath, className }: TabletMenuProps) => {
+const TabletMenu = ({ currentPath, lang, className }: TabletMenuProps) => {
   return (
-    <div className={`${styles.container} ${className}`}>
-      <TabletNavigationMenu currentPath={currentPath} />
-      <HeaderActions />
-    </div>
+    <LanguageProvider lang={lang}>
+      <div className={`${styles.container} ${className}`}>
+        <TabletNavigationMenu currentPath={currentPath} />
+        <HeaderActions />
+      </div>
+    </LanguageProvider>
   );
 };
 

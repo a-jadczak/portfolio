@@ -14,7 +14,7 @@ const HeaderLogo = ({ currentPath }: HeaderLogoProps) => (
       }
     }}
     className={styles.logo}
-    aria-label="Home page"
+    aria-label="Logo"
   >
     AJ
     <span className={styles.logoAccent} aria-hidden="true">

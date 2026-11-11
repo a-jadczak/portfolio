@@ -4,7 +4,9 @@
       "home": "Home",
       "about": "About",
       "projects": "Projects",
-      "contact": "Contact"
+      "contact": "Contact",
+      "notFound": "Not Found",
+      "navigationLabel": "Navigation"
     },
     "settings": {}
   },
