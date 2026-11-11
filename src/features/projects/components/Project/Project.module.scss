@@ -69,12 +69,15 @@
   counter-increment: project;
 }
 
-.number::after {
-  content: 'Project / ' counter(project, decimal-leading-zero);
+.number {
   text-transform: uppercase;
   color: $primary;
   font-family: $number-font;
   font-weight: 600;
+
+  &::after {
+    content: counter(project, decimal-leading-zero);
+  }
 }
 
 .screenshot {

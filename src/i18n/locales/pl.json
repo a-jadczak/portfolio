@@ -46,7 +46,30 @@
       }
     },
     "about": {},
-    "projects": {},
+    "projects": {
+      "hero": {
+        "eyebrow": "Archiwum projektów",
+        "title": "Poznaj moje projekty",
+        "description": "Wyszukuj, filtruj i otwieraj projekty, aby poznać ich szczegóły."
+      },
+      "search": {
+        "label": "Szukaj projektów",
+        "placeholder": "Szukaj projektów...",
+        "countLabel": "Projekty: ",
+        "clearFilters": "Wyczyść filtry",
+        "filters": "Filtry",
+        "filterLabels": {
+          "technologies": "Technologie",
+          "types": "Typ projektu",
+          "statuses": "Status"
+        }
+      },
+      "projectCard": {
+        "label": "Projekt",
+        "previewAlt": "Podgląd projektu",
+        "showDetails": "Pokaż szczegóły"
+      }
+    },
     "contact": {
       "hero": {
         "eyebrow": "Masz pytania?",

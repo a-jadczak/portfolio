@@ -46,7 +46,30 @@
       }
     },
     "about": {},
-    "projects": {},
+    "projects": {
+      "hero": {
+        "eyebrow": "Project archive",
+        "title": "Explore my projects",
+        "description": "Search, filter, and open any project to see the full story."
+      },
+      "search": {
+        "label": "Search projects",
+        "placeholder": "Search projects...",
+        "countLabel": "Projects: ",
+        "clearFilters": "Clear Filters",
+        "filters": "Filters",
+        "filterLabels": {
+          "technologies": "Technologies",
+          "types": "Project Type",
+          "statuses": "Status"
+        }
+      },
+      "projectCard": {
+        "label": "Project",
+        "previewAlt": "Project preview image",
+        "showDetails": "Show details"
+      }
+    },
     "contact": {
       "hero": {
         "eyebrow": "Get in touch",

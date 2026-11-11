@@ -12,6 +12,7 @@ import Text from '@/components/ui/Text/Text';
 import Divider from '@/components/ui/Divider/Divider';
 import { DEFAULT_PROJECT_ACCENT_COLOR } from '@/config/projects';
 import { $openedProject } from '@/stores/openedProject';
+import { useTranslations } from '@/i18n/useTranslations';
 
 const VISIBLE_TECHNOLOGY_COUNT = 3;
 
@@ -21,6 +22,7 @@ interface Props {
 }
 
 const Project = ({ projectData, horizontalOnDesktop = false }: Props) => {
+  const t = useTranslations().t.pages.projects.projectCard;
   const { name, id, description, metadata } = projectData;
   const { technologies, banner } = metadata ?? {
     technologies: [],
@@ -42,10 +44,10 @@ const Project = ({ projectData, horizontalOnDesktop = false }: Props) => {
         { '--accent-color': metadata?.accentColor || DEFAULT_PROJECT_ACCENT_COLOR } as CSSProperties
       }
     >
-      <img src={banner} alt="Project preview image" className={styles.screenshot} />
+      <img src={banner} alt={t.previewAlt} className={styles.screenshot} />
 
       <div className={styles.info}>
-        <span className={styles.number}></span>
+        <span className={styles.number}>{t.label} / </span>
         <Heading as="h3" size="small">
           {name}
         </Heading>
@@ -75,7 +77,7 @@ const Project = ({ projectData, horizontalOnDesktop = false }: Props) => {
           onClick={handleClick}
         >
           <Eye size={16} aria-hidden="true" />
-          <span>Show details</span>
+          <span>{t.showDetails}</span>
         </Button>
       </div>
     </li>

@@ -6,13 +6,10 @@ import { getProjects, getProjectsFilterData } from '@/lib/github';
 
 const { projects } = await getProjects();
 const projectsFilterData = await getProjectsFilterData();
+const t = Astro.locals.i18n.t.pages.projects.hero;
+const { lang } = Astro.locals.i18n;
 ---
 
-<PageHero
-  class={styles.pageHero}
-  eyebrow="Project archive"
-  title="Explore my projects"
-  description="Search, filter, and open any project to see the full story."
-/>
+<PageHero class={styles.pageHero} eyebrow={t.eyebrow} title={t.title} description={t.description} />
 
-<ProjectsSection {projects} {projectsFilterData} client:load />
+<ProjectsSection {projects} {projectsFilterData} {lang} client:load />

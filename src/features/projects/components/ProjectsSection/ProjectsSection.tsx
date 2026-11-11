@@ -8,13 +8,16 @@ import FilterDialog from '@/features/projects/components/FilterDialog/FilterDial
 import type { ProjectsFilterData } from '@/types/ProjectsFilterData';
 import { ProjectFiltersProvider } from '@/features/projects/context/ProjectFiltersContext';
 import { useProjectFilters } from '@/features/projects/hooks/useProjectFilters';
+import { LanguageProvider } from '@/i18n/LanguageProvider';
+import type { Language } from '@/types/Language';
 
 interface Props {
+  lang: Language;
   projects: GithubProject<ProjectMetadata, Readme>[];
   projectsFilterData: ProjectsFilterData;
 }
 
-const ProjectsSection = ({ projects, projectsFilterData }: Props) => {
+const ProjectsSectionContent = ({ projects, projectsFilterData }: Omit<Props, 'lang'>) => {
   const filters = useProjectFilters(projects, projectsFilterData);
 
   return (
@@ -33,5 +36,11 @@ const ProjectsSection = ({ projects, projectsFilterData }: Props) => {
     </ProjectFiltersProvider>
   );
 };
+
+const ProjectsSection = ({ lang, ...props }: Props) => (
+  <LanguageProvider lang={lang}>
+    <ProjectsSectionContent {...props} />
+  </LanguageProvider>
+);
 
 export default ProjectsSection;

@@ -9,8 +9,10 @@ import Input from '@/components/ui/Input/Input';
 import type { MultiValue } from 'react-select';
 import type { FilterKey } from '@/features/projects/types/FilterKey';
 import { useProjectFiltersContext } from '@/features/projects/context/ProjectFiltersContext';
+import { useTranslations } from '@/i18n/useTranslations';
 
 const SearchSection = () => {
+  const t = useTranslations().t.pages.projects;
   const {
     searchValue,
     setSearchValue,
@@ -41,18 +43,18 @@ const SearchSection = () => {
           containerClassName={styles.searchField}
           startIcon={Search}
           type="text"
-          aria-label="Search projects"
-          placeholder="Search projects..."
+          aria-label={t.search.label}
+          placeholder={t.search.placeholder}
           value={searchValue}
           onChange={(e) => setSearchValue(e.target.value)}
         />
 
         <div className={styles.optionsContainer}>
-          {filterGroups.map(({ options, label, category }) => (
+          {filterGroups.map(({ options, category }) => (
             <MultiSelect
               key={category}
               options={[...options]}
-              placeholder={label}
+              placeholder={t.search.filterLabels[category]}
               value={selectedFilters[category]}
               onChange={(selected) => handleOnChange(selected, category)}
             />
@@ -61,23 +63,25 @@ const SearchSection = () => {
           <Divider className={styles.divider} />
           <div className={styles.resultsOptionsContainer}>
             <Text size="small" variant="secondary">
-              {projectsCount} projects
+              {t.search.countLabel} {projectsCount}
             </Text>
 
             <Button variant="link" className={styles.clearFilters} onClick={resetFilterValues}>
-              Clear Filters
+              {t.search.clearFilters}
             </Button>
           </div>
         </div>
         <Button variant="default" className={styles.filterButton} onClick={handleClick}>
           <SlidersHorizontal size={18} aria-hidden="true" />
-          <span>Filters</span>
+          <span>{t.search.filters}</span>
         </Button>
       </div>
       <div className={styles.resultsContainer}>
-        <span>{projectsCount} projects</span>
+        <span>
+          {t.search.countLabel} {projectsCount}
+        </span>
         <Button variant="link" className={styles.clearFilters} onClick={resetFilterValues}>
-          Clear Filters
+          {t.search.clearFilters}
         </Button>
       </div>
     </div>
