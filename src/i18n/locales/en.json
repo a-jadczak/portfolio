@@ -8,7 +8,10 @@
       "notFound": "Not Found",
       "navigationLabel": "Navigation"
     },
-    "settings": {}
+    "settings": {
+      "resume": "Resume",
+      "settingsLabel": "Open settings"
+    }
   },
   "pages": {
     "home": {

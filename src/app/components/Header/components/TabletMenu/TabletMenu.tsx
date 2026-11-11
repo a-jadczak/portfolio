@@ -15,7 +15,7 @@ const TabletMenu = ({ currentPath, lang, className }: TabletMenuProps) => {
     <LanguageProvider lang={lang}>
       <div className={`${styles.container} ${className}`}>
         <TabletNavigationMenu currentPath={currentPath} />
-        <HeaderActions />
+        <HeaderActions lang={lang} />
       </div>
     </LanguageProvider>
   );

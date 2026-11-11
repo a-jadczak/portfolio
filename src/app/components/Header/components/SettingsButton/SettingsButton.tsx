@@ -1,12 +1,14 @@
 import { Settings } from 'lucide-react';
 import { Button } from '@/components/ui/Button/Button';
 import { openDialog } from '@/utils/dialog';
+import { useTranslations } from '@/i18n/useTranslations';
 
 interface SettingsButtonProps {
   iconSize: number;
 }
 
 const SettingsButton = ({ iconSize }: SettingsButtonProps) => {
+  const { t } = useTranslations();
   const handleClick = () => {
     openDialog('settings-dialog');
   };
@@ -14,7 +16,7 @@ const SettingsButton = ({ iconSize }: SettingsButtonProps) => {
   return (
     <Button
       iconOnly
-      aria-label="Open settings"
+      aria-label={t.header.settings.settingsLabel}
       aria-haspopup="dialog"
       aria-controls="settings-dialog"
       onClick={handleClick}

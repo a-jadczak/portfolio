@@ -5,6 +5,7 @@ import MobileNavigationMenu from './components/MobileNavigationMenu/MobileNaviga
 import MenuButton from './components/MenuButton/MenuButton';
 import { LanguageProvider } from '@/i18n/LanguageProvider';
 import type { Language } from '@/types/Language';
+import { useTranslations } from '@/i18n/useTranslations';
 
 interface MobileMenuProps extends ComponentPropsWithoutRef<'div'> {
   currentPath: string;
@@ -12,6 +13,7 @@ interface MobileMenuProps extends ComponentPropsWithoutRef<'div'> {
 }
 
 const MobileMenuContent = ({ currentPath, ...props }: Omit<MobileMenuProps, 'lang'>) => {
+  const { lang } = useTranslations();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const toggleMobileMenu = () => {
@@ -28,7 +30,7 @@ const MobileMenuContent = ({ currentPath, ...props }: Omit<MobileMenuProps, 'lan
             <small className={styles.menuLabel}>Menu</small>
           </span>
           <MobileNavigationMenu currentPath={currentPath} />
-          <HeaderActions />
+          <HeaderActions lang={lang} />
         </div>
       )}
     </div>

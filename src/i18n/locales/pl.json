@@ -8,7 +8,10 @@
       "notFound": "Nie znaleziono",
       "navigationLabel": "Nawigacja"
     },
-    "settings": {}
+    "settings": {
+      "resume": "Wyświetl CV",
+      "settingsLabel": "Otwórz ustawienia"
+    }
   },
   "pages": {
     "home": {
