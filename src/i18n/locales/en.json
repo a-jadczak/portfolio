@@ -48,9 +48,63 @@
     "about": {},
     "projects": {},
     "contact": {
-      "eyebrow": "Get in touch",
-      "title": "Have a question?",
-      "description": "I would be happy to answer your questions and discuss"
+      "hero": {
+        "eyebrow": "Get in touch",
+        "title": "Have a question?",
+        "description": "I would be happy to answer your questions and discuss"
+      },
+      "form": {
+        "label": "Contact form",
+        "formFields": {
+          "name": {
+            "label": "Name",
+            "placeholder": "Name"
+          },
+          "email": {
+            "label": "Email",
+            "placeholder": "Email"
+          },
+          "subject": {
+            "label": "Subject",
+            "placeholder": "Subject"
+          },
+          "message": {
+            "label": "Message",
+            "placeholder": "Message"
+          }
+        },
+        "message": {
+          "idle": "Send message",
+          "loading": "Sending...",
+          "success": "Message sent!",
+          "error": "Failed to send. Try again"
+        }
+      },
+      "connect": {
+        "title": "Let's connect",
+        "cards": {
+          "email": {
+            "title": "Email",
+            "description": "Drop me a message anytime.",
+            "actionLabel": "arkadiusz.jadczak7@gmail.com"
+          },
+          "linkedin": {
+            "title": "LinkedIn",
+            "description": "Connect with me on LinkedIn.",
+            "actionLabel": "Connect with me"
+          },
+          "available": {
+            "title": "Available",
+            "description": "Let's collaborate\nRemote · Poland",
+            "actionLabel": "Open to opportunities"
+          },
+          "unavailable": {
+            "title": "Unavailable",
+            "description": "Currently focused on other projects\nRemote · Poland",
+            "actionLabel": "Not open to opportunities"
+          }
+        }
+      }
     },
     "notFound": {}
   },

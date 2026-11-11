@@ -6,84 +6,78 @@ import { Textarea } from '@/components/ui/Textarea/Textarea';
 import ContactFormHeader from '@/features/contact/components/ContactFormHeader/ContactFormHeader';
 import FormField from '@/features/contact/components/FormField/FormField';
 import styles from './ContactForm.module.scss';
-import type { FormState } from '@/features/contact/types/FormState';
 import type { ContactField } from '@/features/contact/types/ContactField';
+import { LanguageProvider } from '@/i18n/LanguageProvider';
+import { useTranslations } from '@/i18n/useTranslations';
+import type { Language } from '@/types/Language';
 
 const formFields: ContactField[] = [
   {
-    name: 'name',
-    label: 'Name',
+    id: 'name',
     type: 'text',
-    placeholder: 'John Pork',
     startIcon: User,
     autoComplete: 'name',
   },
   {
-    name: 'email',
-    label: 'Email',
+    id: 'email',
     type: 'email',
-    placeholder: 'you@example.com',
     startIcon: Mail,
     autoComplete: 'email',
   },
   {
-    name: 'subject',
-    label: 'Subject',
+    id: 'subject',
     type: 'text',
-    placeholder: "What's this about?",
     startIcon: MessageSquare,
     fullWidth: true,
   },
 ];
 
-const submitMessages: Record<FormState, string> = {
-  idle: 'Send message',
-  loading: 'Sending...',
-  success: 'Message sent!',
-  error: 'Failed to send. Try again',
-};
-
-const ContactForm = () => {
+const ContactFormContent = () => {
   const { state, isDisabled, handleSubmit } = useContactForm();
+  const i18n = useTranslations();
+  const t = i18n.t.pages.contact.form;
 
   return (
     <div className={styles.container} data-send={state}>
       <ContactFormHeader state={state} />
       <form
         className={styles.form}
-        aria-label="Contact form"
+        aria-label={t.label}
         aria-busy={state === 'loading'}
         onSubmit={handleSubmit}
       >
-        {formFields.map(
-          ({ name, label, type = 'text', placeholder, startIcon, autoComplete, fullWidth }) => (
-            <FormField
-              key={name}
-              htmlFor={name}
-              label={label}
-              state={state}
-              className={fullWidth ? styles.fullWidth : undefined}
-            >
-              <Input
-                id={name}
-                name={name}
-                type={type}
-                placeholder={placeholder}
-                startIcon={startIcon}
-                autoComplete={autoComplete}
-                disabled={isDisabled}
-                required
-              />
-            </FormField>
-          )
-        )}
+        {formFields.map(({ id, type, startIcon, autoComplete, fullWidth }) => (
+          <FormField
+            key={id}
+            htmlFor={id}
+            label={t.formFields[id].label}
+            state={state}
+            className={fullWidth ? styles.fullWidth : undefined}
+          >
+            <Input
+              id={id}
+              name={id}
+              type={type}
+              placeholder={t.formFields[id].placeholder}
+              startIcon={startIcon}
+              autoComplete={autoComplete}
+              disabled={isDisabled}
+              required
+            />
+          </FormField>
+        ))}
 
-        <FormField htmlFor="message" label="Message" state={state} className={styles.fullWidth}>
+        <FormField
+          htmlFor="message"
+          label={t.formFields['message'].label}
+          state={state}
+          className={styles.fullWidth}
+        >
           <Textarea
             id="message"
             name="message"
             rows={5}
-            placeholder="Tell me about your project..."
+            placeholder={t.formFields['message'].placeholder}
             disabled={isDisabled}
             required
           />
@@ -96,12 +90,20 @@ const ContactForm = () => {
             variant="primary"
             type="submit"
           >
-            <span>{submitMessages[state]}</span>
+            <span>{t.message[state]}</span>
             {!isDisabled && <Send size={18} aria-hidden="true" />}
           </Button>
         </div>
       </form>
     </div>
+  );
+};
+
+const ContactForm = ({ lang }: { lang: Language }) => {
+  return (
+    <LanguageProvider lang={lang}>
+      <ContactFormContent />
+    </LanguageProvider>
   );
 };
 

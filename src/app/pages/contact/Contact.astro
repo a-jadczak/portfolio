@@ -3,16 +3,15 @@ import ConnectSection from '@/features/contact/components/ConnectSection/Connect
 import PageHero from '@/components/ui/PageHero/PageHero.astro';
 import ContactForm from '@/features/contact/components/ContactForm/ContactForm';
 import styles from './Contact.module.scss';
+
+const { t, lang } = Astro.locals.i18n;
+const contact = t.pages.contact.hero;
 ---
 
 <div class={styles.container}>
   <div class={styles.hero}>
-    <PageHero
-      eyebrow="Get in touch"
-      title="Let's build something great together!"
-      description="Have a project, an opportunity, or just want to say hello?"
-    >
-      <ContactForm client:load />
+    <PageHero eyebrow={contact.eyebrow} title={contact.title} description={contact.description}>
+      <ContactForm lang={lang} client:load />
     </PageHero>
   </div>
   <ConnectSection />

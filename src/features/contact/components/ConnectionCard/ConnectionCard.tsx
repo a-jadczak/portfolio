@@ -3,22 +3,19 @@ import Text from '@/components/ui/Text/Text';
 import styles from './ConnectionCard.module.scss';
 import cardStyles from '@/components/ui/Card/Card.module.scss';
 import { connections, type ConnectionId } from '@/features/contact/config/connections';
+import { LanguageProvider } from '@/i18n/LanguageProvider';
+import { useTranslations } from '@/i18n/useTranslations';
+import type { Language } from '@/types/Language';
 
 export interface ConnectionCardProps {
   connectionId: ConnectionId;
+  lang: Language;
 }
 
-const ConnectionCard = ({ connectionId }: ConnectionCardProps) => {
-  const {
-    icon: Icon,
-    title,
-    description,
-    role,
-    actionLabel,
-    action,
-    actionIcon: ActionIcon,
-    iconSize,
-  } = connections[connectionId];
+const ConnectionCardContent = ({ connectionId }: Omit<ConnectionCardProps, 'lang'>) => {
+  const { t } = useTranslations();
+  const { title, description, actionLabel } = t.pages.contact.connect.cards[connectionId];
+  const { icon: Icon, role, action, actionIcon: ActionIcon, iconSize } = connections[connectionId];
 
   return (
     <div className={`${styles.container} ${styles[role]}`}>
@@ -54,5 +51,11 @@ const ConnectionCard = ({ connectionId }: ConnectionCardProps) => {
     </div>
   );
 };
+
+const ConnectionCard = ({ lang, connectionId }: ConnectionCardProps) => (
+  <LanguageProvider lang={lang}>
+    <ConnectionCardContent connectionId={connectionId} />
+  </LanguageProvider>
+);
 
 export default ConnectionCard;

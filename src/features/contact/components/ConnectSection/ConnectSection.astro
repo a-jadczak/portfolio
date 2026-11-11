@@ -5,15 +5,16 @@ import styles from './ConnectSection.module.scss';
 import Heading from '@/components/ui/Heading/Heading';
 
 const connectionIds = Object.keys(connections) as ConnectionId[];
+const { lang, t } = Astro.locals.i18n;
 ---
 
 <section class={styles.container} data-ignore-padding>
-  <Heading as="h2" size="small" className={styles.title}>Let's connect</Heading>
+  <Heading as="h2" size="small" className={styles.title}>{t.pages.contact.connect.title}</Heading>
   <ul class={styles.list}>
     {
       connectionIds.map((connectionId) => (
         <li>
-          <ConnectionCard connectionId={connectionId} client:load />
+          <ConnectionCard connectionId={connectionId} lang={lang} client:load />
         </li>
       ))
     }

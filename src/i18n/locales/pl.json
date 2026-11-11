@@ -48,9 +48,63 @@
     "about": {},
     "projects": {},
     "contact": {
-      "eyebrow": "Masz pytania?",
-      "title": "Skontaktuj się ze mną",
-      "description": "Chętnie odpowiem na Twoje pytania i omówię"
+      "hero": {
+        "eyebrow": "Masz pytania?",
+        "title": "Skontaktuj się ze mną",
+        "description": "Chętnie odpowiem na Twoje pytania i omówię"
+      },
+      "form": {
+        "label": "Formularz kontaktowy",
+        "formFields": {
+          "name": {
+            "label": "Imię i nazwisko",
+            "placeholder": "Imię i nazwisko"
+          },
+          "email": {
+            "label": "Adres e-mail",
+            "placeholder": "Adres e-mail"
+          },
+          "subject": {
+            "label": "Temat",
+            "placeholder": "Temat"
+          },
+          "message": {
+            "label": "Wiadomość",
+            "placeholder": "Wiadomość"
+          }
+        },
+        "message": {
+          "idle": "Wyślij",
+          "loading": "Wysyłanie...",
+          "success": "Wiadomość wysłana!",
+          "error": "Nie udało się wysłać wiadomości."
+        }
+      },
+      "connect": {
+        "title": "Porozmawiajmy",
+        "cards": {
+          "email": {
+            "title": "E-mail",
+            "description": "Napisz do mnie w dowolnym momencie.",
+            "actionLabel": "arkadiusz.jadczak7@gmail.com"
+          },
+          "linkedin": {
+            "title": "LinkedIn",
+            "description": "Nawiąż ze mną kontakt na LinkedIn.",
+            "actionLabel": "Nawiąż kontakt"
+          },
+          "available": {
+            "title": "Dostępny",
+            "description": "Podejmijmy współpracę\nZdalnie · Polska",
+            "actionLabel": "Otwarty na propozycje"
+          },
+          "unavailable": {
+            "title": "Niedostępny",
+            "description": "Obecnie skupiam się na innych projektach\nZdalnie · Polska",
+            "actionLabel": "Obecnie nie przyjmuję propozycji"
+          }
+        }
+      }
     },
     "notFound": {}
   },
