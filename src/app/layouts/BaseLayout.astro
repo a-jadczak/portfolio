@@ -25,9 +25,11 @@ const { lang, title, pageHref } = Astro.props;
 
 const currentPageInfo = getCurrentPageInfo(pageHref);
 const { projects } = await getProjects();
+
+const language = lang ?? defaultLanguage;
 ---
 
-<html lang={lang ?? defaultLanguage}>
+<html lang={language}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />

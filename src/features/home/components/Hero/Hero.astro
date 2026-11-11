@@ -6,10 +6,9 @@ import Text from '@/components/ui/Text/Text';
 import styles from './Hero.module.scss';
 import { ArrowUpRight, Mail } from 'lucide-react';
 import ProfileImage from '@/features/home/components/ProfileImage/ProfileImage.astro';
-import { getLangFromUrl, getTranslations } from '@/i18n/utils';
+import { getTranslationsByUrl } from '@/i18n/utils';
 
-const lang = getLangFromUrl(Astro.url);
-const t = getTranslations(lang).translation.pages.home;
+const t = getTranslationsByUrl(Astro.url).translation.pages.home;
 ---
 
 <section class={styles.section}>

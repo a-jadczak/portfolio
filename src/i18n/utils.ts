@@ -6,10 +6,12 @@ export function getLangFromUrl(url: URL): Language {
   // Astro renders static variants at /localized/{lang}/ during the build.
   const [, prefix, lang] = url.pathname.split('/');
 
-  return prefix === 'localized' && lang && isLanguageSupported(lang) ? lang : defaultLanguage;
+  return prefix === 'localized' && isLanguageSupported(lang) ? lang : defaultLanguage;
 }
 
 export const getTranslations = (lang: Language) => resources[lang];
+
+export const getTranslationsByUrl = (url: URL) => getTranslations(getLangFromUrl(url));
 
 export async function switchLanguage(lang: Language) {
   await window.cookieStore.set({
