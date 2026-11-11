@@ -10,9 +10,12 @@ interface Props {
 const {
   pageInfo: { name, indicator },
 }: Props = Astro.props;
+
+const i18n = Astro.locals.i18n;
+const t = i18n.t.header.navigation;
 ---
 
 <Text className={styles.textIndicator}>
   <span class={styles.index}>{indicator} </span>
-  / {name}
+  / {t[name]}
 </Text>

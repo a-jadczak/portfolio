@@ -9,9 +9,12 @@ interface Props {
 const {
   pageInfo: { name, indicator },
 }: Props = Astro.props;
+
+const i18n = Astro.locals.i18n;
+const t = i18n.t.header.navigation;
 ---
 
 <div class={styles.sidebar}>
   <span class={styles.index}>{indicator} </span>
-  <span class={styles.upsideDownText}>{name}</span>
+  <span class={styles.upsideDownText}>{t[name]}</span>
 </div>
