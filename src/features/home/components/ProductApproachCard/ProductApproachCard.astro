@@ -2,17 +2,26 @@
 import Heading from '@/components/ui/Heading/Heading';
 import styles from './ProductApproachCard.module.scss';
 import Text from '@/components/ui/Text/Text';
+import type { LucideIcon } from 'lucide-react';
 
-const { icon: Icon, title, eyebrow, description } = Astro.props;
+const i18n = Astro.locals.i18n;
+const t = i18n.t.pages.home.productApproach;
+
+interface Props {
+  id: Exclude<keyof typeof t, 'title'>;
+  icon: LucideIcon;
+}
+
+const { icon: Icon, id } = Astro.props;
 ---
 
 <li class={styles.card}>
   <div class={styles.header}>
     <Icon size={36} />
-    <span class={styles.eyebrow}> / {eyebrow} </span>
+    <span class={styles.eyebrow}> / {t[id].eyebrow} </span>
   </div>
 
-  <Heading as="h3" size="small">{title}</Heading>
-  <Text className={styles.description} variant="secondary" size="small">{description}</Text>
+  <Heading as="h3" size="small">{t[id].title}</Heading>
+  <Text className={styles.description} variant="secondary" size="small">{t[id].description}</Text>
   <span class={styles.accent} aria-hidden="true"></span>
 </li>

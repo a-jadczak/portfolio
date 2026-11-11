@@ -6,13 +6,12 @@ import ColorPickerList from '@/features/settings/components/ColorPickerList/Colo
 import SettingsField from '@/features/settings/components/SettingsField/SettingsField.astro';
 import Dialog from '@/components/ui/Dialog/Dialog';
 import LanguageControl from '@/features/settings/components/LanguageControl/LanguageControl';
-import { getLangFromUrl } from '@/i18n/utils';
 import Divider from '@/components/ui/Divider/Divider';
 import Text from '@/components/ui/Text/Text';
 import { Button } from '@/components/ui/Button/Button';
 import ReduceMotionControl from '@/features/settings/components/ReduceMotionControl/ReduceMotionControl';
 
-const lang = getLangFromUrl(Astro.url);
+const { lang } = Astro.locals.i18n;
 ---
 
 <Dialog id="settings-dialog" title="Settings" titleId="settings-title" Icon={Settings}>

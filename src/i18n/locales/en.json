@@ -10,13 +10,43 @@
   },
   "pages": {
     "home": {
-      "title": "Building modern software.",
-      "viewProjects": "View Projects",
-      "contactMe": "Contact me"
+      "hero": {
+        "role": "Software Engineer",
+        "title": "Building modern software.",
+        "description": {
+          "before": "I focus on building",
+          "highlight": "blazingly fast",
+          "after": ", accessible and well-crafted web applications with clean, maintainable code."
+        },
+        "viewProjects": "View Projects",
+        "contactMe": "Contact me"
+      },
+      "productApproach": {
+        "title": "Product Approach",
+        "discover": {
+          "eyebrow": "Discover",
+          "title": "Understand the problem",
+          "description": "Know the users, their needs, and how they work."
+        },
+        "define": {
+          "eyebrow": "Define",
+          "title": "Define the solution",
+          "description": "Identify the right solution to meet user needs."
+        },
+        "deliver": {
+          "eyebrow": "Deliver",
+          "title": "Deliver the product",
+          "description": "Build and ship the product to users."
+        }
+      }
     },
     "about": {},
     "projects": {},
-    "contact": {},
+    "contact": {
+      "eyebrow": "Get in touch",
+      "title": "Have a question?",
+      "description": "I would be happy to answer your questions and discuss"
+    },
     "notFound": {}
   },
   "footer": {}

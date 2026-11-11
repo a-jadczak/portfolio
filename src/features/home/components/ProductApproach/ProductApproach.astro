@@ -4,31 +4,28 @@ import styles from './ProductApproach.module.scss';
 import Heading from '@/components/ui/Heading/Heading';
 import ProductApproachCard from '@/features/home/components/ProductApproachCard/ProductApproachCard.astro';
 
+const i18n = Astro.locals.i18n;
+const t = i18n.t.pages.home.productApproach;
+
 const productApproachCards = [
   {
+    id: 'discover',
     icon: Search,
-    eyebrow: 'Discover',
-    title: 'Understand the problem',
-    description: 'Know the users, their needs, and how they work.',
   },
   {
+    id: 'define',
     icon: Layers,
-    eyebrow: 'Define',
-    title: 'Define the solution',
-    description: 'Identify the right solution to meet user needs.',
   },
   {
+    id: 'deliver',
     icon: Target,
-    eyebrow: 'Deliver',
-    title: 'Deliver the product',
-    description: 'Build and ship the product to users.',
   },
-];
+] as const;
 ---
 
 <section class={styles.productApproach} data-ignore-padding>
   <div class={styles.titleContainer}>
-    <Heading as="h2" size="small" className={styles.title}>My Product Approach</Heading>
+    <Heading as="h2" size="small" className={styles.title}>{t.title}</Heading>
   </div>
   <ol class={styles.productsList}>
     {productApproachCards.map((card) => <ProductApproachCard {...card} />)}

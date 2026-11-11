@@ -10,13 +10,43 @@
   },
   "pages": {
     "home": {
-      "title": "Tworze nowoczesne oprogramowanie.",
-      "viewProjects": "Zobacz projekty",
-      "contactMe": "Skontaktuj się ze mną"
+      "hero": {
+        "role": "Programista",
+        "title": "Tworze nowoczesne oprogramowanie.",
+        "description": {
+          "before": "Skupiam się na tworzeniu błyskawicznie szybkich",
+          "highlight": "",
+          "after": ", dostępnych i dopracowanych aplikacji internetowych z przejrzystym kodem, który łatwo utrzymać."
+        },
+        "viewProjects": "Projekty",
+        "contactMe": "Kontakt"
+      },
+      "productApproach": {
+        "title": "Podejście do produktu",
+        "discover": {
+          "eyebrow": "Odkryj",
+          "title": "Zrozum problem",
+          "description": "Poznaj użytkowników, ich potrzeby i sposób pracy."
+        },
+        "define": {
+          "eyebrow": "Zdefiniuj",
+          "title": "Zdefiniuj rozwiązanie",
+          "description": "Określ funkcje, które rozwiążą problem użytkownika."
+        },
+        "deliver": {
+          "eyebrow": "Dostarcz",
+          "title": "Dostarcz produkt",
+          "description": "Wdrażaj i testuj rozwiązania, aby upewnić się, że spełniają potrzeby użytkowników."
+        }
+      }
     },
     "about": {},
     "projects": {},
-    "contact": {},
+    "contact": {
+      "eyebrow": "Masz pytania?",
+      "title": "Skontaktuj się ze mną",
+      "description": "Chętnie odpowiem na Twoje pytania i omówię"
+    },
     "notFound": {}
   },
   "footer": {}
