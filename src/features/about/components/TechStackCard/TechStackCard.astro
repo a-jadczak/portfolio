@@ -5,20 +5,10 @@ import Heading from '@/components/ui/Heading/Heading';
 import StackItem from '@/features/about/components/StackItem/StackItem.astro';
 import styles from './TechStackCard.module.scss';
 import { techStack } from '@/features/about/data/tech-stack';
-import { AppWindow, BookOpen, Bot, Database, FlaskConical, Shapes, Wrench } from 'lucide-react';
+import { techStackIcons } from '@/features/about/data/tech-stack-icons';
 import Divider from '@/components/ui/Divider/Divider';
 
 const t = Astro.locals.i18n.t.pages.about.techStack;
-
-const icons = new Map([
-  ['frontend', AppWindow],
-  ['backend', Database],
-  ['tools', Wrench],
-  ['testing', FlaskConical],
-  ['AI', Bot],
-  ['others', Shapes],
-  ['familiar with', BookOpen],
-]);
 ---
 
 <div class={styles.categoryListContainer}>
@@ -28,7 +18,7 @@ const icons = new Map([
         <li>
           <Card border={false}>
             <header class={styles.header}>
-              <CardIcon Icon={icons.get(key)} size={24} class={styles.cardIcon} />
+              <CardIcon Icon={techStackIcons.get(key)} size={24} class={styles.cardIcon} />
               <Heading size="extra-small" as="h3" className={styles.title}>
                 {t.categories[key as keyof typeof t.categories]}
               </Heading>
