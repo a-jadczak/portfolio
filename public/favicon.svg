@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Space Grotesk Bold (700), converted to outlines. -->
+  <defs>
+    <!-- ContactForm gradient-card: dark surface with 16% and 8% accent glows. -->
+    <radialGradient id="bottomGlow" cx="0" cy="1" r="1.414214">
+      <stop stop-color="#7038e8" stop-opacity="0.16" />
+      <stop offset="65%" stop-color="#7038e8" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="topGlow" cx="1" cy="0" r="1.414214">
+      <stop stop-color="#7038e8" stop-opacity="0.08" />
+      <stop offset="60%" stop-color="#7038e8" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  <path fill="#131020" d="M8 0h48l8 8v48l-8 8H8l-8-8V8z" />
+  <path fill="url(#topGlow)" d="M8 0h48l8 8v48l-8 8H8l-8-8V8z" />
+  <path fill="url(#bottomGlow)" d="M8 0h48l8 8v48l-8 8H8l-8-8V8z" />
+  <path fill="#fff" d="M8 45.905 15.459 17.527H24.784L32.243 45.905H26.73L25.189 39.662H15.054L13.514 45.905ZM16.311 34.716H23.932L20.486 20.892H19.757ZM43.797 46.473Q39.419 46.473 36.845 44.081Q34.27 41.689 34.27 37.392V34.716H39.622V37.392Q39.622 39.297 40.676 40.372Q41.73 41.446 43.635 41.446Q45.419 41.446 46.412 40.392Q47.405 39.338 47.405 37.392V22.392H42.541V17.527H56V22.392H52.757V37.392Q52.757 41.811 50.365 44.142Q47.973 46.473 43.797 46.473Z" />
+</svg>
