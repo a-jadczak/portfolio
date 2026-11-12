@@ -6,13 +6,14 @@ import { MapPin, CircleCheck, Languages } from 'lucide-react';
 import Text from '@/components/ui/Text/Text';
 import styles from './AboutMeCard.module.scss';
 import Divider from '@/components/ui/Divider/Divider';
+import { fullName } from '@/config/me';
 
 const t = Astro.locals.i18n.t.pages.about.aboutMe;
 ---
 
 <div class={styles.container}>
   <header class={styles.header}>
-    <Heading as="h1" className={styles.title}>Arkadiusz Jadczak</Heading>
+    <Heading as="h1" className={styles.title}>{fullName}</Heading>
     <Text variant="secondary" size="small" className={styles.description}>
       {t.description}
       <br />

@@ -1,6 +1,7 @@
 import { FaCircle, FaLinkedinIn } from 'react-icons/fa';
 import { Copy, ExternalLink, Mail, Radio, RadioOff } from 'lucide-react';
 import type { Icon } from '@/types/Icon';
+import { available, emailAdress, linkedinUrl } from '@/config/me';
 
 export type Role = 'default' | 'linkedin' | 'available' | 'unavailable';
 
@@ -11,10 +12,6 @@ export interface ConnectionConfig {
   iconSize?: number;
   actionIcon: Icon;
 }
-
-export const emailAdress = 'arkadiusz.jadczak7@gmail.com';
-const linkedinUrl = 'https://www.linkedin.com/in/arkadiusz-jadczak/';
-const available = true;
 
 const unavailableInfo = {
   icon: RadioOff,

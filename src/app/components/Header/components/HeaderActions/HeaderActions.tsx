@@ -5,12 +5,13 @@ import { ButtonLink } from '@/components/ui/Button/ButtonLink';
 import { LanguageProvider } from '@/i18n/LanguageProvider';
 import type { Language } from '@/types/Language';
 import { useTranslations } from '@/i18n/useTranslations';
+import { githubUrl, linkedinUrl } from '@/config/me';
 
 const ICON_SIZE = 22;
 const externalLinks = [
-  { href: 'https://github.com/a-jadczak', label: 'GitHub', Icon: FaGithub },
+  { href: githubUrl, label: 'GitHub', Icon: FaGithub },
   {
-    href: 'https://www.linkedin.com/in/arkadiusz-jadczak-27458b42b/',
+    href: linkedinUrl,
     label: 'LinkedIn',
     Icon: FaLinkedin,
   },

@@ -6,6 +6,7 @@ import Text from '@/components/ui/Text/Text';
 import styles from './Hero.module.scss';
 import { ArrowUpRight, Mail } from 'lucide-react';
 import ProfileImage from '@/features/home/components/ProfileImage/ProfileImage.astro';
+import { fullName } from '@/config/me';
 
 const i18n = Astro.locals.i18n;
 const t = i18n.t.pages.home.hero;
@@ -15,7 +16,7 @@ const t = i18n.t.pages.home.hero;
   <ProfileImage />
   <div class={styles.infoContainer}>
     <header class={styles.intro}>
-      <Eyebrow>Arkadiusz Jadczak · {t.role.toUpperCase()}</Eyebrow>
+      <Eyebrow>{fullName} · {t.role.toUpperCase()}</Eyebrow>
       <Heading as="h1" size="large">{t.title}</Heading>
       <Text size="large" variant="secondary">
         {t.description.before}{' '}
