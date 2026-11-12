@@ -8,46 +8,35 @@ import TimelineItem from '@/components/ui/Timeline/TimelineItem.astro';
 import { GraduationCap, School } from 'lucide-react';
 import styles from './EducationCard.module.scss';
 
+const t = Astro.locals.i18n.t.pages.about.education;
+
 const experiences = [
-  {
-    Icon: School,
-    period: '2021 – 2026',
-    title: 'Zespół Szkół Technicznych i Branżowych (ZSTiB)',
-    subtitle: 'Technician Programmer',
-    description: 'Built a solid foundation in programming, web technologies and problem solving.',
-  },
-  {
-    Icon: GraduationCap,
-    period: '2026 – Present',
-    title: 'Wyższa Szkoła Kształcenia Zawodowego (WSKZ)',
-    subtitle: "Bachelor's Degree in Cybersecurity",
-    description:
-      'Studying Cybersecurity and building practical skills in securing systems, networks, and applications.',
-  },
-];
+  { id: 'technicalSchool', Icon: School },
+  { id: 'university', Icon: GraduationCap },
+] as const;
 ---
 
 <div class={styles.timelineContainer}>
   <Timeline data-orientation="vertical" id="education-card__timeline" class={styles.timeline}>
     {
-      experiences.map(({ Icon, period, title, subtitle, description }) => (
+      experiences.map(({ id, Icon }) => (
         <TimelineItem>
           <Card class={styles.card}>
             <CardIcon Icon={Icon} />
             <div class={styles.content}>
               <Text className={styles.period} size="small">
-                {period}
+                {t[id].period}
               </Text>
               <Heading as="h3" size="small">
-                {title}
+                {t[id].title}
               </Heading>
-              {subtitle && (
+              {t[id].subtitle && (
                 <Text size="small" variant="secondary">
-                  {subtitle}
+                  {t[id].subtitle}
                 </Text>
               )}
               <Text className={styles.description} size="small" variant="secondary">
-                {description}
+                {t[id].description}
               </Text>
             </div>
           </Card>

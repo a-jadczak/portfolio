@@ -45,7 +45,99 @@
         }
       }
     },
-    "about": {},
+    "about": {
+      "sections": {
+        "aboutMe": "O mnie",
+        "techStack": "Technologie",
+        "values": "Co jest dla mnie ważne",
+        "workflow": "Jak pracuję",
+        "education": "Wykształcenie"
+      },
+      "aboutMe": {
+        "description": "Jestem programistą skupionym na tworzeniu nowoczesnych aplikacji internetowych i poznawaniu technologii w branży IT.",
+        "availability": "Obecnie szukam pierwszej pracy.",
+        "locationLabel": "Lokalizacja",
+        "location": "Polska / Zdalnie",
+        "statusLabel": "Status",
+        "status": "Otwarty na propozycje",
+        "languagesLabel": "Języki",
+        "languages": "Polski / Angielski"
+      },
+      "techStack": {
+        "categories": {
+          "frontend": "Frontend",
+          "backend": "Backend",
+          "tools": "Narzędzia",
+          "testing": "Testowanie",
+          "AI": "AI",
+          "others": "Pozostałe",
+          "familiar with": "Miałem styczność z"
+        },
+        "iconLabel": "Ikona"
+      },
+      "values": {
+        "uiUx": {
+          "title": "UI / UX",
+          "description": "Tworzenie przejrzystych, intuicyjnych i przyjaznych interfejsów, po których łatwo się poruszać."
+        },
+        "performance": {
+          "title": "Wydajność",
+          "description": "Tworzenie szybkich, responsywnych stron, które działają płynnie na różnych urządzeniach."
+        },
+        "accessibility": {
+          "title": "Dostępność",
+          "description": "Tworzenie stron łatwych w obsłudze dla każdego, w tym osób z niepełnosprawnościami."
+        },
+        "testing": {
+          "title": "Testowanie",
+          "description": "Sprawdzanie poprawności działania aplikacji i wykrywanie błędów, zanim trafią do użytkowników."
+        },
+        "scalableCode": {
+          "title": "Skalowalny kod",
+          "description": "Pisanie kodu, który łatwo utrzymywać, ulepszać i rozwijać wraz z projektem."
+        },
+        "seo": {
+          "title": "SEO",
+          "description": "Ułatwianie znajdowania stron w wyszukiwarkach takich jak Google."
+        }
+      },
+      "workflow": {
+        "planning": {
+          "title": "Pomysł i planowanie",
+          "description": "Zaczynam od pomysłu, analizuję możliwe rozwiązania i z pomocą ChatGPT planuję funkcje aplikacji, technologie oraz elementy projektu."
+        },
+        "design": {
+          "title": "Projektowanie UI/UX",
+          "description": "Eksperymentuję z generowaniem koncepcji wizualnych przy użyciu AI, zanim przejdę do ich realizacji."
+        },
+        "development": {
+          "title": "Programowanie",
+          "description": "Zamieniam plany i projekty w działające aplikacje, korzystając z Trello do organizowania zadań i śledzenia postępów."
+        },
+        "testing": {
+          "title": "Testowanie",
+          "description": "Testuję funkcje, naprawiam błędy oraz poprawiam wydajność, dostępność i wygodę użytkowania."
+        },
+        "polishing": {
+          "title": "Dopracowanie szczegółów",
+          "description": "Dopracowuję detale wizualne, animacje i interakcje, aby zapewnić spójne i przyjemne korzystanie z aplikacji."
+        }
+      },
+      "education": {
+        "technicalSchool": {
+          "period": "2021 – 2026",
+          "title": "Zespół Szkół Technicznych i Branżowych (ZSTiB)",
+          "subtitle": "Technik programista",
+          "description": "Zdobyłem solidne podstawy programowania, technologii internetowych i rozwiązywania problemów."
+        },
+        "university": {
+          "period": "2026 – obecnie",
+          "title": "Wyższa Szkoła Kształcenia Zawodowego (WSKZ)",
+          "subtitle": "Studia inżynierskie z cyberbezpieczeństwa",
+          "description": "Studiuję cyberbezpieczeństwo i rozwijam praktyczne umiejętności zabezpieczania systemów, sieci i aplikacji."
+        }
+      }
+    },
     "projects": {
       "hero": {
         "eyebrow": "Archiwum projektów",

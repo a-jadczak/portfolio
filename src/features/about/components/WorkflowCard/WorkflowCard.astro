@@ -8,51 +8,29 @@ import TimelineItem from '@/components/ui/Timeline/TimelineItem.astro';
 import { CodeXml, FlaskConical, Lightbulb, MopSparkles, Palette } from 'lucide-react';
 import styles from './WorkflowCard.module.scss';
 
+const t = Astro.locals.i18n.t.pages.about.workflow;
+
 const workflowCards = [
-  {
-    Icon: Lightbulb,
-    title: 'Idea & Planning',
-    description:
-      'I start with an idea, research possible solutions, and plan application features, the tech stack, and design elements with the help of ChatGPT.',
-  },
-  {
-    Icon: Palette,
-    title: 'UI/UX Design',
-    description: 'I experiment with generate visual concepts using AI before implementing them.',
-  },
-  {
-    Icon: CodeXml,
-    title: 'Development',
-    description:
-      'I turn plans and designs into working applications, using Trello to organize development tasks and track progress.',
-  },
-  {
-    Icon: FlaskConical,
-    title: 'Testing',
-    description:
-      'I test functionality, fix issues, and improve performance, accessibility, and user experience.',
-  },
-  {
-    Icon: MopSparkles,
-    title: 'Polishing & Final Touches',
-    description:
-      'I refine visual details, animations, and interactions to create a polished and consistent user experience.',
-  },
-];
+  { id: 'planning', Icon: Lightbulb },
+  { id: 'design', Icon: Palette },
+  { id: 'development', Icon: CodeXml },
+  { id: 'testing', Icon: FlaskConical },
+  { id: 'polishing', Icon: MopSparkles },
+] as const;
 ---
 
 <Timeline>
   {
-    workflowCards.map(({ Icon, title, description }) => (
+    workflowCards.map(({ id, Icon }) => (
       <TimelineItem>
         <Card class={styles.card}>
           <CardIcon Icon={Icon} />
           <div class={styles.content}>
             <Heading className={styles.title} as="h3" size="extra-small">
-              {title}
+              {t[id].title}
             </Heading>
             <Text size="small" variant="secondary">
-              {description}
+              {t[id].description}
             </Text>
           </div>
         </Card>

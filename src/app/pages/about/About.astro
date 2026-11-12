@@ -3,13 +3,15 @@ import AboutCard from '@/features/about/components/AboutCard/AboutCard.astro';
 import { cards } from '@/features/about/data/cards';
 import styles from './About.module.scss';
 import { formatTwoDigitNumber } from '@/utils/formatTwoDigitNumber';
+
+const t = Astro.locals.i18n.t.pages.about;
 ---
 
 <ul class={styles.cardsContainer}>
   {
-    cards.map(({ title, Content, styles }, index) => (
+    cards.map(({ id, Content, styles }, index) => (
       <li>
-        <AboutCard eyebrow={`${formatTwoDigitNumber(index + 1)} — ${title}`} {styles}>
+        <AboutCard eyebrow={`${formatTwoDigitNumber(index + 1)} — ${t.sections[id]}`} {styles}>
           <Content />
         </AboutCard>
       </li>

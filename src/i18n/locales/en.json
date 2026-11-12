@@ -45,7 +45,99 @@
         }
       }
     },
-    "about": {},
+    "about": {
+      "sections": {
+        "aboutMe": "About me",
+        "techStack": "Tech stack",
+        "values": "What I care about",
+        "workflow": "My workflow",
+        "education": "Education"
+      },
+      "aboutMe": {
+        "description": "I'm a software developer focused on building modern web applications and exploring technologies in the IT industry.",
+        "availability": "Currently searching for my first job.",
+        "locationLabel": "Location",
+        "location": "Poland / Remote",
+        "statusLabel": "Status",
+        "status": "Open to opportunities",
+        "languagesLabel": "Languages",
+        "languages": "Polish / English"
+      },
+      "techStack": {
+        "categories": {
+          "frontend": "Frontend",
+          "backend": "Backend",
+          "tools": "Tools",
+          "testing": "Testing",
+          "AI": "AI",
+          "others": "Others",
+          "familiar with": "Familiar with"
+        },
+        "iconLabel": "Icon"
+      },
+      "values": {
+        "uiUx": {
+          "title": "UI / UX",
+          "description": "Creating clean, intuitive, and user-friendly interfaces that are easy to navigate."
+        },
+        "performance": {
+          "title": "Performance",
+          "description": "Making websites fast, responsive, and smooth to use on different devices."
+        },
+        "accessibility": {
+          "title": "Accessibility",
+          "description": "Making websites easy to use for everyone, including people with disabilities."
+        },
+        "testing": {
+          "title": "Testing",
+          "description": "Checking that applications work correctly and preventing bugs before they reach users."
+        },
+        "scalableCode": {
+          "title": "Scalable code",
+          "description": "Writing code that is easy to maintain, improve, and expand as projects grow."
+        },
+        "seo": {
+          "title": "SEO",
+          "description": "Making websites easier to find through search engines like Google."
+        }
+      },
+      "workflow": {
+        "planning": {
+          "title": "Idea & Planning",
+          "description": "I start with an idea, research possible solutions, and plan application features, the tech stack, and design elements with the help of ChatGPT."
+        },
+        "design": {
+          "title": "UI/UX Design",
+          "description": "I experiment with generate visual concepts using AI before implementing them."
+        },
+        "development": {
+          "title": "Development",
+          "description": "I turn plans and designs into working applications, using Trello to organize development tasks and track progress."
+        },
+        "testing": {
+          "title": "Testing",
+          "description": "I test functionality, fix issues, and improve performance, accessibility, and user experience."
+        },
+        "polishing": {
+          "title": "Polishing & Final Touches",
+          "description": "I refine visual details, animations, and interactions to create a polished and consistent user experience."
+        }
+      },
+      "education": {
+        "technicalSchool": {
+          "period": "2021 – 2026",
+          "title": "Zespół Szkół Technicznych i Branżowych (ZSTiB)",
+          "subtitle": "Technician Programmer",
+          "description": "Built a solid foundation in programming, web technologies and problem solving."
+        },
+        "university": {
+          "period": "2026 – Present",
+          "title": "Wyższa Szkoła Kształcenia Zawodowego (WSKZ)",
+          "subtitle": "Bachelor of Engineering in Cybersecurity",
+          "description": "Studying Cybersecurity and building practical skills in securing systems, networks, and applications."
+        }
+      }
+    },
     "projects": {
       "hero": {
         "eyebrow": "Project archive",

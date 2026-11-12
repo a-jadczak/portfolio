@@ -6,19 +6,21 @@ import Text from '@/components/ui/Text/Text';
 import { cards } from '@/features/about/data/values';
 import CardIcon from '@/components/ui/CardIcon/CardIcon.astro';
 import CardPicture from './components/CardPicture.astro';
+
+const t = Astro.locals.i18n.t.pages.about.values;
 ---
 
 <div class={styles.gridContainer}>
   {
-    cards.map(({ title, Icon, description, image }) => (
+    cards.map(({ id, Icon, image }) => (
       <Card class={styles.card}>
         <CardIcon Icon={Icon} class={styles.icon} size={28} />
         <header class={styles.header}>
           <Heading className={styles.title} as="h3" size="extra-small">
-            {title}
+            {t[id].title}
           </Heading>
           <Text variant="muted" size="small">
-            {description}
+            {t[id].description}
           </Text>
         </header>
         <div class={styles.picture}>

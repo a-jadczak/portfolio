@@ -6,14 +6,17 @@ import { MapPin, CircleCheck, Languages } from 'lucide-react';
 import Text from '@/components/ui/Text/Text';
 import styles from './AboutMeCard.module.scss';
 import Divider from '@/components/ui/Divider/Divider';
+
+const t = Astro.locals.i18n.t.pages.about.aboutMe;
 ---
 
 <div class={styles.container}>
   <header class={styles.header}>
     <Heading as="h1" className={styles.title}>Arkadiusz Jadczak</Heading>
     <Text variant="secondary" size="small" className={styles.description}>
-      I'm a software developer focused on building modern web applications and exploring
-      technologies in the IT industry. <br /> Currently searching for my first job.
+      {t.description}
+      <br />
+      {t.availability}
     </Text>
   </header>
 
@@ -22,18 +25,18 @@ import Divider from '@/components/ui/Divider/Divider';
     <ul class={styles.infoList}>
       <li class={styles.infoElement}>
         <CardIcon Icon={MapPin} class={styles.infoIcon} size={20} />
-        <span class={styles.infoLabel}>Location</span>
-        <span class={styles.infoContent}>Poland / Remote</span>
+        <span class={styles.infoLabel}>{t.locationLabel}</span>
+        <span class={styles.infoContent}>{t.location}</span>
       </li>
       <li class={styles.infoElement}>
         <CardIcon Icon={CircleCheck} class={styles.infoIcon} size={20} />
-        <span class={styles.infoLabel}>Status</span>
-        <span class={styles.infoContent}>Open to opportunites</span>
+        <span class={styles.infoLabel}>{t.statusLabel}</span>
+        <span class={styles.infoContent}>{t.status}</span>
       </li>
       <li class={styles.infoElement}>
         <CardIcon Icon={Languages} class={styles.infoIcon} size={20} />
-        <span class={styles.infoLabel}>Languages</span>
-        <span class={styles.infoContent}>Polish / English</span>
+        <span class={styles.infoLabel}>{t.languagesLabel}</span>
+        <span class={styles.infoContent}>{t.languages}</span>
       </li>
     </ul>
   </Card>

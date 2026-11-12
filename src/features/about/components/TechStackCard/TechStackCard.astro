@@ -8,6 +8,8 @@ import { techStack } from '@/features/about/data/tech-stack';
 import { AppWindow, BookOpen, Bot, Database, FlaskConical, Shapes, Wrench } from 'lucide-react';
 import Divider from '@/components/ui/Divider/Divider';
 
+const t = Astro.locals.i18n.t.pages.about.techStack;
+
 const icons = new Map([
   ['frontend', AppWindow],
   ['backend', Database],
@@ -28,7 +30,7 @@ const icons = new Map([
             <header class={styles.header}>
               <CardIcon Icon={icons.get(key)} size={24} class={styles.cardIcon} />
               <Heading size="extra-small" as="h3" className={styles.title}>
-                {key}
+                {t.categories[key as keyof typeof t.categories]}
               </Heading>
             </header>
             <Divider />
