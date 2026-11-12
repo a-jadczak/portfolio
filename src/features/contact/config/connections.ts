@@ -1,5 +1,5 @@
 import { FaCircle, FaLinkedinIn } from 'react-icons/fa';
-import { Copy, ExternalLink, Mail, Radio } from 'lucide-react';
+import { Copy, ExternalLink, Mail, Radio, RadioOff } from 'lucide-react';
 import type { Icon } from '@/types/Icon';
 
 export type Role = 'default' | 'linkedin' | 'available' | 'unavailable';
@@ -13,6 +13,16 @@ export interface ConnectionConfig {
 }
 
 export const emailAdress = 'arkadiusz.jadczak7@gmail.com';
+const linkedinUrl = 'https://www.linkedin.com/in/arkadiusz-jadczak/';
+const available = true;
+
+const unavailableInfo = {
+  icon: RadioOff,
+  role: 'unavailable',
+  action: null,
+  actionIcon: FaCircle,
+  iconSize: 10,
+} as ConnectionConfig;
 
 export const connections = {
   email: {
@@ -27,17 +37,19 @@ export const connections = {
   linkedin: {
     icon: FaLinkedinIn,
     role: 'linkedin',
-    action: () => window.open('https://www.linkedin.com/in/arkadiusz-jadczak/', '_blank'),
+    action: () => window.open(linkedinUrl, '_blank'),
     actionIcon: ExternalLink,
     iconSize: 20,
   },
-  available: {
-    icon: Radio,
-    role: 'available',
-    action: null,
-    actionIcon: FaCircle,
-    iconSize: 10,
-  },
+  [available ? 'available' : 'unavailable']: available
+    ? {
+        icon: Radio,
+        role: 'available',
+        action: null,
+        actionIcon: FaCircle,
+        iconSize: 10,
+      }
+    : unavailableInfo,
 } satisfies Record<string, ConnectionConfig>;
 
-export type ConnectionId = keyof typeof connections;
+export type ConnectionId = 'email' | 'linkedin' | 'available' | 'unavailable';
