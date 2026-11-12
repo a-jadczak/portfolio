@@ -20,12 +20,32 @@
       return document.documentElement.dataset.reducedMotion === 'true' || motion.matches;
     }
     let width = 1,
+      drawingWidth = 1440,
       height = 1,
       time = 0,
       previous = 0,
       frame = 0;
     let visible = true;
-    // Normalized ribbon positions keep the composition responsive.
+    // Keep ribbon geometry stable on narrow screens and crop it around the center.
+    let gradients: CanvasGradient[][] = [];
+    function refreshGradients() {
+      gradients = ribbons.map((ribbon, ribbonIndex) =>
+        Array.from({ length: ribbon.count }, (_, line) => {
+          const center = (ribbon.count - 1) / 2;
+          const strength = 1 - Math.abs(line - center) / (center + 1);
+          const alpha = 0.085 + strength * 0.24;
+          const color = colors[ribbonIndex];
+          const offset = (width - drawingWidth) / 2;
+          const gradient = context.createLinearGradient(offset, 0, offset + drawingWidth, 0);
+          gradient.addColorStop(0, `color-mix(in srgb, ${color} 0%, transparent)`);
+          gradient.addColorStop(0.18, `color-mix(in srgb, ${color} ${alpha * 100}%, transparent)`);
+          gradient.addColorStop(0.55, `color-mix(in srgb, ${color} ${alpha * 55}%, transparent)`);
+          gradient.addColorStop(0.84, `color-mix(in srgb, ${color} ${alpha * 100}%, transparent)`);
+          gradient.addColorStop(1, `color-mix(in srgb, ${color} 0%, transparent)`);
+          return gradient;
+        })
+      );
+    }
     const ribbons = [
       { base: 0.23, slope: 0.28, amplitude: 0.15, phase: 0.2, count: 19 },
       { base: 0.76, slope: -0.28, amplitude: 0.13, phase: 2.7, count: 17 },
@@ -41,10 +61,10 @@
     }
     function path(ribbon: (typeof ribbons)[number], index: number) {
       context.beginPath();
-      const steps = Math.ceil(width / 7);
+      const steps = Math.ceil(drawingWidth / 7);
       for (let i = 0; i <= steps; i++) {
         const u = i / steps;
-        const x = u * (width + 60) - 30;
+        const x = u * (drawingWidth + 60) - 30 + (width - drawingWidth) / 2;
         const y = point(u, ribbon, index);
         if (i === 0) context.moveTo(x, y);
         else context.lineTo(x, y);
@@ -61,17 +81,8 @@
         context.lineWidth = height * 0.11;
         context.stroke();
         for (let line = 0; line < ribbon.count; line++) {
-          const center = (ribbon.count - 1) / 2;
-          const strength = 1 - Math.abs(line - center) / (center + 1);
-          const gradient = context.createLinearGradient(0, 0, width, 0);
-          const alpha = 0.085 + strength * 0.24;
-          gradient.addColorStop(0, `color-mix(in srgb, ${color} 0%, transparent)`);
-          gradient.addColorStop(0.18, `color-mix(in srgb, ${color} ${alpha * 100}%, transparent)`);
-          gradient.addColorStop(0.55, `color-mix(in srgb, ${color} ${alpha * 55}%, transparent)`);
-          gradient.addColorStop(0.84, `color-mix(in srgb, ${color} ${alpha * 100}%, transparent)`);
-          gradient.addColorStop(1, `color-mix(in srgb, ${color} 0%, transparent)`);
           path(ribbon, line);
-          context.strokeStyle = gradient;
+          context.strokeStyle = gradients[ribbonIndex][line];
           context.lineWidth = line % 6 === 0 ? 1.05 : 0.6;
           context.stroke();
         }
@@ -93,6 +104,7 @@
       cancelAnimationFrame(frame);
       frame = 0;
       previous = 0;
+      refreshGradients();
       draw();
       if (visible && !document.hidden && !isReducedMotion()) frame = requestAnimationFrame(tick);
     }
@@ -101,10 +113,17 @@
       width = Math.max(1, box.width);
       height = Math.max(1, box.height);
       const dpr = Math.min(devicePixelRatio || 1, 2);
-      canvas.width = Math.round(width * dpr);
-      canvas.height = Math.round(height * dpr);
+      drawingWidth = Math.max(1440, width);
+      const pixelWidth = Math.round(width * dpr);
+      const pixelHeight = Math.round(height * dpr);
+      if (canvas.width !== pixelWidth) canvas.width = pixelWidth;
+      if (canvas.height !== pixelHeight) canvas.height = pixelHeight;
       context.setTransform(dpr, 0, 0, dpr, 0, 0);
-      sync();
+      refreshGradients();
+      draw();
+      if (!frame && visible && !document.hidden && !isReducedMotion()) {
+        frame = requestAnimationFrame(tick);
+      }
     });
     resize.observe(root);
     const visibility = new IntersectionObserver((entries) => {
