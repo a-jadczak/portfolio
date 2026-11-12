@@ -1,11 +1,11 @@
 {
   "header": {
     "navigation": {
-      "home": "Strona główna",
+      "home": "Główna",
       "about": "O mnie",
       "projects": "Projekty",
       "contact": "Kontakt",
-      "notFound": "Nie znaleziono",
+      "notFound": "Brak strony",
       "navigationLabel": "Nawigacja"
     },
     "settings": {
