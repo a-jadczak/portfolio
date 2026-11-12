@@ -1,9 +1,15 @@
 ---
+export const prerender = false;
+
 import BaseLayout from '@/app/layouts/BaseLayout.astro';
 import PageNotFound from '@/app/pages/not-found/PageNotFound.astro';
-import { defaultLanguage } from '@/i18n/config';
+
+const { lang, t } = Astro.locals.i18n;
+Astro.response.status = 404;
+Astro.response.headers.set('Cache-Control', 'private, no-store');
+Astro.response.headers.set('Content-Language', lang);
 ---
 
-<BaseLayout lang={defaultLanguage} pageHref="/404" title="404 — Page not found">
+<BaseLayout lang={lang} pageHref="/404" title={t.pages.notFound.title}>
   <PageNotFound />
 </BaseLayout>

@@ -152,7 +152,12 @@
         }
       }
     },
-    "notFound": {}
+    "notFound": {
+      "title": "404 — Nie znaleziono strony",
+      "description": "Ta strona zniknęła z radaru.",
+      "explanation": "Adres URL może być nieprawidłowy lub strona została przeniesiona.",
+      "backHome": "Wróć na stronę główną"
+    }
   },
   "footer": {
     "rightsReserved": "Wszelkie prawa zastrzeżone."

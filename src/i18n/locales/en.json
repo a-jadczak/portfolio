@@ -152,7 +152,12 @@
         }
       }
     },
-    "notFound": {}
+    "notFound": {
+      "title": "404 — Page not found",
+      "description": "This page went off the grid.",
+      "explanation": "The URL may be incorrect, or the page has moved somewhere else.",
+      "backHome": "Back to Home"
+    }
   },
   "footer": {
     "rightsReserved": "All rights reserved."

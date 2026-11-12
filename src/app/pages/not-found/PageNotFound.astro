@@ -4,20 +4,20 @@ import Heading from '@/components/ui/Heading/Heading';
 import Text from '@/components/ui/Text/Text';
 import { ArrowRight } from 'lucide-react';
 import styles from './PageNotFound.module.scss';
+
+const t = Astro.locals.i18n.t.pages.notFound;
 ---
 
 <section class={styles.container}>
   <header class={styles.header}>
     <Heading as="h1" size="large" className={styles.title}>404</Heading>
-    <Text size="large" className={styles.description}>This page went off the grid.</Text>
-    <Text variant="secondary" className={styles.secondary}
-      >The URL may be incorrect, or the page has moved somewhere else.</Text
-    >
+    <Text size="large" className={styles.description}>{t.description}</Text>
+    <Text variant="secondary" className={styles.secondary}>{t.explanation}</Text>
   </header>
 
   <div>
     <ButtonLink href="/" variant="primary" className={styles.button}>
-      <span>Back to Home</span>
+      <span>{t.backHome}</span>
       <ArrowRight size={26} aria-hidden="true" />
     </ButtonLink>
   </div>
