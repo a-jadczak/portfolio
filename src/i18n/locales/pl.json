@@ -148,13 +148,18 @@
         "label": "Szukaj projektów",
         "placeholder": "Szukaj projektów...",
         "countLabel": "Projekty: ",
-        "clearFilters": "Wyczyść filtry",
+        "clearFilters": "Resetuj filtry",
         "filters": "Filtry",
         "filterLabels": {
           "technologies": "Technologie",
           "types": "Typ projektu",
           "statuses": "Status"
         }
+      },
+      "filterDialog": {
+        "title": "Filtry",
+        "closeLabel": "Zamknij okno filtrów",
+        "resetFilters": "Resetuj filtry"
       },
       "projectCard": {
         "label": "Projekt",

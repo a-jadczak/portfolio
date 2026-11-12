@@ -4,11 +4,13 @@ import Divider from '@/components/ui/Divider/Divider';
 import { Button } from '@/components/ui/Button/Button';
 import Checkbox from '@/components/ui/Checkbox/Checkbox';
 import styles from './FilterDialog.module.scss';
+import { useTranslations } from '@/i18n/useTranslations';
 import { Fragment, type ChangeEvent } from 'react';
 import type { FilterKey } from '@/features/projects/types/FilterKey';
 import { useProjectFiltersContext } from '@/features/projects/context/ProjectFiltersContext';
 
 const FilterDialog = () => {
+  const t = useTranslations().t.pages.projects;
   const { selectedFilters, addFilterValue, removeFilterValue, resetFilterValues, filterGroups } =
     useProjectFiltersContext();
 
@@ -21,11 +23,17 @@ const FilterDialog = () => {
   };
 
   return (
-    <Dialog id="filter-dialog" title="Filter" titleId="filter-title" Icon={SlidersHorizontal}>
+    <Dialog
+      id="filter-dialog"
+      title={t.filterDialog.title}
+      titleId="filter-title"
+      closeLabel={t.filterDialog.closeLabel}
+      Icon={SlidersHorizontal}
+    >
       <Divider />
-      {filterGroups.map(({ id, label, category, options }) => (
+      {filterGroups.map(({ id, category, options }) => (
         <Fragment key={id}>
-          <div id={`${id}-label`}>{label}</div>
+          <div id={`${id}-label`}>{t.search.filterLabels[category]}</div>
           <div
             className={styles.checkboxContainer}
             id={id}
@@ -46,7 +54,7 @@ const FilterDialog = () => {
       ))}
       <div className={styles.buttonsContainer}>
         <Button onClick={resetFilterValues} variant="link">
-          Reset filters
+          {t.filterDialog.resetFilters}
         </Button>
       </div>
     </Dialog>

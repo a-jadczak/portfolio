@@ -156,6 +156,11 @@
           "statuses": "Status"
         }
       },
+      "filterDialog": {
+        "title": "Filters",
+        "closeLabel": "Close filter dialog",
+        "resetFilters": "Reset filters"
+      },
       "projectCard": {
         "label": "Project",
         "previewAlt": "Project preview image",
