@@ -40,6 +40,21 @@
     padding: 0.5rem;
     flex-shrink: 0;
     cursor: pointer;
+    transition: $transition-duration $transition-easing;
+
+    @media (hover: hover) {
+      &:hover {
+        border-color: $primary;
+        color: $primary;
+        background-color: $surface-hover;
+      }
+    }
+
+    &:focus-within {
+      border-color: $primary;
+      color: $primary;
+      background-color: $surface-hover;
+    }
 
     a {
       text-decoration: none;

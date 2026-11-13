@@ -49,11 +49,28 @@
       border: 2px solid $border-secondary;
       overflow: hidden;
       cursor: pointer;
+      transition: border-color $transition-duration $transition-easing;
+
+      img {
+        transition: transform $transition-duration $transition-easing;
+      }
+
+      &:not([data-active='true']):hover {
+        border-color: $primary;
+
+        img {
+          transform: scale(1.05);
+        }
+      }
     }
 
     .galleryItem[data-active='true'] {
       border-color: $primary;
       cursor: default;
+
+      img {
+        transform: scale(1.05);
+      }
     }
   }
 
