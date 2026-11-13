@@ -1,0 +1,69 @@
+@use '@/styles/tokens' as *;
+@use '@/styles/breakpoints' as bp;
+
+.body {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+.app {
+  isolation: isolate;
+  width: min(100%, bp.$breakpoint-desktop-lg);
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  @include bp.desktop {
+    margin-inline: 1rem;
+  }
+}
+
+.main {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  border: 1px solid $border-secondary;
+  border-top: 0;
+  padding: 0.5rem;
+
+  @include bp.desktop {
+    border-right: 0;
+
+    &:has([data-ignore-padding]) {
+      padding: 0;
+      border-bottom: 0;
+    }
+  }
+}
+
+.notchedBorder {
+  display: none;
+  @include bp.desktop {
+    display: block;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  width: min(100%, bp.$breakpoint-desktop-md);
+
+  @include bp.desktop {
+    padding-inline: 1rem;
+
+    &:has([data-ignore-padding]) {
+      width: 100%;
+      padding: 0;
+    }
+  }
+}
