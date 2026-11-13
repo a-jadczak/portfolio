@@ -33,7 +33,9 @@
   applyAccentColor();
 
   // Astro ClientRouter navigation
-  document.addEventListener('astro:after-swap', applyTheme);
-  document.addEventListener('astro:after-swap', applyReduceMotion);
-  document.addEventListener('astro:after-swap', applyAccentColor);
+  document.addEventListener('astro:after-swap', () => {
+    applyTheme();
+    applyReduceMotion();
+    applyAccentColor();
+  });
 </script>

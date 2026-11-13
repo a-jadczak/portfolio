@@ -9,6 +9,11 @@ interface Props {
   className?: string;
 }
 
+const setReducedMotion = (isChecked: boolean) => {
+  document.documentElement.dataset.reducedMotion = String(isChecked);
+  localStorage.setItem('reduceMotion', String(isChecked));
+};
+
 const ReduceMotionControlContent = ({ className }: Props) => {
   const t = useTranslations().t.settingsDialog.reduceMotion;
   const [preferReducedMotion, setPreferReducedMotion] = useState<Nullable<boolean>>(null);
@@ -28,10 +33,7 @@ const ReduceMotionControlContent = ({ className }: Props) => {
       className={className}
       disabled={window.matchMedia('(prefers-reduced-motion: reduce)').matches}
       defaultChecked={preferReducedMotion}
-      onChange={(isChecked) => {
-        document.documentElement.dataset.reducedMotion = String(isChecked);
-        localStorage.setItem('reduceMotion', String(isChecked));
-      }}
+      onChange={setReducedMotion}
     />
   );
 };
