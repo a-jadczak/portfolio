@@ -8,7 +8,7 @@ import Dialog from '@/components/ui/Dialog/Dialog';
 import LanguageControl from '@/features/settings/components/LanguageControl/LanguageControl';
 import Divider from '@/components/ui/Divider/Divider';
 import Text from '@/components/ui/Text/Text';
-import { Button } from '@/components/ui/Button/Button';
+import ResetSettingsButton from '@/features/settings/components/ResetSettingsButton/ResetSettingsButton';
 import ReduceMotionControl from '@/features/settings/components/ReduceMotionControl/ReduceMotionControl';
 
 const { lang, t } = Astro.locals.i18n;
@@ -37,7 +37,7 @@ const { lang, t } = Astro.locals.i18n;
   <SettingsField title={t.settingsDialog.accentColor.label}>
     <ColorPickerList lang={lang} client:load />
   </SettingsField>
-  <Button className={styles.systemPreferencesButton} variant="link">
+  <ResetSettingsButton client:load className={styles.systemPreferencesButton} variant="link">
     {t.settingsDialog.useSystemPreferences}
-  </Button>
+  </ResetSettingsButton>
 </Dialog>

@@ -1,6 +1,8 @@
 import type { Language } from '@/types/Language';
+import { refreshCurrentPage } from '@/utils/refreshCurrentPage';
 import { defaultLanguage, isLanguageSupported } from './config';
 import { resources } from '.';
+import { openDialog } from '@/utils/dialog';
 
 export function getLangFromUrl(url: URL): Language {
   // Astro renders static variants at /localized/{lang}/ during the build.
@@ -21,15 +23,5 @@ export async function switchLanguage(lang: Language) {
     sameSite: 'lax',
   });
 
-  const { pathname, search, hash } = window.location;
-  const path = pathname + search;
-
-  // A same-page destination with a hash only scrolls in Astro's router.
-  // Fetch the page without the hash, then restore it without another navigation.
-  const { navigate } = await import('astro:transitions/client');
-  await navigate(path, { history: 'replace' });
-
-  if (hash && window.location.pathname + window.location.search === path) {
-    window.history.replaceState(window.history.state, '', path + hash);
-  }
+  await refreshCurrentPage(() => openDialog('settings-dialog'));
 }
