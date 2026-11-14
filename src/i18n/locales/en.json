@@ -16,32 +16,32 @@
   "pages": {
     "home": {
       "hero": {
-        "role": "Software Engineer",
-        "title": "Building modern software.",
+        "role": "Software Developer",
+        "title": "Building applications that matter.",
         "description": {
-          "before": "I focus on building",
+          "before": "I focus on developing",
           "highlight": "blazingly fast",
-          "after": ", accessible and well-crafted web applications with clean, maintainable code."
+          "after": " web applications with a focus on accessibility and ease of use. Thoughtful solutions and code that is easy to build on are central to my approach."
         },
         "viewProjects": "View Projects",
         "contactMe": "Contact me"
       },
       "productApproach": {
-        "title": "Product Approach",
+        "title": "My approach to projects",
         "discover": {
-          "eyebrow": "Discover",
-          "title": "Understand the problem",
-          "description": "Know the users, their needs, and how they work."
+          "eyebrow": "Analysis",
+          "title": "Understand the needs",
+          "description": "Every project starts with understanding the problem and what users really need."
         },
         "define": {
-          "eyebrow": "Define",
-          "title": "Define the solution",
-          "description": "Identify the right solution to meet user needs."
+          "eyebrow": "Planning",
+          "title": "Plan the solution",
+          "description": "User needs guide my choice of features and technologies."
         },
         "deliver": {
-          "eyebrow": "Deliver",
-          "title": "Deliver the product",
-          "description": "Build and ship the product to users."
+          "eyebrow": "Development",
+          "title": "Build and improve",
+          "description": "I bring ideas to life, test solutions, and refine the details."
         }
       }
     },
@@ -54,14 +54,14 @@
         "education": "Education"
       },
       "aboutMe": {
-        "description": "I'm a software developer focused on building modern web applications and exploring technologies in the IT industry.",
-        "availability": "Currently searching for my first job.",
+        "description": "I'm a software developer who enjoys turning ideas into working applications. My focus is on building clear, easy-to-use websites and web applications while continually developing my skills.",
+        "availability": "",
         "locationLabel": "Location",
         "location": "Poland / Remote",
-        "statusLabel": "Status",
+        "statusLabel": "Availability",
         "status": "Open to opportunities",
         "languagesLabel": "Languages",
-        "languages": "Polish / English"
+        "languages": "Polish · English"
       },
       "techStack": {
         "categories": {
@@ -70,7 +70,7 @@
           "tools": "Tools",
           "testing": "Testing",
           "AI": "AI",
-          "others": "Others",
+          "others": "Other technologies",
           "familiar with": "Familiar with"
         },
         "iconLabel": "Icon"
@@ -78,65 +78,65 @@
       "values": {
         "uiUx": {
           "title": "UI / UX",
-          "description": "Creating clean, intuitive, and user-friendly interfaces that are easy to navigate."
+          "description": "Clear, intuitive interfaces make applications easy to use without unnecessary complexity."
         },
         "performance": {
           "title": "Performance",
-          "description": "Making websites fast, responsive, and smooth to use on different devices."
+          "description": "Fast, smooth performance across different devices is a priority in my work."
         },
         "accessibility": {
           "title": "Accessibility",
-          "description": "Making websites easy to use for everyone, including people with disabilities."
+          "description": "I aim to build applications that are accessible to everyone, regardless of their abilities or how they use the internet."
         },
         "testing": {
           "title": "Testing",
-          "description": "Checking that applications work correctly and preventing bugs before they reach users."
+          "description": "Testing helps me check that applications work correctly and catch bugs before they reach users."
         },
         "scalableCode": {
-          "title": "Scalable code",
-          "description": "Writing code that is easy to maintain, improve, and expand as projects grow."
+          "title": "Readable code",
+          "description": "My goal is code that is easy to understand, maintain, and build on."
         },
         "seo": {
           "title": "SEO",
-          "description": "Making websites easier to find through search engines like Google."
+          "description": "Preparing websites for search engine indexing is part of my development process."
         }
       },
       "workflow": {
         "identify": {
-          "title": "Identify the problem",
-          "description": "I identify the problem, gather requirements, and define the scope of the project."
+          "title": "Problem identification",
+          "description": "The process starts with a client conversation or an exploration of my own idea, helping me understand the problem, user needs, and project goals."
         },
         "planning": {
-          "title": "Idea & Planning",
-          "description": "I start with an idea, research possible solutions, and plan application features, the tech stack, and design elements with the help of ChatGPT."
+          "title": "Planning and architecture",
+          "description": "With the goals clear, I define features, choose technologies, and plan the application structure, then break the work into tasks and set priorities."
         },
         "design": {
-          "title": "UI/UX Design",
-          "description": "I experiment with generate visual concepts using AI before implementing them."
+          "title": "Interface design",
+          "description": "Experimenting with layouts and visual concepts helps me explore design ideas, with AI tools providing additional inspiration."
         },
         "development": {
           "title": "Development",
-          "description": "I turn plans and designs into working applications, using Trello to organize development tasks and track progress."
+          "description": "Plans become a working application, with task management tools helping me organize the work and track progress."
         },
         "testing": {
           "title": "Testing",
-          "description": "I test functionality, fix issues, and improve performance, accessibility, and user experience."
+          "description": "Testing covers functionality, bug fixes, and improvements to performance, accessibility, and ease of use."
         },
         "implementation": {
-          "title": "Implementation",
-          "description": "I implement the application, ensuring it meets the requirements and performs well under typical usage scenarios."
+          "title": "Deployment",
+          "description": "Before release, I prepare the application and configure the environment, then check that everything works after deployment."
         },
         "maintenance": {
-          "title": "Maintenance",
-          "description": "I monitor the application, fix bugs, and make updates to keep it running smoothly and securely."
+          "title": "Maintenance and development",
+          "description": "After launch, I monitor the application and continue improving it based on new needs and user feedback."
         }
       },
       "education": {
         "technicalSchool": {
           "period": "2021 – 2026",
           "title": "Zespół Szkół Technicznych i Branżowych (ZSTiB)",
-          "subtitle": "Technician Programmer",
-          "description": "Built a solid foundation in programming, web technologies and problem solving."
+          "subtitle": "Programming Technician",
+          "description": "My studies gave me a solid foundation in programming and problem-solving across different areas of software development."
         },
         "university": {
           "period": "2026 – Present",
@@ -148,9 +148,9 @@
     },
     "projects": {
       "hero": {
-        "eyebrow": "Project archive",
+        "eyebrow": "My work",
         "title": "Explore my projects",
-        "description": "Search, filter, and open any project to see the full story."
+        "description": "See what I've worked on, the technologies I've used, and what I've learned along the way."
       },
       "search": {
         "label": "Search projects",
@@ -179,13 +179,13 @@
         "closeLabel": "Close project dialog",
         "sectionsLabel": "Project sections",
         "liveDemo": "Live demo",
-        "repository": "GitHub repository",
+        "repository": "GitHub",
         "missingDescription": "This project doesn't contain a description ☹️",
         "metadata": {
-          "unknown": "Unknown",
+          "unknown": "No data",
           "labels": {
             "type": "Type",
-            "createdAt": "Created At",
+            "createdAt": "Year",
             "status": "Status",
             "license": "License"
           }
@@ -213,35 +213,35 @@
     },
     "contact": {
       "hero": {
-        "eyebrow": "Get in touch",
-        "title": "Have a question?",
-        "description": "I would be happy to answer your questions and discuss"
+        "eyebrow": "Send me a message",
+        "title": "Let's talk!",
+        "description": "Have a question, a project idea, or a collaboration proposal?\n Send me a message, and I'll reply as soon as possible."
       },
       "form": {
         "label": "Contact form",
         "formFields": {
           "name": {
-            "label": "Name",
-            "placeholder": "Name"
+            "label": "Full name",
+            "placeholder": "John Pork"
           },
           "email": {
-            "label": "Email",
-            "placeholder": "Email"
+            "label": "Email address",
+            "placeholder": "you@example.com"
           },
           "subject": {
             "label": "Subject",
-            "placeholder": "Subject"
+            "placeholder": "Message subject"
           },
           "message": {
             "label": "Message",
-            "placeholder": "Message"
+            "placeholder": "Your message..."
           }
         },
         "message": {
           "idle": "Send message",
           "loading": "Sending...",
           "success": "Message sent!",
-          "error": "Failed to send. Try again"
+          "error": "Failed to send the message."
         }
       },
       "connect": {
@@ -249,22 +249,22 @@
         "cards": {
           "email": {
             "title": "Email",
-            "description": "Drop me a message anytime.",
+            "description": "Prefer to email me directly? I look forward to hearing from you.",
             "actionLabel": "arkadiusz.jadczak7@gmail.com"
           },
           "linkedin": {
             "title": "LinkedIn",
-            "description": "Connect with me on LinkedIn.",
-            "actionLabel": "Connect with me"
+            "description": "Find me on LinkedIn, and let's connect.",
+            "actionLabel": "View profile"
           },
           "available": {
             "title": "Available",
-            "description": "Let's collaborate\nRemote · Poland",
+            "description": "Open to new career opportunities.\nRemote · Poland",
             "actionLabel": "Open to opportunities"
           },
           "unavailable": {
             "title": "Unavailable",
-            "description": "Currently focused on other projects\nRemote · Poland",
+            "description": "Currently focused on something else.",
             "actionLabel": "Not open to opportunities"
           }
         }
