@@ -21,10 +21,6 @@ const View = currentPage.view;
 const { t } = Astro.locals.i18n;
 ---
 
-<BaseLayout
-  lang={lang}
-  pageHref={currentPage.href}
-  title={t.header.navigation[currentPage.name]}
->
+<BaseLayout lang={lang} pageHref={currentPage.href} title={t.header.navigation[currentPage.name]}>
   <View />
 </BaseLayout>
