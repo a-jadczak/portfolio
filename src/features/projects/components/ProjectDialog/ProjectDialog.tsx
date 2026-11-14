@@ -63,19 +63,32 @@ const ProjectLinks = ({ homepageUrl, repositoryUrl }: ProjectLinksProps) => {
   );
 };
 
-const ProjectDialogContent = ({ projects }: Omit<Props, 'lang'>) => {
+const ProjectDialogContent = ({ projects, lang }: Props) => {
   const t = useTranslations().t.pages.projects.projectDialog;
   const selectedProjectId = useStore($openedProject);
   const currentProjectIndex = projects.findIndex((project) => project.id === selectedProjectId);
   const currentProjectData = projects[currentProjectIndex];
 
-  const { id, name, homepageUrl, url, readme, metadata, description, createdAt, licenseInfo } =
-    currentProjectData ?? {
-      createdAt: new Date(),
-      licenseInfo: { name: '' },
-      metadata: null,
-      readme: null,
-    };
+  const {
+    id,
+    name,
+    homepageUrl,
+    url,
+    readme,
+    readmePL,
+    metadata,
+    description,
+    descriptionPL,
+    createdAt,
+    licenseInfo,
+  } = currentProjectData ?? {
+    createdAt: new Date(),
+    licenseInfo: { name: '' },
+    metadata: null,
+    readme: null,
+  };
+  const finalDescription = lang === 'pl' && descriptionPL ? descriptionPL : description;
+  const finalReadme = lang === 'pl' && readmePL ? readmePL : readme;
 
   return (
     <Dialog
@@ -89,7 +102,7 @@ const ProjectDialogContent = ({ projects }: Omit<Props, 'lang'>) => {
         <div className={styles.metadata}>
           <Heading as="h3">{name}</Heading>
           <Text className={styles.description} variant="secondary" size="small">
-            {description}
+            {finalDescription}
           </Text>
 
           <div className={styles.metaContainer}>
@@ -121,10 +134,10 @@ const ProjectDialogContent = ({ projects }: Omit<Props, 'lang'>) => {
         )}
       </div>
 
-      {readme ? (
+      {finalReadme ? (
         <div key={id} className={styles.container}>
-          <NavigationCarousel headings={readme.headings} />
-          <Readme html={readme.html} />
+          <NavigationCarousel headings={finalReadme.headings} />
+          <Readme html={finalReadme.html} />
         </div>
       ) : (
         <div className={styles.container} style={{ textAlign: 'center' }}>
@@ -137,7 +150,7 @@ const ProjectDialogContent = ({ projects }: Omit<Props, 'lang'>) => {
 
 const ProjectDialog = ({ lang, ...props }: Props) => (
   <LanguageProvider lang={lang}>
-    <ProjectDialogContent {...props} />
+    <ProjectDialogContent {...props} lang={lang} />
   </LanguageProvider>
 );
 

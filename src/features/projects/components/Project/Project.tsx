@@ -13,21 +13,25 @@ import Divider from '@/components/ui/Divider/Divider';
 import { DEFAULT_PROJECT_ACCENT_COLOR } from '@/config/projects';
 import { $openedProject } from '@/stores/openedProject';
 import { useTranslations } from '@/i18n/useTranslations';
+import type { Language } from '@/types/Language';
 
 const VISIBLE_TECHNOLOGY_COUNT = 3;
 
 interface Props {
   projectData: GithubProject<ProjectMetadata, Readme>;
+  lang: Language;
   horizontalOnDesktop?: boolean;
 }
 
-const Project = ({ projectData, horizontalOnDesktop = false }: Props) => {
+const Project = ({ projectData, lang, horizontalOnDesktop = false }: Props) => {
   const t = useTranslations().t.pages.projects.projectCard;
-  const { name, id, description, metadata } = projectData;
+  const { name, id, description, descriptionPL, metadata } = projectData;
   const { technologies, banner } = metadata ?? {
     technologies: [],
     banner: '/images/missing-image.png',
   };
+
+  const finalDescription = lang === 'pl' && descriptionPL ? descriptionPL : description;
 
   const technologyBadges = technologies.slice(0, VISIBLE_TECHNOLOGY_COUNT);
   const hiddenTechnologyCount = technologies.length - VISIBLE_TECHNOLOGY_COUNT;
@@ -53,7 +57,7 @@ const Project = ({ projectData, horizontalOnDesktop = false }: Props) => {
         </Heading>
 
         <Text variant="secondary" size="small">
-          {description}
+          {finalDescription}
         </Text>
         <ul className={styles.badgesList}>
           {technologyBadges.map((title) => (

@@ -17,7 +17,7 @@ interface Props {
   projectsFilterData: ProjectsFilterData;
 }
 
-const ProjectsSectionContent = ({ projects, projectsFilterData }: Omit<Props, 'lang'>) => {
+const ProjectsSectionContent = ({ projects, projectsFilterData, lang }: Props) => {
   const filters = useProjectFilters(projects, projectsFilterData);
 
   return (
@@ -27,7 +27,7 @@ const ProjectsSectionContent = ({ projects, projectsFilterData }: Omit<Props, 'l
 
         <ol className={styles.projectsList}>
           {filters.filteredProjects.map((project) => (
-            <Project key={project.id} projectData={project} />
+            <Project key={project.id} projectData={project} lang={lang} />
           ))}
         </ol>
       </div>
@@ -39,7 +39,7 @@ const ProjectsSectionContent = ({ projects, projectsFilterData }: Omit<Props, 'l
 
 const ProjectsSection = ({ lang, ...props }: Props) => (
   <LanguageProvider lang={lang}>
-    <ProjectsSectionContent {...props} />
+    <ProjectsSectionContent {...props} lang={lang} />
   </LanguageProvider>
 );
 
