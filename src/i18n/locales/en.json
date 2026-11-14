@@ -188,6 +188,19 @@
           "previousImage": "Previous image",
           "nextImage": "Next image"
         }
+      },
+      "keywords": {
+        "webApp": "Web application",
+        "desktopApp": "Desktop application",
+        "mobileApp": "Mobile application",
+        "website": "Website",
+        "library": "Library",
+        "cliTool": "CLI tool",
+        "game": "Game",
+        "other": "Other",
+        "completed": "Completed",
+        "inProgress": "In progress",
+        "archived": "Archived"
       }
     },
     "contact": {

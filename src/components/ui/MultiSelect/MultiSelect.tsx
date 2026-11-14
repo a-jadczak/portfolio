@@ -11,16 +11,17 @@ interface Option {
 
 interface Props {
   options: string[];
+  getOptionLabel?: (value: string) => string;
   placeholder?: string;
   value?: MultiValue<string>;
   onChange?: (selected: MultiValue<string>) => void;
 }
 
-const MultiSelect = ({ options, value, onChange, ...props }: Props) => {
+const MultiSelect = ({ options, value, onChange, getOptionLabel, ...props }: Props) => {
   const instanceId = useId();
   // Astro removes runtime styles on navigation, so a fresh cache reinserts them on mount.
   const [cache] = useState(() => createCache({ key: 'multi-select' }));
-  const toOption = (value: string): Option => ({ value, label: value });
+  const toOption = (value: string): Option => ({ value, label: getOptionLabel?.(value) ?? value });
 
   return (
     <CacheProvider value={cache}>

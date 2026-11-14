@@ -11,6 +11,7 @@ import { useProjectFiltersContext } from '@/features/projects/context/ProjectFil
 
 const FilterDialog = () => {
   const t = useTranslations().t.pages.projects;
+  const keywords: Readonly<Record<string, string>> = t.keywords;
   const { selectedFilters, addFilterValue, removeFilterValue, resetFilterValues, filterGroups } =
     useProjectFiltersContext();
 
@@ -43,7 +44,7 @@ const FilterDialog = () => {
             {options.map((option) => (
               <Checkbox
                 key={option}
-                label={option}
+                label={keywords[option] ?? option}
                 checked={selectedFilters[category].includes(option)}
                 onChange={(e) => handleCheckbox(e, category, option)}
               />

@@ -23,6 +23,8 @@ const SearchSection = () => {
     resetFilterValues,
   } = useProjectFiltersContext();
 
+  const keywords: Readonly<Record<string, string>> = t.keywords;
+
   const projectsCount = filteredProjects.length;
 
   const handleClick = () => {
@@ -54,6 +56,7 @@ const SearchSection = () => {
             <MultiSelect
               key={category}
               options={[...options]}
+              getOptionLabel={(option) => keywords[option] ?? option}
               placeholder={t.search.filterLabels[category]}
               value={selectedFilters[category]}
               onChange={(selected) => handleOnChange(selected, category)}
