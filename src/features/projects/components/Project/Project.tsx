@@ -20,10 +20,9 @@ const VISIBLE_TECHNOLOGY_COUNT = 3;
 interface Props {
   projectData: GithubProject<ProjectMetadata, Readme>;
   lang: Language;
-  horizontalOnDesktop?: boolean;
 }
 
-const Project = ({ projectData, lang, horizontalOnDesktop = false }: Props) => {
+const Project = ({ projectData, lang }: Props) => {
   const t = useTranslations().t.pages.projects.projectCard;
   const { name, id, description, descriptionPL, metadata } = projectData;
   const { technologies, banner } = metadata ?? {
@@ -43,7 +42,7 @@ const Project = ({ projectData, lang, horizontalOnDesktop = false }: Props) => {
 
   return (
     <li
-      className={`${styles.project} ${horizontalOnDesktop ? styles.horizontalOnDesktop : ''}`}
+      className={styles.project}
       style={
         { '--accent-color': metadata?.accentColor || DEFAULT_PROJECT_ACCENT_COLOR } as CSSProperties
       }
