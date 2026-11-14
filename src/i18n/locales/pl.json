@@ -102,9 +102,13 @@
         }
       },
       "workflow": {
+        "identify": {
+          "title": "Identyfikacja problemu",
+          "description": "Zaczynam od rozmowy z klientem lub analizy własnego pomysłu. Staram się zrozumieć problem, potrzeby użytkowników i cel projektu."
+        },
         "planning": {
-          "title": "Pomysł i planowanie",
-          "description": "Zaczynam od pomysłu lub potrzeby, którą chcę rozwiązać. Planuję funkcje aplikacji, dobieram technologie i zastanawiam się nad jej strukturą."
+          "title": "Planowanie i architektura",
+          "description": "Określam funkcjonalności, dobieram technologie i planuję strukturę aplikacji. Dzielę pracę na zadania i ustalam priorytety."
         },
         "design": {
           "title": "Projektowanie Interfejsu",
@@ -118,9 +122,13 @@
           "title": "Testowanie",
           "description": "Sprawdzam działanie aplikacji, naprawiam błędy i poprawiam jej wydajność, dostępność oraz wygodę obsługi."
         },
-        "polishing": {
-          "title": "Dopracowanie szczegółów",
-          "description": "Dopracowuję detale wizualne, animacje i interakcje, aby zapewnić spójne i przyjemne korzystanie z aplikacji."
+        "implementation": {
+          "title": "Wdrożenie",
+          "description": "Przygotowuję aplikację do publikacji, konfiguruję środowisko i sprawdzam jej działanie po wdrożeniu."
+        },
+        "maintenance": {
+          "title": "Utrzymanie i rozwój",
+          "description": "Monitoruję działanie aplikacji, wprowadzam poprawki i rozwijam ją na podstawie nowych potrzeb oraz opinii użytkowników."
         }
       },
       "education": {

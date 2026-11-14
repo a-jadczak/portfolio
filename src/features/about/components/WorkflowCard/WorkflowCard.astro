@@ -5,17 +5,27 @@ import Heading from '@/components/ui/Heading/Heading';
 import Text from '@/components/ui/Text/Text';
 import Timeline from '@/components/ui/Timeline/Timeline.astro';
 import TimelineItem from '@/components/ui/Timeline/TimelineItem.astro';
-import { CodeXml, FlaskConical, Lightbulb, MopSparkles, Palette } from 'lucide-react';
+import {
+  CodeXml,
+  FlaskConical,
+  Boxes,
+  MessagesSquare,
+  Palette,
+  RefreshCw,
+  Rocket,
+} from 'lucide-react';
 import styles from './WorkflowCard.module.scss';
 
 const t = Astro.locals.i18n.t.pages.about.workflow;
 
 const workflowCards = [
-  { id: 'planning', Icon: Lightbulb },
+  { id: 'identify', Icon: MessagesSquare },
+  { id: 'planning', Icon: Boxes },
   { id: 'design', Icon: Palette },
   { id: 'development', Icon: CodeXml },
   { id: 'testing', Icon: FlaskConical },
-  { id: 'polishing', Icon: MopSparkles },
+  { id: 'implementation', Icon: Rocket },
+  { id: 'maintenance', Icon: RefreshCw },
 ] as const;
 ---
 

@@ -102,6 +102,10 @@
         }
       },
       "workflow": {
+        "identify": {
+          "title": "Identify the problem",
+          "description": "I identify the problem, gather requirements, and define the scope of the project."
+        },
         "planning": {
           "title": "Idea & Planning",
           "description": "I start with an idea, research possible solutions, and plan application features, the tech stack, and design elements with the help of ChatGPT."
@@ -118,9 +122,13 @@
           "title": "Testing",
           "description": "I test functionality, fix issues, and improve performance, accessibility, and user experience."
         },
-        "polishing": {
-          "title": "Polishing & Final Touches",
-          "description": "I refine visual details, animations, and interactions to create a polished and consistent user experience."
+        "implementation": {
+          "title": "Implementation",
+          "description": "I implement the application, ensuring it meets the requirements and performs well under typical usage scenarios."
+        },
+        "maintenance": {
+          "title": "Maintenance",
+          "description": "I monitor the application, fix bugs, and make updates to keep it running smoothly and securely."
         }
       },
       "education": {
