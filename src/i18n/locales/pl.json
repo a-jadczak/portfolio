@@ -215,7 +215,7 @@
       "hero": {
         "eyebrow": "Napisz do mnie",
         "title": "Porozmawiajmy!",
-        "description": "Masz pytanie, pomysł na projekt lub propozycję współpracy? Napisz do mnie, a odpowiem tak szybko, jak to możliwe."
+        "description": "Masz pytanie, pomysł na projekt lub propozycję współpracy?\n Napisz do mnie, a odpowiem tak szybko, jak to możliwe."
       },
       "form": {
         "label": "Formularz kontaktowy",

@@ -1,5 +1,9 @@
 @use '@/styles/breakpoints' as bp;
 
+.description {
+  white-space: pre-line;
+}
+
 .header {
   display: flex;
   flex-direction: column;
