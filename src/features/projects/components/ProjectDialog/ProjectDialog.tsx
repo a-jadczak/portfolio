@@ -3,9 +3,6 @@ import { formatTwoDigitNumber } from '@/utils/formatTwoDigitNumber';
 import Heading from '@/components/ui/Heading/Heading';
 import Text from '@/components/ui/Text/Text';
 import styles from './ProjectDialog.module.scss';
-import { SquareArrowOutUpRight } from 'lucide-react';
-import { ButtonLink } from '@/components/ui/Button/ButtonLink';
-import { FaGithub } from 'react-icons/fa';
 import type { ProjectMetadata } from '@/types/ProjectMetadata';
 import type { GithubProject } from '@/types/GithubProject';
 import type { Readme as ReadmeData } from '@/types/Readme';
@@ -13,10 +10,10 @@ import { useStore } from '@nanostores/react';
 import Gallery from './components/Gallery/Gallery';
 import Readme from './components/Readme/Readme';
 import ProjectMeta from './components/ProjectMeta/ProjectMeta';
+import ProjectLinks from './components/ProjectLinks/ProjectLinks';
 import NavigationCarousel from './components/NavigationCarousel/NavigationCarousel';
 import Badge from '@/components/ui/Badge/Badge';
 import { $openedProject } from '@/stores/openedProject';
-import type { Nullable } from '@/types/Nullable';
 import { LanguageProvider } from '@/i18n/LanguageProvider';
 import type { Language } from '@/types/Language';
 import { useTranslations } from '@/i18n/useTranslations';
@@ -25,43 +22,6 @@ interface Props {
   lang: Language;
   projects: GithubProject<ProjectMetadata, ReadmeData>[];
 }
-
-interface ProjectLinksProps {
-  homepageUrl?: Nullable<string>;
-  repositoryUrl?: string;
-}
-
-const ProjectLinks = ({ homepageUrl, repositoryUrl }: ProjectLinksProps) => {
-  const t = useTranslations().t.pages.projects.projectDialog;
-  return (
-    <div className={styles.buttonsContainerWrapper}>
-      <div className={styles.buttonsContainer}>
-        {homepageUrl && (
-          <ButtonLink
-            className={styles.button}
-            variant="primary"
-            href={homepageUrl}
-            target="_blank"
-          >
-            <span>{t.liveDemo}</span>
-            <SquareArrowOutUpRight size={16} />
-          </ButtonLink>
-        )}
-        {repositoryUrl && (
-          <ButtonLink
-            className={styles.button}
-            variant="default"
-            href={repositoryUrl}
-            target="_blank"
-          >
-            <span>{t.repository}</span>
-            <FaGithub size={16} />
-          </ButtonLink>
-        )}
-      </div>
-    </div>
-  );
-};
 
 const ProjectDialogContent = ({ projects, lang }: Props) => {
   const t = useTranslations().t.pages.projects.projectDialog;
