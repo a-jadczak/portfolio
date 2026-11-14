@@ -1,3 +1,4 @@
+import type { Nullable } from './Nullable';
 import type { ProjectMetadata, RawProjectMetadata } from './ProjectMetadata';
 import type { RawReadme, Readme } from './Readme';
 
@@ -11,7 +12,7 @@ export interface PinnedProject {
 
 export interface GithubProject<T extends MetadataType, Y extends ReadmeType> extends PinnedProject {
   description: string;
-  homepageUrl: string | null;
+  homepageUrl: Nullable<string>;
   url: string;
   createdAt: Date;
   licenseInfo: {
@@ -20,6 +21,7 @@ export interface GithubProject<T extends MetadataType, Y extends ReadmeType> ext
   };
   owner: { login: string };
   defaultBranchRef: { name: string };
-  metadata: T | null;
-  readme: Y | null;
+  metadata: Nullable<T>;
+  readme: Nullable<Y>;
+  readmePL: Nullable<Y>;
 }

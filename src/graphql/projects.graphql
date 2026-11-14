@@ -42,6 +42,12 @@ query PortfolioProjects {
             text
           }
         }
+
+        readmePL: object(expression: "HEAD:.github/assets/README_PL.md") {
+          ... on Blob {
+            text
+          }
+        }
       }
     }
   }

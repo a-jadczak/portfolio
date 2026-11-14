@@ -3,10 +3,11 @@ import type { ProjectMetadata, RawProjectMetadata } from '@/types/ProjectMetadat
 import type { RawReadme } from '@/types/Readme';
 import YAML from 'yaml';
 import { DEFAULT_PROJECT_ACCENT_COLOR } from '@/config/projects';
+import type { Nullable } from '@/types/Nullable';
 
 export const parseMetadata = (
   project: GithubProject<RawProjectMetadata, RawReadme>
-): ProjectMetadata | null => {
+): Nullable<ProjectMetadata> => {
   if (!project.metadata) return null;
 
   const metadata: ProjectMetadata = YAML.parse(project.metadata.text);

@@ -7,6 +7,7 @@ import type { ProjectMetadata, RawProjectMetadata } from '@/types/ProjectMetadat
 import type { RawReadme, Readme } from '@/types/Readme';
 import { parseReadme } from '@/utils/parseReadme';
 import type { ProjectsFilterData } from '@/types/ProjectsFilterData';
+import type { Nullable } from '@/types/Nullable';
 
 interface ProjectsSchema {
   viewer: {
@@ -19,12 +20,12 @@ interface ProjectsSchema {
   };
 }
 
-let projectsData: {
+let projectsData: Nullable<{
   featuredProjects: GithubProject<ProjectMetadata, Readme>[];
   projects: GithubProject<ProjectMetadata, Readme>[];
-} | null = null;
+}> = null;
 
-let projectsFilterData: ProjectsFilterData | null = null;
+let projectsFilterData: Nullable<ProjectsFilterData> = null;
 
 async function fetchProjects() {
   const { viewer } = await githubGraphQL<ProjectsSchema>(projectsQuery);
@@ -32,11 +33,12 @@ async function fetchProjects() {
     viewer.pinnedItems.nodes.map((project, index) => [project.id, index])
   );
 
-  const projects = viewer.repositories.nodes
+  const projects: GithubProject<ProjectMetadata, Readme>[] = viewer.repositories.nodes
     .map((project) => ({
       ...project,
       metadata: parseMetadata(project),
-      readme: parseReadme(project),
+      readme: parseReadme(project.readme),
+      readmePL: parseReadme(project.readmePL),
     }))
     .sort(
       (a, b) =>
