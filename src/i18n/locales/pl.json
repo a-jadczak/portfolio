@@ -17,31 +17,31 @@
     "home": {
       "hero": {
         "role": "Programista",
-        "title": "Tworze nowoczesne oprogramowanie.",
+        "title": "Tworzę aplikacje, które mają znaczenie.",
         "description": {
-          "before": "Skupiam się na tworzeniu błyskawicznie szybkich",
+          "before": "Projektuję i rozwijam nowoczesne aplikacje internetowe, dbając o ich wydajność, dostępność i wygodę użytkowania.",
           "highlight": "",
-          "after": ", dostępnych i dopracowanych aplikacji internetowych z przejrzystym kodem, który łatwo utrzymać."
+          "after": "Stawiam na przemyślane rozwiązania i kod, który łatwo rozwijać."
         },
         "viewProjects": "Projekty",
         "contactMe": "Kontakt"
       },
       "productApproach": {
-        "title": "Podejście do produktu",
+        "title": "Moje podejście do projektów",
         "discover": {
-          "eyebrow": "Odkryj",
-          "title": "Zrozum problem",
-          "description": "Poznaj użytkowników, ich potrzeby i sposób pracy."
+          "eyebrow": "Analiza",
+          "title": "Poznaję potrzeby",
+          "description": "Zaczynam od zrozumienia problemu i tego, czego naprawdę potrzebują użytkownicy."
         },
         "define": {
-          "eyebrow": "Zdefiniuj",
-          "title": "Zdefiniuj rozwiązanie",
-          "description": "Określ funkcje, które rozwiążą problem użytkownika."
+          "eyebrow": "Planowanie",
+          "title": "Planuje rozwiązanie",
+          "description": "Dobieram funkcjonalności i technologie, które najlepiej odpowiadają na te potrzeby."
         },
         "deliver": {
-          "eyebrow": "Dostarcz",
-          "title": "Dostarcz produkt",
-          "description": "Wdrażaj i testuj rozwiązania, aby upewnić się, że spełniają potrzeby użytkowników."
+          "eyebrow": "Realizacja",
+          "title": "Tworzę i ulepszam",
+          "description": "Wdrażam pomysły w życie, testuję rozwiązania i dopracowuję szczegóły."
         }
       }
     },
@@ -54,14 +54,14 @@
         "education": "Wykształcenie"
       },
       "aboutMe": {
-        "description": "Jestem programistą skupionym na tworzeniu nowoczesnych aplikacji internetowych i poznawaniu technologii w branży IT.",
-        "availability": "Obecnie szukam pierwszej pracy.",
+        "description": "Jestem programistą, który lubi zamieniać pomysły w działające aplikacje. Skupiam się na tworzeniu przejrzystych i wygodnych w obsłudze stron oraz aplikacji internetowych, stale rozwijając swoje umiejętności.",
+        "availability": "",
         "locationLabel": "Lokalizacja",
         "location": "Polska / Zdalnie",
-        "statusLabel": "Status",
-        "status": "Otwarty na propozycje",
+        "statusLabel": "Dostępność",
+        "status": "Otwarty na oferty",
         "languagesLabel": "Języki",
-        "languages": "Polski / Angielski"
+        "languages": "Polski · Angielski"
       },
       "techStack": {
         "categories": {
@@ -70,7 +70,7 @@
           "tools": "Narzędzia",
           "testing": "Testowanie",
           "AI": "AI",
-          "others": "Pozostałe",
+          "others": "Inne technologie",
           "familiar with": "Miałem styczność z"
         },
         "iconLabel": "Ikona"
@@ -78,45 +78,45 @@
       "values": {
         "uiUx": {
           "title": "UI / UX",
-          "description": "Tworzenie przejrzystych, intuicyjnych i przyjaznych interfejsów, po których łatwo się poruszać."
+          "description": "Projektuję przejrzyste i intuicyjne interfejsy, z których korzysta się wygodnie i bez zbędnych komplikacji."
         },
         "performance": {
           "title": "Wydajność",
-          "description": "Tworzenie szybkich, responsywnych stron, które działają płynnie na różnych urządzeniach."
+          "description": "Dbam o szybkość działania i płynność aplikacji na różnych urządzeniach."
         },
         "accessibility": {
           "title": "Dostępność",
-          "description": "Tworzenie stron łatwych w obsłudze dla każdego, w tym osób z niepełnosprawnościami."
+          "description": "Staram się tworzyć aplikacje dostępne dla wszystkich, niezależnie od ich możliwości i sposobu korzystania z internetu."
         },
         "testing": {
           "title": "Testowanie",
-          "description": "Sprawdzanie poprawności działania aplikacji i wykrywanie błędów, zanim trafią do użytkowników."
+          "description": "Sprawdzam działanie aplikacji i wychwytuję błędy, zanim trafią do użytkowników."
         },
         "scalableCode": {
-          "title": "Skalowalny kod",
-          "description": "Pisanie kodu, który łatwo utrzymywać, ulepszać i rozwijać wraz z projektem."
+          "title": "Czytelny kod",
+          "description": "Staram się pisać kod, który jest łatwy do zrozumienia, utrzymania i dalszego rozwijania."
         },
         "seo": {
           "title": "SEO",
-          "description": "Ułatwianie znajdowania stron w wyszukiwarkach takich jak Google."
+          "description": "Dbam o to, aby strony były dobrze przygotowane do indeksowania przez wyszukiwarki."
         }
       },
       "workflow": {
         "planning": {
           "title": "Pomysł i planowanie",
-          "description": "Zaczynam od pomysłu, analizuję możliwe rozwiązania i z pomocą ChatGPT planuję funkcje aplikacji, technologie oraz elementy projektu."
+          "description": "Zaczynam od pomysłu lub potrzeby, którą chcę rozwiązać. Planuję funkcje aplikacji, dobieram technologie i zastanawiam się nad jej strukturą."
         },
         "design": {
-          "title": "Projektowanie UI/UX",
-          "description": "Eksperymentuję z generowaniem koncepcji wizualnych przy użyciu AI, zanim przejdę do ich realizacji."
+          "title": "Projektowanie Interfejsu",
+          "description": "Eksperymentuję z układami i koncepcjami wizualnymi, wykorzystując również narzędzia AI do szukania inspiracji."
         },
         "development": {
           "title": "Programowanie",
-          "description": "Zamieniam plany i projekty w działające aplikacje, korzystając z Trello do organizowania zadań i śledzenia postępów."
+          "description": "Przekładam plany na działającą aplikację. Korzystam z programów do organizowania zadań i śledzenia postępów."
         },
         "testing": {
           "title": "Testowanie",
-          "description": "Testuję funkcje, naprawiam błędy oraz poprawiam wydajność, dostępność i wygodę użytkowania."
+          "description": "Sprawdzam działanie aplikacji, naprawiam błędy i poprawiam jej wydajność, dostępność oraz wygodę obsługi."
         },
         "polishing": {
           "title": "Dopracowanie szczegółów",
@@ -128,7 +128,7 @@
           "period": "2021 – 2026",
           "title": "Zespół Szkół Technicznych i Branżowych (ZSTiB)",
           "subtitle": "Technik programista",
-          "description": "Zdobyłem solidne podstawy programowania, technologii internetowych i rozwiązywania problemów."
+          "description": "Zdobyłem solidne podstawy programowania i rozwiązywania problemów w różnych w różnych obszarach tworzenia oprogramowania."
         },
         "university": {
           "period": "2026 – obecnie",
@@ -140,9 +140,9 @@
     },
     "projects": {
       "hero": {
-        "eyebrow": "Archiwum projektów",
+        "eyebrow": "Moje realizacje",
         "title": "Poznaj moje projekty",
-        "description": "Wyszukuj, filtruj i otwieraj projekty, aby poznać ich szczegóły."
+        "description": "Zobacz, nad czym pracowałem, jakich technologii używałem i czego nauczyłem się po drodze."
       },
       "search": {
         "label": "Szukaj projektów",
@@ -171,13 +171,13 @@
         "closeLabel": "Zamknij okno projektu",
         "sectionsLabel": "Sekcje projektu",
         "liveDemo": "Zobacz demo",
-        "repository": "Repozytorium GitHub",
+        "repository": "GitHub",
         "missingDescription": "Ten projekt nie zawiera opisu ☹️",
         "metadata": {
           "unknown": "Brak danych",
           "labels": {
             "type": "Typ",
-            "createdAt": "Rok utworzenia",
+            "createdAt": "Rok",
             "status": "Status",
             "license": "Licencja"
           }
@@ -205,58 +205,58 @@
     },
     "contact": {
       "hero": {
-        "eyebrow": "Masz pytania?",
-        "title": "Skontaktuj się ze mną",
-        "description": "Chętnie odpowiem na Twoje pytania i omówię"
+        "eyebrow": "Napisz do mnie",
+        "title": "Porozmawiajmy!",
+        "description": "Masz pytanie, pomysł na projekt lub propozycję współpracy? Napisz do mnie, a odpowiem tak szybko, jak to możliwe."
       },
       "form": {
         "label": "Formularz kontaktowy",
         "formFields": {
           "name": {
             "label": "Imię i nazwisko",
-            "placeholder": "Imię i nazwisko"
+            "placeholder": "Jan Kowalski"
           },
           "email": {
             "label": "Adres e-mail",
-            "placeholder": "Adres e-mail"
+            "placeholder": "twój@email.pl"
           },
           "subject": {
             "label": "Temat",
-            "placeholder": "Temat"
+            "placeholder": "Temat wiadomości"
           },
           "message": {
             "label": "Wiadomość",
-            "placeholder": "Wiadomość"
+            "placeholder": "Treść wiadomości..."
           }
         },
         "message": {
-          "idle": "Wyślij",
+          "idle": "Wyślij wiadomość",
           "loading": "Wysyłanie...",
           "success": "Wiadomość wysłana!",
           "error": "Nie udało się wysłać wiadomości."
         }
       },
       "connect": {
-        "title": "Porozmawiajmy",
+        "title": "Bądźmy w kontakcie",
         "cards": {
           "email": {
             "title": "E-mail",
-            "description": "Napisz do mnie w dowolnym momencie.",
+            "description": "Wolisz napisać bezpośrednio? Czekam na wiadomość.",
             "actionLabel": "arkadiusz.jadczak7@gmail.com"
           },
           "linkedin": {
             "title": "LinkedIn",
-            "description": "Nawiąż ze mną kontakt na LinkedIn.",
-            "actionLabel": "Nawiąż kontakt"
+            "description": "Znajdź mnie na LinkedIn i nawiążmy kontakt.",
+            "actionLabel": "Zobacz profil"
           },
           "available": {
             "title": "Dostępny",
-            "description": "Podejmijmy współpracę\nZdalnie · Polska",
+            "description": "Jestem otwarty na nowe możliwości zawodowe.\nZdalnie · Polska",
             "actionLabel": "Otwarty na propozycje"
           },
           "unavailable": {
             "title": "Niedostępny",
-            "description": "Obecnie skupiam się na innych projektach\nZdalnie · Polska",
+            "description": "Obecnie skupiam się na czymś innym.",
             "actionLabel": "Obecnie nie przyjmuję propozycji"
           }
         }
