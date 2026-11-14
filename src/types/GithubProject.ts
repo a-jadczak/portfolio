@@ -23,5 +23,7 @@ export interface GithubProject<T extends MetadataType, Y extends ReadmeType> ext
   defaultBranchRef: { name: string };
   metadata: Nullable<T>;
   readme: Nullable<Y>;
+
+  descriptionPL: Nullable<string>;
   readmePL: Nullable<Y>;
 }

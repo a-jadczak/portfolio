@@ -34,12 +34,16 @@ async function fetchProjects() {
   );
 
   const projects: GithubProject<ProjectMetadata, Readme>[] = viewer.repositories.nodes
-    .map((project) => ({
-      ...project,
-      metadata: parseMetadata(project),
-      readme: parseReadme(project.readme),
-      readmePL: parseReadme(project.readmePL),
-    }))
+    .map((project) => {
+      const metadata = parseMetadata(project);
+      return {
+        ...project,
+        metadata: metadata,
+        descriptionPL: metadata?.descriptionPL ?? project.description,
+        readme: parseReadme(project.readme),
+        readmePL: parseReadme(project.readmePL),
+      };
+    })
     .sort(
       (a, b) =>
         (pinnedOrder.get(a.id) ?? pinnedOrder.size) - (pinnedOrder.get(b.id) ?? pinnedOrder.size)

@@ -1,4 +1,5 @@
 export interface ProjectMetadata {
+  descriptionPL: string;
   type: string[];
   status: string;
   technologies: string[];
