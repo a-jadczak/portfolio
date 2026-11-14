@@ -38,6 +38,10 @@
     padding: 0rem;
     border: 0px;
 
+    &[data-images='false'] {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
     .metadata {
       @include mx.corners();
       border: 1px solid $border-secondary;

@@ -58,7 +58,10 @@ const ProjectDialogContent = ({ projects, lang }: Props) => {
       closeLabel={t.closeLabel}
       titleId="project-title"
     >
-      <div className={styles.metadataContainer}>
+      <div
+        className={styles.metadataContainer}
+        data-images={metadata?.gallery?.length ? true : false}
+      >
         <div className={styles.metadata}>
           <Heading as="h3">{name}</Heading>
           <Text className={styles.description} variant="secondary" size="small">
