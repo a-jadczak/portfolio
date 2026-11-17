@@ -1,6 +1,9 @@
 <div class="background" data-flow-background aria-hidden="true"><canvas></canvas></div>
 <script>
+  let disposeBackground: (() => void) | undefined;
+
   function initializeBackground() {
+    disposeBackground?.();
     const root = document.querySelector<HTMLElement>('[data-flow-background]');
     if (!root) return;
     const canvas = root.querySelector<HTMLCanvasElement>('canvas')!;
@@ -20,13 +23,14 @@
       return document.documentElement.dataset.reducedMotion === 'true' || motion.matches;
     }
     let width = 1,
-      drawingWidth = 1440,
       height = 1,
       time = 0,
       previous = 0,
       frame = 0;
     let visible = true;
-    // Keep ribbon geometry stable on narrow screens and crop it around the center.
+    let disposed = false;
+    // Fixed sampling keeps geometry work independent of viewport width.
+    const steps = 160;
     let gradients: CanvasGradient[][] = [];
     function refreshGradients() {
       gradients = ribbons.map((ribbon, ribbonIndex) =>
@@ -35,8 +39,7 @@
           const strength = 1 - Math.abs(line - center) / (center + 1);
           const alpha = 0.085 + strength * 0.24;
           const color = colors[ribbonIndex];
-          const offset = (width - drawingWidth) / 2;
-          const gradient = context.createLinearGradient(offset, 0, offset + drawingWidth, 0);
+          const gradient = context.createLinearGradient(0, 0, width, 0);
           gradient.addColorStop(0, `color-mix(in srgb, ${color} 0%, transparent)`);
           gradient.addColorStop(0.18, `color-mix(in srgb, ${color} ${alpha * 100}%, transparent)`);
           gradient.addColorStop(0.55, `color-mix(in srgb, ${color} ${alpha * 55}%, transparent)`);
@@ -51,37 +54,40 @@
       { base: 0.76, slope: -0.28, amplitude: 0.13, phase: 2.7, count: 17 },
       { base: 0.55, slope: 0.38, amplitude: 0.12, phase: 4.1, count: 13 },
     ];
-    function point(u: number, ribbon: (typeof ribbons)[number], index: number) {
-      const offset = index - (ribbon.count - 1) / 2;
-      const phase = ribbon.phase;
-      const wave = Math.sin(u * 5.1 + time * 0.22 + phase) * ribbon.amplitude;
-      const detail = Math.sin(u * 8.7 - time * 0.13 + phase) * 0.025;
-      const spread = 0.0038 + 0.0035 * (1 + Math.sin(u * 5.5 + time * 0.12 + phase));
-      return (ribbon.base + (u - 0.5) * ribbon.slope + wave + detail + offset * spread) * height;
-    }
-    function path(ribbon: (typeof ribbons)[number], index: number) {
-      context.beginPath();
-      const steps = Math.ceil(drawingWidth / 7);
-      for (let i = 0; i <= steps; i++) {
+    function sampleRibbon(ribbon: (typeof ribbons)[number]) {
+      return Array.from({ length: steps + 1 }, (_, i) => {
         const u = i / steps;
-        const x = u * (drawingWidth + 60) - 30 + (width - drawingWidth) / 2;
-        const y = point(u, ribbon, index);
-        if (i === 0) context.moveTo(x, y);
-        else context.lineTo(x, y);
-      }
+        const phase = ribbon.phase;
+        const wave = Math.sin(u * 5.1 + time * 0.22 + phase) * ribbon.amplitude;
+        const detail = Math.sin(u * 8.7 - time * 0.13 + phase) * 0.025;
+        return {
+          x: u * (width + 60) - 30,
+          y: (ribbon.base + (u - 0.5) * ribbon.slope + wave + detail) * height,
+          spread: (0.0038 + 0.0035 * (1 + Math.sin(u * 5.5 + time * 0.12 + phase))) * height,
+        };
+      });
+    }
+    function path(samples: ReturnType<typeof sampleRibbon>, offset: number) {
+      context.beginPath();
+      samples.forEach(({ x, y, spread }, i) => {
+        const lineY = y + offset * spread;
+        if (i === 0) context.moveTo(x, lineY);
+        else context.lineTo(x, lineY);
+      });
     }
     function draw() {
       context.clearRect(0, 0, width, height);
       context.globalCompositeOperation = blend;
       for (const [ribbonIndex, ribbon] of ribbons.entries()) {
         const color = colors[ribbonIndex];
+        const samples = sampleRibbon(ribbon);
         // A broad, faint stroke produces the halo without expensive blur filters.
-        path(ribbon, (ribbon.count - 1) / 2);
+        path(samples, 0);
         context.strokeStyle = `color-mix(in srgb, ${color} 2.4%, transparent)`;
         context.lineWidth = height * 0.11;
         context.stroke();
         for (let line = 0; line < ribbon.count; line++) {
-          path(ribbon, line);
+          path(samples, line - (ribbon.count - 1) / 2);
           context.strokeStyle = gradients[ribbonIndex][line];
           context.lineWidth = line % 6 === 0 ? 1.05 : 0.6;
           context.stroke();
@@ -91,11 +97,11 @@
     }
     function tick(stamp: number) {
       frame = 0;
-      if (!root!.isConnected || !visible || document.hidden || isReducedMotion()) {
+      if (disposed || !root!.isConnected || !visible || document.hidden || isReducedMotion()) {
         previous = 0;
         return;
       }
-      if (previous) time += Math.min((stamp - previous) / 1000, 0.05);
+      if (previous) time += Math.min((stamp - previous) / 1000, 1 / 30);
       previous = stamp;
       draw();
       frame = requestAnimationFrame(tick);
@@ -104,26 +110,23 @@
       cancelAnimationFrame(frame);
       frame = 0;
       previous = 0;
-      refreshGradients();
-      draw();
-      if (visible && !document.hidden && !isReducedMotion()) frame = requestAnimationFrame(tick);
+      if (disposed || !root!.isConnected || !visible || document.hidden) return;
+      if (isReducedMotion()) draw();
+      else frame = requestAnimationFrame(tick);
     }
     const resize = new ResizeObserver(() => {
       const box = root.getBoundingClientRect();
       width = Math.max(1, box.width);
       height = Math.max(1, box.height);
-      const dpr = Math.min(devicePixelRatio || 1, 2);
-      drawingWidth = Math.max(1440, width);
+      // Bound the backing-store cost on large and high-density displays.
+      const dpr = Math.min(devicePixelRatio || 1, 2, Math.sqrt(2_000_000 / (width * height)));
       const pixelWidth = Math.round(width * dpr);
       const pixelHeight = Math.round(height * dpr);
       if (canvas.width !== pixelWidth) canvas.width = pixelWidth;
       if (canvas.height !== pixelHeight) canvas.height = pixelHeight;
       context.setTransform(dpr, 0, 0, dpr, 0, 0);
       refreshGradients();
-      draw();
-      if (!frame && visible && !document.hidden && !isReducedMotion()) {
-        frame = requestAnimationFrame(tick);
-      }
+      sync();
     });
     resize.observe(root);
     const visibility = new IntersectionObserver((entries) => {
@@ -135,6 +138,7 @@
     motion.addEventListener('change', sync);
     const themeObserver = new MutationObserver(() => {
       refreshColors();
+      refreshGradients();
       sync();
     });
     themeObserver.observe(document.documentElement, {
@@ -144,22 +148,23 @@
     const systemTheme = matchMedia('(prefers-color-scheme: dark)');
     function updateTheme() {
       refreshColors();
+      refreshGradients();
       sync();
     }
     systemTheme.addEventListener('change', updateTheme);
-    document.addEventListener(
-      'astro:before-swap',
-      () => {
-        cancelAnimationFrame(frame);
-        resize.disconnect();
-        visibility.disconnect();
-        themeObserver.disconnect();
-        document.removeEventListener('visibilitychange', sync);
-        motion.removeEventListener('change', sync);
-        systemTheme.removeEventListener('change', updateTheme);
-      },
-      { once: true }
-    );
+    function dispose() {
+      disposed = true;
+      cancelAnimationFrame(frame);
+      resize.disconnect();
+      visibility.disconnect();
+      themeObserver.disconnect();
+      document.removeEventListener('visibilitychange', sync);
+      motion.removeEventListener('change', sync);
+      systemTheme.removeEventListener('change', updateTheme);
+      document.removeEventListener('astro:before-swap', dispose);
+    }
+    disposeBackground = dispose;
+    document.addEventListener('astro:before-swap', dispose, { once: true });
   }
   document.addEventListener('astro:page-load', initializeBackground);
 </script>
