@@ -8,6 +8,10 @@ import vercel from '@astrojs/vercel';
 export default defineConfig({
   adapter: vercel(),
   integrations: [react()],
+  prefetch: {
+    prefetchAll: true,
+    defaultStrategy: 'viewport',
+  },
   vite: {
     plugins: [graphqlLoader()],
     resolve: {

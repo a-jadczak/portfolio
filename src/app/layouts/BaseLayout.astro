@@ -27,13 +27,13 @@ const currentPageInfo = getCurrentPageInfo(pageHref);
 const language = lang ?? defaultLanguage;
 ---
 
-<html lang={language}>
+<html lang={language} transition:animate="none">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
-    <ClientRouter />
+    <ClientRouter fallback="swap" />
     <SettingsInit />
   </head>
   <body class={styles.body}>

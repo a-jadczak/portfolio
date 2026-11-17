@@ -23,21 +23,21 @@ const { lang, t } = Astro.locals.i18n;
 >
   <Divider />
   <SettingsField title={t.settingsDialog.theme.label}>
-    <ThemeControl lang={lang} client:load />
+    <ThemeControl lang={lang} client:idle />
   </SettingsField>
   <SettingsField title={t.settingsDialog.language}>
-    <LanguageControl lang={lang} client:load />
+    <LanguageControl lang={lang} client:idle />
   </SettingsField>
   <div class={styles.toggleContainer}>
     <label>{t.settingsDialog.reduceMotion.label}</label>
-    <ReduceMotionControl lang={lang} className={styles.toggle} client:load />
+    <ReduceMotionControl lang={lang} className={styles.toggle} client:idle />
     <Text variant="secondary" size="extra-small">{t.settingsDialog.reduceMotion.description}</Text>
   </div>
   <Divider />
   <SettingsField title={t.settingsDialog.accentColor.label}>
-    <ColorPickerList lang={lang} client:load />
+    <ColorPickerList lang={lang} client:idle />
   </SettingsField>
-  <ResetSettingsButton client:load className={styles.systemPreferencesButton} variant="link">
+  <ResetSettingsButton client:idle className={styles.systemPreferencesButton} variant="link">
     {t.settingsDialog.useSystemPreferences}
   </ResetSettingsButton>
 </Dialog>
