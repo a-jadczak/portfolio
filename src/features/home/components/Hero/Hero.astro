@@ -7,6 +7,7 @@ import styles from './Hero.module.scss';
 import { ArrowUpRight, Mail } from 'lucide-react';
 import ProfileImage from '@/features/home/components/ProfileImage/ProfileImage.astro';
 import { fullName } from '@/config/me';
+import BlazinglyFast from '@/features/home/components/BlazinglyFast/BlazinglyFast.astro';
 
 const i18n = Astro.locals.i18n;
 const t = i18n.t.pages.home.hero;
@@ -20,7 +21,7 @@ const t = i18n.t.pages.home.hero;
       <Heading as="h1" size="large">{t.title}</Heading>
       <Text size="large" variant="secondary">
         {t.description.before}{' '}
-        <span class={styles.blazinglyFast}>{t.description.highlight}</span>
+        {t.description.highlight && <BlazinglyFast>{t.description.highlight}</BlazinglyFast>}
         {t.description.after}
       </Text>
     </header>

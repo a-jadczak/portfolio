@@ -1,0 +1,80 @@
+@use '@/styles/tokens' as *;
+
+.blazinglyFast {
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+  color: $primary;
+}
+
+.text {
+  @supports (background-clip: text) or (-webkit-background-clip: text) {
+    background: linear-gradient(
+      110deg,
+      $primary 40%,
+      $primary-light 47%,
+      $text-on-primary 50%,
+      $primary-light 53%,
+      $primary 60%
+    );
+    background-size: 300% 100%;
+    background-position: 100% 0;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: shimmer 6s $transition-easing infinite;
+  }
+}
+
+.sparkle {
+  position: absolute;
+  width: 0.45em;
+  height: 0.45em;
+  background: $primary-light;
+  clip-path: polygon(50% 0%, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0% 50%, 38% 38%);
+  opacity: 0;
+  animation: twinkle 1.8s $transition-easing infinite;
+
+  &:nth-child(2) {
+    left: 5%;
+    top: -0.2em;
+  }
+
+  &:nth-child(3) {
+    right: 4%;
+    top: -0.15em;
+    width: 0.6em;
+    height: 0.6em;
+    animation-delay: -0.6s;
+  }
+
+  &:nth-child(4) {
+    left: 55%;
+    bottom: -0.2em;
+    width: 0.35em;
+    height: 0.35em;
+    animation-delay: -1.2s;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 100% 0;
+  }
+  20%,
+  100% {
+    background-position: 0% 0;
+  }
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0.3) rotate(-15deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1) rotate(15deg);
+  }
+}
