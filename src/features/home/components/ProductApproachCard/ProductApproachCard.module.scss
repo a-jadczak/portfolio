@@ -25,7 +25,8 @@
 .accent {
   @include mx.corners();
   display: block;
-  margin-top: 0.25rem;
+  margin-top: auto;
+  flex-shrink: 0;
   height: 0.25rem;
   width: 3rem;
   background-color: $primary;
