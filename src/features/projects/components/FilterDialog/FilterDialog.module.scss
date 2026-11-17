@@ -6,11 +6,19 @@
   columns: 2;
   column-gap: 0.5rem;
 
+  & > label > span:last-child {
+    font-size: 0.875rem;
+
+    @include bp.tablet {
+      font-size: 1rem;
+    }
+  }
+
   @include bp.tablet {
     columns: 3;
   }
 
-  > * {
+  & > * {
     break-inside: avoid;
     margin-bottom: 0.5rem;
   }
@@ -23,7 +31,11 @@
   width: 100%;
   gap: 0.5rem;
 
-  > button {
-    font-size: 1rem !important;
+  & > button {
+    font-size: 0.875rem !important;
+
+    @include bp.tablet {
+      font-size: 1rem !important;
+    }
   }
 }
