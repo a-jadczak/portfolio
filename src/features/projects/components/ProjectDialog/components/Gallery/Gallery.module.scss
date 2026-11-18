@@ -2,6 +2,8 @@
 @use '@/styles/tokens' as *;
 
 .galleryContainer {
+  display: flex;
+  flex-direction: column;
   margin-top: 0.5rem;
 
   img {
@@ -26,6 +28,7 @@
         left: 0.5rem;
         transform: translateY(-50%);
       }
+
       &:nth-of-type(2) {
         top: 50%;
         right: 0.5rem;
@@ -42,6 +45,8 @@
     overflow-y: hidden;
     gap: 0.25rem;
     scroll-behavior: smooth;
+    height: 100%;
+    align-items: center;
 
     .galleryItem {
       @include mx.corners();
