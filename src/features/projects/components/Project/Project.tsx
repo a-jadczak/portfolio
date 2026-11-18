@@ -15,8 +15,6 @@ import { $openedProject } from '@/stores/openedProject';
 import { useTranslations } from '@/i18n/useTranslations';
 import type { Language } from '@/types/Language';
 
-const VISIBLE_TECHNOLOGY_COUNT = 3;
-
 interface Props {
   projectData: GithubProject<ProjectMetadata, Readme>;
   lang: Language;
@@ -31,9 +29,6 @@ const Project = ({ projectData, lang }: Props) => {
   };
 
   const finalDescription = lang === 'pl' && descriptionPL ? descriptionPL : description;
-
-  const technologyBadges = technologies.slice(0, VISIBLE_TECHNOLOGY_COUNT);
-  const hiddenTechnologyCount = technologies.length - VISIBLE_TECHNOLOGY_COUNT;
 
   const handleClick = () => {
     $openedProject.set(id);
@@ -59,16 +54,11 @@ const Project = ({ projectData, lang }: Props) => {
           {finalDescription}
         </Text>
         <ul className={styles.badgesList}>
-          {technologyBadges.map((title) => (
+          {technologies.map((title) => (
             <li key={title}>
               <Badge title={title} />
             </li>
           ))}
-          {hiddenTechnologyCount > 0 && (
-            <li>
-              <Badge title={`+${hiddenTechnologyCount}`} />
-            </li>
-          )}
         </ul>
 
         <Divider className={styles.divider} />
