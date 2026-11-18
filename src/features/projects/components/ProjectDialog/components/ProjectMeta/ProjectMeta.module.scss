@@ -6,48 +6,23 @@
 
 .metaContainer {
   display: grid;
-  grid-template: 1fr 1fr / 1fr 1fr;
+  grid-template: repeat(2, 1fr) / repeat(2, 1fr);
   margin-top: 0.5rem;
 
   .metaItem {
     display: flex;
-    justify-content: center;
     flex-direction: column;
     flex: 1;
 
     padding: 0.25rem 0.25rem;
     margin-top: 0.25rem;
-    border-right: 2px solid $border-secondary;
+
+    font-size: 0.95rem;
 
     .metaLabel {
+      font-size: 0.85rem;
       text-transform: uppercase;
-    }
-
-    .metaValue {
       color: $text-secondary;
-    }
-  }
-
-  .metaItem:nth-child(2n + 1) {
-    text-align: right;
-  }
-
-  .metaItem:nth-child(2n) {
-    border-right: 0px;
-  }
-}
-
-@container (width >= 30rem) {
-  .metaContainer {
-    display: flex;
-
-    .metaItem:nth-child(2n + 1) {
-      text-align: left;
-    }
-
-    .metaItem {
-      border-right: 1px solid $border-secondary;
-      margin: 0.25rem;
     }
   }
 }

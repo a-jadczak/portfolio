@@ -16,6 +16,10 @@
   border: 1px solid $border-secondary;
 }
 
+.description {
+  margin-top: 0.5rem;
+}
+
 .metadataContainer {
   @extend .container;
   display: flex;
