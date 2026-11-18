@@ -17,11 +17,16 @@ import { $openedProject } from '@/stores/openedProject';
 import { LanguageProvider } from '@/i18n/LanguageProvider';
 import type { Language } from '@/types/Language';
 import { useTranslations } from '@/i18n/useTranslations';
+import type { SyntheticEvent } from 'react';
 
 interface Props {
   lang: Language;
   projects: GithubProject<ProjectMetadata, ReadmeData>[];
 }
+
+const handleClose = (event: SyntheticEvent<HTMLDialogElement>) => {
+  if (!event.currentTarget.open) $openedProject.set(null);
+};
 
 const ProjectDialogContent = ({ projects, lang }: Props) => {
   const t = useTranslations().t.pages.projects.projectDialog;
@@ -57,6 +62,7 @@ const ProjectDialogContent = ({ projects, lang }: Props) => {
       title={`${t.label} / ${formatTwoDigitNumber(currentProjectIndex + 1)}`}
       closeLabel={t.closeLabel}
       titleId="project-title"
+      onClose={handleClose}
     >
       <div
         className={styles.metadataContainer}
