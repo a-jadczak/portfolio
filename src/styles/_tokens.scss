@@ -49,20 +49,12 @@ $border-accent: light-dark(
 );
 
 $focus-ring: light-dark($primary, $primary-light);
-
-// Secondary buttons
-$secondary: transparent;
-$secondary-hover: $surface-hover;
-$text-on-secondary: $text-primary;
 $border-secondary: $border;
 $border-primary: color-mix(in srgb, $primary 22%, $border-secondary);
 
 // Status indicators
 $success: #00ff66;
-$success-subtle: color-mix(in srgb, $success 12%, transparent);
-
 $danger: #dc2626;
-$danger-subtle: color-mix(in srgb, $danger 12%, transparent);
 
 // Primary button gradient
 $gradient-primary: linear-gradient(
@@ -78,8 +70,6 @@ $glow-primary: 0 0 24px
     color-mix(in srgb, $primary 12%, transparent),
     color-mix(in srgb, $primary 20%, transparent)
   );
-
-$highlight-inset: inset 0 1px 0 rgba(255, 255, 255, 0.2);
 
 // Font family
 $number-font: 'Courier New', Courier, monospace;
