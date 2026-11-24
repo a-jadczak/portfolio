@@ -2,11 +2,11 @@
 import Card from '@/components/ui/Card/Card.astro';
 import CardIcon from '@/components/ui/CardIcon/CardIcon.astro';
 import Heading from '@/components/ui/Heading/Heading';
-import { MapPin, CircleCheck, Languages } from 'lucide-react';
+import { MapPin, CircleCheck, Languages, CircleX } from 'lucide-react';
 import Text from '@/components/ui/Text/Text';
 import styles from './AboutMeCard.module.scss';
 import Divider from '@/components/ui/Divider/Divider';
-import { fullName } from '@/config/me';
+import { fullName, available } from '@/config/me';
 
 const t = Astro.locals.i18n.t.pages.about.aboutMe;
 ---
@@ -16,8 +16,6 @@ const t = Astro.locals.i18n.t.pages.about.aboutMe;
     <Heading as="h1" className={styles.title}>{fullName}</Heading>
     <Text variant="secondary" size="small" className={styles.description}>
       {t.description}
-      <br />
-      {t.availability}
     </Text>
   </header>
 
@@ -29,11 +27,29 @@ const t = Astro.locals.i18n.t.pages.about.aboutMe;
         <span class={styles.infoLabel}>{t.locationLabel}</span>
         <span class={styles.infoContent}>{t.location}</span>
       </li>
-      <li class={styles.infoElement}>
-        <CardIcon Icon={CircleCheck} class={styles.infoIcon} size={20} />
-        <span class={styles.infoLabel}>{t.statusLabel}</span>
-        <span class={styles.infoContent}>{t.status}</span>
-      </li>
+      {
+        available ? (
+          <li class={styles.infoElement}>
+            <CardIcon
+              Icon={CircleCheck}
+              class={`${styles.infoIcon} ${styles.availableIcon}`}
+              size={20}
+            />
+            <span class={styles.infoLabel}>{t.statusLabel}</span>
+            <span class={styles.infoContent}>{t.availableStatus}</span>
+          </li>
+        ) : (
+          <li class={styles.infoElement}>
+            <CardIcon
+              Icon={CircleX}
+              class={`${styles.infoIcon} ${styles.unavailableIcon}`}
+              size={20}
+            />
+            <span class={styles.infoLabel}>{t.statusLabel}</span>
+            <span class={styles.infoContent}>{t.unavailableStatus}</span>
+          </li>
+        )
+      }
       <li class={styles.infoElement}>
         <CardIcon Icon={Languages} class={styles.infoIcon} size={20} />
         <span class={styles.infoLabel}>{t.languagesLabel}</span>

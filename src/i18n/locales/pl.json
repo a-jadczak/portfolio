@@ -59,7 +59,8 @@
         "locationLabel": "Lokalizacja",
         "location": "Polska / Zdalnie",
         "statusLabel": "Dostępność",
-        "status": "Otwarty na oferty",
+        "availableStatus": "Otwarty na oferty",
+        "unavailableStatus": "Obecnie niedostępny",
         "languagesLabel": "Języki",
         "languages": "Polski · Angielski"
       },

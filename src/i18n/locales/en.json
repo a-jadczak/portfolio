@@ -59,7 +59,8 @@
         "locationLabel": "Location",
         "location": "Poland / Remote",
         "statusLabel": "Availability",
-        "status": "Open to opportunities",
+        "availableStatus": "Open to opportunities",
+        "unavailableStatus": "Currently unavailable",
         "languagesLabel": "Languages",
         "languages": "Polish · English"
       },
