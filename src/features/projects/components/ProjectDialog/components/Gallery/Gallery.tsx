@@ -25,7 +25,7 @@ const Gallery = ({ banner, gallery, className = '' }: GalleryProps) => {
   };
 
   return (
-    <div className={`${styles.galleryContainer} ${className}`}>
+    <div className={`${styles.galleryContainer} ${className}`} data-gallery>
       <div className={styles.itemPreview}>
         <img className={styles.previewImage} src={imageSrc} alt={t.previewAlt} draggable={false} />
         <Button

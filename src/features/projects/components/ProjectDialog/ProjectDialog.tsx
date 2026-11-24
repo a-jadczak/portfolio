@@ -109,7 +109,7 @@ const ProjectDialogContent = ({ projects, lang }: Props) => {
           <Readme html={finalReadme.html} />
         </div>
       ) : (
-        <div className={styles.container} style={{ textAlign: 'center' }}>
+        <div className={`${styles.container} ${styles.empty}`}>
           <Text variant="secondary">{t.missingDescription}</Text>
         </div>
       )}

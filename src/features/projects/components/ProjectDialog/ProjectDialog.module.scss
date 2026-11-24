@@ -5,7 +5,12 @@
 .dialog {
   max-height: 90svh;
   overflow: auto;
-  width: min(calc(100vw - 2rem), bp.$breakpoint-desktop-md);
+  width: calc(100vw - 2rem);
+  max-width: bp.$breakpoint-tablet;
+
+  &:has([data-gallery]:not([hidden])) {
+    max-width: bp.$breakpoint-desktop-md;
+  }
 }
 
 .container {
@@ -14,6 +19,10 @@
   margin-top: 0.5rem;
   padding: 1rem;
   border: 1px solid $border-secondary;
+}
+
+.empty {
+  text-align: center;
 }
 
 .description {
