@@ -16,8 +16,10 @@
 
 .header {
   max-width: 570px;
+
   @include bp.tablet {
     padding: 0.5rem;
+    max-width: 670px;
   }
 }
 

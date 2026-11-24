@@ -17,7 +17,7 @@
     "home": {
       "hero": {
         "role": "Programista",
-        "title": "Tworzę rozwiązania, które ułatwiają codzienność.",
+        "title": "Tworzę oprogramowania, które ułatwią codzienność.",
         "description": {
           "before": "Projektuję i rozwijam nowoczesne aplikacje internetowe, dbając o ich wydajność, dostępność i wygodę użytkowania.",
           "highlight": "",
@@ -54,7 +54,7 @@
         "education": "Wykształcenie"
       },
       "aboutMe": {
-        "description": "Jestem programistą, który lubi zamieniać pomysły w działające aplikacje. Skupiam się na tworzeniu przejrzystych i wygodnych w obsłudze stron oraz aplikacji internetowych, stale rozwijając swoje umiejętności.",
+        "description": "Jestem studentem cyberbezpieczeństwa, a informatyką i programowaniem interesuję się od początku szkoły średniej. Poza studiami rozwijam własne projekty i poznaję nowe technologie. W przyszłości chciałbym zawodowo połączyć programowanie z sieciami komputerowymi i cyberbezpieczeństwem.",
         "availability": "",
         "locationLabel": "Lokalizacja",
         "location": "Polska / Zdalnie",
@@ -82,7 +82,7 @@
         },
         "performance": {
           "title": "Wydajność",
-          "description": "Dbam o szybkość działania i płynność aplikacji na różnych urządzeniach."
+          "description": "Dbam o szybkość działania i płynność aplikacji."
         },
         "accessibility": {
           "title": "Dostępność",
@@ -107,7 +107,7 @@
           "description": "Zaczynam od rozmowy z klientem lub analizy własnego pomysłu. Staram się zrozumieć problem, potrzeby użytkowników i cel projektu."
         },
         "planning": {
-          "title": "Planowanie i architektura",
+          "title": "Planowanie",
           "description": "Określam funkcjonalności, dobieram technologie i planuję strukturę aplikacji. Dzielę pracę na zadania i ustalam priorytety."
         },
         "design": {
@@ -136,13 +136,13 @@
           "period": "2021 – 2026",
           "title": "Zespół Szkół Technicznych i Branżowych (ZSTiB)",
           "subtitle": "Technik programista",
-          "description": "Zdobyłem solidne podstawy programowania i rozwiązywania problemów w różnych w różnych obszarach tworzenia oprogramowania."
+          "description": "W tej szkole zdobyłem solidne podstawy programowania i rozwiązywania problemów w różnych obszarach tworzenia oprogramowania."
         },
         "university": {
           "period": "2026 – obecnie",
           "title": "Wyższa Szkoła Kształcenia Zawodowego (WSKZ)",
           "subtitle": "Studia inżynierskie z cyberbezpieczeństwa",
-          "description": "Studiuję cyberbezpieczeństwo i rozwijam praktyczne umiejętności zabezpieczania systemów, sieci i aplikacji."
+          "description": "Obecnie studiuję cyberbezpieczeństwo i rozwijam praktyczne umiejętności zabezpieczania systemów, sieci i aplikacji."
         }
       }
     },
