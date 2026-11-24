@@ -10,6 +10,7 @@ import { ProjectFiltersProvider } from '@/features/projects/context/ProjectFilte
 import { useProjectFilters } from '@/features/projects/hooks/useProjectFilters';
 import { LanguageProvider } from '@/i18n/LanguageProvider';
 import type { Language } from '@/types/Language';
+import { useTranslations } from '@/i18n/useTranslations';
 
 interface Props {
   lang: Language;
@@ -19,6 +20,7 @@ interface Props {
 
 const ProjectsSectionContent = ({ projects, projectsFilterData, lang }: Props) => {
   const filters = useProjectFilters(projects, projectsFilterData);
+  const t = useTranslations().t.pages.projects.search;
 
   return (
     <ProjectFiltersProvider value={filters}>
@@ -26,9 +28,13 @@ const ProjectsSectionContent = ({ projects, projectsFilterData, lang }: Props) =
         <SearchSection />
 
         <ol className={styles.projectsList}>
-          {filters.filteredProjects.map((project) => (
-            <Project key={project.id} projectData={project} lang={lang} />
-          ))}
+          {filters.filteredProjects.length > 0 ? (
+            filters.filteredProjects.map((project) => (
+              <Project key={project.id} projectData={project} lang={lang} />
+            ))
+          ) : (
+            <li className={styles.noResults}>{t.noResults}</li>
+          )}
         </ol>
       </div>
 

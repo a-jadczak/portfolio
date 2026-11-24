@@ -163,7 +163,8 @@
           "technologies": "Technologie",
           "types": "Typ projektu",
           "statuses": "Status"
-        }
+        },
+        "noResults": "Brak wyników."
       },
       "filterDialog": {
         "title": "Filtry",
