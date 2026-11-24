@@ -10,6 +10,7 @@ import type { ProjectMetadata } from '@/types/ProjectMetadata';
 import type { Readme } from '@/types/Readme';
 import Text from '@/components/ui/Text/Text';
 import Divider from '@/components/ui/Divider/Divider';
+import Skeleton from '@/components/ui/Skeleton/Skeleton';
 import { DEFAULT_PROJECT_ACCENT_COLOR } from '@/config/projects';
 import { $openedProject } from '@/stores/openedProject';
 import { useTranslations } from '@/i18n/useTranslations';
@@ -42,7 +43,7 @@ const Project = ({ projectData, lang }: Props) => {
         { '--accent-color': metadata?.accentColor || DEFAULT_PROJECT_ACCENT_COLOR } as CSSProperties
       }
     >
-      <img src={banner} alt={t.previewAlt} className={styles.screenshot} />
+      <Skeleton src={banner} alt={t.previewAlt} className={styles.screenshot} />
 
       <div className={styles.info}>
         <span className={styles.number}>{t.label} / </span>

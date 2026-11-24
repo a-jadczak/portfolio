@@ -3,6 +3,7 @@ import type { ComponentProps } from 'astro/types';
 import styles from './ProfileImage.module.scss';
 import DecorationImage from './components/DecorationImage.astro';
 import { fullName } from '@/config/me';
+import Skeleton from '@/components/ui/Skeleton/Skeleton';
 
 const decorations = [
   {
@@ -52,7 +53,12 @@ const decorations = [
 
 <div class={styles.container}>
   <div class={styles.profileContainer}>
-    <img class={styles.profile} src="/images/avatar-temp.png" alt={`Picture of ${fullName}`} />
+    <Skeleton
+      client:load
+      className={styles.profile}
+      src="/images/avatar-temp.png"
+      alt={`Picture of ${fullName}`}
+    />
     {decorations.map((decoration) => <DecorationImage {...decoration} />)}
   </div>
 </div>

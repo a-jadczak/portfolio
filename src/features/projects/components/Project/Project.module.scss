@@ -20,7 +20,6 @@
       flex: 0 0 auto;
       width: 20rem;
       max-width: 45%;
-      aspect-ratio: 16 / 9;
     }
 
     .info {
@@ -61,7 +60,9 @@
 
 .screenshot {
   width: 100%;
+  aspect-ratio: 16 / 9;
   border: 1px solid $border-secondary;
+  overflow: hidden;
 }
 
 .badgesList {

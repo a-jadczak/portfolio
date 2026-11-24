@@ -25,13 +25,17 @@
     width: max(225px, 50%);
   }
 
-  .profileContainer > .profile {
+  .profile {
     @include mx.corners(
       $radius: $border-radius * 5 $border-radius * 2.5 $border-radius * 2.5 $border-radius * 3.75
     );
     width: 100%;
     aspect-ratio: 7 / 9;
-    object-fit: cover;
+    overflow: hidden;
     border: 3px solid $primary;
+
+    img {
+      object-fit: cover;
+    }
   }
 }

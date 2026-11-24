@@ -1,12 +1,13 @@
 ---
 import styles from './StackItem.module.scss';
+import Skeleton from '@/components/ui/Skeleton/Skeleton';
 const t = Astro.locals.i18n.t.pages.about.techStack;
 const { title, accentColor = 'white', src } = Astro.props;
 ---
 
 <div class={styles.item}>
   <div class={styles.imageCard} style={`--accent: ${accentColor}`}>
-    <img class={styles.image} src={src} alt={`${t.iconLabel}: ${title}`} />
+    <Skeleton client:visible className={styles.image} src={src} alt={`${t.iconLabel}: ${title}`} />
   </div>
   <p class={styles.title}>{title}</p>
 </div>

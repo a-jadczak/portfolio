@@ -1,4 +1,5 @@
 import { Button } from '@/components/ui/Button/Button';
+import Skeleton from '@/components/ui/Skeleton/Skeleton';
 import styles from './Gallery.module.scss';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { useState } from 'react';
@@ -27,7 +28,7 @@ const Gallery = ({ banner, gallery, className = '' }: GalleryProps) => {
   return (
     <div className={`${styles.galleryContainer} ${className}`} data-gallery>
       <div className={styles.itemPreview}>
-        <img className={styles.previewImage} src={imageSrc} alt={t.previewAlt} draggable={false} />
+        <Skeleton className={styles.previewImage} src={imageSrc} alt={t.previewAlt} />
         <Button
           onClick={previousImage}
           variant="default"
@@ -59,11 +60,10 @@ const Gallery = ({ banner, gallery, className = '' }: GalleryProps) => {
             onClick={() => setIndex(_index)}
             data-active={index === _index}
           >
-            <img
+            <Skeleton
               className={styles.galleryImage}
               src={image}
               alt={`${t.thumbnailAlt} ${_index + 1}`}
-              draggable={false}
             />
           </li>
         ))}
